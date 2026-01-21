@@ -1,0 +1,88 @@
+---
+import Button from './ui/Button.astro';
+---
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">
+      <div class="logo-circle">HF</div>
+      <div class="logo-content">
+        <span class="logo-text">H-Ome Finder</span>
+        <span class="logo-subtitle">Simplified apartment rental service</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <Button variant="ghost" href="/procedures">How it works</Button>
+      <Button variant="primary">List your property</Button>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    height: auto;
+    min-height: 72px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-2) 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    text-decoration: none;
+  }
+
+  .logo-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E0E7FF;
+    color: #4F46E5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .logo-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-text {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-text);
+    line-height: 1.2;
+  }
+
+  .logo-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    font-weight: 400;
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--spacing-4);
+  }
+</style>

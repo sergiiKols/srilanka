@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Explorer from '../components/Explorer';
+---
+
+<Layout title="H-Ome Finder | Sri Lanka">
+	<Header />
+	<main class="main">
+		<div class="map-container">
+			<Explorer client:only="react" />
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.map-container {
+		flex: 1;
+		background-color: #e5e7eb; /* Placeholder color */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.placeholder-map {
+		color: var(--color-text-muted);
+	}
+</style>
