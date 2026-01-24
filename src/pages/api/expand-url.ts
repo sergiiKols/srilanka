@@ -1,0 +1,158 @@
+/**
+ * API endpoint для разворачивания коротких URL
+ * Использует несколько методов для обхода CORS ограничений
+ */
+
+import type { APIRoute } from 'astro';
+
+export const POST: APIRoute = async ({ request }) => {
+  try {
+    const { url } = await request.json();
+    
+    if (!url) {
+      return new Response(JSON.stringify({ error: 'URL не предоставлен' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    console.log('🔗 Сервер: Разворачиваем URL:', url);
+
+    // Метод 1: Прямой fetch с сервера (нет CORS ограничений!)
+    try {
+      console.log('Попытка 1: Прямой fetch...');
+      const response = await fetch(url, {
+        method: 'GET', // Изменили с HEAD на GET для надежности
+        redirect: 'follow',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.9',
+        }
+      });
+
+      const finalUrl = response.url;
+      console.log('Ответ от fetch:', { status: response.status, url: finalUrl });
+
+      if (finalUrl && finalUrl !== url && !finalUrl.includes('consent.google.com')) {
+        console.log('✅ Сервер: Ссылка развернута через fetch');
+        return new Response(JSON.stringify({ 
+          success: true, 
+          expandedUrl: finalUrl,
+          method: 'server-fetch'
+        }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+    } catch (error: any) {
+      console.warn('⚠️ Метод 1 (server fetch) не сработал:', error.message);
+    }
+
+    // Метод 2: Используем Node.js модуль follow-redirects (если доступен)
+    // Для Google короткие ссылки часто требуют JavaScript выполнения
+    
+    // Метод 3: Пытаемся через другой сервис
+    try {
+      console.log('Попытка 2: Используем getlinkinfo.com...');
+      const getlinkResponse = await fetch(`https://getlinkinfo.com/api/v1/link-info?url=${encodeURIComponent(url)}`);
+      
+      if (getlinkResponse.ok) {
+        const data = await getlinkResponse.json();
+        if (data.url && data.url !== url) {
+          console.log('✅ Сервер: Ссылка развернута через getlinkinfo.com');
+          return new Response(JSON.stringify({ 
+            success: true, 
+            expandedUrl: data.url,
+            method: 'getlinkinfo.com'
+          }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+      }
+    } catch (error: any) {
+      console.warn('⚠️ Метод 2 (getlinkinfo.com) не сработал:', error.message);
+    }
+
+    // Метод 4: Альтернативный подход - парсим HTML
+    try {
+      console.log('Попытка 3: Получаем HTML и ищем мета-теги...');
+      const htmlResponse = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        }
+      });
+      
+      if (htmlResponse.ok) {
+        const html = await htmlResponse.text();
+        
+        // Ищем мета-тег с каноническим URL
+        const canonicalMatch = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i);
+        if (canonicalMatch && canonicalMatch[1]) {
+          console.log('✅ Сервер: Найден canonical URL в HTML');
+          return new Response(JSON.stringify({ 
+            success: true, 
+            expandedUrl: canonicalMatch[1],
+            method: 'html-canonical'
+          }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        
+        // Ищем мета-теги og:url или twitter:url
+        const ogUrlMatch = html.match(/<meta[^>]*property=["']og:url["'][^>]*content=["']([^"']+)["']/i);
+        if (ogUrlMatch && ogUrlMatch[1]) {
+          console.log('✅ Сервер: Найден og:url в HTML');
+          return new Response(JSON.stringify({ 
+            success: true, 
+            expandedUrl: ogUrlMatch[1],
+            method: 'html-og-url'
+          }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        
+        // Ищем JavaScript редирект
+        const jsRedirectMatch = html.match(/window\.location\.href\s*=\s*["']([^"']+)["']/i);
+        if (jsRedirectMatch && jsRedirectMatch[1]) {
+          console.log('✅ Сервер: Найден JS редирект в HTML');
+          return new Response(JSON.stringify({ 
+            success: true, 
+            expandedUrl: jsRedirectMatch[1],
+            method: 'html-js-redirect'
+          }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+      }
+    } catch (error: any) {
+      console.warn('⚠️ Метод 3 (HTML parsing) не сработал:', error.message);
+    }
+
+    // Если все методы не сработали
+    console.error('❌ Сервер: Все методы разворачивания не сработали');
+    return new Response(JSON.stringify({ 
+      success: false, 
+      error: 'Не удалось развернуть ссылку',
+      originalUrl: url
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error: any) {
+    console.error('❌ Ошибка сервера:', error);
+    return new Response(JSON.stringify({ 
+      success: false, 
+      error: error.message 
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+};

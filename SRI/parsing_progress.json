@@ -1,0 +1,129 @@
+{
+  "version": "2.0",
+  "planFile": "PARSING_PLAN_V2.md",
+  "startDate": "2026-01-23",
+  "lastUpdate": "2026-01-23T12:15:00Z",
+  "totalParsed": 60,
+  "totalCost": 0,
+  "status": "in_progress",
+  
+  "passes": {
+    "pass_1": {
+      "name": "0-1 км от берега",
+      "status": "in_progress",
+      "completed": false,
+      "parsedPOIs": 60,
+      "cost": 0,
+      "duration": "~15 min",
+      "startTime": "2026-01-23T09:00:00Z",
+      "endTime": null,
+      "zones": {
+        "south_coast": {
+          "name": "Южное побережье (Тангалле → Галле)",
+          "status": "test_completed",
+          "parsed": 60,
+          "expected": 720,
+          "coordinates": [],
+          "qualityCoverage": {
+            "address": 100,
+            "phone": 90,
+            "website": 80,
+            "hours": 98.3,
+            "photos": 100,
+            "social": 81.7
+          }
+        },
+        "west_coast": {
+          "name": "Западное побережье (Галле → Негомбо)",
+          "status": "not_started",
+          "parsed": 0,
+          "expected": 950,
+          "coordinates": []
+        },
+        "east_coast": {
+          "name": "Восточное побережье (Тринкомали → Аругам Бэй)",
+          "status": "not_started",
+          "parsed": 0,
+          "expected": 420,
+          "coordinates": []
+        },
+        "north_coast": {
+          "name": "Северное побережье (Джафна → Маннар)",
+          "status": "not_started",
+          "parsed": 0,
+          "expected": 360,
+          "coordinates": []
+        }
+      },
+      "qualityCheck": {
+        "performed": true,
+        "passed": true,
+        "date": "2026-01-23",
+        "checkedBy": "Rovo Dev",
+        "issues": [],
+        "notes": "Тестовый проход успешно завершен. Все целевые показатели достигнуты: Адрес 100%, Телефон 90%, Веб-сайт 80%, Часы 98.3%, Фото 100%, Соц.сети 81.7%. Средний Quality Score: 100.00"
+      }
+    },
+    "pass_2": {
+      "name": "1-2 км от берега",
+      "status": "locked",
+      "note": "Разблокируется после проверки качества ПРОХОДА 1"
+    },
+    "pass_3": {
+      "name": "2-3 км от берега",
+      "status": "locked"
+    },
+    "pass_4": {
+      "name": "3-4 км от берега",
+      "status": "locked"
+    },
+    "pass_5": {
+      "name": "4-5 км от берега",
+      "status": "locked"
+    },
+    "pass_6": {
+      "name": "5-10 км от берега",
+      "status": "locked"
+    },
+    "pass_7": {
+      "name": "10-20 км от берега",
+      "status": "locked"
+    },
+    "pass_8": {
+      "name": "20+ км (центр острова)",
+      "status": "locked"
+    }
+  },
+  
+  "statistics": {
+    "totalZones": 32,
+    "completedZones": 0,
+    "testCompletedZones": 1,
+    "failedZones": 0,
+    "duplicatesRemoved": 0,
+    "invalidCoordinates": 0,
+    "objectsInSea": 0,
+    "objectsWithoutAddress": 0,
+    "objectsWithoutPhoto": 0
+  },
+  
+  "apiUsage": {
+    "googlePlaces": {
+      "requests": 0,
+      "cost": 0,
+      "limit": 200,
+      "remaining": 200
+    },
+    "groqAI": {
+      "requests": 0,
+      "cost": 0
+    }
+  },
+  
+  "notes": [
+    "Обязательная остановка после ПРОХОДА 1 для проверки качества",
+    "Проверить что объекты не в море",
+    "Проверить корректность координат",
+    "Только после проверки - продолжение"
+  ]
+}

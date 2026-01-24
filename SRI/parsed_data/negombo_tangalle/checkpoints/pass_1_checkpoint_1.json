@@ -1,0 +1,6326 @@
+[
+  {
+    "id": "poi_1769254635543_2",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:15.543Z"
+  },
+  {
+    "id": "poi_1769254635544_6",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "bank",
+      "finance",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:15.544Z"
+  },
+  {
+    "id": "poi_1769254635544_9",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:15.544Z"
+  },
+  {
+    "id": "poi_1769254635545_11",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:15.545Z"
+  },
+  {
+    "id": "poi_1769254635546_14",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "point_of_interest",
+      "finance",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:15.546Z"
+  },
+  {
+    "id": "poi_1769254635546_17",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:15.546Z"
+  },
+  {
+    "id": "poi_1769254637323_22",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:17.323Z"
+  },
+  {
+    "id": "poi_1769254637324_26",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:17.324Z"
+  },
+  {
+    "id": "poi_1769254637325_29",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:17.325Z"
+  },
+  {
+    "id": "poi_1769254637325_31",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:17.325Z"
+  },
+  {
+    "id": "poi_1769254637326_34",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:17.326Z"
+  },
+  {
+    "id": "poi_1769254637328_37",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:17.328Z"
+  },
+  {
+    "id": "poi_1769254639084_42",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:19.084Z"
+  },
+  {
+    "id": "poi_1769254639085_46",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:19.085Z"
+  },
+  {
+    "id": "poi_1769254639086_49",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:19.086Z"
+  },
+  {
+    "id": "poi_1769254639086_51",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:19.086Z"
+  },
+  {
+    "id": "poi_1769254639087_54",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:19.087Z"
+  },
+  {
+    "id": "poi_1769254639087_57",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:19.087Z"
+  },
+  {
+    "id": "poi_1769254640831_62",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:20.831Z"
+  },
+  {
+    "id": "poi_1769254640832_66",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:20.832Z"
+  },
+  {
+    "id": "poi_1769254640833_69",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:20.833Z"
+  },
+  {
+    "id": "poi_1769254640833_71",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:20.833Z"
+  },
+  {
+    "id": "poi_1769254640834_74",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:20.834Z"
+  },
+  {
+    "id": "poi_1769254640834_77",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:20.834Z"
+  },
+  {
+    "id": "poi_1769254642678_80",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.678Z"
+  },
+  {
+    "id": "poi_1769254642678_81",
+    "name": "T-TEC Tours",
+    "coordinates": {
+      "lat": 7.205241000000002,
+      "lng": 79.840689
+    },
+    "address": "35, 36 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 3,
+    "placeId": "ChIJ_RP5VoXu4joRNEN_D3ye8k4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.678Z"
+  },
+  {
+    "id": "poi_1769254642678_82",
+    "name": "Sri Lankan Riders - Holiday & Tours",
+    "coordinates": {
+      "lat": 7.210171900000002,
+      "lng": 79.83456699999999
+    },
+    "address": "aveon sky, 3G, Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "travel_agency",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 10,
+    "placeId": "ChIJp1SXjDrw4joRutB0JygDsHU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.678Z"
+  },
+  {
+    "id": "poi_1769254642678_83",
+    "name": "Story House",
+    "coordinates": {
+      "lat": 7.2067933,
+      "lng": 79.83343409999999
+    },
+    "address": "No: 11/6 Lake View Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "travel_agency",
+      "lodging",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 10,
+    "placeId": "ChIJSxDPczHv4joRsmpl21OnY0Q",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.678Z"
+  },
+  {
+    "id": "poi_1769254642678_84",
+    "name": "Grand Street Bridge",
+    "coordinates": {
+      "lat": 7.211029300000003,
+      "lng": 79.8384631
+    },
+    "address": "186, 180 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.5,
+    "totalReviews": 8,
+    "placeId": "ChIJp8OL327v4joRroFWfPGkJwI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.678Z"
+  },
+  {
+    "id": "poi_1769254642679_86",
+    "name": "Negombo Dutch Fort",
+    "coordinates": {
+      "lat": 7.208615000000002,
+      "lng": 79.8317292
+    },
+    "address": "6R5J+CMX, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.3,
+    "totalReviews": 663,
+    "placeId": "ChIJQ9CRpZ3u4joRMfViaQBlSwU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.679Z"
+  },
+  {
+    "id": "poi_1769254642679_87",
+    "name": "The King's island Negombo",
+    "coordinates": {
+      "lat": 7.203916999999999,
+      "lng": 79.8363966
+    },
+    "address": "6R3P+HH6, Custom House Road,Kings Island Jetty, Pitipana, agoda, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "lodging",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 156,
+    "placeId": "ChIJx_miiDTt4joR_f-DNF6tDYU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.679Z"
+  },
+  {
+    "id": "poi_1769254642679_88",
+    "name": "Captain Fernando Negombo Boat Tours",
+    "coordinates": {
+      "lat": 7.213796,
+      "lng": 79.8395992
+    },
+    "address": "Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "travel_agency",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 173,
+    "placeId": "ChIJj7IPNZju4joR5Vd0eqPhU14",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:22.679Z"
+  },
+  {
+    "id": "poi_1769254646269_89",
+    "name": "Coronation Restaurant & Bar",
+    "coordinates": {
+      "lat": 7.207300699999999,
+      "lng": 79.8411318
+    },
+    "address": "95 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "bar",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.8,
+    "totalReviews": 196,
+    "placeId": "ChIJoSipK0Lv4joRrwmn1tIfe7c",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:26.269Z"
+  },
+  {
+    "id": "poi_1769254646269_90",
+    "name": "Bonjo murukku",
+    "coordinates": {
+      "lat": 7.202262600000001,
+      "lng": 79.83937499999999
+    },
+    "address": "58, 1 Saint Jude's Place, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "nightlife",
+    "types": [
+      "bar",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJWTqVTwDv4joRBiOBDsEZvIs",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:26.269Z"
+  },
+  {
+    "id": "poi_1769254646269_91",
+    "name": "Beer House Pub & Restaurant",
+    "coordinates": {
+      "lat": 7.204204099999999,
+      "lng": 79.8423131
+    },
+    "address": "6R3R+MWP, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "nightlife",
+    "types": [
+      "bar",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 8,
+    "placeId": "ChIJGRP-u93v4joREIOymmHcBQA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:26.269Z"
+  },
+  {
+    "id": "poi_1769254648098_93",
+    "name": "CORONATION Boat House",
+    "coordinates": {
+      "lat": 7.207299199999998,
+      "lng": 79.84106729999999
+    },
+    "address": "No 95 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "zoo",
+      "park",
+      "travel_agency",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 7,
+    "placeId": "ChIJfTh5pFTv4joRaL5TJtdz35Y",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:28.098Z"
+  },
+  {
+    "id": "poi_1769254648098_94",
+    "name": "Park road",
+    "coordinates": {
+      "lat": 7.207185,
+      "lng": 79.84245399999999
+    },
+    "address": "135 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "park",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJMVAv-Avv4joRpozPoHfkyWQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:28.098Z"
+  },
+  {
+    "id": "poi_1769254649959_95",
+    "name": "Harcourts Pharmacy",
+    "coordinates": {
+      "lat": 7.2111746,
+      "lng": 79.8369617
+    },
+    "address": "6R6P+FQ8, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJP7eFYZnu4joRwXiSnw3zm5Q",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_96",
+    "name": "Shanthi pharmacy",
+    "coordinates": {
+      "lat": 7.206906,
+      "lng": 79.834771
+    },
+    "address": "6R4M+QW6, Pamunugama Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJDU9_opzu4joRPU8xXS0cEqM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_97",
+    "name": "Union Pharmacy",
+    "coordinates": {
+      "lat": 7.2115408,
+      "lng": 79.83705479999999
+    },
+    "address": "6 Visthrin Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 4,
+    "placeId": "ChIJ_6vUl37v4joRS3zc4Q7Dwac",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_98",
+    "name": "Shanthi Pharmacy & Supermarket",
+    "coordinates": {
+      "lat": 7.206012199999999,
+      "lng": 79.833517
+    },
+    "address": "41 Mankuliya Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 4.8,
+    "totalReviews": 5,
+    "placeId": "ChIJo8ZGvaTv4joROf37bgZvPiM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_99",
+    "name": "Negombo Drugs Pharmacy",
+    "coordinates": {
+      "lat": 7.212361299999999,
+      "lng": 79.8372152
+    },
+    "address": "83 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 3,
+    "placeId": "ChIJ1W2obHLv4joRL8ratf0BLZA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_100",
+    "name": "Super Medical Shopping Complex",
+    "coordinates": {
+      "lat": 7.208994100000002,
+      "lng": 79.84005359999999
+    },
+    "address": "Udayarthoppuwa, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJbd2YS8rv4joR-dcFifbao6k",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_101",
+    "name": "The Lanka Pharmacy",
+    "coordinates": {
+      "lat": 7.2110363,
+      "lng": 79.8400691
+    },
+    "address": "No-60 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 4.4,
+    "totalReviews": 82,
+    "placeId": "ChIJF6xhHZru4joRZk0rlFMtX6E",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_102",
+    "name": "Better Health Pharmacy",
+    "coordinates": {
+      "lat": 7.211116400000003,
+      "lng": 79.84029919999999
+    },
+    "address": "6R6R+C4V, Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 4,
+    "placeId": "ChIJwQdD-Jnu4joRbAzwCe20_AM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_103",
+    "name": "Shanthi sinhala medicine (Ayurvedic)",
+    "coordinates": {
+      "lat": 7.211239500000001,
+      "lng": 79.8406114
+    },
+    "address": "277 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJCbCFfIrv4joRY9cQ-xGTcd0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_104",
+    "name": "Royal Pharmacy",
+    "coordinates": {
+      "lat": 7.212998899999998,
+      "lng": 79.8395869
+    },
+    "address": "1 Chilaw Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJN0LCx5nu4joRpqL3L1dy6ck",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_105",
+    "name": "Citymedical Negombo",
+    "coordinates": {
+      "lat": 7.211604199999999,
+      "lng": 79.8414095
+    },
+    "address": "299 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 2.3,
+    "totalReviews": 6,
+    "placeId": "ChIJMxPvvVbv4joRqk6VDitcJQY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_106",
+    "name": "New Central Pharmacy",
+    "coordinates": {
+      "lat": 7.211756200000001,
+      "lng": 79.84155299999999
+    },
+    "address": "301/A Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 3,
+    "placeId": "ChIJjfKuWpfu4joRPY66Pd5-Kjk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254649959_107",
+    "name": "Osu Medura Pharmacy",
+    "coordinates": {
+      "lat": 7.206359199999999,
+      "lng": 79.8441565
+    },
+    "address": "134 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "pharmacy",
+    "types": [
+      "pharmacy",
+      "point_of_interest",
+      "store",
+      "health",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJt5nJbQDv4joR0wsUa2lR5kY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:29.959Z"
+  },
+  {
+    "id": "poi_1769254653554_108",
+    "name": "Central Nursing Home",
+    "coordinates": {
+      "lat": 7.2139024,
+      "lng": 79.8381802
+    },
+    "address": "125 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 7,
+    "placeId": "ChIJ____v6Lu4joR6gPGjL_iLvQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:33.554Z"
+  },
+  {
+    "id": "poi_1769254653554_109",
+    "name": "Dr.Stanley Fernando's Dispensary",
+    "coordinates": {
+      "lat": 7.205988,
+      "lng": 79.8341839
+    },
+    "address": "6R4M+9MV, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 1,
+    "placeId": "ChIJAazetpzu4joRqflftvGH2W4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:33.554Z"
+  },
+  {
+    "id": "poi_1769254653554_110",
+    "name": "St. Jude medical center",
+    "coordinates": {
+      "lat": 7.2063633,
+      "lng": 79.8330112
+    },
+    "address": "6R4M+G6R, Munnakkare Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJpzNJHwDv4joRInnSQlOkQPs",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:33.554Z"
+  },
+  {
+    "id": "poi_1769254653554_111",
+    "name": "Manthri Nursing Home",
+    "coordinates": {
+      "lat": 7.213907799999998,
+      "lng": 79.8406667
+    },
+    "address": "6R7R+H77, Chilaw Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJKfKwK5ju4joRn_rRWGRqZBQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:33.554Z"
+  },
+  {
+    "id": "poi_1769254653554_112",
+    "name": "The Helping Hand Psychological Hospital",
+    "coordinates": {
+      "lat": 7.204169,
+      "lng": 79.8428265
+    },
+    "address": "No. 102/A Taladuwa Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "hospital",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 28,
+    "placeId": "ChIJBTqitqfv4joRuWWL2jYJnqQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:33.554Z"
+  },
+  {
+    "id": "poi_1769254655318_115",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:35.318Z"
+  },
+  {
+    "id": "poi_1769254655319_119",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:35.319Z"
+  },
+  {
+    "id": "poi_1769254655320_122",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:35.320Z"
+  },
+  {
+    "id": "poi_1769254655320_124",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:35.320Z"
+  },
+  {
+    "id": "poi_1769254655321_127",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:35.321Z"
+  },
+  {
+    "id": "poi_1769254655321_130",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:35.321Z"
+  },
+  {
+    "id": "poi_1769254657069_133",
+    "name": "Central Dispensary and sea stree osu sala pharmacy",
+    "coordinates": {
+      "lat": 7.2149587,
+      "lng": 79.8386235
+    },
+    "address": "145 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "doctor",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJtaZTAJnu4joRrmFlT7Opvf4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:37.069Z"
+  },
+  {
+    "id": "poi_1769254657069_134",
+    "name": "Restaurant",
+    "coordinates": {
+      "lat": 7.2093844,
+      "lng": 79.83785569999999
+    },
+    "address": "6R5Q+Q45, Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "hospital",
+    "types": [
+      "doctor",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJv3Z3m53v4joRhlq1QCvRLqA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:37.069Z"
+  },
+  {
+    "id": "poi_1769254658830_135",
+    "name": "Laugfs Supermarket",
+    "coordinates": {
+      "lat": 7.209759999999998,
+      "lng": 79.8405234
+    },
+    "address": "108 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 308,
+    "placeId": "ChIJ9YSjdZru4joRLVQKi5EJ3sE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254658830_136",
+    "name": "MATARA SUPPER",
+    "coordinates": {
+      "lat": 7.210518599999999,
+      "lng": 79.8360819
+    },
+    "address": "NO 82 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJ3fNY7kLv4joRVwSqamedjnQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254658830_137",
+    "name": "Coronation Grinding Mills",
+    "coordinates": {
+      "lat": 7.2116248,
+      "lng": 79.8366917
+    },
+    "address": "no.11,visthreen road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 121,
+    "placeId": "ChIJm34RaJnu4joRjGJFHZzgBAc",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254658830_138",
+    "name": "Negombo Sunday Street Market",
+    "coordinates": {
+      "lat": 7.2119911,
+      "lng": 79.8365013
+    },
+    "address": "6R6P+QJR, Vistarini Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 104,
+    "placeId": "ChIJudjuQZnu4joRubxE7DPMTUE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254658830_139",
+    "name": "Cargills Food City Express - Greens Road",
+    "coordinates": {
+      "lat": 7.206041799999999,
+      "lng": 79.8404467
+    },
+    "address": "No.138, 140 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 169,
+    "placeId": "ChIJT22grpru4joR2CPk70JdEY0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254658830_140",
+    "name": "Arpico Super Centre - Negombo",
+    "coordinates": {
+      "lat": 7.207204,
+      "lng": 79.843088
+    },
+    "address": "153 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 3654,
+    "placeId": "ChIJZ-qJN5Du4joRy2SBSc8HDtQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254658830_141",
+    "name": "MBF Sales Centre",
+    "coordinates": {
+      "lat": 7.206692800000001,
+      "lng": 79.84408379999999
+    },
+    "address": "179 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "supermarket",
+    "types": [
+      "supermarket",
+      "grocery_or_supermarket",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJl5q517zv4joRbv9MgnZviy0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:38.830Z"
+  },
+  {
+    "id": "poi_1769254662310_142",
+    "name": "Frankwins Wine Shop",
+    "coordinates": {
+      "lat": 7.211196800000002,
+      "lng": 79.837746
+    },
+    "address": "130 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "liquor",
+    "types": [
+      "liquor_store",
+      "store",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.2,
+    "totalReviews": 11,
+    "placeId": "ChIJg8EgfJnu4joRPnria33-qI4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:42.310Z"
+  },
+  {
+    "id": "poi_1769254662310_143",
+    "name": "Bethani Wine Shop",
+    "coordinates": {
+      "lat": 7.206299399999998,
+      "lng": 79.8340326
+    },
+    "address": "Bethani Wine Shop, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "liquor",
+    "types": [
+      "liquor_store",
+      "store",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJh7Q_fwDv4joRadooVxojljw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:42.310Z"
+  },
+  {
+    "id": "poi_1769254662310_144",
+    "name": "G S Wine Stores",
+    "coordinates": {
+      "lat": 7.209528499999999,
+      "lng": 79.83986639999999
+    },
+    "address": "95 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "liquor",
+    "types": [
+      "liquor_store",
+      "store",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 3,
+    "placeId": "ChIJ2Qne5szv4joRr_Q7jBSA-ow",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:42.310Z"
+  },
+  {
+    "id": "poi_1769254662310_145",
+    "name": "K.R.F. Wine Stores",
+    "coordinates": {
+      "lat": 7.210780699999998,
+      "lng": 79.8413946
+    },
+    "address": "6R6R+8H6, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "liquor",
+    "types": [
+      "liquor_store",
+      "store",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 4,
+    "placeId": "ChIJTas0D_7u4joRAeuFyxqwXdo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:42.310Z"
+  },
+  {
+    "id": "poi_1769254662310_146",
+    "name": "Sesatha Wine Stores",
+    "coordinates": {
+      "lat": 7.2070834,
+      "lng": 79.8417716
+    },
+    "address": "6R4R+RPJ, Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "liquor",
+    "types": [
+      "liquor_store",
+      "store",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJPyODkVvv4joRY2eFaU_PPhA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:42.310Z"
+  },
+  {
+    "id": "poi_1769254664074_148",
+    "name": "BC Lifestyle Studio - Negombo",
+    "coordinates": {
+      "lat": 7.211387000000001,
+      "lng": 79.84139069999999
+    },
+    "address": "11A Station Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "hair_care",
+      "spa",
+      "store",
+      "health",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 445,
+    "placeId": "ChIJZa4u7dfv4joRKZ102-basY4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:44.074Z"
+  },
+  {
+    "id": "poi_1769254665784_151",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:45.784Z"
+  },
+  {
+    "id": "poi_1769254665785_155",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:45.785Z"
+  },
+  {
+    "id": "poi_1769254665786_158",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:45.786Z"
+  },
+  {
+    "id": "poi_1769254665786_160",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:45.786Z"
+  },
+  {
+    "id": "poi_1769254665787_163",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:45.787Z"
+  },
+  {
+    "id": "poi_1769254665787_166",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:45.787Z"
+  },
+  {
+    "id": "poi_1769254667656_169",
+    "name": "Salon Jacqui",
+    "coordinates": {
+      "lat": 7.210853,
+      "lng": 79.84134999999999
+    },
+    "address": "No:6G, Station Road,, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 41,
+    "placeId": "ChIJ7zBJrJDu4joRRzPgWHHJwdE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_170",
+    "name": "Dilu Salon",
+    "coordinates": {
+      "lat": 7.211075,
+      "lng": 79.8373544
+    },
+    "address": "6R6P+CWH, Saint Mary Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJLcQufZnu4joRWUCQloZ8G5A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_171",
+    "name": "Salon Hansi",
+    "coordinates": {
+      "lat": 7.2075131,
+      "lng": 79.83843809999999
+    },
+    "address": "Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 4,
+    "placeId": "ChIJww6iYNvv4joRpp-cpux5kVM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_172",
+    "name": "New Comb Salon",
+    "coordinates": {
+      "lat": 7.207347400000001,
+      "lng": 79.8389299
+    },
+    "address": "6R4Q+WHM, Saint Jhone's Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 6,
+    "placeId": "ChIJ93k69J3v4joRJYextNQarAM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_173",
+    "name": "Natural Beauty Radiance",
+    "coordinates": {
+      "lat": 7.207234700000001,
+      "lng": 79.8393151
+    },
+    "address": "42 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJG8zxPwDv4joRThNRoqf-IQw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_174",
+    "name": "Salon Marriya",
+    "coordinates": {
+      "lat": 7.207144700000001,
+      "lng": 79.839435
+    },
+    "address": "No:52A, Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJlf9YXADv4joRB0XEtpKCy-8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_175",
+    "name": "Orient Lanka",
+    "coordinates": {
+      "lat": 7.210190000000001,
+      "lng": 79.83969669999999
+    },
+    "address": "41 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.8,
+    "totalReviews": 8,
+    "placeId": "ChIJ5Xo3Fpru4joRDZG8RTfBGcs",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_176",
+    "name": "Black scissors",
+    "coordinates": {
+      "lat": 7.2086447,
+      "lng": 79.8400061
+    },
+    "address": "6R5Q+FXX, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJ6_xazxbv4joR291ecnDCSkg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_177",
+    "name": "Luxus king",
+    "coordinates": {
+      "lat": 7.208658699999998,
+      "lng": 79.84017949999999
+    },
+    "address": "building shopping complex, 22/A “B, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJ733-dwDv4joRbI_iv2Ll740",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_178",
+    "name": "CEYLON SECRET",
+    "coordinates": {
+      "lat": 7.2131443,
+      "lng": 79.8373147
+    },
+    "address": "35, 5 Mosque Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJc5eIYgDv4joRdaZSVuwnKIc",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_179",
+    "name": "The Beauty Centre",
+    "coordinates": {
+      "lat": 7.208174899999999,
+      "lng": 79.8404908
+    },
+    "address": "141 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJLYoeh5ru4joRumueX1yyvmg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_180",
+    "name": "Nadeeka gunawadhane salon",
+    "coordinates": {
+      "lat": 7.207271599999998,
+      "lng": 79.8403354
+    },
+    "address": "57 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJqwZjb7nv4joRRZLFE4fuxoE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_181",
+    "name": "Masha Salon",
+    "coordinates": {
+      "lat": 7.207661799999999,
+      "lng": 79.8405205
+    },
+    "address": "Shopping Complex 'C, No. 5 Station Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.8,
+    "totalReviews": 4,
+    "placeId": "ChIJa_Mm4ibv4joRu59hwlgOOB4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_182",
+    "name": "SALON MINODI",
+    "coordinates": {
+      "lat": 7.2043283,
+      "lng": 79.8337051
+    },
+    "address": "99 St.Nicholas Rd, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJ46e5Mg7v4joRa9wh6MyeyYA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_183",
+    "name": "Colombo Salon",
+    "coordinates": {
+      "lat": 7.210156,
+      "lng": 79.84060099999999
+    },
+    "address": "49 De Croos Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.4,
+    "totalReviews": 70,
+    "placeId": "ChIJvRQxCZru4joRtvTGmzya1oU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_184",
+    "name": "Shine Salon Unisex",
+    "coordinates": {
+      "lat": 7.2060901,
+      "lng": 79.8405483
+    },
+    "address": "136 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 2,
+    "placeId": "ChIJmxGEpwTv4joRdeIu0UfvhuU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_185",
+    "name": "Radha Salon",
+    "coordinates": {
+      "lat": 7.2063258,
+      "lng": 79.8408523
+    },
+    "address": "6R4R+G8Q, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJi8D1B5Du4joRYEoBZGqlN3g",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_186",
+    "name": "Romantika Cosmetics shop",
+    "coordinates": {
+      "lat": 7.2062009,
+      "lng": 79.8408687
+    },
+    "address": "215/4 Nicholas Marcus Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "clothing_store",
+      "beauty_salon",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 30,
+    "placeId": "ChIJ5brAq8fv4joR-Xcj1Q7zD9c",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_187",
+    "name": "DD Beauty Lounge",
+    "coordinates": {
+      "lat": 7.2141908,
+      "lng": 79.8385481
+    },
+    "address": "130 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 4,
+    "placeId": "ChIJZ5SoOuDv4joREQhoJaPk5C0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254667656_188",
+    "name": "beauty saloon",
+    "coordinates": {
+      "lat": 7.2141172,
+      "lng": 79.8388732
+    },
+    "address": "6R7P+8GG, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "spa",
+    "types": [
+      "beauty_salon",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJkVZADgDv4joRZ85TXLk5wlg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:47.656Z"
+  },
+  {
+    "id": "poi_1769254669503_189",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_190",
+    "name": "Bank of Ceylon - City Branch Negombo",
+    "coordinates": {
+      "lat": 7.2113778,
+      "lng": 79.8378243
+    },
+    "address": "6R6Q+H44, Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.5,
+    "totalReviews": 17,
+    "placeId": "ChIJpZ7AApru4joR15NxenT_W5g",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_191",
+    "name": "Hatton National Bank ATM",
+    "coordinates": {
+      "lat": 7.2054916,
+      "lng": 79.84104669999999
+    },
+    "address": "6R4R+5CV, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 3,
+    "placeId": "ChIJG8wZ_4_u4joRqU7kl7ExJAA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_192",
+    "name": "Sampath Bank ATM",
+    "coordinates": {
+      "lat": 7.205081400000002,
+      "lng": 79.84124039999999
+    },
+    "address": "6R4R+2FQ, Archbishop Nicholas Marcus Fernando Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 2.7,
+    "totalReviews": 9,
+    "placeId": "ChIJ3fkK-o_u4joRmfhaKFNeNO0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_193",
+    "name": "Commercial Bank Negombo Minicom Branch",
+    "coordinates": {
+      "lat": 7.207563899999999,
+      "lng": 79.8429894
+    },
+    "address": "153 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.4,
+    "totalReviews": 38,
+    "placeId": "ChIJMQI6OJDu4joRGzSwvkBeEHw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_194",
+    "name": "BOC ATM",
+    "coordinates": {
+      "lat": 7.211303699999998,
+      "lng": 79.8378637
+    },
+    "address": "257 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJ00EteZnu4joRjxwSr7THmoo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_195",
+    "name": "BOC ATM/CRM",
+    "coordinates": {
+      "lat": 7.2099591,
+      "lng": 79.8413042
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 3,
+    "placeId": "ChIJLcmGo5Du4joRTURgsg_bPLk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_196",
+    "name": "Seylan Bank ATM",
+    "coordinates": {
+      "lat": 7.210269299999999,
+      "lng": 79.8412417
+    },
+    "address": "6R6R+4F5, Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 3,
+    "placeId": "ChIJL2WSpZDu4joRULlj5BjpEoA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_197",
+    "name": "HNB ATM - Mankuliya",
+    "coordinates": {
+      "lat": 7.2053752,
+      "lng": 79.8309967
+    },
+    "address": "100 Mankuliya Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJHR1kVhbv4joRBpwrjXqx-i4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_198",
+    "name": "NDB Bank - Negombo",
+    "coordinates": {
+      "lat": 7.207074099999999,
+      "lng": 79.8415946
+    },
+    "address": "121 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.8,
+    "totalReviews": 25,
+    "placeId": "ChIJBVho0t3v4joRl1zrMw77tjg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_199",
+    "name": "NSB ATM",
+    "coordinates": {
+      "lat": 7.206762699999998,
+      "lng": 79.8419423
+    },
+    "address": "6R4R+PQ4, Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 2.6,
+    "totalReviews": 5,
+    "placeId": "ChIJV1N_C5Du4joRDOnGV9BbZuo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254669503_200",
+    "name": "BOC ATM",
+    "coordinates": {
+      "lat": 7.2051069,
+      "lng": 79.8412679
+    },
+    "address": "6R4R+2GR, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.7,
+    "totalReviews": 9,
+    "placeId": "ChIJHwMS-o_u4joRFGgu60vIC3Q",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:49.503Z"
+  },
+  {
+    "id": "poi_1769254671368_201",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_202",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_203",
+    "name": "Bank of Ceylon - City Branch Negombo",
+    "coordinates": {
+      "lat": 7.2113778,
+      "lng": 79.8378243
+    },
+    "address": "6R6Q+H44, Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.5,
+    "totalReviews": 17,
+    "placeId": "ChIJpZ7AApru4joR15NxenT_W5g",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_204",
+    "name": "Hatton National Bank (HNB) - Negombo",
+    "coordinates": {
+      "lat": 7.208743600000001,
+      "lng": 79.8392465
+    },
+    "address": "6R5Q+FMX, Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.4,
+    "totalReviews": 46,
+    "placeId": "ChIJq_wMXJru4joRjXJu-Wif_eY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_205",
+    "name": "Nations Trust Bank (NTB) - Negombo Branch",
+    "coordinates": {
+      "lat": 7.212673199999998,
+      "lng": 79.83959
+    },
+    "address": "72/A, Old, Chilaw Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 57,
+    "placeId": "ChIJs99PmCPv4joRvAJaXx68_7M",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_206",
+    "name": "Commercial Bank Negombo Minicom Branch",
+    "coordinates": {
+      "lat": 7.207563899999999,
+      "lng": 79.8429894
+    },
+    "address": "153 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.4,
+    "totalReviews": 38,
+    "placeId": "ChIJMQI6OJDu4joRGzSwvkBeEHw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_207",
+    "name": "Sampath Bank Negombo Super",
+    "coordinates": {
+      "lat": 7.2123537,
+      "lng": 79.8437877
+    },
+    "address": "408 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.4,
+    "totalReviews": 73,
+    "placeId": "ChIJHYPjVpfu4joRFH9_jFhLGic",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_208",
+    "name": "People's Bank",
+    "coordinates": {
+      "lat": 7.208395899999998,
+      "lng": 79.8399597
+    },
+    "address": "6R5Q+9X4, Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.3,
+    "totalReviews": 47,
+    "placeId": "ChIJp4GAYpru4joR7WooNO0Uh0I",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_209",
+    "name": "Seylan Bank PLC - Negombo",
+    "coordinates": {
+      "lat": 7.210259099999999,
+      "lng": 79.84121309999999
+    },
+    "address": "No 141 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.4,
+    "totalReviews": 14,
+    "placeId": "ChIJK6_7pZDu4joRbyF446j2RNg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_210",
+    "name": "SDB Bank Negombo Branch",
+    "coordinates": {
+      "lat": 7.2054377,
+      "lng": 79.8404286
+    },
+    "address": "150 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.3,
+    "totalReviews": 4,
+    "placeId": "ChIJWysLejPv4joR7XRig5nrHUo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_211",
+    "name": "Cargills Bank - Negombo",
+    "coordinates": {
+      "lat": 7.211544200000001,
+      "lng": 79.8411401
+    },
+    "address": "293 A Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 4,
+    "placeId": "ChIJD19RyTHv4joRNYZdV-bjOcY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_212",
+    "name": "NDB Bank - Negombo",
+    "coordinates": {
+      "lat": 7.207074099999999,
+      "lng": 79.8415946
+    },
+    "address": "121 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.8,
+    "totalReviews": 25,
+    "placeId": "ChIJBVho0t3v4joRl1zrMw77tjg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671368_213",
+    "name": "SMB Finance PLC Negombo",
+    "coordinates": {
+      "lat": 7.211358299999999,
+      "lng": 79.8414696
+    },
+    "address": "No. 15, 15 B Station Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJN_hoPqTv4joR8i1y57iyMLk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.368Z"
+  },
+  {
+    "id": "poi_1769254671369_214",
+    "name": "National Savings Bank",
+    "coordinates": {
+      "lat": 7.2067291,
+      "lng": 79.84203289999999
+    },
+    "address": "6R4R+MRV, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 2.8,
+    "totalReviews": 18,
+    "placeId": "ChIJCyp-DJDu4joRU2UwK72K2YY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.369Z"
+  },
+  {
+    "id": "poi_1769254671369_215",
+    "name": "Citizens Development Business Finance PLC (CDB Negombo Branch)",
+    "coordinates": {
+      "lat": 7.206982099999999,
+      "lng": 79.8421161
+    },
+    "address": "129 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 4,
+    "placeId": "ChIJQzRQZitZ4joRKQ6M25j0Cyo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.369Z"
+  },
+  {
+    "id": "poi_1769254671369_216",
+    "name": "Regional Development Bank",
+    "coordinates": {
+      "lat": 7.204520400000001,
+      "lng": 79.84117510000002
+    },
+    "address": "1/A Negombo - Giriulla Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 2.3,
+    "totalReviews": 6,
+    "placeId": "ChIJK8tX9I_u4joRKhtwOfOVptA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.369Z"
+  },
+  {
+    "id": "poi_1769254671369_217",
+    "name": "MBSL Bank",
+    "coordinates": {
+      "lat": 7.2123341,
+      "lng": 79.84258609999999
+    },
+    "address": "68 Avenue Maria Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 5,
+    "placeId": "ChIJB_UNPpfu4joRj29OvuBHHCM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:51.369Z"
+  },
+  {
+    "id": "poi_1769254674917_218",
+    "name": "Negombo Bus Terminal",
+    "coordinates": {
+      "lat": 7.2053916,
+      "lng": 79.8406131
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJmW8fVIXu4joRYg7ZEGskAXY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:54.917Z"
+  },
+  {
+    "id": "poi_1769254674917_219",
+    "name": "Negombo Bus Terminal",
+    "coordinates": {
+      "lat": 7.2053902,
+      "lng": 79.8406345
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJgyYhVIXu4joRKp2Ta7RFNE8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:54.917Z"
+  },
+  {
+    "id": "poi_1769254674917_220",
+    "name": "Negombo Bus Terminal",
+    "coordinates": {
+      "lat": 7.205334899999998,
+      "lng": 79.8411674
+    },
+    "address": "Archbishop Nicholas Marcus Fernando Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 166,
+    "placeId": "ChIJ4UNk-Y_u4joRR_LbBHqyaDQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:54.917Z"
+  },
+  {
+    "id": "poi_1769254674917_221",
+    "name": "Negambo Bus Terminal",
+    "coordinates": {
+      "lat": 7.205374899999998,
+      "lng": 79.8413352
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 7,
+    "placeId": "ChIJufCL-4_u4joRFg08-jNEHos",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:54.917Z"
+  },
+  {
+    "id": "poi_1769254676716_222",
+    "name": "Bus Stop",
+    "coordinates": {
+      "lat": 7.210079999999998,
+      "lng": 79.83955000000002
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJRa5qFpru4joRsbDzZ2yI_N8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.716Z"
+  },
+  {
+    "id": "poi_1769254676716_223",
+    "name": "Bus Stop",
+    "coordinates": {
+      "lat": 7.208886799999999,
+      "lng": 79.8399948
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJLyWoZZru4joRzutMWxkGmI0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.716Z"
+  },
+  {
+    "id": "poi_1769254676716_224",
+    "name": "Bus Stop",
+    "coordinates": {
+      "lat": 7.207648799999998,
+      "lng": 79.8409382
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJ4zTpd5Du4joRy-og8jWDIQE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.716Z"
+  },
+  {
+    "id": "poi_1769254676717_226",
+    "name": "Negombo Railway Bus Stop",
+    "coordinates": {
+      "lat": 7.211360000000003,
+      "lng": 79.84092
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJ5xuVVZfu4joREh1C8BEPlGU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_227",
+    "name": "Negombo Bus Terminal",
+    "coordinates": {
+      "lat": 7.2053916,
+      "lng": 79.8406131
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJmW8fVIXu4joRYg7ZEGskAXY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_228",
+    "name": "Negombo Bus Terminal",
+    "coordinates": {
+      "lat": 7.2053902,
+      "lng": 79.8406345
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 2,
+    "placeId": "ChIJgyYhVIXu4joRKp2Ta7RFNE8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_229",
+    "name": "Negombo Railway Bus Stop",
+    "coordinates": {
+      "lat": 7.2104797,
+      "lng": 79.8416024
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJ5dMjsJDu4joRLTLRc2R2UN8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_230",
+    "name": "Bus Stop",
+    "coordinates": {
+      "lat": 7.210623200000001,
+      "lng": 79.841634
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJfz7BsZDu4joRrsGqRO4BpOw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_231",
+    "name": "Negombo",
+    "coordinates": {
+      "lat": 7.210421900000001,
+      "lng": 79.84189239999999
+    },
+    "address": "Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "train_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.4,
+    "totalReviews": 182,
+    "placeId": "ChIJlZ3Tu5Du4joRz-oM4euZSPM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_232",
+    "name": "Negombo Bus Terminal",
+    "coordinates": {
+      "lat": 7.205334899999998,
+      "lng": 79.8411674
+    },
+    "address": "Archbishop Nicholas Marcus Fernando Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 166,
+    "placeId": "ChIJ4UNk-Y_u4joRR_LbBHqyaDQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_233",
+    "name": "Negambo Bus Terminal",
+    "coordinates": {
+      "lat": 7.205374899999998,
+      "lng": 79.8413352
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "bus_station",
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 7,
+    "placeId": "ChIJufCL-4_u4joRFg08-jNEHos",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_234",
+    "name": "Bus Stop",
+    "coordinates": {
+      "lat": 7.212249999999999,
+      "lng": 79.84309999999999
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJz27iIpfu4joRRl2FGAzFrBI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_235",
+    "name": "Archbishop Nicholas Marcus Fernando Mawatha",
+    "coordinates": {
+      "lat": 7.203617599999999,
+      "lng": 79.8421848
+    },
+    "address": "Archbishop Nicholas Marcus Fernando Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJ0ckMmI_u4joRY2aXC5jqro0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254676717_236",
+    "name": "Bus Stop",
+    "coordinates": {
+      "lat": 7.212610000000001,
+      "lng": 79.84364
+    },
+    "address": "Sri Lanka",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "bus",
+    "types": [
+      "transit_station",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJWVTQH5fu4joRtz0cmzw4ZEs",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:56.717Z"
+  },
+  {
+    "id": "poi_1769254678499_239",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:58.499Z"
+  },
+  {
+    "id": "poi_1769254678500_243",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:58.500Z"
+  },
+  {
+    "id": "poi_1769254678501_246",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:58.501Z"
+  },
+  {
+    "id": "poi_1769254678501_248",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:58.501Z"
+  },
+  {
+    "id": "poi_1769254678501_251",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:58.501Z"
+  },
+  {
+    "id": "poi_1769254678502_254",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:37:58.502Z"
+  },
+  {
+    "id": "poi_1769254680342_257",
+    "name": "Duvi home",
+    "coordinates": {
+      "lat": 7.2132217,
+      "lng": 79.8373993
+    },
+    "address": "11/1 Mosque Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJeXA8GwDv4joR2LoCBm7WxC4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254680342_258",
+    "name": "Sri Mutthu Mari Amman Temple",
+    "coordinates": {
+      "lat": 7.213052199999999,
+      "lng": 79.83805149999999
+    },
+    "address": "6R7Q+66F, Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 7,
+    "placeId": "ChIJcyUicdXv4joRdR02El5xHhg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254680342_259",
+    "name": "Aiyappan Temple",
+    "coordinates": {
+      "lat": 7.213191499999999,
+      "lng": 79.837896
+    },
+    "address": "6R7Q+75C, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 21,
+    "placeId": "ChIJ____v6Lu4joRj4PzktTbuV8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254680342_260",
+    "name": "Sri Anjaneyar Temple",
+    "coordinates": {
+      "lat": 7.2147579,
+      "lng": 79.8367342
+    },
+    "address": "34 Alles Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.6,
+    "totalReviews": 5,
+    "placeId": "ChIJiWdi6pju4joROahPq3_pYkk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254680342_261",
+    "name": "Sri Sitthi Vinayagar Temple",
+    "coordinates": {
+      "lat": 7.214592199999999,
+      "lng": 79.8383841
+    },
+    "address": "135 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.6,
+    "totalReviews": 8,
+    "placeId": "ChIJ__9PWZju4joRhi9qn-sBzCA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254680342_262",
+    "name": "Sri Singama Kali Amman Kovil",
+    "coordinates": {
+      "lat": 7.215262800000001,
+      "lng": 79.8386467
+    },
+    "address": "6R8Q+4F2, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.4,
+    "totalReviews": 65,
+    "placeId": "ChIJy3WCZpju4joRB5fIH3DGx8A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254680342_263",
+    "name": "Durgha matha Kovil",
+    "coordinates": {
+      "lat": 7.203356599999998,
+      "lng": 79.8424818
+    },
+    "address": "6R3R+8XP, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "hindu_temple",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJZR9Ldxnv4joR_Yr7vzMYwEc",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:00.342Z"
+  },
+  {
+    "id": "poi_1769254682154_264",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1424,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_265",
+    "name": "St. Peter's Church - Negombo",
+    "coordinates": {
+      "lat": 7.212421600000003,
+      "lng": 79.8408728
+    },
+    "address": "Chilaw Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 95,
+    "placeId": "ChIJR7-Japzu4joR-ZIUtAZ3dTI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_266",
+    "name": "Wesleyan Methodist Church",
+    "coordinates": {
+      "lat": 7.2095335,
+      "lng": 79.83389199999999
+    },
+    "address": "6R5M+RH6, Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 2,
+    "placeId": "ChIJ14emFnHv4joR8XUJUDMmLQ4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_267",
+    "name": "Maza",
+    "coordinates": {
+      "lat": 7.211496400000001,
+      "lng": 79.83676609999999
+    },
+    "address": "74 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJ4TATIjrv4joR3yeuD8pqFEA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_268",
+    "name": "St. Stephen's Anglican Church",
+    "coordinates": {
+      "lat": 7.2082773,
+      "lng": 79.8320947
+    },
+    "address": "5 Mudaliyar Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.6,
+    "totalReviews": 23,
+    "placeId": "ChIJRTZjQZzu4joRqF4CMXgTREA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_269",
+    "name": "Velankanni Church, Negombo",
+    "coordinates": {
+      "lat": 7.206126000000001,
+      "lng": 79.8387539
+    },
+    "address": "Velankanni Church, Saint Jude's Place, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 7,
+    "placeId": "ChIJARId0Jru4joRogaXziX2oCs",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_270",
+    "name": "Saint Jude's Church",
+    "coordinates": {
+      "lat": 7.205543899999999,
+      "lng": 79.8387342
+    },
+    "address": "6R4Q+6F9, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJ__9vLYXu4joR5SmH7boaqtY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_271",
+    "name": "St. Nicholas' Church - Munnakkaraya | සාන්ත නිකුලා දේවස්ථානය - මුන්නක්කරය",
+    "coordinates": {
+      "lat": 7.203603699999999,
+      "lng": 79.83384149999999
+    },
+    "address": "50, 21 St.Nicholas Rd, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 50,
+    "placeId": "ChIJgbtCvoPu4joRJOJHRRpSCic",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_272",
+    "name": "Our Lady Of Fatima Church - Kuttiduwa | පාතිමා මාතා දේවස්ථානය - කුට්ටිදූව",
+    "coordinates": {
+      "lat": 7.2084594,
+      "lng": 79.8297149
+    },
+    "address": "6R5H+9VP, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 6,
+    "placeId": "ChIJ9R1-i3nv4joRP8vF1pcjVhE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_273",
+    "name": "St. Anthony's Church Mankuliya | සාන්ත අන්තෝනි දේවස්ථානය - මංකුලිය",
+    "coordinates": {
+      "lat": 7.204227200000001,
+      "lng": 79.8309565
+    },
+    "address": "Mankuliya Church, Mankuliya Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 17,
+    "placeId": "ChIJq6rav4Lu4joRoIE78uIiDPw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_274",
+    "name": "Good Shepherd God Mission Negombo main branch",
+    "coordinates": {
+      "lat": 7.216074499999999,
+      "lng": 79.8384464
+    },
+    "address": "163/6 Sea Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.4,
+    "totalReviews": 7,
+    "placeId": "ChIJu0KRkYLv4joRvOTG17hg9sw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254682154_275",
+    "name": "Negombo North & Katunayaka Kingdom Hall",
+    "coordinates": {
+      "lat": 7.205024700000001,
+      "lng": 79.8426186
+    },
+    "address": "6R4V+225, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 19,
+    "placeId": "ChIJHXVqw4_u4joRzWwjpeODGXM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:02.154Z"
+  },
+  {
+    "id": "poi_1769254683909_276",
+    "name": "Negombo Town Jumma Masjid",
+    "coordinates": {
+      "lat": 7.212930699999999,
+      "lng": 79.8393251
+    },
+    "address": "Old Chilaw Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "mosque",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.6,
+    "totalReviews": 54,
+    "placeId": "ChIJ95NAuJnu4joRfvbNz6Jmbyk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:03.909Z"
+  },
+  {
+    "id": "poi_1769254683909_277",
+    "name": "Kamachchode Jumma Mosque",
+    "coordinates": {
+      "lat": 7.214224000000001,
+      "lng": 79.83683359999999
+    },
+    "address": "Mosque, Mosque Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "mosque",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 44,
+    "placeId": "ChIJn9LN55ju4joRrpoyZK-mGOA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:03.909Z"
+  },
+  {
+    "id": "poi_1769254683909_278",
+    "name": "Shiyam deen marzook",
+    "coordinates": {
+      "lat": 7.214411999999999,
+      "lng": 79.836491
+    },
+    "address": "18 B Alles Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "mosque",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJoWmIGADv4joRBxdC84uRvRA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:03.909Z"
+  },
+  {
+    "id": "poi_1769254685649_279",
+    "name": "Cactu sale negombo",
+    "coordinates": {
+      "lat": 7.2049741,
+      "lng": 79.8321833
+    },
+    "address": "15, 43 Mankuliya Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "museum",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJYdoT4Anv4joRSd02YKO-tT8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:05.649Z"
+  },
+  {
+    "id": "poi_1769254687381_280",
+    "name": "Living Aqua Negombo",
+    "coordinates": {
+      "lat": 7.2120229,
+      "lng": 79.84366299999999
+    },
+    "address": "No 10 galison road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "pet_store",
+      "aquarium",
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 8,
+    "placeId": "ChIJZQyoqY3v4joROs3vYQDCojU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:07.381Z"
+  },
+  {
+    "id": "poi_1769254689079_281",
+    "name": "CORONATION Boat House",
+    "coordinates": {
+      "lat": 7.207299199999998,
+      "lng": 79.84106729999999
+    },
+    "address": "No 95 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "culture",
+    "types": [
+      "zoo",
+      "travel_agency",
+      "park",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 7,
+    "placeId": "ChIJfTh5pFTv4joRaL5TJtdz35Y",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:09.079Z"
+  },
+  {
+    "id": "poi_1769254690916_282",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_283",
+    "name": "New Peking Restaurant",
+    "coordinates": {
+      "lat": 7.208898699999999,
+      "lng": 79.8390933
+    },
+    "address": "6R5Q+HJ4, Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 47,
+    "placeId": "ChIJX_NtO5ru4joRTsqVTEnZ1uI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_284",
+    "name": "Bombay Sweet Palace",
+    "coordinates": {
+      "lat": 7.21051,
+      "lng": 79.8394962
+    },
+    "address": "No: 04 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "bakery",
+      "store",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 113,
+    "placeId": "ChIJu15RIpru4joR4aZpMrNOp0E",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_285",
+    "name": "P&S (Perera and Sons) - Negambo",
+    "coordinates": {
+      "lat": 7.210699600000002,
+      "lng": 79.84139359999999
+    },
+    "address": "Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.8,
+    "totalReviews": 295,
+    "placeId": "ChIJ1-KArpDu4joR6Twrvw0Z4XQ",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_286",
+    "name": "Brix Restaurant",
+    "coordinates": {
+      "lat": 7.208514399999999,
+      "lng": 79.8351759
+    },
+    "address": "6R5P+93M, Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.2,
+    "totalReviews": 5,
+    "placeId": "ChIJiWmoEADv4joRvvWyoUU8TtY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_287",
+    "name": "Nayomi's fortress",
+    "coordinates": {
+      "lat": 7.208600699999999,
+      "lng": 79.83450979999999
+    },
+    "address": "Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.6,
+    "totalReviews": 63,
+    "placeId": "ChIJJzi9e5zu4joRoI5gjd-yFNw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_288",
+    "name": "Sambole Bojun Hala",
+    "coordinates": {
+      "lat": 7.210028400000001,
+      "lng": 79.83500579999999
+    },
+    "address": "40 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 24,
+    "placeId": "ChIJRS5yAK3v4joRB7Y7cf3ulEY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_290",
+    "name": "Dream Puffs - Anil's Garden",
+    "coordinates": {
+      "lat": 7.210375000000001,
+      "lng": 79.8355735
+    },
+    "address": "62 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 5,
+    "placeId": "ChIJxfB7IEfv4joRnsAstnDtOpM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_291",
+    "name": "CLUB. Ceylon (Seafood)",
+    "coordinates": {
+      "lat": 7.2102352,
+      "lng": 79.83496339999999
+    },
+    "address": "25 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 365,
+    "placeId": "ChIJY5krKPbv4joRMZev4aJDBZU",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_292",
+    "name": "hola",
+    "coordinates": {
+      "lat": 7.2104121,
+      "lng": 79.835385
+    },
+    "address": "No 15 4th Cross Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJMab8kszv4joRKKlYHWjJTVg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_293",
+    "name": "Kanrose Restaurant",
+    "coordinates": {
+      "lat": 7.208748699999999,
+      "lng": 79.8377572
+    },
+    "address": "78 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 9,
+    "placeId": "ChIJ08PWKNjv4joRZ2dNIVVW3aA",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_294",
+    "name": "Dhoni family restaurant",
+    "coordinates": {
+      "lat": 7.2077718,
+      "lng": 79.8374296
+    },
+    "address": "04 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.4,
+    "totalReviews": 7,
+    "placeId": "ChIJxxqdNwDv4joRoFf8hdZro7k",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_295",
+    "name": "Rasa Kutiya",
+    "coordinates": {
+      "lat": 7.207004299999999,
+      "lng": 79.8348616
+    },
+    "address": "01 St.Nicholas Rd, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.8,
+    "totalReviews": 16,
+    "placeId": "ChIJd3UU3PXv4joRWrHlmHA44Bc",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_296",
+    "name": "Gatsbee",
+    "coordinates": {
+      "lat": 7.2092448,
+      "lng": 79.83778079999999
+    },
+    "address": "68 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 20,
+    "placeId": "ChIJOduNkHrv4joRBU-bjo7Kcjk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_297",
+    "name": "Dinos Kitchen",
+    "coordinates": {
+      "lat": 7.2077206,
+      "lng": 79.8374544
+    },
+    "address": "6R5P+3XP, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJH1kdVM7v4joREmHzhfe3Bd8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_298",
+    "name": "The Grill by Kalapuwa",
+    "coordinates": {
+      "lat": 7.207761199999999,
+      "lng": 79.8374993
+    },
+    "address": "P.box 04, Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 3,
+    "placeId": "ChIJQ1296wDv4joR7Df4SdZz0Cc",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_299",
+    "name": "Sri Ragavas Restaurant",
+    "coordinates": {
+      "lat": 7.211064799999998,
+      "lng": 79.8367167
+    },
+    "address": "69 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 96,
+    "placeId": "ChIJF0t8Fszv4joR4hIKcb_7ZH0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254690916_301",
+    "name": "JFK Chicken",
+    "coordinates": {
+      "lat": 7.2075936,
+      "lng": 79.8380004
+    },
+    "address": "Udayarthoppuwa, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJKVGqZwDv4joRbaozPjfuwRY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:10.916Z"
+  },
+  {
+    "id": "poi_1769254692695_302",
+    "name": "Bombay Sweet Palace",
+    "coordinates": {
+      "lat": 7.21051,
+      "lng": 79.8394962
+    },
+    "address": "No: 04 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "bakery",
+      "restaurant",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 113,
+    "placeId": "ChIJu15RIpru4joR4aZpMrNOp0E",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_303",
+    "name": "Coffee break",
+    "coordinates": {
+      "lat": 7.2103547,
+      "lng": 79.835608
+    },
+    "address": "62 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 8,
+    "placeId": "ChIJ16J7RADv4joRVhTexxMQlzs",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_304",
+    "name": "The Century Cafe",
+    "coordinates": {
+      "lat": 7.210262299999999,
+      "lng": 79.83495889999999
+    },
+    "address": "25 Main Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.5,
+    "totalReviews": 43,
+    "placeId": "ChIJSVeq6Lfv4joRHFfFQTnBd0o",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_305",
+    "name": "Divisional Secretariat - Canteen",
+    "coordinates": {
+      "lat": 7.2093847,
+      "lng": 79.8334375
+    },
+    "address": "6R5M+Q95, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 5,
+    "totalReviews": 1,
+    "placeId": "ChIJ_SqrRNXv4joRMDQ-wB5U3hc",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_306",
+    "name": "Calton",
+    "coordinates": {
+      "lat": 7.207813499999999,
+      "lng": 79.83784349999999
+    },
+    "address": "6R5Q+44G, Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 107,
+    "placeId": "ChIJn8ZLnJvu4joRUPalsjFgeEM",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_308",
+    "name": "National Bake House",
+    "coordinates": {
+      "lat": 7.209956000000001,
+      "lng": 79.83948989999999
+    },
+    "address": "30 Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 3.3,
+    "totalReviews": 3,
+    "placeId": "ChIJ2apcaZru4joR8LVvPgVoWFo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_309",
+    "name": "Crave",
+    "coordinates": {
+      "lat": 7.207403899999999,
+      "lng": 79.8398457
+    },
+    "address": "49/A Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.9,
+    "totalReviews": 108,
+    "placeId": "ChIJaerzcADv4joR4wRqW3K-mQ4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_310",
+    "name": "New Negombo Cafe",
+    "coordinates": {
+      "lat": 7.209162099999999,
+      "lng": 79.8406729
+    },
+    "address": "B-Building, Shopping Complex, No. 2, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "cafe",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 6,
+    "placeId": "ChIJb5d0jJvv4joRaacGFHKVQ68",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_311",
+    "name": "Amigo's Pastry And Juice Bar",
+    "coordinates": {
+      "lat": 7.2066399,
+      "lng": 79.8406991
+    },
+    "address": "6R4R+M74, Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 3.7,
+    "totalReviews": 3,
+    "placeId": "ChIJAdA-p5ru4joREDhrf-DVyYo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_312",
+    "name": "Sri Ragavas Cafe",
+    "coordinates": {
+      "lat": 7.206952100000001,
+      "lng": 79.841095
+    },
+    "address": "6R4R+QCQ, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.3,
+    "totalReviews": 59,
+    "placeId": "ChIJi4Jl4Wjv4joRpwf_LbQb0cY",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_313",
+    "name": "Chai Karak",
+    "coordinates": {
+      "lat": 7.2060545,
+      "lng": 79.8408826
+    },
+    "address": "217 A Archbishop Nicholas Marcus Fernando Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 58,
+    "placeId": "ChIJC3XAfWHv4joRvdyBfJQuDOk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_314",
+    "name": "Jupico Ice Cream",
+    "coordinates": {
+      "lat": 7.2049651,
+      "lng": 79.8404252
+    },
+    "address": "61 Saint Jude's Place, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.6,
+    "totalReviews": 13,
+    "placeId": "ChIJE1bc7oXu4joRfSKUZSnLszo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_315",
+    "name": "Nachelle",
+    "coordinates": {
+      "lat": 7.205379600000001,
+      "lng": 79.8411565
+    },
+    "address": "Archbishop Nicholas Marcus Fernando Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.2,
+    "totalReviews": 15,
+    "placeId": "ChIJi8md8EDv4joR4GwMoUb7vIk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_316",
+    "name": "Nayanadini cafe",
+    "coordinates": {
+      "lat": 7.204829500000001,
+      "lng": 79.8407948
+    },
+    "address": "6R3R+W8M, Taladuwa Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 4,
+    "totalReviews": 1,
+    "placeId": "ChIJ3SSTWIXu4joRtztmAtrZBy0",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_317",
+    "name": "Fizz and Flat",
+    "coordinates": {
+      "lat": 7.214045400000002,
+      "lng": 79.8404362
+    },
+    "address": "37/1A Chilaw Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.6,
+    "totalReviews": 12,
+    "placeId": "ChIJxa2uvhLv4joRRfo7tI5jJzg",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_318",
+    "name": "Chai Karak Education City",
+    "coordinates": {
+      "lat": 7.203752000000001,
+      "lng": 79.8405824
+    },
+    "address": "Greens Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJEbWrtNjv4joRSe31EucvJmE",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_319",
+    "name": "Cafe",
+    "coordinates": {
+      "lat": 7.203618999999999,
+      "lng": 79.840578
+    },
+    "address": "6R3R+C6W, Padare Pio Mawatha, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 0,
+    "totalReviews": 0,
+    "placeId": "ChIJQ-UAEgDv4joRDch0PqKQpyw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_320",
+    "name": "Urban Blend",
+    "coordinates": {
+      "lat": 7.206524899999999,
+      "lng": 79.8439906
+    },
+    "address": "132D Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "point_of_interest",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.8,
+    "totalReviews": 145,
+    "placeId": "ChIJOfnryZXv4joR8QTODSg8hTk",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  },
+  {
+    "id": "poi_1769254692695_321",
+    "name": "Cupcakes by Sharon",
+    "coordinates": {
+      "lat": 7.2067048,
+      "lng": 79.8441189
+    },
+    "address": "181 Saint Joseph's Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "cafe",
+      "bakery",
+      "point_of_interest",
+      "store",
+      "food",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 72,
+    "placeId": "ChIJx5yIfyzv4joRNnEIlH2Tv3o",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-24T11:38:12.695Z"
+  }
+]

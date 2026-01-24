@@ -1,0 +1,184 @@
+{
+  "project": "Sri Lanka POIs Complete Parsing",
+  "version": "1.0.0",
+  "started_at": null,
+  "last_updated": null,
+  "current_pass": 0,
+  "total_passes": 6,
+  
+  "global_stats": {
+    "total_pois_collected": 0,
+    "total_addresses": 0,
+    "total_phones": 0,
+    "total_websites": 0,
+    "total_social_links": 0,
+    "total_photos": 0,
+    "total_hours": 0,
+    "total_ratings": 0,
+    "total_api_calls": 0,
+    "total_cost_usd": 0,
+    "total_time_minutes": 0,
+    "total_errors": 0
+  },
+  
+  "passes": {
+    "pass_1": {
+      "name": "Береговая линия (0-3 км)",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "expected_pois": 1710,
+      "expected_time_minutes": 40,
+      "expected_cost_usd": 20,
+      
+      "regions": {
+        "south_coast": {
+          "name": "Южное побережье (Galle - Tangalle)",
+          "status": "pending",
+          "length_km": 100,
+          "grid_cells": 45,
+          "cells_completed": 0,
+          "cells_failed": 0,
+          "pois_collected": 0,
+          "started_at": null,
+          "completed_at": null,
+          "coverage_percent": 0,
+          "stats": {
+            "addresses": 0,
+            "phones": 0,
+            "websites": 0,
+            "social": {
+              "facebook": 0,
+              "instagram": 0,
+              "tripadvisor": 0
+            },
+            "photos": 0,
+            "hours": 0,
+            "ratings": 0
+          },
+          "errors": []
+        },
+        "west_coast": {
+          "name": "Западное побережье (Colombo - Negombo)",
+          "status": "pending",
+          "length_km": 80,
+          "grid_cells": 36,
+          "cells_completed": 0,
+          "cells_failed": 0,
+          "pois_collected": 0,
+          "coverage_percent": 0
+        },
+        "east_coast": {
+          "name": "Восточное побережье (Trincomalee - Arugam Bay)",
+          "status": "pending",
+          "length_km": 300,
+          "grid_cells": 135,
+          "cells_completed": 0,
+          "cells_failed": 0,
+          "pois_collected": 0,
+          "coverage_percent": 0
+        },
+        "north_coast": {
+          "name": "Северное побережье (Jaffna - Mannar)",
+          "status": "pending",
+          "length_km": 200,
+          "grid_cells": 90,
+          "cells_completed": 0,
+          "cells_failed": 0,
+          "pois_collected": 0,
+          "coverage_percent": 0
+        },
+        "southeast_coast": {
+          "name": "Юго-Восточное (Hambantota - Yala)",
+          "status": "pending",
+          "length_km": 100,
+          "grid_cells": 45,
+          "cells_completed": 0,
+          "cells_failed": 0,
+          "pois_collected": 0,
+          "coverage_percent": 0
+        }
+      },
+      
+      "stats": {
+        "pois_collected": 0,
+        "addresses": 0,
+        "phones": 0,
+        "websites": 0,
+        "social_links": 0,
+        "photos": 0,
+        "hours": 0,
+        "api_calls": 0,
+        "cost_usd": 0,
+        "time_minutes": 0,
+        "errors": 0
+      }
+    },
+    
+    "pass_2": {
+      "name": "Прибрежные города (3-10 км)",
+      "status": "pending",
+      "expected_pois": 1970,
+      "expected_time_minutes": 60,
+      "expected_cost_usd": 25,
+      "stats": {
+        "pois_collected": 0
+      }
+    },
+    
+    "pass_3": {
+      "name": "Пригороды (10-25 км)",
+      "status": "pending",
+      "expected_pois": 880,
+      "expected_time_minutes": 40,
+      "expected_cost_usd": 15,
+      "stats": {
+        "pois_collected": 0
+      }
+    },
+    
+    "pass_4": {
+      "name": "Внутренние районы (25-50 км)",
+      "status": "pending",
+      "expected_pois": 1200,
+      "expected_time_minutes": 40,
+      "expected_cost_usd": 18,
+      "stats": {
+        "pois_collected": 0
+      }
+    },
+    
+    "pass_5": {
+      "name": "Центральная часть (50-100 км)",
+      "status": "pending",
+      "expected_pois": 800,
+      "expected_time_minutes": 30,
+      "expected_cost_usd": 12,
+      "stats": {
+        "pois_collected": 0
+      }
+    },
+    
+    "pass_6": {
+      "name": "Отдаленные районы (100+ км)",
+      "status": "pending",
+      "expected_pois": 500,
+      "expected_time_minutes": 20,
+      "expected_cost_usd": 10,
+      "stats": {
+        "pois_collected": 0
+      }
+    }
+  },
+  
+  "checkpoints": [],
+  
+  "failed_cells": [],
+  
+  "validation": {
+    "last_check": null,
+    "coverage_percent": 0,
+    "grey_zones": [],
+    "warnings": []
+  }
+}

@@ -1,0 +1,93 @@
+[2026-01-23T05:59:00.152Z] [INFO] ============================================================
+[2026-01-23T05:59:00.166Z] [INFO] STARTING POI PARSING - PASS 1 (0-1km from coast)
+[2026-01-23T05:59:00.166Z] [INFO] ============================================================
+[2026-01-23T05:59:00.167Z] [INFO] Rate limiting: 1500ms between requests
+[2026-01-23T05:59:00.167Z] [INFO] Expected time: 1.5-2 hours
+[2026-01-23T05:59:00.167Z] [INFO] 
+[2026-01-23T05:59:00.168Z] [INFO] Starting zone: Южное побережье
+[2026-01-23T05:59:00.169Z] [INFO] Expected POIs: 720
+[2026-01-23T05:59:00.169Z] [INFO] Searching near Unawatuna: 6.0097, 80.2474
+[2026-01-23T05:59:02.529Z] [INFO] Found 20 places
+[2026-01-23T05:59:04.364Z] [INFO] Parsed POI #1: Unawatuna (Quality: 85)
+[2026-01-23T05:59:07.682Z] [INFO] Parsed POI #2: Thaproban Beach House (Quality: 100)
+[2026-01-23T05:59:10.965Z] [INFO] Parsed POI #3: Villa In Paradise (Quality: 93)
+[2026-01-23T05:59:14.279Z] [INFO] Parsed POI #4: Dunes Unawatuna Hotel (Quality: 100)
+[2026-01-23T05:59:17.543Z] [INFO] Parsed POI #5: Tartaruga Beach Unawatuna (Quality: 100)
+[2026-01-23T05:59:20.817Z] [INFO] Parsed POI #6: Asantha Guest House (Quality: 100)
+[2026-01-23T05:59:24.148Z] [INFO] Parsed POI #7: The Serendipity Hotel Beach (Quality: 93)
+[2026-01-23T05:59:27.496Z] [INFO] Parsed POI #8: Hansa Villa (Quality: 100)
+[2026-01-23T05:59:30.827Z] [INFO] Parsed POI #9: Alice in Paradise (Quality: 100)
+[2026-01-23T05:59:34.133Z] [INFO] Parsed POI #10: Love Bar Unawatuna (Quality: 100)
+[2026-01-23T05:59:37.415Z] [INFO] Parsed POI #11: Neptune Bay Hotel (Quality: 93)
+[2026-01-23T05:59:40.714Z] [INFO] Parsed POI #12: Pradeepa House (Quality: 100)
+[2026-01-23T05:59:43.983Z] [INFO] Parsed POI #13: My Place Guest House (Quality: 100)
+[2026-01-23T05:59:47.254Z] [INFO] Parsed POI #14: Lara's Place Unawatuna (Quality: 100)
+[2026-01-23T05:59:50.540Z] [INFO] Parsed POI #15: Sam's Guest House (Quality: 100)
+[2026-01-23T05:59:53.846Z] [INFO] Parsed POI #16: Banana Garden (Quality: 93)
+[2026-01-23T05:59:57.128Z] [INFO] Parsed POI #17: Dulari guest (Quality: 98)
+[2026-01-23T06:00:00.435Z] [INFO] Parsed POI #18: Calamander Unawatuna Beach Resort (Quality: 98)
+[2026-01-23T06:00:03.728Z] [INFO] Parsed POI #19: Palm Garden Guest House (Quality: 100)
+[2026-01-23T06:00:06.957Z] [INFO] Parsed POI #20: The Ola (Quality: 83)
+[2026-01-23T06:00:08.457Z] [INFO] Searching near Galle: 6.0535, 80.221
+[2026-01-23T06:00:10.307Z] [INFO] Found 20 places
+[2026-01-23T06:00:12.075Z] [INFO] Parsed POI #21: Galle (Quality: 85)
+[2026-01-23T06:00:15.350Z] [INFO] Parsed POI #22: Nisansala Holiday Inn (Quality: 100)
+[2026-01-23T06:00:18.589Z] [INFO] Parsed POI #23: Hill cottage B&B - A/C Room (Quality: 83)
+[2026-01-23T06:00:21.837Z] [INFO] Parsed POI #24: Villa Primrose Cottage (Quality: 100)
+[2026-01-23T06:00:25.085Z] [INFO] Parsed POI #25: Dominic Villa Milidduwa (Quality: 98)
+[2026-01-23T06:00:28.330Z] [INFO] Parsed POI #26: Lotus nut House (Quality: 83)
+[2026-01-23T06:00:31.587Z] [INFO] Parsed POI #27: Blue Palm Villa (Quality: 100)
+[2026-01-23T06:00:34.796Z] [INFO] Parsed POI #28: Somnasa (Quality: 88)
+[2026-01-23T06:00:38.001Z] [INFO] Parsed POI #29: Star Rest (Quality: 83)
+[2026-01-23T06:00:41.246Z] [INFO] Parsed POI #30: Seven Star Studio Holdings (Pvt) Ltd (Quality: 100)
+[2026-01-23T06:00:44.460Z] [INFO] Parsed POI #31: Galle Home Stay Villa (Quality: 88)
+[2026-01-23T06:00:47.672Z] [INFO] Parsed POI #32: Telford International School (Quality: 100)
+[2026-01-23T06:00:50.891Z] [INFO] Parsed POI #33: HELP-O Sri Lanka Office (Quality: 100)
+[2026-01-23T06:00:54.146Z] [INFO] Parsed POI #34: Print House Offset & Digital Printers (Pvt) Ltd (Quality: 100)
+[2026-01-23T06:00:57.372Z] [INFO] Parsed POI #35: Malee's Restaurant (Quality: 100)
+[2026-01-23T06:01:00.620Z] [INFO] Parsed POI #36: Com Communication (Quality: 100)
+[2026-01-23T06:01:03.826Z] [INFO] Parsed POI #37: Samurdhi Bank - Dangedara (Quality: 90)
+[2026-01-23T06:01:07.089Z] [INFO] Parsed POI #38: Varna - වර්ණ (Quality: 100)
+[2026-01-23T06:01:10.336Z] [INFO] Parsed POI #39: Dilshani Travels (Quality: 95)
+[2026-01-23T06:01:13.598Z] [INFO] Parsed POI #40: Hirimbura (Quality: 85)
+[2026-01-23T06:01:15.099Z] [INFO] Searching near Mirissa: 5.9467, 80.4539
+[2026-01-23T06:01:16.914Z] [INFO] Found 20 places
+[2026-01-23T06:01:18.684Z] [INFO] Parsed POI #41: Mirissa (Quality: 85)
+[2026-01-23T06:01:21.904Z] [INFO] Parsed POI #42: Sunbeam Beach Resort (Quality: 93)
+[2026-01-23T06:01:25.132Z] [INFO] Parsed POI #43: Paradise Beach Club (Quality: 100)
+[2026-01-23T06:01:28.347Z] [INFO] Parsed POI #44: Villa Soleil (Quality: 93)
+[2026-01-23T06:01:31.602Z] [INFO] Parsed POI #45: Celestial Inn Mirissa (Quality: 100)
+[2026-01-23T06:01:34.840Z] [INFO] Parsed POI #46: Whale Watching with Dinu (Quality: 100)
+[2026-01-23T06:01:38.064Z] [INFO] Parsed POI #47: Sagopearl Guest (Quality: 98)
+[2026-01-23T06:01:41.308Z] [INFO] Parsed POI #48: Vestal Wood Palace (Quality: 98)
+[2026-01-23T06:01:44.551Z] [INFO] Parsed POI #49: Indra Resort (Quality: 93)
+[2026-01-23T06:01:47.763Z] [INFO] Parsed POI #50: Bird House Mirissa (Quality: 100)
+[2026-01-23T06:01:47.763Z] [INFO] Checkpoint: 50 POIs parsed
+[2026-01-23T06:01:47.767Z] [INFO] Checkpoint saved: C:\Users\User\Desktop\sri\SRI\parsed_data\pass_1_0-1km\south_coast_checkpoint.json
+[2026-01-23T06:01:50.991Z] [INFO] Parsed POI #51: Katie's Hideaway (Quality: 75)
+[2026-01-23T06:01:54.234Z] [INFO] Parsed POI #52: Nuwan Guest (Quality: 98)
+[2026-01-23T06:01:57.493Z] [INFO] Parsed POI #53: Samudra Resort (Quality: 98)
+[2026-01-23T06:02:00.738Z] [INFO] Parsed POI #54: Katuwala Gedara Mirissa (Quality: 93)
+[2026-01-23T06:02:03.957Z] [INFO] Parsed POI #55: Sisara Sun Hill (Quality: 98)
+[2026-01-23T06:02:07.206Z] [INFO] Parsed POI #56: GG Lodge Mirissa (Quality: 100)
+[2026-01-23T06:02:10.464Z] [INFO] Parsed POI #57: NH Rest house (Quality: 100)
+[2026-01-23T06:02:13.690Z] [INFO] Parsed POI #58: Lemazone Inn (Quality: 100)
+[2026-01-23T06:02:16.914Z] [INFO] Parsed POI #59: Palm View Guest (Quality: 88)
+[2026-01-23T06:02:20.154Z] [INFO] Parsed POI #60: Ship Faced Beach Hostel (Quality: 98)
+[2026-01-23T06:02:21.655Z] [INFO] Zone south_coast complete: 60 POIs parsed
+[2026-01-23T06:02:21.658Z] [INFO] Final results saved: C:\Users\User\Desktop\sri\SRI\parsed_data\pass_1_0-1km\south_coast.json
+[2026-01-23T06:02:21.658Z] [INFO] 
+[2026-01-23T06:02:21.658Z] [INFO] ============================================================
+[2026-01-23T06:02:21.658Z] [INFO] PASS 1 COMPLETE!
+[2026-01-23T06:02:21.659Z] [INFO] ============================================================
+[2026-01-23T06:02:21.659Z] [INFO] Total POIs parsed: 60
+[2026-01-23T06:02:21.659Z] [INFO] Elapsed time: 3.4 minutes
+[2026-01-23T06:02:21.659Z] [INFO] 
+[2026-01-23T06:02:21.659Z] [INFO] ⚠️  MANDATORY STOP FOR QUALITY CHECK
+[2026-01-23T06:02:21.660Z] [INFO] 
+[2026-01-23T06:02:21.660Z] [INFO] Next steps:
+[2026-01-23T06:02:21.660Z] [INFO] 1. Review parsed data in: SRI/parsed_data/pass_1_0-1km/
+[2026-01-23T06:02:21.660Z] [INFO] 2. Perform quality check (see: SRI/PARSING_PLAN_V2.md)
+[2026-01-23T06:02:21.661Z] [INFO] 3. Fill quality check report
+[2026-01-23T06:02:21.661Z] [INFO] 4. Only after approval - continue to PASS 2
+[2026-01-23T06:02:21.661Z] [INFO] ============================================================

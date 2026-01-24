@@ -1,0 +1,1526 @@
+[2026-01-24T12:03:21.929Z] [INFO] 
+[2026-01-24T12:03:21.933Z] [INFO] ======================================================================
+[2026-01-24T12:03:21.933Z] [INFO] FOOD POI ENRICHMENT - GOOGLE PLACES DETAILS API
+[2026-01-24T12:03:21.934Z] [INFO] ======================================================================
+[2026-01-24T12:03:21.934Z] [INFO] 
+[2026-01-24T12:03:21.934Z] [INFO] 📂 Loading data from: C:\Users\User\Desktop\sri\SRI\parsed_data\negombo_tangalle\pass_1_0-1km.json
+[2026-01-24T12:03:21.957Z] [INFO] ✅ Loaded 3631 total POIs
+[2026-01-24T12:03:21.959Z] [INFO] 🍽️  Food POIs: 755
+[2026-01-24T12:03:21.959Z] [INFO] ✅ Already enriched: 0
+[2026-01-24T12:03:21.959Z] [INFO] ⏳ To enrich: 755
+[2026-01-24T12:03:21.960Z] [INFO] 
+[2026-01-24T12:03:21.961Z] [INFO] [1/755] Enriching: Choys negombo (Negombo)
+[2026-01-24T12:03:22.570Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:22.671Z] [INFO] [2/755] Enriching: Choys negombo (Negombo)
+[2026-01-24T12:03:22.905Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:23.005Z] [INFO] [3/755] Enriching: Coronation Restaurant & Bar (Negombo)
+[2026-01-24T12:03:23.291Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:23.394Z] [INFO] [4/755] Enriching: Bonjo murukku (Negombo)
+[2026-01-24T12:03:23.690Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:23.790Z] [INFO] [5/755] Enriching: Beer House Pub & Restaurant (Negombo)
+[2026-01-24T12:03:24.093Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:03:24.194Z] [INFO] [6/755] Enriching: Choys negombo (Negombo)
+[2026-01-24T12:03:24.452Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:24.553Z] [INFO] [7/755] Enriching: Choys negombo (Negombo)
+[2026-01-24T12:03:24.834Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:24.935Z] [INFO] [8/755] Enriching: Choys negombo (Negombo)
+[2026-01-24T12:03:25.217Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:25.319Z] [INFO] [9/755] Enriching: New Peking Restaurant (Negombo)
+[2026-01-24T12:03:25.665Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:25.766Z] [INFO] [10/755] Enriching: P&S (Perera and Sons) - Negambo (Negombo)
+[2026-01-24T12:03:26.030Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:26.131Z] [INFO] [11/755] Enriching: Brix Restaurant (Negombo)
+[2026-01-24T12:03:26.409Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:26.509Z] [INFO] [12/755] Enriching: Nayomi's fortress (Negombo)
+[2026-01-24T12:03:26.833Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:26.934Z] [INFO] [13/755] Enriching: Sambole Bojun Hala (Negombo)
+[2026-01-24T12:03:27.149Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:27.250Z] [INFO] [14/755] Enriching: Dream Puffs - Anil's Garden (Negombo)
+[2026-01-24T12:03:27.468Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:27.569Z] [INFO] [15/755] Enriching: CLUB. Ceylon (Seafood) (Negombo)
+[2026-01-24T12:03:27.837Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:27.939Z] [INFO] [16/755] Enriching: hola (Negombo)
+[2026-01-24T12:03:28.191Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:03:28.294Z] [INFO] [17/755] Enriching: Kanrose Restaurant (Negombo)
+[2026-01-24T12:03:28.483Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:03:28.584Z] [INFO] [18/755] Enriching: Dhoni family restaurant (Negombo)
+[2026-01-24T12:03:28.809Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:28.910Z] [INFO] [19/755] Enriching: Rasa Kutiya (Negombo)
+[2026-01-24T12:03:29.220Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:29.321Z] [INFO] [20/755] Enriching: Gatsbee (Negombo)
+[2026-01-24T12:03:29.574Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:29.677Z] [INFO] [21/755] Enriching: Dinos Kitchen (Negombo)
+[2026-01-24T12:03:29.927Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:30.027Z] [INFO] [22/755] Enriching: The Grill by Kalapuwa (Negombo)
+[2026-01-24T12:03:30.244Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:03:30.344Z] [INFO] [23/755] Enriching: Sri Ragavas Restaurant (Negombo)
+[2026-01-24T12:03:30.663Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:03:30.766Z] [INFO] [24/755] Enriching: JFK Chicken (Negombo)
+[2026-01-24T12:03:31.062Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:31.163Z] [INFO] [25/755] Enriching: The Century Cafe (Negombo)
+[2026-01-24T12:03:31.363Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:03:31.464Z] [INFO] [26/755] Enriching: Divisional Secretariat - Canteen (Negombo)
+[2026-01-24T12:03:31.731Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:31.833Z] [INFO] [27/755] Enriching: Calton (Negombo)
+[2026-01-24T12:03:32.040Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:32.140Z] [INFO] [28/755] Enriching: National Bake House (Negombo)
+[2026-01-24T12:03:32.411Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:32.512Z] [INFO] [29/755] Enriching: Amigo's Pastry And Juice Bar (Negombo)
+[2026-01-24T12:03:32.734Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:32.835Z] [INFO] [30/755] Enriching: Sri Ragavas Cafe (Negombo)
+[2026-01-24T12:03:33.141Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:33.243Z] [INFO] [31/755] Enriching: Chai Karak (Negombo)
+[2026-01-24T12:03:33.463Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:33.564Z] [INFO] [32/755] Enriching: Jupico Ice Cream (Negombo)
+[2026-01-24T12:03:33.807Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:33.908Z] [INFO] [33/755] Enriching: Nachelle (Negombo)
+[2026-01-24T12:03:34.116Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:34.217Z] [INFO] [34/755] Enriching: Fizz and Flat (Negombo)
+[2026-01-24T12:03:34.464Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:34.565Z] [INFO] [35/755] Enriching: Chai Karak Education City (Negombo)
+[2026-01-24T12:03:34.808Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:03:34.909Z] [INFO] [36/755] Enriching: Urban Blend (Negombo)
+[2026-01-24T12:03:35.122Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:35.223Z] [INFO] [37/755] Enriching: New Pamunugama Wine Stores (Ja-Ela)
+[2026-01-24T12:03:35.415Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:35.517Z] [INFO] [38/755] Enriching: බෝපිටිය රා තැබෑරුම - Bopitiya Ra Tavern (Ja-Ela)
+[2026-01-24T12:03:35.757Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:35.858Z] [INFO] [39/755] Enriching: Nisala plece (Ja-Ela)
+[2026-01-24T12:03:36.061Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:36.162Z] [INFO] [40/755] Enriching: CAFE ENZO (Ja-Ela)
+[2026-01-24T12:03:36.348Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:36.449Z] [INFO] [41/755] Enriching: N.R. Foods (Ja-Ela)
+[2026-01-24T12:03:36.647Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:36.750Z] [INFO] [42/755] Enriching: Namal bakers and caterers (Ja-Ela)
+[2026-01-24T12:03:36.986Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:37.086Z] [INFO] [43/755] Enriching: Master Food, kadella outlet (Ja-Ela)
+[2026-01-24T12:03:37.318Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=false, photo=false
+[2026-01-24T12:03:37.419Z] [INFO] [44/755] Enriching: SL Foods (Ja-Ela)
+[2026-01-24T12:03:37.642Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:37.742Z] [INFO] [45/755] Enriching: Sun Shine Family Restaurant (Ja-Ela)
+[2026-01-24T12:03:37.970Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:38.073Z] [INFO] [46/755] Enriching: Red Chilli Family Restaurant (Ja-Ela)
+[2026-01-24T12:03:38.286Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:38.387Z] [INFO] [47/755] Enriching: සංජනා FOODS (Ja-Ela)
+[2026-01-24T12:03:38.599Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:38.700Z] [INFO] [48/755] Enriching: Vinusesha (Ja-Ela)
+[2026-01-24T12:03:38.909Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:39.010Z] [INFO] [49/755] Enriching: KoKo Kafe (Ja-Ela)
+[2026-01-24T12:03:39.235Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:39.335Z] [INFO] [50/755] Enriching: Thilapiya boat (Ja-Ela)
+[2026-01-24T12:03:39.556Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:39.682Z] [INFO] ✅ Checkpoint 1 saved: 50 food POIs enriched
+[2026-01-24T12:03:39.682Z] [INFO] [51/755] Enriching: Tilapiya Fish 'n Dine (Ja-Ela)
+[2026-01-24T12:03:39.891Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:39.993Z] [INFO] [52/755] Enriching: Laakalaa Biriyani Indian restaurant (Ja-Ela)
+[2026-01-24T12:03:40.202Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:40.303Z] [INFO] [53/755] Enriching: Wenasa Restaurant Negombo (Ja-Ela)
+[2026-01-24T12:03:40.549Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:40.650Z] [INFO] [54/755] Enriching: Dewora kitchen (Ja-Ela)
+[2026-01-24T12:03:40.834Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:03:40.935Z] [INFO] [55/755] Enriching: Samagi Mawatha (Ja-Ela)
+[2026-01-24T12:03:41.178Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:03:41.278Z] [INFO] [56/755] Enriching: BASICO Bar Lounge (Colombo)
+[2026-01-24T12:03:41.528Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:41.629Z] [INFO] [57/755] Enriching: Rajagiriya (Colombo)
+[2026-01-24T12:03:41.833Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:41.934Z] [INFO] [58/755] Enriching: Guli (Colombo)
+[2026-01-24T12:03:42.119Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:42.220Z] [INFO] [59/755] Enriching: Old Joes Bar & Sports Club (Colombo)
+[2026-01-24T12:03:42.416Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:42.517Z] [INFO] [60/755] Enriching: Venus bar (Colombo)
+[2026-01-24T12:03:42.714Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:42.815Z] [INFO] [61/755] Enriching: H. M. Janaka (Colombo)
+[2026-01-24T12:03:43.010Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:43.111Z] [INFO] [62/755] Enriching: Kaluthara (Colombo)
+[2026-01-24T12:03:43.297Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:43.398Z] [INFO] [63/755] Enriching: Odessa By The Lake (Colombo)
+[2026-01-24T12:03:43.582Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:03:43.683Z] [INFO] [64/755] Enriching: New weligama Bar and Restaurant (Colombo)
+[2026-01-24T12:03:43.906Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:44.006Z] [INFO] [65/755] Enriching: Darley Road Pub & Restaurant (Colombo)
+[2026-01-24T12:03:44.237Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:44.338Z] [INFO] [66/755] Enriching: Headquarters by W15 (Colombo)
+[2026-01-24T12:03:44.549Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:44.650Z] [INFO] [67/755] Enriching: Chairman’s Lounge Rooftop (Colombo)
+[2026-01-24T12:03:44.879Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:44.979Z] [INFO] [68/755] Enriching: Fresh fruit juices (Colombo)
+[2026-01-24T12:03:45.217Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:45.318Z] [INFO] [69/755] Enriching: Kadayak (Colombo)
+[2026-01-24T12:03:45.522Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:45.622Z] [INFO] [70/755] Enriching: Union Restaurant & Bar (Colombo)
+[2026-01-24T12:03:45.904Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:46.005Z] [INFO] [71/755] Enriching: Ibrahim Eating House (Beruwala Kade) (Colombo)
+[2026-01-24T12:03:46.235Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:46.337Z] [INFO] [72/755] Enriching: Kamra Juice Bar (Colombo)
+[2026-01-24T12:03:46.524Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:46.625Z] [INFO] [73/755] Enriching: The Fab - Asiri Central Hospital (Colombo)
+[2026-01-24T12:03:46.871Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:46.974Z] [INFO] [74/755] Enriching: FLOW (Colombo)
+[2026-01-24T12:03:47.216Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:47.317Z] [INFO] [75/755] Enriching: Fast food - eat Burger (Colombo)
+[2026-01-24T12:03:47.550Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:47.651Z] [INFO] [76/755] Enriching: Taste of Jaffna Buffet (Colombo)
+[2026-01-24T12:03:47.931Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=false
+[2026-01-24T12:03:48.032Z] [INFO] [77/755] Enriching: Yin jing (Colombo)
+[2026-01-24T12:03:48.212Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:48.313Z] [INFO] [78/755] Enriching: ruhunu (Colombo)
+[2026-01-24T12:03:48.541Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:48.642Z] [INFO] [79/755] Enriching: my friend cafe (Colombo)
+[2026-01-24T12:03:48.857Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:48.958Z] [INFO] [80/755] Enriching: 新食堂 (Colombo)
+[2026-01-24T12:03:49.158Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:49.259Z] [INFO] [81/755] Enriching: Sri lanka (Colombo)
+[2026-01-24T12:03:49.506Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:49.606Z] [INFO] [82/755] Enriching: My biz (Colombo)
+[2026-01-24T12:03:49.838Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:49.939Z] [INFO] [83/755] Enriching: Banu (Colombo)
+[2026-01-24T12:03:50.148Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:03:50.249Z] [INFO] [84/755] Enriching: J.k.Tin (Colombo)
+[2026-01-24T12:03:50.438Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:50.539Z] [INFO] [85/755] Enriching: Purple light food factory (Colombo)
+[2026-01-24T12:03:50.738Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:50.839Z] [INFO] [86/755] Enriching: Addictive (Colombo)
+[2026-01-24T12:03:51.013Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:51.116Z] [INFO] [87/755] Enriching: K.sutha (Colombo)
+[2026-01-24T12:03:51.361Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:03:51.461Z] [INFO] [88/755] Enriching: Nugegoda (Colombo)
+[2026-01-24T12:03:51.634Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:51.734Z] [INFO] [89/755] Enriching: Saman Aiyage Kade (Colombo)
+[2026-01-24T12:03:51.963Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:03:52.065Z] [INFO] [90/755] Enriching: Island Tea Co & Ceylon Coffee Club - Lotus Tower (Colombo)
+[2026-01-24T12:03:52.266Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:52.367Z] [INFO] [91/755] Enriching: Highland Milk Bar (Colombo)
+[2026-01-24T12:03:52.597Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:52.698Z] [INFO] [92/755] Enriching: Dwivedi Cafe (Colombo)
+[2026-01-24T12:03:52.916Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:53.018Z] [INFO] [93/755] Enriching: Rizvi Snacks (Colombo)
+[2026-01-24T12:03:53.225Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:03:53.325Z] [INFO] [94/755] Enriching: Indian Sweet Mart (Colombo)
+[2026-01-24T12:03:53.550Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:53.650Z] [INFO] [95/755] Enriching: Sakura Restaurant (Kinjou Restaurant) (Colombo South)
+[2026-01-24T12:03:53.906Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:54.008Z] [INFO] [96/755] Enriching: Pizza Hut - Havelock Town (Colombo South)
+[2026-01-24T12:03:54.266Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:54.367Z] [INFO] [97/755] Enriching: Sakura Restaurant (Kinjou Restaurant) (Colombo South)
+[2026-01-24T12:03:54.596Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:54.698Z] [INFO] [98/755] Enriching: Pizza Hut - Havelock Town (Colombo South)
+[2026-01-24T12:03:54.951Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:55.054Z] [INFO] [99/755] Enriching: ON14 Rooftop Lounge & Bar (Colombo South)
+[2026-01-24T12:03:55.247Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:55.349Z] [INFO] [100/755] Enriching: Lunuu at Kittoz (Colombo South)
+[2026-01-24T12:03:55.578Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:55.700Z] [INFO] ✅ Checkpoint 2 saved: 100 food POIs enriched
+[2026-01-24T12:03:55.701Z] [INFO] [101/755] Enriching: ON14 Rooftop Lounge & Bar (Colombo South)
+[2026-01-24T12:03:55.930Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:56.031Z] [INFO] [102/755] Enriching: Beach Wadiya (Colombo South)
+[2026-01-24T12:03:56.283Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:56.386Z] [INFO] [103/755] Enriching: Chillax Garden Pub (Colombo South)
+[2026-01-24T12:03:56.609Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:56.710Z] [INFO] [104/755] Enriching: Arethusa Wine Stores (Colombo South)
+[2026-01-24T12:03:56.905Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:57.005Z] [INFO] [105/755] Enriching: New City Bar and Restaurant (Colombo South)
+[2026-01-24T12:03:57.208Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:57.308Z] [INFO] [106/755] Enriching: Kinross Bar & Restaurant (Colombo South)
+[2026-01-24T12:03:57.532Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:03:57.634Z] [INFO] [107/755] Enriching: Shoulders By Harpos (Colombo South)
+[2026-01-24T12:03:57.842Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:57.944Z] [INFO] [108/755] Enriching: RIYANA COOL BAR & RESTAURAN (Colombo South)
+[2026-01-24T12:03:58.134Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:58.235Z] [INFO] [109/755] Enriching: Tha Main (Colombo South)
+[2026-01-24T12:03:58.464Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:03:58.565Z] [INFO] [110/755] Enriching: Roy's Bar & Restaurant (Colombo South)
+[2026-01-24T12:03:58.756Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:03:58.856Z] [INFO] [111/755] Enriching: Lunuu at Kittoz (Colombo South)
+[2026-01-24T12:03:59.101Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:59.203Z] [INFO] [112/755] Enriching: BOND HOOKAH LOUNGE (Colombo South)
+[2026-01-24T12:03:59.436Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:03:59.537Z] [INFO] [113/755] Enriching: MY Bar (Colombo South)
+[2026-01-24T12:03:59.816Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:03:59.917Z] [INFO] [114/755] Enriching: Kawaleo Wine Stores (Colombo South)
+[2026-01-24T12:04:00.100Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:00.201Z] [INFO] [115/755] Enriching: La Vista Rooftop Bar (Colombo South)
+[2026-01-24T12:04:00.431Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:00.533Z] [INFO] [116/755] Enriching: Chaw Chaw Pub & Restaurant PVT LTD (Colombo South)
+[2026-01-24T12:04:00.728Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:00.830Z] [INFO] [117/755] Enriching: Gorden’s Pub & Restaurant (Colombo South)
+[2026-01-24T12:04:01.042Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:01.146Z] [INFO] [118/755] Enriching: Sakura Restaurant (Kinjou Restaurant) (Colombo South)
+[2026-01-24T12:04:01.367Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:01.468Z] [INFO] [119/755] Enriching: Pizza Hut - Havelock Town (Colombo South)
+[2026-01-24T12:04:01.697Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:01.797Z] [INFO] [120/755] Enriching: Sakura Restaurant (Kinjou Restaurant) (Colombo South)
+[2026-01-24T12:04:01.998Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:02.099Z] [INFO] [121/755] Enriching: Pizza Hut - Havelock Town (Colombo South)
+[2026-01-24T12:04:02.258Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:02.361Z] [INFO] [122/755] Enriching: Sakura Restaurant (Kinjou Restaurant) (Colombo South)
+[2026-01-24T12:04:02.567Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:02.668Z] [INFO] [123/755] Enriching: Pizza Hut - Havelock Town (Colombo South)
+[2026-01-24T12:04:02.870Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:02.972Z] [INFO] [124/755] Enriching: Chana's (Colombo South)
+[2026-01-24T12:04:03.173Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:03.274Z] [INFO] [125/755] Enriching: Craves (Colombo South)
+[2026-01-24T12:04:03.511Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:03.613Z] [INFO] [126/755] Enriching: ON14 Rooftop Lounge & Bar (Colombo South)
+[2026-01-24T12:04:03.804Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:03.905Z] [INFO] [127/755] Enriching: Sweet Tomato (Colombo South)
+[2026-01-24T12:04:04.144Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:04.245Z] [INFO] [128/755] Enriching: Dolce Italia (Colombo South)
+[2026-01-24T12:04:04.484Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:04.585Z] [INFO] [129/755] Enriching: Jasmine Song (Colombo South)
+[2026-01-24T12:04:04.844Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:04.947Z] [INFO] [130/755] Enriching: Domino's Pizza - Havelock (Colombo South)
+[2026-01-24T12:04:05.166Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:05.266Z] [INFO] [131/755] Enriching: Panaash - Indian Sweets, Groceries & Faluda's (Colombo South)
+[2026-01-24T12:04:05.459Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:05.560Z] [INFO] [132/755] Enriching: Siam House Restaurant (Colombo South)
+[2026-01-24T12:04:05.778Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:05.880Z] [INFO] [133/755] Enriching: Chinese Dragon Cafe Bambalapitiya (Colombo South)
+[2026-01-24T12:04:06.072Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:06.174Z] [INFO] [134/755] Enriching: Lak Foods (Colombo South)
+[2026-01-24T12:04:06.373Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:06.474Z] [INFO] [135/755] Enriching: Beach Wadiya (Colombo South)
+[2026-01-24T12:04:06.720Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:06.821Z] [INFO] [136/755] Enriching: Kandoori (Colombo South)
+[2026-01-24T12:04:07.069Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:07.169Z] [INFO] [137/755] Enriching: Chinese Golden Gate (Colombo South)
+[2026-01-24T12:04:07.396Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:07.497Z] [INFO] [138/755] Enriching: Bees Cafe Colombo (Colombo South)
+[2026-01-24T12:04:07.739Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:07.840Z] [INFO] [139/755] Enriching: Dot's (Colombo South)
+[2026-01-24T12:04:08.033Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:04:08.134Z] [INFO] [140/755] Enriching: Cafe Kinross (Colombo South)
+[2026-01-24T12:04:08.367Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:08.468Z] [INFO] [141/755] Enriching: The Ziya Cafe (Colombo South)
+[2026-01-24T12:04:08.645Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:08.747Z] [INFO] [142/755] Enriching: The Park Cafe (Colombo South)
+[2026-01-24T12:04:08.971Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:09.073Z] [INFO] [143/755] Enriching: Top Collection (Colombo South)
+[2026-01-24T12:04:09.289Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:09.391Z] [INFO] [144/755] Enriching: Culinary Craft Cafe (Colombo South)
+[2026-01-24T12:04:09.622Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:09.723Z] [INFO] [145/755] Enriching: Shakthi Food (Colombo South)
+[2026-01-24T12:04:09.919Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:10.019Z] [INFO] [146/755] Enriching: Lounge Bar (Mount Lavinia)
+[2026-01-24T12:04:10.272Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=false
+[2026-01-24T12:04:10.373Z] [INFO] [147/755] Enriching: Old Thomians Swimming Club (Mount Lavinia)
+[2026-01-24T12:04:10.594Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:10.695Z] [INFO] [148/755] Enriching: La Langousterie (Mount Lavinia)
+[2026-01-24T12:04:10.905Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:11.005Z] [INFO] [149/755] Enriching: Masterful Private Limited (Mount Lavinia)
+[2026-01-24T12:04:11.231Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:11.332Z] [INFO] [150/755] Enriching: Sugar Beach (Mount Lavinia)
+[2026-01-24T12:04:11.535Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:11.657Z] [INFO] ✅ Checkpoint 3 saved: 150 food POIs enriched
+[2026-01-24T12:04:11.657Z] [INFO] [151/755] Enriching: Lounge Bar (Mount Lavinia)
+[2026-01-24T12:04:11.851Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=false
+[2026-01-24T12:04:11.952Z] [INFO] [152/755] Enriching: Surf Club (Mount Lavinia)
+[2026-01-24T12:04:12.140Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:12.240Z] [INFO] [153/755] Enriching: Juce Bar (Mount Lavinia)
+[2026-01-24T12:04:12.471Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:12.571Z] [INFO] [154/755] Enriching: Seafire Family Restaurent & Bar - German, Thai & Chinese Cuisine (Mount Lavinia)
+[2026-01-24T12:04:12.835Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:12.935Z] [INFO] [155/755] Enriching: Sky 348 Bar & Restaurant (Mount Lavinia)
+[2026-01-24T12:04:13.149Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:13.250Z] [INFO] [156/755] Enriching: Mount Gallery Restaurant (Mount Lavinia)
+[2026-01-24T12:04:13.446Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:13.547Z] [INFO] [157/755] Enriching: Lavinia Restaurant Mount Lavinia Beach (Mount Lavinia)
+[2026-01-24T12:04:13.755Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:13.856Z] [INFO] [158/755] Enriching: Governor's Restaurant (Mount Lavinia)
+[2026-01-24T12:04:14.077Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:14.177Z] [INFO] [159/755] Enriching: JoJo's Place (Mount Lavinia)
+[2026-01-24T12:04:14.370Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:14.473Z] [INFO] [160/755] Enriching: Addara Beach Club (Mount Lavinia)
+[2026-01-24T12:04:14.735Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=false, photo=true
+[2026-01-24T12:04:14.835Z] [INFO] [161/755] Enriching: Boat Haus Cafe (Mount Lavinia)
+[2026-01-24T12:04:15.087Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:15.189Z] [INFO] [162/755] Enriching: Burger King - Mount Lavinia (Mount Lavinia)
+[2026-01-24T12:04:15.414Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:15.515Z] [INFO] [163/755] Enriching: Arthur's Pizzeria - Mount Lavinia (Mount Lavinia)
+[2026-01-24T12:04:15.723Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:15.824Z] [INFO] [164/755] Enriching: Casserole Restaurant (Mount Lavinia)
+[2026-01-24T12:04:16.050Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:16.151Z] [INFO] [165/755] Enriching: La Langousterie (Mount Lavinia)
+[2026-01-24T12:04:16.341Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:16.442Z] [INFO] [166/755] Enriching: KFC - Mount Lavinia (Mount Lavinia)
+[2026-01-24T12:04:16.687Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:16.787Z] [INFO] [167/755] Enriching: Subway - Mount Lavinia (Mount Lavinia)
+[2026-01-24T12:04:16.991Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:17.092Z] [INFO] [168/755] Enriching: Thai Cuisine La Rambla (Mount Lavinia)
+[2026-01-24T12:04:17.286Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:04:17.387Z] [INFO] [169/755] Enriching: Lambastica (Mount Lavinia)
+[2026-01-24T12:04:17.622Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=false
+[2026-01-24T12:04:17.722Z] [INFO] [170/755] Enriching: Loon Tao (Mount Lavinia)
+[2026-01-24T12:04:17.931Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:18.032Z] [INFO] [171/755] Enriching: The Grill Thrill (Mount Lavinia)
+[2026-01-24T12:04:18.237Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:18.337Z] [INFO] [172/755] Enriching: Lia Cafe (Mount Lavinia)
+[2026-01-24T12:04:18.534Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:18.636Z] [INFO] [173/755] Enriching: Sandpit (Mount Lavinia)
+[2026-01-24T12:04:18.827Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:18.927Z] [INFO] [174/755] Enriching: Café 79' (Mount Lavinia)
+[2026-01-24T12:04:19.137Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:19.239Z] [INFO] [175/755] Enriching: Mint Blossom (Mount Lavinia)
+[2026-01-24T12:04:19.428Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:19.530Z] [INFO] [176/755] Enriching: Barista - Mount Lavinia (Mount Lavinia)
+[2026-01-24T12:04:19.781Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:19.882Z] [INFO] [177/755] Enriching: Tea House (Mount Lavinia)
+[2026-01-24T12:04:20.102Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:20.204Z] [INFO] [178/755] Enriching: Flavour (Mount Lavinia)
+[2026-01-24T12:04:20.452Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:20.553Z] [INFO] [179/755] Enriching: Arpico Cafe (Mount Lavinia)
+[2026-01-24T12:04:20.777Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:20.877Z] [INFO] [180/755] Enriching: Fuwatto (Mount Lavinia)
+[2026-01-24T12:04:21.080Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:21.181Z] [INFO] [181/755] Enriching: Sharifa caterings (Mount Lavinia)
+[2026-01-24T12:04:21.404Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:21.506Z] [INFO] [182/755] Enriching: Nuha Gems and Jewellery (Mount Lavinia)
+[2026-01-24T12:04:21.691Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:21.792Z] [INFO] [183/755] Enriching: Chamidu. (Moratuwa)
+[2026-01-24T12:04:22.010Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:22.113Z] [INFO] [184/755] Enriching: Danaras Foods (Moratuwa)
+[2026-01-24T12:04:22.340Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:22.441Z] [INFO] [185/755] Enriching: Hiran (Moratuwa)
+[2026-01-24T12:04:22.620Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:22.721Z] [INFO] [186/755] Enriching: Perera pastry Shop (Moratuwa)
+[2026-01-24T12:04:22.958Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:23.060Z] [INFO] [187/755] Enriching: Miris Katukurunda Moratuwa (Moratuwa)
+[2026-01-24T12:04:23.252Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:23.353Z] [INFO] [188/755] Enriching: Harry cafe & Restaurant (Moratuwa)
+[2026-01-24T12:04:23.619Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:23.719Z] [INFO] [189/755] Enriching: Anjelo's Restaurant (Moratuwa)
+[2026-01-24T12:04:23.906Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:24.006Z] [INFO] [190/755] Enriching: Randiya Takeaway Station (Moratuwa)
+[2026-01-24T12:04:24.197Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:24.298Z] [INFO] [191/755] Enriching: Hot Pot Chinese Restaurant (Moratuwa)
+[2026-01-24T12:04:24.494Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:24.594Z] [INFO] [192/755] Enriching: අනුර කඩේ (Anura Restaurant ) (Moratuwa)
+[2026-01-24T12:04:24.844Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:04:24.945Z] [INFO] [193/755] Enriching: Panini HotBun (Moratuwa)
+[2026-01-24T12:04:25.182Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:04:25.283Z] [INFO] [194/755] Enriching: cab service lk sri lanka panadura (Moratuwa)
+[2026-01-24T12:04:25.499Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:25.600Z] [INFO] [195/755] Enriching: Ravana’s feast (Moratuwa)
+[2026-01-24T12:04:25.847Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:25.948Z] [INFO] [196/755] Enriching: Grand Valley (Moratuwa)
+[2026-01-24T12:04:26.174Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:26.277Z] [INFO] [197/755] Enriching: Kitchen No 12 (Moratuwa)
+[2026-01-24T12:04:26.469Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:26.569Z] [INFO] [198/755] Enriching: Wok 'N' Rice (Moratuwa)
+[2026-01-24T12:04:26.806Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:26.909Z] [INFO] [199/755] Enriching: Buger hut (Moratuwa)
+[2026-01-24T12:04:27.087Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:04:27.190Z] [INFO] [200/755] Enriching: Katagasma (Moratuwa)
+[2026-01-24T12:04:27.423Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:27.544Z] [INFO] ✅ Checkpoint 4 saved: 200 food POIs enriched
+[2026-01-24T12:04:27.545Z] [INFO] [201/755] Enriching: The Strings (Moratuwa)
+[2026-01-24T12:04:27.734Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:27.835Z] [INFO] [202/755] Enriching: Sunimal silva (Moratuwa)
+[2026-01-24T12:04:28.061Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:28.164Z] [INFO] [203/755] Enriching: DHANUWA-MX (Moratuwa)
+[2026-01-24T12:04:28.368Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:28.468Z] [INFO] [204/755] Enriching: A & A DAIRY LOUNGE (Moratuwa)
+[2026-01-24T12:04:28.674Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:04:28.774Z] [INFO] [205/755] Enriching: Lesh Cafe (Moratuwa)
+[2026-01-24T12:04:29.013Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:29.114Z] [INFO] [206/755] Enriching: K & S Restaurant (Panadura)
+[2026-01-24T12:04:29.339Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:29.439Z] [INFO] [207/755] Enriching: Elisha Cafe (Panadura)
+[2026-01-24T12:04:29.676Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:29.777Z] [INFO] [208/755] Enriching: Sams home (Panadura)
+[2026-01-24T12:04:29.998Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:30.099Z] [INFO] [209/755] Enriching: Mame Family Restaurant (Panadura)
+[2026-01-24T12:04:30.291Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:30.393Z] [INFO] [210/755] Enriching: Fresh Food Restaurant (Panadura)
+[2026-01-24T12:04:30.572Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:30.673Z] [INFO] [211/755] Enriching: New Pathira Cafe (Panadura)
+[2026-01-24T12:04:30.916Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:31.019Z] [INFO] [212/755] Enriching: Molligoda Rice Kade (Panadura)
+[2026-01-24T12:04:31.255Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:31.356Z] [INFO] [213/755] Enriching: BLue Lobster Thamara Restaurant (Panadura)
+[2026-01-24T12:04:31.570Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:31.670Z] [INFO] [214/755] Enriching: Eliana Grill Cafe & Restaurant (Panadura)
+[2026-01-24T12:04:31.889Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:31.989Z] [INFO] [215/755] Enriching: Site Sonlo (Panadura)
+[2026-01-24T12:04:32.181Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:32.282Z] [INFO] [216/755] Enriching: Boo-Pizzeria (Panadura)
+[2026-01-24T12:04:32.537Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:32.637Z] [INFO] [217/755] Enriching: Ano Resturent and Cafe ано ресторент анд кафе (Panadura)
+[2026-01-24T12:04:32.855Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:32.956Z] [INFO] [218/755] Enriching: N CAFE high qulity HOT & COOL (Panadura)
+[2026-01-24T12:04:33.142Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:33.243Z] [INFO] [219/755] Enriching: Summer Breeze at Reef Sri Lanka (Panadura)
+[2026-01-24T12:04:33.476Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:33.576Z] [INFO] [220/755] Enriching: Ceylon Fisheries Corporation Outlet (Kalutara)
+[2026-01-24T12:04:33.811Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:04:33.911Z] [INFO] [221/755] Enriching: Ceylon Fisheries Corporation Outlet (Kalutara)
+[2026-01-24T12:04:34.066Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:04:34.166Z] [INFO] [222/755] Enriching: Battikclo (Kalutara)
+[2026-01-24T12:04:34.367Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:34.467Z] [INFO] [223/755] Enriching: Bandula weerasingha (Kalutara)
+[2026-01-24T12:04:34.648Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:34.748Z] [INFO] [224/755] Enriching: Carabela Restaurant (Kalutara)
+[2026-01-24T12:04:34.966Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:35.066Z] [INFO] [225/755] Enriching: Awanthi Fresh Juice (Kalutara)
+[2026-01-24T12:04:35.270Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:35.371Z] [INFO] [226/755] Enriching: S.T. Alvares & Sons (Kalutara)
+[2026-01-24T12:04:35.608Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:35.708Z] [INFO] [227/755] Enriching: Highland Milk Bar (Kalutara)
+[2026-01-24T12:04:35.892Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=false
+[2026-01-24T12:04:35.992Z] [INFO] [228/755] Enriching: Kaluganga Restaurant & Bar (Kalutara)
+[2026-01-24T12:04:36.171Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:36.271Z] [INFO] [229/755] Enriching: Ceylon Fisheries Corporation Outlet (Kalutara)
+[2026-01-24T12:04:36.485Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:04:36.586Z] [INFO] [230/755] Enriching: Redplate Cafe (Kalutara)
+[2026-01-24T12:04:36.784Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:36.885Z] [INFO] [231/755] Enriching: Domino's Pizza - Kaluthara (Kalutara)
+[2026-01-24T12:04:37.092Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:37.193Z] [INFO] [232/755] Enriching: Olive Mate (Kalutara)
+[2026-01-24T12:04:37.378Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:37.478Z] [INFO] [233/755] Enriching: Gihans Resturant (Kalutara)
+[2026-01-24T12:04:37.663Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:37.763Z] [INFO] [234/755] Enriching: samanmalee dilrukshi (Kalutara)
+[2026-01-24T12:04:37.997Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:38.098Z] [INFO] [235/755] Enriching: Chaminda kumara (Kalutara)
+[2026-01-24T12:04:38.272Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:38.372Z] [INFO] [236/755] Enriching: Darshana restaurant (Kalutara)
+[2026-01-24T12:04:38.580Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:38.680Z] [INFO] [237/755] Enriching: Dosa Shop - තෝසේ කඩේ (Kalutara)
+[2026-01-24T12:04:38.929Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:39.030Z] [INFO] [238/755] Enriching: Super Taste - Snack Hub (Kalutara)
+[2026-01-24T12:04:39.273Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:39.373Z] [INFO] [239/755] Enriching: Cafe Ufo (Kalutara)
+[2026-01-24T12:04:39.608Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:39.709Z] [INFO] [240/755] Enriching: Red Pepper ගැමි රස (Kalutara)
+[2026-01-24T12:04:39.932Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:40.032Z] [INFO] [241/755] Enriching: Gami Rasa - ගැමි රස (Kalutara)
+[2026-01-24T12:04:40.213Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:40.314Z] [INFO] [242/755] Enriching: Jagath Bake House & Biryani Hut (Kalutara)
+[2026-01-24T12:04:40.544Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:40.645Z] [INFO] [243/755] Enriching: Isurugiri හෝටලය (Kalutara)
+[2026-01-24T12:04:40.870Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:40.970Z] [INFO] [244/755] Enriching: රතු බත් කඩේ (Kalutara)
+[2026-01-24T12:04:41.200Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:41.301Z] [INFO] [245/755] Enriching: Horana Wasana Bakers Kalutara Branch (Kalutara)
+[2026-01-24T12:04:41.486Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:41.587Z] [INFO] [246/755] Enriching: Lieber Cafe Kalutara (Kalutara)
+[2026-01-24T12:04:41.844Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:41.946Z] [INFO] [247/755] Enriching: The Fab - Kalutara (Kalutara)
+[2026-01-24T12:04:42.198Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:42.299Z] [INFO] [248/755] Enriching: Nimal Snack Bar (Kalutara)
+[2026-01-24T12:04:42.531Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:42.632Z] [INFO] [249/755] Enriching: Cafe Calido (Kalutara)
+[2026-01-24T12:04:42.864Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:42.966Z] [INFO] [250/755] Enriching: Royal Foods (Kalutara)
+[2026-01-24T12:04:43.154Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:43.283Z] [INFO] ✅ Checkpoint 5 saved: 250 food POIs enriched
+[2026-01-24T12:04:43.284Z] [INFO] [251/755] Enriching: vayoo Payagala (Kalutara South)
+[2026-01-24T12:04:43.476Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:43.576Z] [INFO] [252/755] Enriching: vayoo Payagala (Kalutara South)
+[2026-01-24T12:04:43.730Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:43.830Z] [INFO] [253/755] Enriching: vayoo Payagala (Kalutara South)
+[2026-01-24T12:04:43.980Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:44.080Z] [INFO] [254/755] Enriching: vayoo Payagala (Kalutara South)
+[2026-01-24T12:04:44.236Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:44.337Z] [INFO] [255/755] Enriching: Matara Kade (Kalutara South)
+[2026-01-24T12:04:44.509Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:04:44.609Z] [INFO] [256/755] Enriching: Family restaurant Payagala (Kalutara South)
+[2026-01-24T12:04:44.839Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:44.940Z] [INFO] [257/755] Enriching: vayoo Payagala (Kalutara South)
+[2026-01-24T12:04:45.178Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:45.279Z] [INFO] [258/755] Enriching: Mathugama Tea Room (Kalutara South)
+[2026-01-24T12:04:45.453Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:45.555Z] [INFO] [259/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:45.798Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:45.899Z] [INFO] [260/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:46.049Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:46.150Z] [INFO] [261/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:46.298Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:46.398Z] [INFO] [262/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:46.622Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:46.722Z] [INFO] [263/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:46.870Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:46.971Z] [INFO] [264/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:47.154Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:47.256Z] [INFO] [265/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:47.435Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:47.536Z] [INFO] [266/755] Enriching: BNC Rest (Beruwala)
+[2026-01-24T12:04:47.697Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:47.797Z] [INFO] [267/755] Enriching: LIONEL'S kitchen (Beruwala)
+[2026-01-24T12:04:48.016Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:48.116Z] [INFO] [268/755] Enriching: Pani puri and chocolate puri (Beruwala)
+[2026-01-24T12:04:48.320Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:48.421Z] [INFO] [269/755] Enriching: මදාරා බත් කඩේ (Beruwala)
+[2026-01-24T12:04:48.645Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:04:48.747Z] [INFO] [270/755] Enriching: Hot Bread Restaurant (Beruwala)
+[2026-01-24T12:04:48.948Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:49.051Z] [INFO] [271/755] Enriching: Ibrahim Eating House Beruwala-China Fort (Beruwala)
+[2026-01-24T12:04:49.247Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:49.348Z] [INFO] [272/755] Enriching: Lahiru (Beruwala)
+[2026-01-24T12:04:49.523Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:49.626Z] [INFO] [273/755] Enriching: Sri Wijaya Bath Kade (Beruwala)
+[2026-01-24T12:04:49.843Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:49.946Z] [INFO] [274/755] Enriching: Barbareen Restaurant (Beruwala)
+[2026-01-24T12:04:50.169Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:50.269Z] [INFO] [275/755] Enriching: Thirst Quench (Beruwala)
+[2026-01-24T12:04:50.469Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:50.571Z] [INFO] [276/755] Enriching: Chili Bite (Beruwala)
+[2026-01-24T12:04:50.766Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:50.867Z] [INFO] [277/755] Enriching: Ambula Beruwala (Beruwala)
+[2026-01-24T12:04:51.043Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:04:51.146Z] [INFO] [278/755] Enriching: Hot Shawarma Shop (Beruwala)
+[2026-01-24T12:04:51.371Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:51.474Z] [INFO] [279/755] Enriching: Abdul Azeez Catering Services (Beruwala)
+[2026-01-24T12:04:51.656Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:51.757Z] [INFO] [280/755] Enriching: Pannila Cream House (Beruwala)
+[2026-01-24T12:04:51.973Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:52.076Z] [INFO] [281/755] Enriching: I & I Printers (Beruwala)
+[2026-01-24T12:04:52.307Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:52.407Z] [INFO] [282/755] Enriching: SWISS SWEET & SPICY (Beruwala)
+[2026-01-24T12:04:52.587Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:52.688Z] [INFO] [283/755] Enriching: merchants cafe (Beruwala)
+[2026-01-24T12:04:52.926Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:53.027Z] [INFO] [284/755] Enriching: restaurant (Beruwala)
+[2026-01-24T12:04:53.267Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:53.368Z] [INFO] [285/755] Enriching: Ice cream bar (Beruwala)
+[2026-01-24T12:04:53.591Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:53.693Z] [INFO] [286/755] Enriching: Dessert Bistro (Beruwala)
+[2026-01-24T12:04:53.874Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:53.974Z] [INFO] [287/755] Enriching: Dream Multi Shop (Beruwala)
+[2026-01-24T12:04:54.221Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:54.323Z] [INFO] [288/755] Enriching: Ayesha Restaurant & Pub (Aluthgama)
+[2026-01-24T12:04:54.545Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:54.648Z] [INFO] [289/755] Enriching: Fresh Restaurant (Aluthgama)
+[2026-01-24T12:04:54.831Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:54.931Z] [INFO] [290/755] Enriching: Bayroo Restaurant (Aluthgama)
+[2026-01-24T12:04:55.172Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:04:55.272Z] [INFO] [291/755] Enriching: Dusk and Dawn Restaurant (Aluthgama)
+[2026-01-24T12:04:55.472Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:55.574Z] [INFO] [292/755] Enriching: R&B Restaurant (Aluthgama)
+[2026-01-24T12:04:55.766Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:55.867Z] [INFO] [293/755] Enriching: Main Restaurant at Heritance Ayurveda (Aluthgama)
+[2026-01-24T12:04:56.065Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=false
+[2026-01-24T12:04:56.165Z] [INFO] [294/755] Enriching: Thembili Shop (King Coconut Shop) (Aluthgama)
+[2026-01-24T12:04:56.376Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:56.476Z] [INFO] [295/755] Enriching: DNS RESTAURANT (Aluthgama)
+[2026-01-24T12:04:56.648Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:56.748Z] [INFO] [296/755] Enriching: Joel's Restaurant (Aluthgama)
+[2026-01-24T12:04:56.935Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:57.036Z] [INFO] [297/755] Enriching: Letona Restaurant (Aluthgama)
+[2026-01-24T12:04:57.246Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:57.349Z] [INFO] [298/755] Enriching: Garden of Eden Restaurant by Occidental Eden Beruwala (Aluthgama)
+[2026-01-24T12:04:57.580Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:57.682Z] [INFO] [299/755] Enriching: Blue Lagoon Restaurant (Aluthgama)
+[2026-01-24T12:04:57.909Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:04:58.011Z] [INFO] [300/755] Enriching: CHAMELEON CAFE (Aluthgama)
+[2026-01-24T12:04:58.213Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:58.336Z] [INFO] ✅ Checkpoint 6 saved: 300 food POIs enriched
+[2026-01-24T12:04:58.337Z] [INFO] [301/755] Enriching: Green Shade Beach Seafood Restaurant & Sundbed Rental (Aluthgama)
+[2026-01-24T12:04:58.533Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:04:58.634Z] [INFO] [302/755] Enriching: Beach Club (Aluthgama)
+[2026-01-24T12:04:58.852Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:58.953Z] [INFO] [303/755] Enriching: CUP N’ JOE (Aluthgama)
+[2026-01-24T12:04:59.188Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:04:59.288Z] [INFO] [304/755] Enriching: Sadaruwan Cool Spot (Aluthgama)
+[2026-01-24T12:04:59.522Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:04:59.623Z] [INFO] [305/755] Enriching: Sippi Cafe By Occidental Eden Beruwala (Aluthgama)
+[2026-01-24T12:04:59.859Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:04:59.959Z] [INFO] [306/755] Enriching: Cafe By Arena (Aluthgama)
+[2026-01-24T12:05:00.172Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:00.273Z] [INFO] [307/755] Enriching: Ice-cream cafe (Aluthgama)
+[2026-01-24T12:05:00.455Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:00.556Z] [INFO] [308/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:00.760Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:00.861Z] [INFO] [309/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:01.023Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:01.124Z] [INFO] [310/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:01.280Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:01.381Z] [INFO] [311/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:01.575Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:01.676Z] [INFO] [312/755] Enriching: Tease Lounge (Bentota)
+[2026-01-24T12:05:01.871Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:01.971Z] [INFO] [313/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:02.123Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:02.223Z] [INFO] [314/755] Enriching: Golden Grill Restaurant (Bentota)
+[2026-01-24T12:05:02.414Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:02.515Z] [INFO] [315/755] Enriching: Pier88 River Bar/cafe/Restaurant/pizzeria (Bentota)
+[2026-01-24T12:05:02.727Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:02.827Z] [INFO] [316/755] Enriching: Tease Lounge (Bentota)
+[2026-01-24T12:05:03.041Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:03.141Z] [INFO] [317/755] Enriching: Islanda Bentota Sea Food Restaurant (Bentota)
+[2026-01-24T12:05:03.401Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:03.503Z] [INFO] [318/755] Enriching: Crocodile Floating Restaurant Bentota (Bentota)
+[2026-01-24T12:05:03.695Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:03.796Z] [INFO] [319/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:03.996Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:04.096Z] [INFO] [320/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:04.254Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:04.354Z] [INFO] [321/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:04.563Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:04.664Z] [INFO] [322/755] Enriching: Hemadan Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:04.817Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:04.917Z] [INFO] [323/755] Enriching: Golden Grill Restaurant (Bentota)
+[2026-01-24T12:05:05.103Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:05.204Z] [INFO] [324/755] Enriching: Aida Seafood Restaurant & Bar (Bentota)
+[2026-01-24T12:05:05.403Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:05.503Z] [INFO] [325/755] Enriching: Frangipani Restaurant (Bentota)
+[2026-01-24T12:05:05.710Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:05:05.814Z] [INFO] [326/755] Enriching: Kulmith Restaurant (Bentota)
+[2026-01-24T12:05:06.007Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:06.107Z] [INFO] [327/755] Enriching: Trax Garden Restaurant (Bentota)
+[2026-01-24T12:05:06.316Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:06.418Z] [INFO] [328/755] Enriching: Pier88 River Bar/cafe/Restaurant/pizzeria (Bentota)
+[2026-01-24T12:05:06.610Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:06.712Z] [INFO] [329/755] Enriching: P&S (Perera & Sons) - Bentota (Bentota)
+[2026-01-24T12:05:06.950Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:07.051Z] [INFO] [330/755] Enriching: Rana Seafood Restaurant (Bentota)
+[2026-01-24T12:05:07.261Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:07.362Z] [INFO] [331/755] Enriching: Oriental Pavilion (Bentota)
+[2026-01-24T12:05:07.606Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:07.707Z] [INFO] [332/755] Enriching: S.H.A.C.K (Bentota)
+[2026-01-24T12:05:07.929Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:08.030Z] [INFO] [333/755] Enriching: The Palms (Bentota)
+[2026-01-24T12:05:08.235Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:08.338Z] [INFO] [334/755] Enriching: Tease Lounge (Bentota)
+[2026-01-24T12:05:08.533Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:08.634Z] [INFO] [335/755] Enriching: Drench Pool Bar (Bentota)
+[2026-01-24T12:05:08.830Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:08.931Z] [INFO] [336/755] Enriching: Café Comida (Bentota)
+[2026-01-24T12:05:09.117Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:09.219Z] [INFO] [337/755] Enriching: Zest (Bentota)
+[2026-01-24T12:05:09.414Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:09.515Z] [INFO] [338/755] Enriching: Breeze Restaurant at Thaala Bentota (Bentota)
+[2026-01-24T12:05:09.748Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:09.849Z] [INFO] [339/755] Enriching: Pier88 River Bar/cafe/Restaurant/pizzeria (Bentota)
+[2026-01-24T12:05:10.040Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:10.141Z] [INFO] [340/755] Enriching: Rana Seafood Restaurant (Bentota)
+[2026-01-24T12:05:10.326Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:10.427Z] [INFO] [341/755] Enriching: Brick Lane Coffee Lounge At Thaala Bentota (Bentota)
+[2026-01-24T12:05:10.685Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:10.786Z] [INFO] [342/755] Enriching: Brown Beans Cafe (Bentota)
+[2026-01-24T12:05:11.024Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:11.125Z] [INFO] [343/755] Enriching: Dinu Kitchen (Bentota)
+[2026-01-24T12:05:11.319Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:11.420Z] [INFO] [344/755] Enriching: Randy's Coffee (Bentota)
+[2026-01-24T12:05:11.613Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:11.717Z] [INFO] [345/755] Enriching: South Kitchen Restaurant & Cafe Bentota (Bentota)
+[2026-01-24T12:05:11.904Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:12.005Z] [INFO] [346/755] Enriching: FunCafe Seafood (Bentota)
+[2026-01-24T12:05:12.201Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:12.301Z] [INFO] [347/755] Enriching: DANUKA CAFE (Bentota)
+[2026-01-24T12:05:12.477Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:12.580Z] [INFO] [348/755] Enriching: Yoshee Cafe (Bentota)
+[2026-01-24T12:05:12.761Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:12.863Z] [INFO] [349/755] Enriching: Tourist Candy Mart (Bentota)
+[2026-01-24T12:05:13.044Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:13.145Z] [INFO] [350/755] Enriching: Cafe88' Lavazza Aluthgama (Bentota)
+[2026-01-24T12:05:13.355Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:13.480Z] [INFO] ✅ Checkpoint 7 saved: 350 food POIs enriched
+[2026-01-24T12:05:13.481Z] [INFO] [351/755] Enriching: CS EATS (Bentota)
+[2026-01-24T12:05:13.671Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:13.771Z] [INFO] [352/755] Enriching: my zone cool spot (Bentota)
+[2026-01-24T12:05:13.965Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:05:14.065Z] [INFO] [353/755] Enriching: Aluthgama (Bentota)
+[2026-01-24T12:05:14.277Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:14.379Z] [INFO] [354/755] Enriching: Coffee Shop by Sewon Mark (Bentota)
+[2026-01-24T12:05:14.569Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:14.670Z] [INFO] [355/755] Enriching: D & M Rainbow Ice Cream & Juice Bar (Bentota)
+[2026-01-24T12:05:14.854Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:14.955Z] [INFO] [356/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:15.195Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:15.296Z] [INFO] [357/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:15.502Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:15.603Z] [INFO] [358/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:15.855Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:15.958Z] [INFO] [359/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:16.113Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:16.214Z] [INFO] [360/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:16.377Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:16.477Z] [INFO] [361/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:16.653Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:16.753Z] [INFO] [362/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:16.942Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:17.043Z] [INFO] [363/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:17.198Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:17.298Z] [INFO] [364/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:17.494Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:17.594Z] [INFO] [365/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:17.808Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:17.909Z] [INFO] [366/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:18.064Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:18.165Z] [INFO] [367/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:18.318Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:18.418Z] [INFO] [368/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:18.615Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:18.716Z] [INFO] [369/755] Enriching: Agora products (Induruwa)
+[2026-01-24T12:05:18.904Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:19.005Z] [INFO] [370/755] Enriching: Beach Restaurant (Induruwa)
+[2026-01-24T12:05:19.193Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:19.294Z] [INFO] [371/755] Enriching: Ice cream cafe (Induruwa)
+[2026-01-24T12:05:19.509Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:19.610Z] [INFO] [372/755] Enriching: Breeze House (Induruwa)
+[2026-01-24T12:05:19.793Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:19.894Z] [INFO] [373/755] Enriching: Enrich Grocery (Kosgoda)
+[2026-01-24T12:05:20.120Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:20.220Z] [INFO] [374/755] Enriching: Enrich Grocery (Kosgoda)
+[2026-01-24T12:05:20.368Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:20.468Z] [INFO] [375/755] Enriching: Enrich Grocery (Kosgoda)
+[2026-01-24T12:05:20.692Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:20.793Z] [INFO] [376/755] Enriching: Enrich Grocery (Kosgoda)
+[2026-01-24T12:05:20.950Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:21.053Z] [INFO] [377/755] Enriching: Enrich Grocery (Kosgoda)
+[2026-01-24T12:05:21.206Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:21.307Z] [INFO] [378/755] Enriching: Enrich Grocery (Kosgoda)
+[2026-01-24T12:05:21.480Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:21.581Z] [INFO] [379/755] Enriching: Podee79 (Kosgoda)
+[2026-01-24T12:05:21.828Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:21.930Z] [INFO] [380/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:22.164Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:22.267Z] [INFO] [381/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:22.470Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:22.571Z] [INFO] [382/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:22.723Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:22.824Z] [INFO] [383/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:22.970Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:23.070Z] [INFO] [384/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:23.216Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:23.316Z] [INFO] [385/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:23.502Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:23.602Z] [INFO] [386/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:23.759Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:23.861Z] [INFO] [387/755] Enriching: Katagesma resturant (Balapitiya)
+[2026-01-24T12:05:24.008Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:24.109Z] [INFO] [388/755] Enriching: YAKA Zone (Balapitiya)
+[2026-01-24T12:05:24.339Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:24.440Z] [INFO] [389/755] Enriching: SENTARA Restaurant (Balapitiya)
+[2026-01-24T12:05:24.657Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:05:24.759Z] [INFO] [390/755] Enriching: Food Lover (Balapitiya)
+[2026-01-24T12:05:24.985Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:25.086Z] [INFO] [391/755] Enriching: Lucid Dreams Restaurant (Balapitiya)
+[2026-01-24T12:05:25.309Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:25.410Z] [INFO] [392/755] Enriching: Nalaka Store (Balapitiya)
+[2026-01-24T12:05:25.618Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:25.720Z] [INFO] [393/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:25.924Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:26.024Z] [INFO] [394/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:26.227Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:26.327Z] [INFO] [395/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:26.531Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:26.631Z] [INFO] [396/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:26.830Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:26.932Z] [INFO] [397/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:27.094Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:27.194Z] [INFO] [398/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:27.349Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:27.449Z] [INFO] [399/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:27.625Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:27.726Z] [INFO] [400/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:27.948Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:28.070Z] [INFO] ✅ Checkpoint 8 saved: 400 food POIs enriched
+[2026-01-24T12:05:28.070Z] [INFO] [401/755] Enriching: La Belle Vie (Hikkaduwa)
+[2026-01-24T12:05:28.270Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:28.373Z] [INFO] [402/755] Enriching: Drunken Shrimp Restaurant & Bar Hikkaduwa Beachside (Hikkaduwa)
+[2026-01-24T12:05:28.564Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:28.666Z] [INFO] [403/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:28.838Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:28.938Z] [INFO] [404/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:29.137Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:29.238Z] [INFO] [405/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:29.415Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:29.518Z] [INFO] [406/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:29.716Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:29.816Z] [INFO] [407/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:29.989Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:30.090Z] [INFO] [408/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:30.247Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:30.348Z] [INFO] [409/755] Enriching: Athula Beach Guests (Hikkaduwa)
+[2026-01-24T12:05:30.543Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:30.646Z] [INFO] [410/755] Enriching: Mamas Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:30.838Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:30.938Z] [INFO] [411/755] Enriching: Hikka BOBA (Hikkaduwa)
+[2026-01-24T12:05:31.174Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:31.275Z] [INFO] [412/755] Enriching: treetop Restuarant (Hikkaduwa)
+[2026-01-24T12:05:31.494Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:05:31.595Z] [INFO] [413/755] Enriching: Pizza Hut Hikkaduwa (Hikkaduwa)
+[2026-01-24T12:05:31.826Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:31.927Z] [INFO] [414/755] Enriching: Isira Coffee Shop & Restaurant (Hikkaduwa)
+[2026-01-24T12:05:32.173Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:32.274Z] [INFO] [415/755] Enriching: Red Lobster Restaurant (Hikkaduwa)
+[2026-01-24T12:05:32.477Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:32.577Z] [INFO] [416/755] Enriching: Tamara Motels (Hikkaduwa)
+[2026-01-24T12:05:32.826Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:32.927Z] [INFO] [417/755] Enriching: Your Choice Rastaurant (Hikkaduwa)
+[2026-01-24T12:05:33.129Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:33.231Z] [INFO] [418/755] Enriching: Yummy Express (Hikkaduwa)
+[2026-01-24T12:05:33.470Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:33.571Z] [INFO] [419/755] Enriching: Ami’s Seafood Heaven (Hikkaduwa)
+[2026-01-24T12:05:33.764Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:33.867Z] [INFO] [420/755] Enriching: Little Lanka (Hikkaduwa)
+[2026-01-24T12:05:34.090Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:34.192Z] [INFO] [421/755] Enriching: Happy Tuna Beach Restaurant (Hikkaduwa)
+[2026-01-24T12:05:34.389Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:34.492Z] [INFO] [422/755] Enriching: Biriyani House (Hikkaduwa)
+[2026-01-24T12:05:34.700Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:34.800Z] [INFO] [423/755] Enriching: Sri Lankan Traditional & South Asian Food (Hikkaduwa)
+[2026-01-24T12:05:35.044Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:35.147Z] [INFO] [424/755] Enriching: Mama Cooking (Hikkaduwa)
+[2026-01-24T12:05:35.332Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:35.433Z] [INFO] [425/755] Enriching: Sea breeze seafood restaurant (Hikkaduwa)
+[2026-01-24T12:05:35.629Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:35.731Z] [INFO] [426/755] Enriching: Sentara (Hikkaduwa)
+[2026-01-24T12:05:35.922Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:36.025Z] [INFO] [427/755] Enriching: Shen Food (Hikkaduwa)
+[2026-01-24T12:05:36.213Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:36.314Z] [INFO] [428/755] Enriching: Isira Coffee Shop & Restaurant (Hikkaduwa)
+[2026-01-24T12:05:36.540Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:36.641Z] [INFO] [429/755] Enriching: Tamara Motels (Hikkaduwa)
+[2026-01-24T12:05:36.877Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:36.978Z] [INFO] [430/755] Enriching: Cafe Ora (Hikkaduwa)
+[2026-01-24T12:05:37.209Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:37.311Z] [INFO] [431/755] Enriching: Coffee Bunny (Hikkaduwa)
+[2026-01-24T12:05:37.517Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:37.617Z] [INFO] [432/755] Enriching: Roshan Cool Spot & Grocery (Hikkaduwa)
+[2026-01-24T12:05:37.804Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:37.904Z] [INFO] [433/755] Enriching: Sampath Restaurant and Cafe (Hikkaduwa)
+[2026-01-24T12:05:38.080Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:38.181Z] [INFO] [434/755] Enriching: La Belle Vie (Hikkaduwa)
+[2026-01-24T12:05:38.357Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:38.458Z] [INFO] [435/755] Enriching: No 01 & Only 01 Protein Bar (Hikkaduwa)
+[2026-01-24T12:05:38.640Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:38.741Z] [INFO] [436/755] Enriching: Charlie's Heaven Cafe (Hikkaduwa)
+[2026-01-24T12:05:38.938Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:39.039Z] [INFO] [437/755] Enriching: Keells Krest Hikka Cafe (Hikkaduwa)
+[2026-01-24T12:05:39.284Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:39.385Z] [INFO] [438/755] Enriching: Bohoma Café & Bistro (Hikkaduwa)
+[2026-01-24T12:05:39.585Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:39.686Z] [INFO] [439/755] Enriching: Tea Coffee (Hikkaduwa)
+[2026-01-24T12:05:39.877Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:39.977Z] [INFO] [440/755] Enriching: Hikka Bridge Café & Restaurant (Hikkaduwa)
+[2026-01-24T12:05:40.221Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:40.322Z] [INFO] [441/755] Enriching: SAFFRON ROBES COFFEEè (Hikkaduwa)
+[2026-01-24T12:05:40.517Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:40.619Z] [INFO] [442/755] Enriching: HIKKA RU (Hikkaduwa)
+[2026-01-24T12:05:40.821Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:40.922Z] [INFO] [443/755] Enriching: The Coffee Cube (Hikkaduwa)
+[2026-01-24T12:05:41.125Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:41.227Z] [INFO] [444/755] Enriching: Hikka Chill (Hikkaduwa)
+[2026-01-24T12:05:41.436Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:41.536Z] [INFO] [445/755] Enriching: Sun&Sea Café and eatery (Hikkaduwa)
+[2026-01-24T12:05:41.717Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:41.819Z] [INFO] [446/755] Enriching: Ocean Drop Hikkaduwa (Hikkaduwa)
+[2026-01-24T12:05:42.056Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:42.157Z] [INFO] [447/755] Enriching: Tempest Restaurant & Bar (Dodanduwa)
+[2026-01-24T12:05:42.356Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:42.458Z] [INFO] [448/755] Enriching: Tempest Restaurant & Bar (Dodanduwa)
+[2026-01-24T12:05:42.677Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:42.778Z] [INFO] [449/755] Enriching: MOMO Kitchen (Dodanduwa)
+[2026-01-24T12:05:42.961Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:43.064Z] [INFO] [450/755] Enriching: DN Food Delivery (Dodanduwa)
+[2026-01-24T12:05:43.256Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:43.381Z] [INFO] ✅ Checkpoint 9 saved: 450 food POIs enriched
+[2026-01-24T12:05:43.382Z] [INFO] [451/755] Enriching: YJ Fresh & Live (Dodanduwa)
+[2026-01-24T12:05:43.560Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:43.662Z] [INFO] [452/755] Enriching: Sanjaya Bites (Dodanduwa)
+[2026-01-24T12:05:43.888Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:43.991Z] [INFO] [453/755] Enriching: Lakshmi Tea Room (Dodanduwa)
+[2026-01-24T12:05:44.206Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:44.307Z] [INFO] [454/755] Enriching: Pelwatte Dairy Outlet.Rathgama. (Dodanduwa)
+[2026-01-24T12:05:44.490Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:44.590Z] [INFO] [455/755] Enriching: Frozen ice cream & juice bar (Dodanduwa)
+[2026-01-24T12:05:44.845Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:44.945Z] [INFO] [456/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:45.165Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:45.266Z] [INFO] [457/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:45.505Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:45.607Z] [INFO] [458/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:45.766Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:45.867Z] [INFO] [459/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:46.018Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:46.118Z] [INFO] [460/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:46.275Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:46.376Z] [INFO] [461/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:46.551Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:46.652Z] [INFO] [462/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:46.797Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:46.898Z] [INFO] [463/755] Enriching: Malee's Restaurant (Galle)
+[2026-01-24T12:05:47.044Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:47.144Z] [INFO] [464/755] Enriching: KN spicy (Galle)
+[2026-01-24T12:05:47.347Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:05:47.448Z] [INFO] [465/755] Enriching: Cheff lady chinese restaurant (Galle)
+[2026-01-24T12:05:47.633Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:05:47.734Z] [INFO] [466/755] Enriching: RIO Ice Cream (Galle)
+[2026-01-24T12:05:47.938Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:48.041Z] [INFO] [467/755] Enriching: Kaveesha Keshan (Galle)
+[2026-01-24T12:05:48.260Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:48.360Z] [INFO] [468/755] Enriching: Karagoda natural pool (Galle)
+[2026-01-24T12:05:48.556Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:48.659Z] [INFO] [469/755] Enriching: Sky Tourism And Administration (Pvt) Ltd (Galle)
+[2026-01-24T12:05:48.900Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:49.001Z] [INFO] [470/755] Enriching: Those Kade (Galle)
+[2026-01-24T12:05:49.192Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:49.292Z] [INFO] [471/755] Enriching: Ceylon Fisheries Corporation Outlet (Galle)
+[2026-01-24T12:05:49.501Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:05:49.602Z] [INFO] [472/755] Enriching: Elaina Restaurant & Catering Service (Galle)
+[2026-01-24T12:05:49.808Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:49.910Z] [INFO] [473/755] Enriching: Blue Moon Resturant (Galle)
+[2026-01-24T12:05:50.130Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:50.231Z] [INFO] [474/755] Enriching: Cup cake lab (Galle)
+[2026-01-24T12:05:50.409Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:50.510Z] [INFO] [475/755] Enriching: Central 101 (Galle)
+[2026-01-24T12:05:50.741Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:50.842Z] [INFO] [476/755] Enriching: Melano Leaf Restaurant & Cafe (Galle)
+[2026-01-24T12:05:51.021Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:05:51.124Z] [INFO] [477/755] Enriching: Zuuger Kitchen (Galle)
+[2026-01-24T12:05:51.307Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:05:51.407Z] [INFO] [478/755] Enriching: Fruit Store (Galle)
+[2026-01-24T12:05:51.620Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:05:51.720Z] [INFO] [479/755] Enriching: MAHEE kitchen (Galle)
+[2026-01-24T12:05:51.905Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:52.006Z] [INFO] [480/755] Enriching: Walawwa - වලව්ව (Galle)
+[2026-01-24T12:05:52.200Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:52.300Z] [INFO] [481/755] Enriching: Dr.Goodness (Galle)
+[2026-01-24T12:05:52.531Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:52.631Z] [INFO] [482/755] Enriching: madu (Galle)
+[2026-01-24T12:05:52.850Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:05:52.951Z] [INFO] [483/755] Enriching: Koffilo (Galle)
+[2026-01-24T12:05:53.204Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:53.307Z] [INFO] [484/755] Enriching: Sweet Bean Cafe (Galle)
+[2026-01-24T12:05:53.536Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:53.637Z] [INFO] [485/755] Enriching: Hidayath Food Center (Galle)
+[2026-01-24T12:05:53.847Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:53.948Z] [INFO] [486/755] Enriching: Mamidu Liyanage Place (Galle)
+[2026-01-24T12:05:54.170Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:05:54.270Z] [INFO] [487/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:05:54.526Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:05:54.627Z] [INFO] [488/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:05:54.883Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:05:54.985Z] [INFO] [489/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:05:55.146Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:05:55.247Z] [INFO] [490/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:05:55.438Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:05:55.539Z] [INFO] [491/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:05:55.744Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:05:55.845Z] [INFO] [492/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:05:55.999Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:05:56.099Z] [INFO] [493/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:05:56.260Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:05:56.364Z] [INFO] [494/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:05:56.551Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:05:56.652Z] [INFO] [495/755] Enriching: FRIENDS restaurant (Unawatuna)
+[2026-01-24T12:05:56.863Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:56.964Z] [INFO] [496/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:05:57.122Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:05:57.223Z] [INFO] [497/755] Enriching: Cafe Cinema (Unawatuna)
+[2026-01-24T12:05:57.444Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:05:57.545Z] [INFO] [498/755] Enriching: Black & White Restaurant (Unawatuna)
+[2026-01-24T12:05:57.797Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:57.899Z] [INFO] [499/755] Enriching: Koha Surf Lounge (Unawatuna)
+[2026-01-24T12:05:58.091Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:58.191Z] [INFO] [500/755] Enriching: Happy Spice Restaurant & Cooking Class (Unawatuna)
+[2026-01-24T12:05:58.391Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:58.515Z] [INFO] ✅ Checkpoint 10 saved: 500 food POIs enriched
+[2026-01-24T12:05:58.515Z] [INFO] [501/755] Enriching: Hawaya (Unawatuna)
+[2026-01-24T12:05:58.710Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:58.810Z] [INFO] [502/755] Enriching: Red Snapper Unawatuna (Unawatuna)
+[2026-01-24T12:05:59.016Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:05:59.118Z] [INFO] [503/755] Enriching: FRIENDS restaurant (Unawatuna)
+[2026-01-24T12:05:59.331Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:59.431Z] [INFO] [504/755] Enriching: The Social Unawatuna (Unawatuna)
+[2026-01-24T12:05:59.679Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:05:59.779Z] [INFO] [505/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:05:59.964Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:00.067Z] [INFO] [506/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:06:00.283Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:06:00.383Z] [INFO] [507/755] Enriching: Spa Una (Unawatuna)
+[2026-01-24T12:06:00.607Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:00.707Z] [INFO] [508/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:06:00.913Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:01.014Z] [INFO] [509/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:06:01.204Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:06:01.305Z] [INFO] [510/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:06:01.510Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:01.611Z] [INFO] [511/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:06:01.806Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:06:01.908Z] [INFO] [512/755] Enriching: Thaproban Beach House (Unawatuna)
+[2026-01-24T12:06:02.060Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:02.164Z] [INFO] [513/755] Enriching: Love Bar Unawatuna (Unawatuna)
+[2026-01-24T12:06:02.322Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=true, photo=true
+[2026-01-24T12:06:02.422Z] [INFO] [514/755] Enriching: Cafe Cinema (Unawatuna)
+[2026-01-24T12:06:02.598Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:06:02.699Z] [INFO] [515/755] Enriching: Pipels House (Unawatuna)
+[2026-01-24T12:06:02.893Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:02.993Z] [INFO] [516/755] Enriching: SUPer Juice Bar & Super SUP Unawatuna Sri Lanka (Unawatuna)
+[2026-01-24T12:06:03.189Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=false, photo=true
+[2026-01-24T12:06:03.291Z] [INFO] [517/755] Enriching: South Ceylon Restaurant (Unawatuna)
+[2026-01-24T12:06:03.486Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:03.587Z] [INFO] [518/755] Enriching: New Summer Garden (Unawatuna)
+[2026-01-24T12:06:03.826Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:03.927Z] [INFO] [519/755] Enriching: Unawatuna Guest (Unawatuna)
+[2026-01-24T12:06:04.118Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:04.219Z] [INFO] [520/755] Enriching: The Rock (Unawatuna)
+[2026-01-24T12:06:04.446Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:04.548Z] [INFO] [521/755] Enriching: Waves Restaurant (Unawatuna)
+[2026-01-24T12:06:04.774Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:04.875Z] [INFO] [522/755] Enriching: Lemongrass Cafe & restaurant (Unawatuna)
+[2026-01-24T12:06:05.131Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:05.234Z] [INFO] [523/755] Enriching: Cafe Cinema (Unawatuna)
+[2026-01-24T12:06:05.407Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:06:05.508Z] [INFO] [524/755] Enriching: SUPer Juice Bar & Super SUP Unawatuna Sri Lanka (Unawatuna)
+[2026-01-24T12:06:05.684Z] [INFO]   ✅ Enriched: phone=false, website=true, hours=false, photo=true
+[2026-01-24T12:06:05.784Z] [INFO] [525/755] Enriching: Unawatuna Guest (Unawatuna)
+[2026-01-24T12:06:05.961Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:06.062Z] [INFO] [526/755] Enriching: Lemongrass Cafe & restaurant (Unawatuna)
+[2026-01-24T12:06:06.297Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:06.397Z] [INFO] [527/755] Enriching: Wild and the Sage (Unawatuna)
+[2026-01-24T12:06:06.599Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:06.699Z] [INFO] [528/755] Enriching: CASA LANKA UNAWATUNA (Unawatuna)
+[2026-01-24T12:06:06.898Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:06.999Z] [INFO] [529/755] Enriching: Le café (Unawatuna)
+[2026-01-24T12:06:07.190Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:07.291Z] [INFO] [530/755] Enriching: THE BRUNCH by Prime Time (Unawatuna)
+[2026-01-24T12:06:07.536Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:07.637Z] [INFO] [531/755] Enriching: ALOHA Juice Bar (Unawatuna)
+[2026-01-24T12:06:07.849Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:07.949Z] [INFO] [532/755] Enriching: Tea Time by BLUEFIELD (Unawatuna)
+[2026-01-24T12:06:08.140Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:08.241Z] [INFO] [533/755] Enriching: Le Café Français Bakery & Boutique (Unawatuna)
+[2026-01-24T12:06:08.437Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:08.538Z] [INFO] [534/755] Enriching: Koha Surf Lounge (Unawatuna)
+[2026-01-24T12:06:08.745Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:08.845Z] [INFO] [535/755] Enriching: Happy Coconut Cafe (Unawatuna)
+[2026-01-24T12:06:09.036Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:09.137Z] [INFO] [536/755] Enriching: Steam Yard Unawatuna (Unawatuna)
+[2026-01-24T12:06:09.333Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:09.433Z] [INFO] [537/755] Enriching: Fruit Deck (Unawatuna)
+[2026-01-24T12:06:09.649Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:06:09.751Z] [INFO] [538/755] Enriching: Bitter Beans Cafe (Unawatuna)
+[2026-01-24T12:06:09.956Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:10.056Z] [INFO] [539/755] Enriching: Wickrama Cafe (Unawatuna)
+[2026-01-24T12:06:10.279Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:10.381Z] [INFO] [540/755] Enriching: Hawaya (Unawatuna)
+[2026-01-24T12:06:10.584Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:10.685Z] [INFO] [541/755] Enriching: Cafe night mate (Unawatuna)
+[2026-01-24T12:06:10.870Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:06:10.971Z] [INFO] [542/755] Enriching: Surf 'n' Turf - Koggala (Koggala)
+[2026-01-24T12:06:11.170Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:11.273Z] [INFO] [543/755] Enriching: Surf 'n' Turf - Koggala (Koggala)
+[2026-01-24T12:06:11.454Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:11.554Z] [INFO] [544/755] Enriching: Catalina Grill Restaurant (Koggala)
+[2026-01-24T12:06:11.766Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:11.867Z] [INFO] [545/755] Enriching: Manthra Cafe sea food restaurants (Koggala)
+[2026-01-24T12:06:12.093Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:12.193Z] [INFO] [546/755] Enriching: THE AVOCADO TREE (Koggala)
+[2026-01-24T12:06:12.397Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:12.498Z] [INFO] [547/755] Enriching: Ajee Kitchen (Koggala)
+[2026-01-24T12:06:12.710Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:12.812Z] [INFO] [548/755] Enriching: The Place to be (Koggala)
+[2026-01-24T12:06:13.031Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:13.133Z] [INFO] [549/755] Enriching: ITAMESHI (Koggala)
+[2026-01-24T12:06:13.336Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=false
+[2026-01-24T12:06:13.439Z] [INFO] [550/755] Enriching: White (Koggala)
+[2026-01-24T12:06:13.670Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:13.796Z] [INFO] ✅ Checkpoint 11 saved: 550 food POIs enriched
+[2026-01-24T12:06:13.797Z] [INFO] [551/755] Enriching: Baba’s Sunset (Koggala)
+[2026-01-24T12:06:13.984Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:06:14.086Z] [INFO] [552/755] Enriching: Octoberfest (Koggala)
+[2026-01-24T12:06:14.292Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:14.392Z] [INFO] [553/755] Enriching: Sea Food Beach Restaurant (Koggala)
+[2026-01-24T12:06:14.623Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:14.724Z] [INFO] [554/755] Enriching: Jaya place (Koggala)
+[2026-01-24T12:06:14.927Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:15.029Z] [INFO] [555/755] Enriching: Bite 1 (Koggala)
+[2026-01-24T12:06:15.227Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:15.328Z] [INFO] [556/755] Enriching: Кафе (Koggala)
+[2026-01-24T12:06:15.563Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:15.665Z] [INFO] [557/755] Enriching: Surf 'n' Turf - Koggala (Koggala)
+[2026-01-24T12:06:15.855Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:15.958Z] [INFO] [558/755] Enriching: THE AVOCADO TREE (Koggala)
+[2026-01-24T12:06:16.150Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:16.252Z] [INFO] [559/755] Enriching: Fish BBQ (Koggala)
+[2026-01-24T12:06:16.439Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:16.539Z] [INFO] [560/755] Enriching: Brine (Ahangama)
+[2026-01-24T12:06:16.748Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:16.849Z] [INFO] [561/755] Enriching: Soft Wave Beach Shack (Ahangama)
+[2026-01-24T12:06:17.072Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:17.173Z] [INFO] [562/755] Enriching: Hakuna Matata (Ahangama)
+[2026-01-24T12:06:17.409Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:17.510Z] [INFO] [563/755] Enriching: Samba Ahangama (Ahangama)
+[2026-01-24T12:06:17.718Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:17.821Z] [INFO] [564/755] Enriching: Kalage Heritage Boutique Restaurant & Bar (Ahangama)
+[2026-01-24T12:06:18.047Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:18.147Z] [INFO] [565/755] Enriching: Tasty Roti Shop (Ahangama)
+[2026-01-24T12:06:18.378Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:18.480Z] [INFO] [566/755] Enriching: Rice & Spoon (Ahangama)
+[2026-01-24T12:06:18.711Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:18.813Z] [INFO] [567/755] Enriching: Pure Lankara Aroma (Ahangama)
+[2026-01-24T12:06:19.021Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:19.121Z] [INFO] [568/755] Enriching: Mangrove kitchen ahangama (Ahangama)
+[2026-01-24T12:06:19.353Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:19.454Z] [INFO] [569/755] Enriching: Nature Hut (Ahangama)
+[2026-01-24T12:06:19.690Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:19.793Z] [INFO] [570/755] Enriching: Hibiscus Restaurant & Bar Ahangama (Ahangama)
+[2026-01-24T12:06:20.030Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:20.130Z] [INFO] [571/755] Enriching: Machan Curry Pot (Ahangama)
+[2026-01-24T12:06:20.334Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:20.435Z] [INFO] [572/755] Enriching: Food Train Ahangama (Ahangama)
+[2026-01-24T12:06:20.680Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:20.781Z] [INFO] [573/755] Enriching: Salty kiss sea food restaurant (Ahangama)
+[2026-01-24T12:06:20.975Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:21.076Z] [INFO] [574/755] Enriching: Karu's Curry house 🍛 (Ahangama)
+[2026-01-24T12:06:21.293Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:21.394Z] [INFO] [575/755] Enriching: Bumba cafe (Ahangama)
+[2026-01-24T12:06:21.604Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:21.705Z] [INFO] [576/755] Enriching: Grabbit - Wake & Bake (Ahangama)
+[2026-01-24T12:06:21.952Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:22.055Z] [INFO] [577/755] Enriching: Yaluwa Hostel & Thai cafe (Ahangama)
+[2026-01-24T12:06:22.279Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:22.381Z] [INFO] [578/755] Enriching: Sundays Cafe & Restaurant (Ahangama)
+[2026-01-24T12:06:22.601Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:22.703Z] [INFO] [579/755] Enriching: Latte Cafe Coffee House Ahangama (Ahangama)
+[2026-01-24T12:06:22.921Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:23.022Z] [INFO] [580/755] Enriching: Mahawaththa ,Aranwala ,Ahangama (Ahangama)
+[2026-01-24T12:06:23.209Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:23.310Z] [INFO] [581/755] Enriching: serendipity - coffee.eat.sleep. (Ahangama)
+[2026-01-24T12:06:23.539Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:23.641Z] [INFO] [582/755] Enriching: Bumba cafe (Ahangama)
+[2026-01-24T12:06:23.854Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:23.954Z] [INFO] [583/755] Enriching: Sundays Cafe & Restaurant (Ahangama)
+[2026-01-24T12:06:24.144Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:24.245Z] [INFO] [584/755] Enriching: Soft Wave Beach Shack (Ahangama)
+[2026-01-24T12:06:24.477Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:24.578Z] [INFO] [585/755] Enriching: Squeeze Me (Ahangama)
+[2026-01-24T12:06:24.794Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:24.893Z] [INFO] [586/755] Enriching: Sunset coffee ahangama ☕️ (Ahangama)
+[2026-01-24T12:06:25.110Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:25.211Z] [INFO] [587/755] Enriching: Aliikai Ahangama (Ahangama)
+[2026-01-24T12:06:25.433Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:25.534Z] [INFO] [588/755] Enriching: Yin Yang Ahangama (Ahangama)
+[2026-01-24T12:06:25.738Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:25.839Z] [INFO] [589/755] Enriching: Hakuna Matata (Ahangama)
+[2026-01-24T12:06:26.056Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:26.157Z] [INFO] [590/755] Enriching: The Kip (Ahangama)
+[2026-01-24T12:06:26.389Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:26.492Z] [INFO] [591/755] Enriching: Wild Beach Cafe Food And Drinks (Ahangama)
+[2026-01-24T12:06:26.729Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:26.830Z] [INFO] [592/755] Enriching: Samba Ahangama (Ahangama)
+[2026-01-24T12:06:27.027Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:27.129Z] [INFO] [593/755] Enriching: COMMUNITY (Ahangama)
+[2026-01-24T12:06:27.328Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:27.427Z] [INFO] [594/755] Enriching: Mudra Herbal Spices and Tea Shop (Ahangama)
+[2026-01-24T12:06:27.622Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:27.724Z] [INFO] [595/755] Enriching: Hungry Balance (Ahangama)
+[2026-01-24T12:06:27.929Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:28.030Z] [INFO] [596/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:28.233Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:28.333Z] [INFO] [597/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:28.560Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:28.663Z] [INFO] [598/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:28.875Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:28.976Z] [INFO] [599/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:29.134Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:29.235Z] [INFO] [600/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:29.434Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:29.559Z] [INFO] ✅ Checkpoint 12 saved: 600 food POIs enriched
+[2026-01-24T12:06:29.560Z] [INFO] [601/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:29.781Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:29.882Z] [INFO] [602/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:30.040Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:30.141Z] [INFO] [603/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:30.305Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:30.407Z] [INFO] [604/755] Enriching: The Cliff Weligama (Weligama)
+[2026-01-24T12:06:30.606Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:30.707Z] [INFO] [605/755] Enriching: Sun and swell restaurant and coffee shop (Weligama)
+[2026-01-24T12:06:30.915Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:31.017Z] [INFO] [606/755] Enriching: Silent pup Restaurant & Bar, café (Weligama)
+[2026-01-24T12:06:31.265Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:31.367Z] [INFO] [607/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:31.561Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:31.664Z] [INFO] [608/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:31.853Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:31.953Z] [INFO] [609/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:32.115Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:32.217Z] [INFO] [610/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:32.368Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:32.470Z] [INFO] [611/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:32.667Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:32.768Z] [INFO] [612/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:32.949Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:33.052Z] [INFO] [613/755] Enriching: Tiki bar Weligama (Weligama)
+[2026-01-24T12:06:33.209Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:33.310Z] [INFO] [614/755] Enriching: Kavija Restaurant weligama (Weligama)
+[2026-01-24T12:06:33.489Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:33.590Z] [INFO] [615/755] Enriching: La Marthena Restaurant (Weligama)
+[2026-01-24T12:06:33.821Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:33.922Z] [INFO] [616/755] Enriching: Ocean View Restaurant (Weligama)
+[2026-01-24T12:06:34.119Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:34.219Z] [INFO] [617/755] Enriching: Family Kitchen (Weligama)
+[2026-01-24T12:06:34.488Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:34.588Z] [INFO] [618/755] Enriching: The Cliff Weligama (Weligama)
+[2026-01-24T12:06:34.793Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:34.895Z] [INFO] [619/755] Enriching: The Ceylon Restaurant (Weligama)
+[2026-01-24T12:06:35.113Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:35.214Z] [INFO] [620/755] Enriching: Keerthis Seafood Restaurant (Weligama)
+[2026-01-24T12:06:35.437Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:35.537Z] [INFO] [621/755] Enriching: Suji’s place (Weligama)
+[2026-01-24T12:06:35.758Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:35.860Z] [INFO] [622/755] Enriching: OLIMADU JUICE BAR AND Restaurant (Weligama)
+[2026-01-24T12:06:36.058Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:36.159Z] [INFO] [623/755] Enriching: The Reef Weligama (Experience Rooftop) (Weligama)
+[2026-01-24T12:06:36.471Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:36.572Z] [INFO] [624/755] Enriching: Experience Rooftop (Sunset Point) (Weligama)
+[2026-01-24T12:06:36.764Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:36.865Z] [INFO] [625/755] Enriching: Vin Food (Weligama)
+[2026-01-24T12:06:37.068Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:37.168Z] [INFO] [626/755] Enriching: Mermaid Sea Food Restaurant (Weligama)
+[2026-01-24T12:06:37.342Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:06:37.444Z] [INFO] [627/755] Enriching: fishermens beach resturant (Weligama)
+[2026-01-24T12:06:37.635Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:06:37.738Z] [INFO] [628/755] Enriching: Turtle Bay Restaurant (Weligama)
+[2026-01-24T12:06:37.938Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:38.038Z] [INFO] [629/755] Enriching: Lai chifan (Weligama)
+[2026-01-24T12:06:38.224Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:38.325Z] [INFO] [630/755] Enriching: The Cliff Weligama (Weligama)
+[2026-01-24T12:06:38.516Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:38.617Z] [INFO] [631/755] Enriching: La Fiesta (Weligama)
+[2026-01-24T12:06:38.808Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:38.909Z] [INFO] [632/755] Enriching: Sun and swell restaurant and coffee shop (Weligama)
+[2026-01-24T12:06:39.105Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:39.205Z] [INFO] [633/755] Enriching: Star Eyes (Weligama)
+[2026-01-24T12:06:39.431Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:39.534Z] [INFO] [634/755] Enriching: Silent pup Restaurant & Bar, café (Weligama)
+[2026-01-24T12:06:39.777Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:39.878Z] [INFO] [635/755] Enriching: Jungle Cats Restaurant & Bar (Mirissa)
+[2026-01-24T12:06:40.090Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:40.191Z] [INFO] [636/755] Enriching: 3 in One Ayurvedic Spa (Mirissa)
+[2026-01-24T12:06:40.415Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:40.515Z] [INFO] [637/755] Enriching: No. 1 Dewmini Roti Shop (Mirissa)
+[2026-01-24T12:06:40.720Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:40.821Z] [INFO] [638/755] Enriching: Mellow melons (Mirissa)
+[2026-01-24T12:06:41.044Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:41.145Z] [INFO] [639/755] Enriching: Quinta (Mirissa)
+[2026-01-24T12:06:41.339Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:41.440Z] [INFO] [640/755] Enriching: mirissa restaurant (Mirissa)
+[2026-01-24T12:06:41.641Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:41.744Z] [INFO] [641/755] Enriching: Jungle Soul Restaurant (Mirissa)
+[2026-01-24T12:06:42.003Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=false, photo=true
+[2026-01-24T12:06:42.105Z] [INFO] [642/755] Enriching: Nishani Best Sri lankan food cookery class (Mirissa)
+[2026-01-24T12:06:42.347Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:42.448Z] [INFO] [643/755] Enriching: Jack Tree Vegan Restaurant Mirissa (Mirissa)
+[2026-01-24T12:06:42.643Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:42.743Z] [INFO] [644/755] Enriching: Insight Mirissa (Mirissa)
+[2026-01-24T12:06:42.942Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:43.043Z] [INFO] [645/755] Enriching: Bistro Mirissa (Mirissa)
+[2026-01-24T12:06:43.245Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:43.345Z] [INFO] [646/755] Enriching: The Hoppery (Mirissa)
+[2026-01-24T12:06:43.533Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:43.634Z] [INFO] [647/755] Enriching: aaloo mirissa (Mirissa)
+[2026-01-24T12:06:43.817Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:43.918Z] [INFO] [648/755] Enriching: Lavender Food Home (Mirissa)
+[2026-01-24T12:06:44.122Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:44.223Z] [INFO] [649/755] Enriching: Turtle Point Restaurant (Mirissa)
+[2026-01-24T12:06:44.420Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:44.520Z] [INFO] [650/755] Enriching: The Biggest Buffet (Mirissa)
+[2026-01-24T12:06:44.721Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:44.851Z] [INFO] ✅ Checkpoint 13 saved: 650 food POIs enriched
+[2026-01-24T12:06:44.852Z] [INFO] [651/755] Enriching: Moofy’s (Mirissa)
+[2026-01-24T12:06:45.049Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:45.151Z] [INFO] [652/755] Enriching: ceylonus Mirissa (Mirissa)
+[2026-01-24T12:06:45.332Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:45.433Z] [INFO] [653/755] Enriching: 3 in One Ayurvedic Spa (Mirissa)
+[2026-01-24T12:06:45.648Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:45.749Z] [INFO] [654/755] Enriching: Loose keys (Mirissa)
+[2026-01-24T12:06:45.945Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:46.047Z] [INFO] [655/755] Enriching: Masa cafe (Mirissa)
+[2026-01-24T12:06:46.246Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:46.347Z] [INFO] [656/755] Enriching: Cafe Miora & Juice Lounge (Mirissa)
+[2026-01-24T12:06:46.572Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:46.673Z] [INFO] [657/755] Enriching: Sanja Restaurant (Mirissa)
+[2026-01-24T12:06:46.882Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:46.984Z] [INFO] [658/755] Enriching: Nara’s Restaurant & cafe (Mirissa)
+[2026-01-24T12:06:47.225Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:47.326Z] [INFO] [659/755] Enriching: ODIN’S (Mirissa)
+[2026-01-24T12:06:47.527Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:47.629Z] [INFO] [660/755] Enriching: The Fat Mermaid (Mirissa)
+[2026-01-24T12:06:47.826Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:47.926Z] [INFO] [661/755] Enriching: CAFE MAMBA COFFEE'S (Mirissa)
+[2026-01-24T12:06:48.120Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:48.223Z] [INFO] [662/755] Enriching: Tidalwave Cafe (Mirissa)
+[2026-01-24T12:06:48.420Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:48.521Z] [INFO] [663/755] Enriching: 26cafe (Mirissa)
+[2026-01-24T12:06:48.720Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:48.819Z] [INFO] [664/755] Enriching: Dilna Cakes (Matara)
+[2026-01-24T12:06:49.014Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:49.114Z] [INFO] [665/755] Enriching: Dilna Cakes (Matara)
+[2026-01-24T12:06:49.276Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:49.377Z] [INFO] [666/755] Enriching: Dilna Cakes (Matara)
+[2026-01-24T12:06:49.580Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:49.683Z] [INFO] [667/755] Enriching: Dilna Cakes (Matara)
+[2026-01-24T12:06:49.845Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:49.947Z] [INFO] [668/755] Enriching: Pizza Hut - Matara (Matara)
+[2026-01-24T12:06:50.192Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:50.293Z] [INFO] [669/755] Enriching: SOUTHERN ARCADIA (Matara)
+[2026-01-24T12:06:50.480Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:50.581Z] [INFO] [670/755] Enriching: Juice Up (Matara)
+[2026-01-24T12:06:50.776Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:50.877Z] [INFO] [671/755] Enriching: Pizza Hut Express (Matara)
+[2026-01-24T12:06:51.091Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:51.191Z] [INFO] [672/755] Enriching: Dana's Rasa Bojun (Matara)
+[2026-01-24T12:06:51.364Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:51.464Z] [INFO] [673/755] Enriching: Sree Rhangaa Indian Resturant (Matara)
+[2026-01-24T12:06:51.687Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:51.788Z] [INFO] [674/755] Enriching: Royal Dude Family Restaurant (Matara)
+[2026-01-24T12:06:51.973Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:52.074Z] [INFO] [675/755] Enriching: Happy Bell (Matara)
+[2026-01-24T12:06:52.276Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:52.376Z] [INFO] [676/755] Enriching: Kunu Kama Kade ( Yanna Epa) (Matara)
+[2026-01-24T12:06:52.609Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:52.710Z] [INFO] [677/755] Enriching: හැලප කඩේ (Matara)
+[2026-01-24T12:06:52.899Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:06:53.001Z] [INFO] [678/755] Enriching: Maura restaurant (Matara)
+[2026-01-24T12:06:53.222Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:53.324Z] [INFO] [679/755] Enriching: Solis Matara Restaurant (Matara)
+[2026-01-24T12:06:53.549Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:53.650Z] [INFO] [680/755] Enriching: The Kottu Factory (Matara)
+[2026-01-24T12:06:53.880Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:53.981Z] [INFO] [681/755] Enriching: Food hub (Matara)
+[2026-01-24T12:06:54.167Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=false
+[2026-01-24T12:06:54.267Z] [INFO] [682/755] Enriching: Mayura Super Corner (Matara)
+[2026-01-24T12:06:54.485Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:54.586Z] [INFO] [683/755] Enriching: අපේ රස ape rasa (Matara)
+[2026-01-24T12:06:54.809Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:06:54.910Z] [INFO] [684/755] Enriching: Chill Cafe (Matara)
+[2026-01-24T12:06:55.092Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:55.193Z] [INFO] [685/755] Enriching: Ceypetco Circuit Bangalow - Matara (Matara)
+[2026-01-24T12:06:55.393Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:55.494Z] [INFO] [686/755] Enriching: The Food Palace (Matara)
+[2026-01-24T12:06:55.694Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:55.795Z] [INFO] [687/755] Enriching: P&S (Perera & Sons) - Nupe (Matara)
+[2026-01-24T12:06:56.052Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:56.153Z] [INFO] [688/755] Enriching: Kashmi Cakes & Food (Matara)
+[2026-01-24T12:06:56.332Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:56.433Z] [INFO] [689/755] Enriching: Juiceology (Matara)
+[2026-01-24T12:06:56.655Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:06:56.757Z] [INFO] [690/755] Enriching: Sahabandu cafe (Matara)
+[2026-01-24T12:06:56.980Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:57.080Z] [INFO] [691/755] Enriching: J (Matara)
+[2026-01-24T12:06:57.302Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:57.404Z] [INFO] [692/755] Enriching: micky graphics (Matara)
+[2026-01-24T12:06:57.589Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:57.690Z] [INFO] [693/755] Enriching: Super computer (Matara)
+[2026-01-24T12:06:57.906Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:06:58.007Z] [INFO] [694/755] Enriching: ගිස්බණ්ඩගෙ කඩේ (Matara)
+[2026-01-24T12:06:58.188Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:58.289Z] [INFO] [695/755] Enriching: Lanka Rolls (Matara)
+[2026-01-24T12:06:58.477Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:06:58.578Z] [INFO] [696/755] Enriching: Harishchandra Cafe (Matara)
+[2026-01-24T12:06:58.770Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:58.873Z] [INFO] [697/755] Enriching: P&S (Perera & Sons) - Isadeen Town (Matara)
+[2026-01-24T12:06:59.101Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:06:59.201Z] [INFO] [698/755] Enriching: Vinu Cafe (Matara)
+[2026-01-24T12:06:59.440Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:06:59.541Z] [INFO] [699/755] Enriching: CAFÉ DE LA GARE (Matara)
+[2026-01-24T12:06:59.752Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:06:59.854Z] [INFO] [700/755] Enriching: කුඹුරේ පවුලේ අවන්හල (Dondra)
+[2026-01-24T12:07:00.071Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:07:00.194Z] [INFO] ✅ Checkpoint 14 saved: 700 food POIs enriched
+[2026-01-24T12:07:00.195Z] [INFO] [701/755] Enriching: Sri Panic Restaurant (Dondra)
+[2026-01-24T12:07:00.383Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:00.485Z] [INFO] [702/755] Enriching: Seka hot food restaurant & Juice bar (Dondra)
+[2026-01-24T12:07:00.670Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:00.771Z] [INFO] [703/755] Enriching: Jayalanka Restaurant (Dondra)
+[2026-01-24T12:07:00.994Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:01.095Z] [INFO] [704/755] Enriching: ALINA FOOD (Dondra)
+[2026-01-24T12:07:01.277Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:01.378Z] [INFO] [705/755] Enriching: Nemsara Hot Food (Dondra)
+[2026-01-24T12:07:01.596Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:01.697Z] [INFO] [706/755] Enriching: Randidu Cake | රන්දිදු කේක් (Dondra)
+[2026-01-24T12:07:01.924Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:02.025Z] [INFO] [707/755] Enriching: Healthy juice bar (Dondra)
+[2026-01-24T12:07:02.211Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=false
+[2026-01-24T12:07:02.312Z] [INFO] [708/755] Enriching: Suranga (Dikwella)
+[2026-01-24T12:07:02.534Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:07:02.636Z] [INFO] [709/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:02.819Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:02.920Z] [INFO] [710/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:03.073Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:03.174Z] [INFO] [711/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:03.330Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:03.432Z] [INFO] [712/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:03.622Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:03.723Z] [INFO] [713/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:03.887Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:03.987Z] [INFO] [714/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:04.150Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:04.251Z] [INFO] [715/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:04.596Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:04.697Z] [INFO] [716/755] Enriching: Double A Restaurant (Hiriketiya)
+[2026-01-24T12:07:04.845Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=true
+[2026-01-24T12:07:04.946Z] [INFO] [717/755] Enriching: Kirinuga Boutique Retreat (Tangalle)
+[2026-01-24T12:07:05.137Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:05.237Z] [INFO] [718/755] Enriching: Cafe Salt Breeze (Tangalle)
+[2026-01-24T12:07:05.477Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:05.578Z] [INFO] [719/755] Enriching: OLA Tangalle (Tangalle)
+[2026-01-24T12:07:05.798Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:05.900Z] [INFO] [720/755] Enriching: Kirinuga Boutique Retreat (Tangalle)
+[2026-01-24T12:07:06.081Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:06.181Z] [INFO] [721/755] Enriching: Wise way Textiles (Tangalle)
+[2026-01-24T12:07:06.407Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:06.508Z] [INFO] [722/755] Enriching: Lindos blu (Tangalle)
+[2026-01-24T12:07:06.706Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:06.806Z] [INFO] [723/755] Enriching: Oceana Beach Cafe and Seafood Restaurant (Tangalle)
+[2026-01-24T12:07:07.055Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:07.156Z] [INFO] [724/755] Enriching: Kura Place Tangalle (Tangalle)
+[2026-01-24T12:07:07.350Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:07.451Z] [INFO] [725/755] Enriching: Chalet Tangalle (Tangalle)
+[2026-01-24T12:07:07.649Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:07.750Z] [INFO] [726/755] Enriching: Ocean Voyage Residence (Tangalle)
+[2026-01-24T12:07:07.983Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:08.083Z] [INFO] [727/755] Enriching: Kirinuga Boutique Retreat (Tangalle)
+[2026-01-24T12:07:08.259Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:08.359Z] [INFO] [728/755] Enriching: Harbour Road Restaurant (Tangalle)
+[2026-01-24T12:07:08.553Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:08.654Z] [INFO] [729/755] Enriching: King Fish Restaurant (Tangalle)
+[2026-01-24T12:07:08.851Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:08.954Z] [INFO] [730/755] Enriching: Kundira Restaurant (Tangalle)
+[2026-01-24T12:07:09.147Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:09.248Z] [INFO] [731/755] Enriching: Amurasan Beach Restaurant (Tangalle)
+[2026-01-24T12:07:09.458Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:09.559Z] [INFO] [732/755] Enriching: චතුරංග ගලි බවුසර් ඇන්ඩ් පේස්ටි ශොප් (Tangalle)
+[2026-01-24T12:07:09.746Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:07:09.847Z] [INFO] [733/755] Enriching: ඩොනල් ට්‍රම්ප් විස්කෝතු සහ පුටින් පුඩින් (Tangalle)
+[2026-01-24T12:07:10.026Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:07:10.127Z] [INFO] [734/755] Enriching: Rukmila sea food resturant (Tangalle)
+[2026-01-24T12:07:10.348Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:10.449Z] [INFO] [735/755] Enriching: Intaglio beach Restaurant Tangalle (Tangalle)
+[2026-01-24T12:07:10.636Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=true, photo=false
+[2026-01-24T12:07:10.737Z] [INFO] [736/755] Enriching: Taste of Tangalle (Tangalle)
+[2026-01-24T12:07:10.939Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:11.040Z] [INFO] [737/755] Enriching: Ipanalla Hela Bojun Hala (Tangalle)
+[2026-01-24T12:07:11.232Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:07:11.334Z] [INFO] [738/755] Enriching: Oceana Beach Cafe and Seafood Restaurant (Tangalle)
+[2026-01-24T12:07:11.577Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:11.680Z] [INFO] [739/755] Enriching: Navajeevana Rehabilitation Tangalle (Tangalle)
+[2026-01-24T12:07:11.890Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:11.993Z] [INFO] [740/755] Enriching: Kirinuga Boutique Retreat (Tangalle)
+[2026-01-24T12:07:12.181Z] [INFO]   ✅ Enriched: phone=true, website=true, hours=true, photo=true
+[2026-01-24T12:07:12.281Z] [INFO] [741/755] Enriching: One Dollar Cafe (Tangalle)
+[2026-01-24T12:07:12.472Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:12.575Z] [INFO] [742/755] Enriching: Cafe Salt Breeze (Tangalle)
+[2026-01-24T12:07:12.786Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:12.887Z] [INFO] [743/755] Enriching: Mango Tango (Tangalle)
+[2026-01-24T12:07:13.111Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:13.214Z] [INFO] [744/755] Enriching: JAGA HOME AND COFEE SHOP (Tangalle)
+[2026-01-24T12:07:13.402Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:13.503Z] [INFO] [745/755] Enriching: Café latte (Tangalle)
+[2026-01-24T12:07:13.703Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:13.803Z] [INFO] [746/755] Enriching: Aaro Brunch & Brew Tangalle (Tangalle)
+[2026-01-24T12:07:13.993Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=false, photo=true
+[2026-01-24T12:07:14.094Z] [INFO] [747/755] Enriching: New Saliya Restaurant (Tangalle)
+[2026-01-24T12:07:14.297Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:14.398Z] [INFO] [748/755] Enriching: Mr Bites & Coffe House (Tangalle)
+[2026-01-24T12:07:14.604Z] [INFO]   ✅ Enriched: phone=true, website=false, hours=true, photo=true
+[2026-01-24T12:07:14.705Z] [INFO] [749/755] Enriching: Saman Tea Room & Restaurant (Tangalle)
+[2026-01-24T12:07:14.925Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=false
+[2026-01-24T12:07:15.027Z] [INFO] [750/755] Enriching: ASIRI Cake &Tea Room Tangalle (Tangalle)
+[2026-01-24T12:07:15.212Z] [INFO]   ✅ Enriched: phone=false, website=false, hours=false, photo=true
+[2026-01-24T12:07:15.337Z] [INFO] ✅ Checkpoint 15 saved: 750 food POIs enriched

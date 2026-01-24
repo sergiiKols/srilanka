@@ -6,10 +6,20 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "parse:negombo-tangalle": "node SRI/scripts/parseNegomboTangalle.js --pass=1",
+    "parse:negombo-tangalle:pass1": "node SRI/scripts/parseNegomboTangalle.js --pass=1",
+    "parse:negombo-tangalle:pass2": "node SRI/scripts/parseNegomboTangalle.js --pass=2",
+    "parse:negombo-tangalle:pass3": "node SRI/scripts/parseNegomboTangalle.js --pass=3",
+    "enhance:pass1": "node SRI/scripts/enhancePass1Data.js",
+    "enhance:pass1:selective": "node SRI/scripts/enhancePass1DataSelective.js",
+    "parse:status": "echo 'Check SRI/parsed_data/negombo_tangalle/ for results'",
+    "parse:logs": "tail -f SRI/logs/negombo_tangalle_parsing.log"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.2",
     "@astrojs/react": "^4.4.2",
+    "@supabase/supabase-js": "^2.91.0",
     "@tailwindcss/vite": "^4.1.18",
     "@types/leaflet": "^1.9.21",
     "@types/react": "^19.2.8",

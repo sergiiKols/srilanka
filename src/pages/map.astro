@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Explorer from '../components/Explorer';
+---
+
+<Layout title="H-Ome Finder | Sri Lanka - Карта">
+	<Header />
+	<main class="main">
+		<div class="map-container">
+			<Explorer client:only="react" />
+			<div class="floating-buttons" id="floating-buttons-container">
+				<!-- GEO button will be added here by React -->
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.map-container {
+		flex: 1;
+		background-color: #e5e7eb;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	.floating-buttons {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		z-index: 1000;
+	}
+
+	/* Hide on mobile devices */
+	@media (max-width: 768px) {
+		.floating-buttons {
+			display: none;
+		}
+	}
+
+	.float-button {
+		background: rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(8px);
+		color: #666;
+		padding: 8px;
+		border-radius: 8px;
+		border: none;
+		text-decoration: none;
+		font-size: 20px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		opacity: 0.6;
+		cursor: pointer;
+	}
+
+	.float-button:hover {
+		opacity: 1;
+		background: rgba(255, 255, 255, 0.5);
+		transform: scale(1.05);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	.float-button:active {
+		transform: scale(0.98);
+	}
+</style>

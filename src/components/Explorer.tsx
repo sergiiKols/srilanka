@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Map from './map/Map';
 import PropertyDrawer from './property/PropertyDrawer';
+import PropertyImporter from './PropertyImporter';
+import PropertyImporterAI from './PropertyImporterAI';
+import GeoPickerButton from './GeoPickerButton';
 
 // Mock Data - In a real app this would come from an API or prop
 // Mock Data
@@ -106,78 +109,27 @@ const PROPERTIES = [
     }
 ];
 
-const POIS = [
-    // Culture & Temples (Galle, Unawatuna, Hikkaduwa, Mirissa)
-    { id: 'c1', position: [6.0247, 80.2185] as [number, number], title: 'Galle Fort Lighthouse', type: 'culture', hours: '24/7', description: 'Iconic white lighthouse at the southern tip of Galle Fort.' },
-    { id: 'c2', position: [6.0307, 80.2137] as [number, number], title: 'Galle Fort Clock Tower', type: 'culture', hours: '24/7', description: 'Historic colonial clock tower overlooking the cricket stadium.' },
-    { id: 'c3', position: [6.0261, 80.2168] as [number, number], title: 'Sudharmalaya Temple', type: 'temple', hours: '06:00 - 20:00', description: 'Beautiful white Buddhist temple within the Galle Fort ramparts.' },
-    { id: 'c4', position: [6.0268, 80.2173] as [number, number], title: 'All Saints Church', type: 'culture', hours: '08:30 - 17:30', description: 'Victorian Gothic revival church in the heart of the Fort.' },
-    { id: 'c5', position: [6.0272, 80.2163] as [number, number], title: 'Dutch Reformed Church', type: 'temple', hours: '09:00 - 17:00', description: 'One of the oldest Protestant churches in Sri Lanka (1755).' },
-    { id: 'c6', position: [6.0254, 80.2181] as [number, number], title: 'Meera Mosque', type: 'culture', hours: '24/7', description: 'Stunning mosque with Baroque and Islamic architecture.' },
-    { id: 'c7', position: [6.0142, 80.2394] as [number, number], title: 'Japanese Peace Pagoda', type: 'temple', hours: '07:00 - 19:00', description: 'Large white stupa on Rumassala hill with panoramic ocean views.' },
-    { id: 'c8', position: [6.0156, 80.2644] as [number, number], title: 'Yatagala Raja Maha Viharaya', type: 'temple', hours: '06:00 - 20:00', description: 'Ancient rock temple set among giant boulders near Unawatuna.' },
-    { id: 'c9', position: [6.1517, 80.0934] as [number, number], title: 'Seenigama Vihara', type: 'temple', hours: '06:00 - 19:00', description: 'Unique temple on a small island off Hikkaduwa.' },
-    { id: 'c10', position: [5.9436, 80.4627] as [number, number], title: 'Coconut Tree Hill', type: 'culture', hours: '24/7', description: 'Famous spot in Mirissa with a grove of palms on a red cliff.' },
-
-    // Beaches
-    { id: 'b1', position: [6.0097, 80.2474] as [number, number], title: 'Unawatuna Beach', type: 'beach', waves: 'green', info: 'Safe for swimming', description: 'Horseshoe-shaped bay with calm waters and many cafes.' },
-    { id: 'b2', position: [6.0167, 80.2500] as [number, number], title: 'Jungle Beach', type: 'beach', waves: 'green', info: 'Safe for snorkeling', description: 'Hidden bay near Rumassala, popular for snorkeling.' },
-    { id: 'b3', position: [5.9990, 80.2670] as [number, number], title: 'Dalawella Beach', type: 'beach', waves: 'green', info: 'Instagram Swing', description: 'Famous for the Instagram palm tree swing and natural lagoon.' },
-    { id: 'b4', position: [5.9995, 80.2680] as [number, number], title: 'Wijaya Beach', type: 'beach', waves: 'green', info: 'Sea Turtles', description: 'Great spot for swimming with wild sea turtles.' },
-    { id: 'b5', position: [5.970861, 80.426226] as [number, number], title: 'Weligama Beach', type: 'beach', waves: 'green', info: 'Beginners Surf', description: 'Long sandy bay, perfect for beginner surf lessons.' },
-    { id: 'b6', position: [5.944834, 80.459148] as [number, number], title: 'Mirissa Beach', type: 'beach', waves: 'yellow', info: 'Whale Watching', description: 'Lively beach known for whale watching and nightlife.' },
-    { id: 'b7', position: [5.94355, 80.45026] as [number, number], title: 'Secret Beach Mirissa', type: 'beach', waves: 'green', description: 'Tucked away behind a hill, offering three small coves.' },
-    { id: 'b8', position: [5.9800, 80.4000] as [number, number], title: 'Midigama Beach', type: 'beach', waves: 'red', info: 'Advanced Surf', description: 'Surf hub known for "Coconut" and "Plantations" breaks.' },
-    { id: 'b9', position: [6.139468, 80.106285] as [number, number], title: 'Hikkaduwa Beach', type: 'beach', waves: 'yellow', description: 'Classic surf and party beach with a marine sanctuary.' },
-
-    // Restaurants
-    { id: 'f1', position: [6.028624, 80.216797] as [number, number], title: 'The Bungalow', type: 'food', image: 'https://images.unsplash.com/photo-1517248135467-4c7ed9d421bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', phone: '+94 91 224 5092', hours: '11:00 - 22:30', description: 'Upscale dining and cocktails in a colonial building.' },
-    { id: 'f2', position: [6.028624, 80.216797] as [number, number], title: 'Pedlar\'s Inn Cafe', type: 'food', image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', phone: '+94 91 222 5333', hours: '08:00 - 22:00', description: 'Historic cafe in Galle Fort, famous for gelato.' },
-    { id: 'f3', position: [6.0150, 80.2370] as [number, number], title: 'Sea Waves Restaurant', type: 'food', phone: '+94 77 644 6500', hours: '12:00 - 21:00', description: 'Authentic Sri Lankan home-cooked curries.' },
-    { id: 'f4', position: [5.9750, 80.4297] as [number, number], title: 'The Cliff Weligama', type: 'food', image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', phone: '+94 41 225 0101', hours: '11:00 - 23:00', description: 'Fine dining with dramatic ocean views.' },
-    { id: 'f5', position: [5.947182, 80.46179] as [number, number], title: 'No. 1 Dewmini Roti Shop', type: 'food', phone: '+94 77 341 0495', hours: '10:00 - 22:00', description: 'Famous family-run spot for diverse roti.' },
-    { id: 'f6', position: [5.948262, 80.471588] as [number, number], title: 'Shady Lane Mirissa', type: 'food', hours: '08:00 - 15:30', description: 'Trendy cafe serving smoothie bowls.' },
-    { id: 'f7', position: [5.948262, 80.471588] as [number, number], title: 'Petti Petti Mirissa', type: 'food', image: 'https://images.unsplash.com/photo-1536964541071-6c2438692790?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', phone: '+94 76 498 7000', hours: '11:00 - 23:00', description: 'Vibrant restaurant made of shipping containers.' },
-
-    // Water Sports
-    { id: 's1', position: [5.9715, 80.4280] as [number, number], title: 'Lucky\'s Surf Camp', type: 'surf', image: 'https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', phone: '+94 77 901 0212', hours: '07:00 - 18:00', description: 'High-rated surf school on Weligama beach.' },
-    { id: 's2', position: [5.9725, 80.4265] as [number, number], title: 'Freedom Surf School', type: 'surf', phone: '+94 77 561 7088', hours: '07:00 - 18:00', description: 'Long-standing surf school focused on progress.' },
-
-    // Spa & Wellness
-    { id: 'sp1', position: [6.0110, 80.2515] as [number, number], title: 'Santon Spa Unawatuna', type: 'spa', phone: '+94 77 782 5815', hours: '09:00 - 21:00', description: 'Professional Ayurvedic massage center.' },
-    { id: 'sp2', position: [5.9468, 80.4552] as [number, number], title: 'Badora Spa Mirissa', type: 'spa', phone: '+94 77 339 6351', hours: '09:00 - 21:30', description: 'Popular spa offering herbal treatments.' },
-
-    // Pharmacies
-    { id: 'ph1', position: [5.9730, 80.4250] as [number, number], title: 'Western Pharmacy', type: 'pharmacy', phone: '+94 77 300 5333', hours: '06:00 - 22:00', description: 'Reliable pharmacy in Weligama.' },
-    { id: 'ph2', position: [6.0350, 80.2150] as [number, number], title: 'Rajya Osusala Galle', type: 'pharmacy', phone: '+94 91 223 4726', hours: '08:30 - 20:00', description: 'State pharmaceutical outlet in Galle.' },
-
-    // Supermarkets
-    { id: 'sm1', position: [5.9735, 80.4245] as [number, number], title: 'Cargills Food City', type: 'supermarket', phone: '+94 41 225 1022', hours: '08:00 - 22:00', description: 'Convenient supermarket in Weligama.' },
-    { id: 'sm2', position: [6.0400, 80.2200] as [number, number], title: 'Keells Super Galle', type: 'supermarket', phone: '+94 41 222 3456', hours: '08:00 - 22:00', description: 'Modern supermarket with fresh produce.' },
-
-    // Hospitals
-    { id: 'h1', position: [6.0355, 80.2120] as [number, number], title: 'Asiri Hospital Galle', type: 'hospital', phone: '+94 91 464 0640', hours: '24/7', description: 'Leading private hospital with emergency care.' },
-    { id: 'h2', position: [6.0594, 80.2306] as [number, number], title: 'Karapitiya Hospital', type: 'hospital', phone: '+94 91 223 2250', hours: '24/7', description: 'Largest teaching hospital in Southern Province.' },
-    { id: 'h3', position: [5.9480, 80.4520] as [number, number], title: 'IMC Mirissa', type: 'hospital', phone: '+94 77 310 3333', hours: '08:30 - 21:00', description: 'International Medical Center for tourists.' },
-
-    // ATMs & Exchange
-    { id: 'a1', position: [5.9475, 80.4515] as [number, number], title: 'Seylan ATM Mirissa', type: 'atm', hours: '24/7', description: 'Convenient ATM near Mirissa beach.' },
-    { id: 'a2', position: [5.9732, 80.4240] as [number, number], title: 'Commercial Bank ATM', type: 'atm', hours: '24/7', description: 'Central ATM in Weligama.' },
-    { id: 'a3', position: [6.0275, 80.2160] as [number, number], title: 'Galle Money Exchange', type: 'atm', phone: '+94 76 635 5333', hours: '09:00 - 18:30', description: 'Trusted currency exchange inside Galle Fort.' },
-
-    // Transport
-    { id: 't1', position: [6.0325, 80.2145] as [number, number], title: 'Galle Central Bus Stand', type: 'bus', hours: '24/7', description: 'Hub for express and local buses.' },
-    { id: 't2', position: [5.9738, 80.4235] as [number, number], title: 'Weligama Bus Stand', type: 'bus', hours: '24/7', description: 'Main terminal for Matara and Galle.' },
-    { id: 't3', position: [5.9485, 80.4545] as [number, number], title: 'Mirissa Bus Stop', type: 'bus', hours: '24/7', description: 'Central stop near primary beach road.' },
-    { id: 't4', position: [6.1360, 80.1030] as [number, number], title: 'Hikkaduwa Bus Stop', type: 'bus', hours: '24/7', description: 'Major stop on Galle Road.' },
-    { id: 't5', position: [5.9735, 80.4240] as [number, number], title: 'Tuk-Tuk Stand Weligama', type: 'tuktuk', hours: '24/7', description: 'Reliable three-wheeler pick-up point.' }
-];
+// Hardcoded POIs removed - all data now loaded from JSON files
+const POIS: any[] = [];
 
 export default function Explorer() {
+    const mapRef = useRef<any>(null);
+    const [mapInstance, setMapInstance] = useState<any>(null);
     const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(null);
     const [selectedPropertyPos, setSelectedPropertyPos] = useState<[number, number] | null>(null);
-    const [activeLayers, setActiveLayers] = useState<string[]>(['stay']); // Only 'stay' active by default
+    const [activeLayers, setActiveLayers] = useState<string[]>(['stay']); // Show only properties by default - user can enable other POIs via filters
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isImporterOpen, setIsImporterOpen] = useState(false);
+    const [customProperties, setCustomProperties] = useState<any[]>(() => {
+        // Загружаем сохраненные объекты из localStorage
+        try {
+            const saved = localStorage.getItem('customProperties');
+            return saved ? JSON.parse(saved) : [];
+        } catch (error) {
+            console.error('Ошибка загрузки сохраненных объектов:', error);
+            return [];
+        }
+    });
 
     // Advanced Filters State
     const [priceRange, setPriceRange] = useState<string>('all');
@@ -207,6 +159,38 @@ export default function Explorer() {
 
     // Currency Conversion (USD to LKR)
     const [exchangeRate, setExchangeRate] = useState<number>(310); // Default fallback
+    
+    // Parsed POIs from Google Places API
+    const [parsedPOIs, setParsedPOIs] = useState<any[]>([]);
+
+    // Load parsed POI data
+    useEffect(() => {
+        const loadParsedPOIs = async () => {
+            try {
+                const response = await fetch('/SRI/parsed_data/negombo_tangalle/pass_1_0-1km.json');
+                const data = await response.json();
+                const mapped = data.map((poi: any) => ({
+                    id: poi.id,
+                    position: [poi.coordinates.lat, poi.coordinates.lng] as [number, number],
+                    title: poi.name,
+                    type: poi.category,
+                    description: poi.description || '',
+                    address: poi.address || '',
+                    phone: poi.phone || '',
+                    website: poi.website || '',
+                    hours: poi.hours || '',
+                    image: poi.mainPhoto || '',
+                    rating: poi.rating || 0,
+                    reviews: poi.totalReviews || 0
+                }));
+                setParsedPOIs(mapped);
+                console.log(`Loaded ${mapped.length} parsed POIs from Google Places API`);
+            } catch (e) {
+                console.warn('Failed to load parsed POI data:', e);
+            }
+        };
+        loadParsedPOIs();
+    }, []);
 
     useEffect(() => {
         const fetchRate = async () => {
@@ -255,26 +239,21 @@ export default function Explorer() {
 
     const MAIN_LAYERS = [
         { id: 'stay', label: 'Supporting Point', icon: '🏠', status: 'ON 100%' },
-        { id: 'beach', label: 'Beach', icon: '🏖️' },
-        { id: 'food', label: 'Restaurants', icon: '🍽️' },
+        { id: 'food', label: 'Food & Restaurants', icon: '🍽️' },
+        { id: 'beach', label: 'Beach & Water Sports', icon: '🏖️' }, // Объединяет beach + diving + surf
+        { id: 'attraction', label: 'Attractions & Nightlife', icon: '⭐' }, // Объединяет attraction + nightlife
         { id: 'pharmacy', label: 'Pharmacy', icon: '💊' },
+        { id: 'hospital', label: 'Hospital', icon: '🏥' },
+        { id: 'supermarket', label: 'Supermarket & Liquor', icon: '🛒' }, // Объединяет supermarket + liquor
+        { id: 'spa', label: 'Spa & Salon', icon: '💆' }, // Объединяет spa + salon (beauty salons)
         { id: 'atm', label: 'ATM & Exchange', icon: '🏧' },
-        { id: 'supermarket', label: 'Supermarket', icon: '🛒' },
-        { id: 'tuktuk', label: 'Tuk-tuk', icon: '🛺' },
+        // { id: 'tuktuk', label: 'Tuk-tuk', icon: '🛺' }, // Hidden - not enough data
         { id: 'bus', label: 'Bus Stops', icon: '🚌' },
-        { id: 'spa', label: 'Spa & Wellness', icon: '💆' },
-        { id: 'surf', label: 'Water Sports', icon: '🏄' },
-        { id: 'hospital', label: 'Hospitals', icon: '🏥' },
-        { id: 'culture', label: 'Culture & Temples', icon: '🕍' }
+        // Culture объединена с Attraction
     ];
 
-    const EXTRA_LAYERS = [
-        { id: 'liquor', label: 'Liquor Stores', icon: '🍷' },
-        { id: 'gym', label: 'Gym & Fitness', icon: '💪' },
-        { id: 'barber', label: 'Barber & Salon', icon: '✂️' },
-        { id: 'laundry', label: 'Laundry', icon: '🧺' },
-        { id: 'coworking', label: 'Coworking', icon: '💻' },
-        { id: 'yoga', label: 'Yoga', icon: '🧘' }
+    const EXTRA_LAYERS: any[] = [
+        // Удалены - все перенесены в MAIN_LAYERS как группы
     ];
 
     const ALL_CATEGORIES = [
@@ -286,7 +265,10 @@ export default function Explorer() {
     ];
 
     const handleMarkerClick = (id: string) => {
-        const property = PROPERTIES.find(p => p.id === id);
+        // Ищем среди всех объектов (PROPERTIES + customProperties)
+        const allProps = [...PROPERTIES, ...customProperties];
+        const property = allProps.find(p => p.id === id);
+        
         if (property) {
             setSelectedPropertyId(id);
             setSelectedPropertyPos(property.position);
@@ -309,6 +291,30 @@ export default function Explorer() {
         );
     };
 
+    const resetPOIFilters = () => {
+        // Reset POI layers to default - only 'stay' active
+        setActiveLayers(['stay']);
+    };
+
+    const resetPropertyFilters = () => {
+        // Reset property filters only
+        setPriceRange('all');
+        setMinRooms(1);
+        setMinBathrooms(1);
+        setSelectedArea('all');
+        setSelectedBeachDist('all');
+        setSelectedPropType('all');
+        setSelectedWifiSpeed('all');
+        setSelectedAmenities([]);
+        setMustHaves({
+            pool: false,
+            parking: false,
+            breakfast: false,
+            pets: false,
+            security: false
+        });
+    };
+
     const toggleAmenity = (amenity: string) => {
         setSelectedAmenities(prev =>
             prev.includes(amenity)
@@ -317,8 +323,48 @@ export default function Explorer() {
         );
     };
 
+    const handleImportProperty = (newProperty: any) => {
+        setCustomProperties(prev => {
+            const updated = [...prev, newProperty];
+            // Сохраняем в localStorage
+            try {
+                localStorage.setItem('customProperties', JSON.stringify(updated));
+            } catch (error) {
+                console.error('Ошибка сохранения объекта:', error);
+            }
+            return updated;
+        });
+        setIsImporterOpen(false);
+        
+        // Показываем уведомление
+        console.log(`✅ Объект "${newProperty.title}" добавлен на карту!`);
+    };
+
+    const handleDeleteProperty = (propertyId: string) => {
+        if (confirm('Вы уверены, что хотите удалить этот объект?')) {
+            setCustomProperties(prev => {
+                const updated = prev.filter(p => p.id !== propertyId);
+                // Обновляем localStorage
+                try {
+                    localStorage.setItem('customProperties', JSON.stringify(updated));
+                } catch (error) {
+                    console.error('Ошибка удаления объекта:', error);
+                }
+                return updated;
+            });
+            
+            // Закрываем drawer если был открыт удаленный объект
+            if (selectedPropertyId === propertyId) {
+                handleClose();
+            }
+            
+            console.log('🗑️ Объект удален');
+        }
+    };
+
     // Filter Logic
-    const filteredProperties = PROPERTIES.filter(p => {
+    const allProperties = [...PROPERTIES, ...customProperties];
+    const filteredProperties = allProperties.filter(p => {
         // Area
         if (selectedArea !== 'all' && p.area !== selectedArea) return false;
 
@@ -355,17 +401,34 @@ export default function Explorer() {
         return selectedAmenities.every(a => p.amenities.includes(a));
     });
 
-    const filteredPOIs = POIS.filter(poi => {
+    // Use only parsed POIs from JSON files (no hardcoded data)
+    const allPOIs = parsedPOIs;
+    
+    const filteredPOIs = allPOIs.filter(poi => {
         if (activeLayers.includes(poi.type)) return true;
 
-        // Grouped/Aliased types
-        if (activeLayers.includes('surf') && (poi.type === 'surf' || poi.type === 'diving' || poi.type === 'yoga')) return true;
-        if (activeLayers.includes('culture') && (poi.type === 'culture' || poi.type === 'temple')) return true;
+        // Grouped categories (10 групп)
+        // 1. beach включает: beach, diving, surf
+        if (activeLayers.includes('beach') && (poi.type === 'beach' || poi.type === 'diving' || poi.type === 'surf')) return true;
+        
+        // 2. attraction включает: attraction, nightlife
+        if (activeLayers.includes('attraction') && (poi.type === 'attraction' || poi.type === 'nightlife')) return true;
+        
+        // 5. supermarket включает: supermarket, liquor
+        if (activeLayers.includes('supermarket') && (poi.type === 'supermarket' || poi.type === 'liquor')) return true;
+        
+        // 6. spa включает: spa, yoga, salon
+        if (activeLayers.includes('spa') && (poi.type === 'spa' || poi.type === 'yoga')) return true;
+        
+        // 7. attraction ТЕПЕРЬ ВКЛЮЧАЕТ culture и temple (объединено)
+        if (activeLayers.includes('attraction') && (poi.type === 'culture' || poi.type === 'temple')) return true;
 
         return false;
     });
 
-    const selectedProperty = PROPERTIES.find(p => p.id === selectedPropertyId);
+    // Ищем объект среди всех (встроенных + добавленных пользователем)
+    const allProps = [...PROPERTIES, ...customProperties];
+    const selectedProperty = allProps.find(p => p.id === selectedPropertyId);
 
     const allMarkers = [
         ...(activeLayers.includes('stay') ? filteredProperties.map(p => ({
@@ -378,32 +441,57 @@ export default function Explorer() {
 
     return (
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+            {/* GEO Button in floating buttons */}
+            <GeoPickerButton map={mapInstance} />
+            
             {/* Filter Toggle Button */}
             <button
                 onClick={() => setIsFilterOpen(true)}
-                className="absolute top-6 left-6 z-[1000] bg-white text-slate-800 px-6 py-3 rounded-xl shadow-lg font-bold text-lg flex items-center gap-3 hover:bg-slate-50 transition-all active:scale-95"
-                style={{ zIndex: 1000 }}
+                className="absolute top-6 left-6 z-[1000] bg-white text-slate-800 px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:bg-slate-50 transition-all active:scale-95"
+                style={{ zIndex: 1000, minWidth: '120px' }}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
-                Filters
+                <span>Filters</span>
             </button>
+
+            {/* Import Button */}
+            <div className="absolute top-6 right-6 z-[1000] flex gap-3">
+                <button
+                    onClick={() => setIsImporterOpen(true)}
+                    className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:from-indigo-700 hover:to-purple-700 transition-all active:scale-95"
+                    style={{ minWidth: '120px' }}
+                    title="AI импорт объектов"
+                >
+                    <span className="text-lg md:text-xl">🤖</span>
+                    <span>Import</span>
+                </button>
+            </div>
 
 
             {/* Filter Drawer Sidebar */}
             <div
-                className={`absolute top-0 left-0 h-full w-96 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${isFilterOpen ? 'translate-x-0' : '-translate-x-full'}`}
-                style={{ zIndex: 2000 }}
+                className={`absolute top-0 left-0 h-full w-full md:w-96 bg-white shadow-[8px_0_32px_-8px_rgba(0,0,0,0.3)] transform transition-transform duration-300 ease-in-out flex flex-col ${isFilterOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                style={{ zIndex: 2000, pointerEvents: 'auto' }}
             >
-                <div className="p-5 border-b flex justify-between items-center bg-white sticky top-0 z-10">
-                    <div>
-                        <h2 className="text-lg font-bold text-slate-800">Filters</h2>
-                        <p className="text-xs text-slate-500">Customize your map view</p>
+                <div className="p-5 border-b bg-white sticky top-0 z-10">
+                    <div className="flex justify-between items-center mb-3">
+                        <div>
+                            <h2 className="text-lg font-bold text-slate-800">Filters</h2>
+                            <p className="text-xs text-slate-500">Customize your map view</p>
+                        </div>
+                        <button
+                            onClick={() => setIsFilterOpen(false)}
+                            className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-slate-600"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
                     </div>
                     <button
-                        onClick={() => setIsFilterOpen(false)}
-                        className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-slate-600"
+                        onClick={resetPOIFilters}
+                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                        Reset POI Layers
                     </button>
                 </div>
 
@@ -667,6 +755,17 @@ export default function Explorer() {
                             </div>
                         )}
                     </section>
+
+                    {/* Reset Property Filters Button */}
+                    <section className="pt-4">
+                        <button
+                            onClick={resetPropertyFilters}
+                            className="w-full bg-red-50 hover:bg-red-100 text-red-600 px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-colors border border-red-200"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                            Reset Property Filters
+                        </button>
+                    </section>
                 </div>
 
                 <div className="p-5 border-t bg-white sticky bottom-0 z-10">
@@ -682,16 +781,28 @@ export default function Explorer() {
 
             {/* Map Component */}
             <Map
+                ref={mapRef}
                 markers={allMarkers as any}
                 onMarkerClick={handleMarkerClick}
                 selectedPropertyPos={selectedPropertyPos}
+                onMapReady={setMapInstance}
             />
             <PropertyDrawer
                 isOpen={!!selectedPropertyId}
                 onClose={handleClose}
                 property={selectedProperty}
                 exchangeRate={exchangeRate}
+                onDelete={handleDeleteProperty}
+                isCustomProperty={customProperties.some(p => p.id === selectedPropertyId)}
             />
+
+            {/* Property Importer Modal */}
+            {isImporterOpen && (
+                <PropertyImporterAI
+                    onImport={handleImportProperty}
+                    onClose={() => setIsImporterOpen(false)}
+                />
+            )}
         </div>
     );
 }

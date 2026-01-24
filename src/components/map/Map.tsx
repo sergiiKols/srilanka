@@ -1,8 +1,41 @@
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl, Circle } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, Circle, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import type { LatLngTuple, IconOptions } from 'leaflet';
 import L from 'leaflet';
+import ZoomSlider from '../ZoomSlider';
+import './map-mobile.css';
+import { formatOpeningHours } from '../../utils/formatOpeningHours';
+
+// Компонент для отслеживания zoom событий и передачи ref на карту
+function ZoomListener({ onZoomChange, mapRef, onMapReady }: { onZoomChange: (zoom: number) => void, mapRef?: any, onMapReady?: (map: any) => void }) {
+    const map = useMap();
+
+    useEffect(() => {
+        // Передаем экземпляр карты в ref
+        if (mapRef) {
+            mapRef.current = map;
+            console.log('🗺️  Map instance set in ZoomListener:', map);
+        }
+        
+        // Вызываем callback onMapReady
+        if (onMapReady) {
+            onMapReady(map);
+            console.log('✅ Map ready callback fired!');
+        }
+
+        const handleZoom = () => {
+            onZoomChange(map.getZoom());
+        };
+
+        map.on('zoomend', handleZoom);
+        return () => {
+            map.off('zoomend', handleZoom);
+        };
+    }, [map, onZoomChange, mapRef, onMapReady]);
+
+    return null;
+}
 
 // Fix for default Leaflet markers in React
 // We need to manually point to the marker images or they won't show up in many build setups
@@ -22,18 +55,20 @@ const SRI_LANKA_CENTER: LatLngTuple = [7.8731, 80.7718];
 const DEFAULT_ZOOM = 8;
 
 interface MapProps {
+    onMapReady?: (map: any) => void;
     markers?: Array<{
         id: string;
         position: LatLngTuple;
         title: string;
         price?: string;
         priceLKR?: string;
-        type?: 'stay' | 'beach' | 'food' | 'culture' | 'pharmacy' | 'atm' | 'supermarket' | 'tuktuk' | 'bus' | 'hospital' | 'petrol' | 'train' | 'surf' | 'liquor' | 'gym' | 'spa' | 'viewpoint' | 'parking' | 'school' | 'market' | 'police' | 'post' | 'temple' | 'coworking' | 'diving' | 'rental' | 'park' | 'hardware' | 'laundry' | 'bank' | 'bakery' | 'barber' | 'vet' | 'library' | 'cinema';
+        type?: 'stay' | 'attraction' | 'beach' | 'food' | 'restaurant' | 'culture' | 'pharmacy' | 'atm' | 'supermarket' | 'tuktuk' | 'bus' | 'hospital' | 'petrol' | 'train' | 'surf' | 'liquor' | 'gym' | 'spa' | 'nightlife' | 'viewpoint' | 'parking' | 'school' | 'market' | 'police' | 'post' | 'temple' | 'coworking' | 'diving' | 'rental' | 'park' | 'hardware' | 'laundry' | 'bank' | 'bakery' | 'barber' | 'vet' | 'library' | 'cinema';
         images?: string[];
         image?: string;
         address?: string;
         description?: string;
         phone?: string;
+        website?: string;
         cuisine?: string;
         atmosphere?: string;
         price_level?: string;
@@ -45,28 +80,32 @@ interface MapProps {
 }
 
 // Custom icons using Emoji
-const createIcon = (type: string, options?: { waves?: string, is247?: boolean }) => {
+const createIcon = (type: string, size: number = 34, showShadow: boolean = false, options?: { waves?: string, is247?: boolean }) => {
     const emojis: Record<string, string> = {
         stay: '🏠',
+        // hotel: '🏨', // ❌ УДАЛЕНО - отели не нужны
+        attraction: '⭐', // Включает культуру, храмы, музеи
         beach: '🏖️',
         food: '🍽️',
-        culture: '🏛️',
+        restaurant: '🍽️',
+        culture: '⭐', // Объединено с attraction
         pharmacy: '💊',
+        hospital: '🏥',
         atm: '🏧',
         supermarket: '🛒',
+        spa: '💆',
+        nightlife: '🎉',
         tuktuk: '🛺',
         bus: '🚌',
-        hospital: '🏥',
         surf: '🏄',
         yoga: '🧘',
         diving: '🤿',
         liquor: '🍷',
         gym: '💪',
-        spa: '💆',
         barber: '✂️',
         laundry: '🧺',
         coworking: '💻',
-        temple: '🕍'
+        temple: '⭐' // Объединено с attraction
     };
 
     let borderColor = 'transparent';
@@ -77,21 +116,33 @@ const createIcon = (type: string, options?: { waves?: string, is247?: boolean })
         borderColor = '#4f46e5';
     }
 
+    // Масштабируем размер шрифта эмодзи в зависимости от размера маркера
+    const fontSize = Math.max(4, Math.round(size * 0.65));
+    const half = Math.round(size / 2);
+    
+    // Тень только если showShadow = true
+    const shadow = showShadow ? '0 4px 10px rgba(0,0,0,0.15)' : 'none';
+
     return L.divIcon({
         className: 'custom-marker',
-        html: `<div style="background: white; border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); font-size: 20px; border: ${borderColor !== 'transparent' ? `3px solid ${borderColor}` : 'none'}; transition: transform 0.2s;">${emojis[type] || '📍'}</div>`,
-        iconSize: [34, 34],
-        iconAnchor: [17, 34],
-        popupAnchor: [0, -34]
+        html: `<div style="background: white; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: ${shadow}; font-size: ${fontSize}px; border: ${borderColor !== 'transparent' ? `3px solid ${borderColor}` : 'none'}; transition: all 0.2s ease;">${emojis[type] || '📍'}</div>`,
+        iconSize: [size, size],
+        iconAnchor: [half, size],
+        popupAnchor: [0, -size]
     });
 };
 
-export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }: MapProps) {
+const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick, selectedPropertyPos, onMapReady }, ref) {
     const [isMounted, setIsMounted] = useState(false);
+    const [zoom, setZoom] = useState(DEFAULT_ZOOM);
+    const mapInstanceRef = useState<any>({ current: null })[0];
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
+
+    // Expose the map instance through ref
+    useImperativeHandle(ref, () => mapInstanceRef.current, [mapInstanceRef]);
 
     if (!isMounted) {
         return (
@@ -100,6 +151,21 @@ export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }
             </div>
         );
     }
+
+    // Динамический размер маркера в зависимости от zoom
+    const getMarkerSize = (currentZoom: number) => {
+        if (currentZoom < 9) return 6;       // 3x меньше - очень маленькие на далеком zoom
+        if (currentZoom < 11) return 8;      // очень маленькие
+        if (currentZoom < 13) return 10;     // маленькие
+        if (currentZoom < 15) return 16;     // средние
+        return 28;                           // большие при приближении
+    };
+
+    // Показывать ли POI маркеры (только при zoom >= 10)
+    const shouldShowPOIMarkers = (currentZoom: number) => currentZoom >= 10;
+
+    // Показывать ли тень (только при zoom >= 18)
+    const shouldShowShadow = (currentZoom: number) => currentZoom >= 18;
 
     const getThumbnail = (marker: any) => {
         if (marker.image) return marker.image; // POI specific
@@ -114,16 +180,43 @@ export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }
             style={{ height: '100%', width: '100%' }}
             zoomControl={false}
         >
-            <ZoomControl position="bottomright" />
+            <ZoomListener onZoomChange={setZoom} mapRef={mapInstanceRef} onMapReady={onMapReady} />
+            <ZoomSlider onZoomChange={setZoom} />
+            <ZoomControl position="bottomright" zoomInText="+" zoomOutText="-" className="zoom-control-custom" />
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {markers.map((marker) => (
+            {markers.map((marker) => {
+                // Для недвижимости (stay) используем стандартный размер и оригинальную иконку
+                if (marker.type === 'stay') {
+                    return (
+                        <Marker
+                            key={marker.id}
+                            position={marker.position}
+                            icon={DefaultIcon}
+                            eventHandlers={{
+                                click: () => onMarkerClick?.(marker.id),
+                            }}
+                        >
+                            <Popup maxWidth={260} minWidth={220}>
+                                {/* Popup content для stay */}
+                            </Popup>
+                        </Marker>
+                    );
+                }
+
+                // Для POI показываем только если zoom >= 15
+                if (!shouldShowPOIMarkers(zoom)) {
+                    return null;
+                }
+
+                // Для POI используем динамический размер и условную тень
+                return (
                 <Marker
                     key={marker.id}
                     position={marker.position}
-                    icon={marker.type ? createIcon(marker.type, { waves: (marker as any).waves, is247: (marker as any).is247 }) : DefaultIcon}
+                    icon={marker.type ? createIcon(marker.type, getMarkerSize(zoom), shouldShowShadow(zoom), { waves: (marker as any).waves, is247: (marker as any).is247 }) : DefaultIcon}
                     eventHandlers={{
                         click: () => !marker.type?.includes('food') && onMarkerClick?.(marker.id),
                     }}
@@ -173,8 +266,8 @@ export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }
                             </div>
 
                             {marker.description && (
-                                <p className="text-[12px] text-slate-600 leading-normal line-clamp-3 mt-1">
-                                    {marker.description}
+                                <p className="text-[12px] text-slate-600 leading-normal line-clamp-3 mt-1 whitespace-pre-line">
+                                    {formatOpeningHours(marker.description)}
                                 </p>
                             )}
 
@@ -201,6 +294,18 @@ export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }
                                 </a>
                             )}
 
+                            {marker.website && (
+                                <a
+                                    href={marker.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 mt-2 p-2 bg-slate-50 border border-slate-100 rounded-lg text-indigo-600 hover:bg-slate-100 transition-colors no-underline"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                    <span className="text-[12px] font-bold truncate">{marker.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}</span>
+                                </a>
+                            )}
+
                             {!marker.type?.includes('culture') && !marker.type?.includes('beach') && !marker.phone && marker.price && (
                                 <div className="mt-1">
                                     <div className="text-sm font-black text-indigo-600">{marker.price}</div>
@@ -224,7 +329,8 @@ export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }
                         </div>
                     </Popup>
                 </Marker>
-            ))}
+                );
+            })}
             {selectedPropertyPos && (
                 <Circle
                     center={selectedPropertyPos}
@@ -240,4 +346,6 @@ export default function Map({ markers = [], onMarkerClick, selectedPropertyPos }
             )}
         </MapContainer>
     );
-}
+});
+
+export default Map;

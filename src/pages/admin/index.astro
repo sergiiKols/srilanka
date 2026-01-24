@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdminLayout from '../../components/admin/AdminLayout';
+import DashboardRu from '../../components/admin/DashboardRu';
+
+// TODO: Add admin auth check here
+// const session = await getSession(Astro.request);
+// if (!session || session.role !== 'admin') {
+//   return Astro.redirect('/?error=unauthorized');
+// }
+---
+
+<Layout title="Админ-панель">
+  <AdminLayout client:load>
+    <DashboardRu client:load />
+  </AdminLayout>
+</Layout>

@@ -1,0 +1,23 @@
+{
+  "total": 2404,
+  "byCategory": {
+    "food": 591,
+    "atm": 249,
+    "attraction": 262,
+    "hospital": 227,
+    "bus": 314,
+    "culture": 234,
+    "nightlife": 80,
+    "spa": 242,
+    "beach": 51,
+    "tuktuk": 4,
+    "pharmacy": 81,
+    "supermarket": 57,
+    "liquor": 12
+  },
+  "withPhotos": 451,
+  "withPhone": 412,
+  "withWebsite": 132,
+  "withHours": 376,
+  "enriched": 588
+}

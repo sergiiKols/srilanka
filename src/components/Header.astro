@@ -85,4 +85,19 @@ import Button from './ui/Button.astro';
     display: flex;
     gap: var(--spacing-4);
   }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+    
+    .logo-subtitle {
+      display: none;
+    }
+    
+    .container {
+      padding: 0 12px;
+    }
+  }
 </style>

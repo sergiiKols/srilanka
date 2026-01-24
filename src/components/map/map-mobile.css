@@ -1,0 +1,6 @@
+/* Hide zoom controls on mobile */
+@media (max-width: 768px) {
+  .leaflet-control-zoom {
+    display: none !important;
+  }
+}

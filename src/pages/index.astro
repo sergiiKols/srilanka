@@ -1,17 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Explorer from '../components/Explorer';
+// Redirect to admin panel as default page
+return Astro.redirect('/admin');
 ---
-
-<Layout title="H-Ome Finder | Sri Lanka">
-	<Header />
-	<main class="main">
-		<div class="map-container">
-			<Explorer client:only="react" />
-		</div>
-	</main>
-</Layout>
 
 <style>
 	.main {

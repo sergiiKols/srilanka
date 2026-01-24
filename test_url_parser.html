@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Google Maps URL Parser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .error {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        pre {
+            background: white;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Тест парсера Google Maps URL</h1>
+    
+    <input 
+        type="text" 
+        id="urlInput" 
+        placeholder="Вставьте URL или координаты..."
+        value="https://maps.app.goo.gl/KSZKYnL8PmKigKPe7?g_st=it"
+    />
+    
+    <button onclick="testParser()">Парсить</button>
+    
+    <div id="result"></div>
+
+    <script>
+        async function expandShortUrl(shortUrl) {
+            try {
+                console.log('🔗 Разворачиваем:', shortUrl);
+                const response = await fetch(shortUrl, {
+                    method: 'HEAD',
+                    redirect: 'follow'
+                });
+                console.log('✅ Развернутый URL:', response.url);
+                return response.url;
+            } catch (error) {
+                console.error('❌ Ошибка разворачивания:', error);
+                return null;
+            }
+        }
+
+        async function parseGoogleMapsURL(input) {
+            try {
+                const trimmed = input.trim();
+                console.log('📝 Исходный ввод:', trimmed);
+
+                // Прямые координаты
+                const directCoords = /^(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)$/;
+                const directMatch = trimmed.match(directCoords);
+                if (directMatch) {
+                    console.log('✅ Найдены прямые координаты');
+                    return {
+                        lat: parseFloat(directMatch[1]),
+                        lng: parseFloat(directMatch[2])
+                    };
+                }
+
+                // URL с параметром ?q=
+                const qParamMatch = trimmed.match(/[?&]q=(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+                if (qParamMatch) {
+                    console.log('✅ Найдены координаты в параметре q=');
+                    return {
+                        lat: parseFloat(qParamMatch[1]),
+                        lng: parseFloat(qParamMatch[2])
+                    };
+                }
+
+                // URL с @координаты
+                const atMatch = trimmed.match(/@(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+                if (atMatch) {
+                    console.log('✅ Найдены координаты с @');
+                    return {
+                        lat: parseFloat(atMatch[1]),
+                        lng: parseFloat(atMatch[2])
+                    };
+                }
+
+                // URL с /place/
+                const placeMatch = trimmed.match(/\/place\/([^/]+).*@(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+                if (placeMatch) {
+                    console.log('✅ Найдены координаты в /place/');
+                    return {
+                        lat: parseFloat(placeMatch[2]),
+                        lng: parseFloat(placeMatch[3]),
+                        placeName: decodeURIComponent(placeMatch[1].replace(/\+/g, ' '))
+                    };
+                }
+
+                // Короткие ссылки
+                if (trimmed.includes('goo.gl')) {
+                    console.log('🔗 Обнаружена короткая ссылка');
+                    const expandedUrl = await expandShortUrl(trimmed);
+                    if (expandedUrl) {
+                        console.log('🔄 Рекурсивно парсим развернутый URL');
+                        return parseGoogleMapsURL(expandedUrl);
+                    } else {
+                        console.error('❌ Не удалось развернуть короткую ссылку');
+                        return null;
+                    }
+                }
+
+                console.warn('⚠️ Формат не распознан');
+                return null;
+            } catch (error) {
+                console.error('❌ Ошибка парсинга:', error);
+                return null;
+            }
+        }
+
+        async function testParser() {
+            const input = document.getElementById('urlInput').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.innerHTML = '<div class="result">⏳ Обработка...</div>';
+            
+            console.clear();
+            console.log('=== НАЧАЛО ТЕСТА ===');
+            
+            const result = await parseGoogleMapsURL(input);
+            
+            console.log('=== РЕЗУЛЬТАТ ===');
+            console.log(result);
+            
+            if (result) {
+                resultDiv.innerHTML = `
+                    <div class="result success">
+                        <h3>✅ Успешно распознано!</h3>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>
+                        <p><strong>Широта:</strong> ${result.lat}</p>
+                        <p><strong>Долгота:</strong> ${result.lng}</p>
+                        ${result.placeName ? `<p><strong>Место:</strong> ${result.placeName}</p>` : ''}
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <h3>❌ Не удалось распознать координаты</h3>
+                        <p>Проверьте консоль браузера (F12) для подробностей</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Автотест при загрузке
+        window.onload = () => {
+            console.log('🚀 Страница загружена. Нажмите кнопку "Парсить" для теста');
+        };
+    </script>
+
+    <hr style="margin: 40px 0;">
+    
+    <h3>📋 Тестовые примеры:</h3>
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
+        <p><strong>Короткая ссылка:</strong><br>
+        <code>https://maps.app.goo.gl/KSZKYnL8PmKigKPe7?g_st=it</code></p>
+        
+        <p><strong>Прямые координаты:</strong><br>
+        <code>6.0135, 80.2410</code></p>
+        
+        <p><strong>Стандартный URL:</strong><br>
+        <code>https://www.google.com/maps/@6.0135,80.2410,17z</code></p>
+        
+        <p><strong>URL с местом:</strong><br>
+        <code>https://www.google.com/maps/place/Unawatuna/@6.0097,80.2474,17z</code></p>
+    </div>
+
+    <hr style="margin: 40px 0;">
+    
+    <h3>🔍 Инструкции:</h3>
+    <ol>
+        <li>Вставьте URL в поле ввода выше</li>
+        <li>Нажмите кнопку "Парсить"</li>
+        <li>Откройте консоль браузера (F12) для детальных логов</li>
+        <li>Проверьте результат</li>
+    </ol>
+</body>
+</html>

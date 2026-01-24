@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { formatOpeningHours } from '../../utils/formatOpeningHours';
 
 interface Property {
     id: string;
@@ -24,9 +25,11 @@ interface PropertyDrawerProps {
     onClose: () => void;
     property?: Property | null;
     exchangeRate: number;
+    onDelete?: (propertyId: string) => void;
+    isCustomProperty?: boolean;
 }
 
-export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate }: PropertyDrawerProps) {
+export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate, onDelete, isCustomProperty }: PropertyDrawerProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     // Prevent body scroll when drawer is open
@@ -94,16 +97,9 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
 
     return (
         <>
-            {/* Backdrop */}
+            {/* Drawer - No backdrop, map remains interactive */}
             <div
-                className={`fixed inset-0 bg-black/20 z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                onClick={onClose}
-                style={{ zIndex: 9998 }}
-            />
-
-            {/* Drawer */}
-            <div
-                className={`fixed top-0 right-0 h-full w-full sm:w-[500px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`fixed top-0 right-0 h-full w-full sm:w-[500px] bg-white shadow-[-8px_0_32px_-8px_rgba(0,0,0,0.3)] transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
                 style={{ zIndex: 9999 }}
             >
                 {property ? (
@@ -114,9 +110,20 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                 <h2 className="text-xl font-bold">{property.title}</h2>
                                 <p className="text-xs text-slate-500">{property.area} • {property.propertyType}</p>
                             </div>
-                            <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-full">
-                                ✕
-                            </button>
+                            <div className="flex gap-2">
+                                {isCustomProperty && onDelete && (
+                                    <button 
+                                        onClick={() => onDelete(property.id)}
+                                        className="p-2 hover:bg-red-50 rounded-full text-red-600 transition-colors"
+                                        title="Удалить объект"
+                                    >
+                                        🗑️
+                                    </button>
+                                )}
+                                <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-full">
+                                    ✕
+                                </button>
+                            </div>
                         </div>
 
                         {/* Content */}
@@ -198,7 +205,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
 
                             <div className="prose max-w-none">
                                 <h3 className="text-lg font-bold mb-2 text-slate-800">Description</h3>
-                                <p className="text-slate-600 leading-relaxed text-sm mb-8">{property.description}</p>
+                                <p className="text-slate-600 leading-relaxed text-sm mb-8 whitespace-pre-line">{formatOpeningHours(property.description)}</p>
 
                                 {property.amenities && (
                                     <div className="mt-8">
