@@ -234,29 +234,11 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
       }
     }
     
-    // Try multiple times to catch the script loading
-    let attempts = 0;
-    const maxAttempts = 10;
-    
-    function tryInit() {
-      attempts++;
-      console.log(`Attempt ${attempts}/${maxAttempts}`);
-      
-      if (window.Telegram && window.Telegram.WebApp) {
-        initTelegramApp();
-      } else if (attempts < maxAttempts) {
-        setTimeout(tryInit, 200);
-      } else {
-        console.log('Max attempts reached, showing error');
-        initTelegramApp();
-      }
-    }
-    
-    // Start trying when DOM is ready
+    // Always initialize - Telegram SDK is now inline
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', tryInit);
+      document.addEventListener('DOMContentLoaded', initTelegramApp);
     } else {
-      tryInit();
+      initTelegramApp();
     }
   </script>
 </body>
