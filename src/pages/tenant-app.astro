@@ -88,35 +88,50 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
     <TenantRequestForm client:only="react" />
   </div>
   
-  <script>
-    // SIMPLIFIED VERSION - Just show the form immediately
-    console.log('🚀 Loading tenant form v2.1...');
+  <script type="module">
+    // Version 3.0 - Using official Telegram SDK
+    console.log('🚀 Tenant Form v3.0 with official SDK');
     
-    // Initialize Telegram if available
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tg = window.Telegram.WebApp;
-      console.log('✅ Telegram WebApp found');
-      tg.ready();
-      tg.expand();
-      if (tg.themeParams.bg_color) {
-        document.body.style.backgroundColor = tg.themeParams.bg_color;
+    // Wait for Telegram SDK to load
+    function initApp() {
+      if (window.Telegram?.WebApp) {
+        const tg = window.Telegram.WebApp;
+        console.log('✅ Telegram WebApp loaded:', tg.version);
+        console.log('Platform:', tg.platform);
+        console.log('InitData present:', !!tg.initData);
+        
+        // Initialize WebApp
+        tg.ready();
+        tg.expand();
+        
+        // Apply theme
+        if (tg.themeParams.bg_color) {
+          document.body.style.backgroundColor = tg.themeParams.bg_color;
+        }
+      } else {
+        console.log('⚠️ Telegram WebApp not loaded yet');
       }
-    } else {
-      console.log('⚠️ No Telegram WebApp - using polyfill');
+      
+      // Show form
+      document.getElementById('app-loading').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
     }
     
-    // ALWAYS show the form - no checks!
-    window.addEventListener('DOMContentLoaded', function() {
-      console.log('✅ DOM loaded - showing form NOW!');
-      document.getElementById('app-loading').style.display = 'none';
-      document.getElementById('app').style.display = 'block';
-    });
+    // Wait for both DOM and Telegram SDK
+    let attempts = 0;
+    function checkAndInit() {
+      attempts++;
+      if (window.Telegram?.WebApp || attempts > 20) {
+        initApp();
+      } else {
+        setTimeout(checkAndInit, 100);
+      }
+    }
     
-    // Fallback if DOMContentLoaded already fired
-    if (document.readyState !== 'loading') {
-      console.log('✅ DOM already loaded - showing form NOW!');
-      document.getElementById('app-loading').style.display = 'none';
-      document.getElementById('app').style.display = 'block';
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkAndInit);
+    } else {
+      checkAndInit();
     }
   </script>
 </body>
