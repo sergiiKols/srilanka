@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/tenant-app",
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      },
+      "continue": true
+    }
+  ]
+}
