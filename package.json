@@ -28,6 +28,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@supabase/supabase-js": "^2.91.0",
     "@tailwindcss/vite": "^4.1.18",
+    "@twa-dev/sdk": "^8.0.2",
     "@types/leaflet": "^1.9.21",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
