@@ -1,6 +1,8 @@
+/* 1. Imports в начало (в правильном порядке) */
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* 2. CSS Variables */
 :root {
   /* Colors - Light Mode */
   --color-primary: #4f46e5;
@@ -33,7 +35,7 @@
   --transition-fast: 150ms ease-in-out;
 }
 
-/* Dark Mode */
+/* 3. Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #0f172a;
@@ -46,6 +48,7 @@
   }
 }
 
+/* 4. Global Styles */
 *,
 *::before,
 *::after {
