@@ -1,7 +1,7 @@
 import { e as createComponent, f as createAstro, l as renderScript, v as renderHead, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 /* empty css                                        */
-export { renderers } from '../renderers.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const $$Astro = createAstro();
 const $$TelegramApp = createComponent(($$result, $$props, $$slots) => {

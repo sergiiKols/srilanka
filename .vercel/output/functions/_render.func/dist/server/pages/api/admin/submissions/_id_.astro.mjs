@@ -1,6 +1,6 @@
 import { a as requireAdmin } from '../../../../chunks/auth_DRVvN-zp.mjs';
 import { i as deleteSubmission, c as createLog } from '../../../../chunks/db_CeY49yL6.mjs';
-export { renderers } from '../../../../renderers.mjs';
+export { r as renderers } from '../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const DELETE = async (context) => {
   const authError = await requireAdmin(context);

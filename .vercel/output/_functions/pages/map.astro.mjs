@@ -3,7 +3,7 @@ import 'piccolore';
 import { $ as $$Layout } from '../chunks/Layout_lp9ZR76Z.mjs';
 import 'clsx';
 /* empty css                               */
-export { renderers } from '../renderers.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const $$Astro = createAstro();
 const $$Button = createComponent(($$result, $$props, $$slots) => {

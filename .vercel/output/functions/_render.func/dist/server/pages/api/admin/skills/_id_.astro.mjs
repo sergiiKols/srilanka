@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-export { renderers } from '../../../../renderers.mjs';
+export { r as renderers } from '../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const SKILLS_DIR = path.join(process.cwd(), ".agent", "skills");
 const GET = async ({ params }) => {

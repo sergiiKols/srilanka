@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-export { renderers } from '../../../../../renderers.mjs';
+export { r as renderers } from '../../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const execAsync = promisify(exec);
 const SKILLS_DIR = path.join(process.cwd(), ".agent", "skills");

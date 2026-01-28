@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-export { renderers } from '../../../renderers.mjs';
+export { r as renderers } from '../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const SUPABASE_URL = "https://mcmzdscpuoxwneuzsanu.supabase.co";
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;

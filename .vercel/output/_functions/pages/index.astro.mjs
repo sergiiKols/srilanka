@@ -1,7 +1,7 @@
 import { e as createComponent, f as createAstro } from '../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 import 'clsx';
-export { renderers } from '../renderers.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const $$Astro = createAstro();
 const $$Index = createComponent(($$result, $$props, $$slots) => {

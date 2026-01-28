@@ -1,7 +1,7 @@
 import { a as requireAdmin } from '../../../../chunks/auth_DRVvN-zp.mjs';
 import { b as getFormById, u as updateForm, c as createLog, d as deleteForm } from '../../../../chunks/db_CeY49yL6.mjs';
 import { F as FormConfigUpdateSchema } from '../../../../chunks/telegram.types_hrEzItCz.mjs';
-export { renderers } from '../../../../renderers.mjs';
+export { r as renderers } from '../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const GET = async (context) => {
   const authError = await requireAdmin(context);

@@ -1,4 +1,4 @@
-export { renderers } from '../../renderers.mjs';
+export { r as renderers } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const DEFAULT_VALIDATION_CONFIG = {
   types: ["coordinates", "name", "address"],

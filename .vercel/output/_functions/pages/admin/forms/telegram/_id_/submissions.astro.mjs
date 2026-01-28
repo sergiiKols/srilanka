@@ -1,27 +1,26 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate, n as defineScriptVars, h as addAttribute, m as maybeRenderHead } from '../../../../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
-import { A as AdminLayout } from '../../../../../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsx, jsxs } from 'react/jsx-runtime';
-import { useState, useEffect } from 'react';
+import { j as jsxRuntimeExports, A as AdminLayout } from '../../../../../chunks/AdminLayout_xmS9cJRX.mjs';
+import { a as reactExports } from '../../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
+export { r as renderers } from '../../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 import toast from 'react-hot-toast';
-import { E as ErrorBoundary } from '../../../../../chunks/ErrorBoundary_Kxi8QkMt.mjs';
+import { E as ErrorBoundary } from '../../../../../chunks/ErrorBoundary_BH6ConEo.mjs';
 import { r as requireAdminPage } from '../../../../../chunks/auth_DRVvN-zp.mjs';
-export { renderers } from '../../../../../renderers.mjs';
 
 function SubmissionsTable({ formId }) {
-  const [submissions, setSubmissions] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [total, setTotal] = useState(0);
-  const [stats, setStats] = useState(null);
-  const [filters, setFilters] = useState({
+  const [submissions, setSubmissions] = reactExports.useState([]);
+  const [loading, setLoading] = reactExports.useState(true);
+  const [total, setTotal] = reactExports.useState(0);
+  const [stats, setStats] = reactExports.useState(null);
+  const [filters, setFilters] = reactExports.useState({
     form_id: formId,
     limit: 50,
     offset: 0,
     sort: "created_at",
     order: "desc"
   });
-  const [selectedSubmission, setSelectedSubmission] = useState(null);
-  const [autoRefresh, setAutoRefresh] = useState(false);
+  const [selectedSubmission, setSelectedSubmission] = reactExports.useState(null);
+  const [autoRefresh, setAutoRefresh] = reactExports.useState(false);
   const loadSubmissions = async () => {
     try {
       const params = new URLSearchParams();
@@ -46,10 +45,10 @@ function SubmissionsTable({ formId }) {
       setLoading(false);
     }
   };
-  useEffect(() => {
+  reactExports.useEffect(() => {
     loadSubmissions();
   }, [filters]);
-  useEffect(() => {
+  reactExports.useEffect(() => {
     if (!autoRefresh) return;
     const interval = setInterval(() => {
       loadSubmissions();
@@ -134,43 +133,43 @@ function SubmissionsTable({ formId }) {
       sent: "Отправлено",
       error: "Ошибка"
     };
-    return /* @__PURE__ */ jsx("span", { className: `px-2 py-1 rounded-full text-xs font-medium ${colors[status]}`, children: labels[status] });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `px-2 py-1 rounded-full text-xs font-medium ${colors[status]}`, children: labels[status] });
   };
   if (loading) {
-    return /* @__PURE__ */ jsx("div", { className: "flex items-center justify-center py-12", children: /* @__PURE__ */ jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" }) });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center py-12", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" }) });
   }
-  return /* @__PURE__ */ jsxs("div", { className: "space-y-4", children: [
-    stats && /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-4 gap-4", children: [
-      /* @__PURE__ */ jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
-        /* @__PURE__ */ jsx("div", { className: "text-2xl font-bold text-gray-900", children: stats.total }),
-        /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-600", children: "Всего заявок" })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+    stats && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-4 gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl font-bold text-gray-900", children: stats.total }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-600", children: "Всего заявок" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
-        /* @__PURE__ */ jsx("div", { className: "text-2xl font-bold text-green-600", children: stats.sent }),
-        /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-600", children: "Отправлено" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl font-bold text-green-600", children: stats.sent }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-600", children: "Отправлено" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
-        /* @__PURE__ */ jsx("div", { className: "text-2xl font-bold text-red-600", children: stats.errors }),
-        /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-600", children: "Ошибок" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl font-bold text-red-600", children: stats.errors }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-600", children: "Ошибок" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
-        /* @__PURE__ */ jsxs("div", { className: "text-2xl font-bold text-blue-600", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-2xl font-bold text-blue-600", children: [
           stats.success_rate,
           "%"
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-600", children: "Успешность" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-600", children: "Успешность" })
       ] })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center mb-4", children: [
-        /* @__PURE__ */ jsxs("h2", { className: "text-lg font-semibold", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white p-4 rounded-lg border border-gray-200", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-lg font-semibold", children: [
           "Заявки (",
           total,
           ")"
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex gap-2", children: [
-          /* @__PURE__ */ jsxs("label", { className: "flex items-center gap-2 text-sm", children: [
-            /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex items-center gap-2 text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "checkbox",
@@ -181,7 +180,7 @@ function SubmissionsTable({ formId }) {
             ),
             "Авто-обновление (10с)"
           ] }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: () => loadSubmissions(),
@@ -189,7 +188,7 @@ function SubmissionsTable({ formId }) {
               children: "🔄 Обновить"
             }
           ),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: handleExport,
@@ -199,23 +198,23 @@ function SubmissionsTable({ formId }) {
           )
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-4 gap-3 mb-4", children: [
-        /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-4 gap-3 mb-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
             value: filters.status || "",
             onChange: (e) => setFilters({ ...filters, status: e.target.value || void 0, offset: 0 }),
             className: "px-3 py-2 border border-gray-300 rounded text-sm",
             children: [
-              /* @__PURE__ */ jsx("option", { value: "", children: "Все статусы" }),
-              /* @__PURE__ */ jsx("option", { value: "received", children: "Получено" }),
-              /* @__PURE__ */ jsx("option", { value: "processing", children: "Обработка" }),
-              /* @__PURE__ */ jsx("option", { value: "sent", children: "Отправлено" }),
-              /* @__PURE__ */ jsx("option", { value: "error", children: "Ошибка" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Все статусы" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "received", children: "Получено" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "processing", children: "Обработка" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "sent", children: "Отправлено" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "error", children: "Ошибка" })
             ]
           }
         ),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "date",
@@ -225,7 +224,7 @@ function SubmissionsTable({ formId }) {
             placeholder: "Дата от"
           }
         ),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "date",
@@ -235,50 +234,50 @@ function SubmissionsTable({ formId }) {
             placeholder: "Дата до"
           }
         ),
-        /* @__PURE__ */ jsxs(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
             value: filters.limit,
             onChange: (e) => setFilters({ ...filters, limit: parseInt(e.target.value), offset: 0 }),
             className: "px-3 py-2 border border-gray-300 rounded text-sm",
             children: [
-              /* @__PURE__ */ jsx("option", { value: "10", children: "10 на странице" }),
-              /* @__PURE__ */ jsx("option", { value: "25", children: "25 на странице" }),
-              /* @__PURE__ */ jsx("option", { value: "50", children: "50 на странице" }),
-              /* @__PURE__ */ jsx("option", { value: "100", children: "100 на странице" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "10", children: "10 на странице" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "25", children: "25 на странице" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "50", children: "50 на странице" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "100", children: "100 на странице" })
             ]
           }
         )
       ] })
     ] }),
-    submissions.length === 0 ? /* @__PURE__ */ jsx("div", { className: "bg-white p-12 rounded-lg border border-gray-200 text-center text-gray-500", children: "Заявок пока нет" }) : /* @__PURE__ */ jsxs("div", { className: "bg-white rounded-lg border border-gray-200 overflow-hidden", children: [
-      /* @__PURE__ */ jsx("div", { className: "overflow-x-auto", children: /* @__PURE__ */ jsxs("table", { className: "w-full", children: [
-        /* @__PURE__ */ jsx("thead", { className: "bg-gray-50 border-b border-gray-200", children: /* @__PURE__ */ jsxs("tr", { children: [
-          /* @__PURE__ */ jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Дата" }),
-          /* @__PURE__ */ jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Пользователь" }),
-          /* @__PURE__ */ jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Статус" }),
-          /* @__PURE__ */ jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Данные" }),
-          /* @__PURE__ */ jsx("th", { className: "px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase", children: "Действия" })
+    submissions.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white p-12 rounded-lg border border-gray-200 text-center text-gray-500", children: "Заявок пока нет" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white rounded-lg border border-gray-200 overflow-hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-x-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { className: "bg-gray-50 border-b border-gray-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Дата" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Пользователь" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Статус" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase", children: "Данные" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase", children: "Действия" })
         ] }) }),
-        /* @__PURE__ */ jsx("tbody", { className: "divide-y divide-gray-200", children: submissions.map((submission) => /* @__PURE__ */ jsxs("tr", { className: "hover:bg-gray-50", children: [
-          /* @__PURE__ */ jsx("td", { className: "px-4 py-3 text-sm text-gray-900", children: formatDate(submission.created_at) }),
-          /* @__PURE__ */ jsxs("td", { className: "px-4 py-3 text-sm", children: [
-            /* @__PURE__ */ jsxs("div", { className: "font-medium text-gray-900", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { className: "divide-y divide-gray-200", children: submissions.map((submission) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "hover:bg-gray-50", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-sm text-gray-900", children: formatDate(submission.created_at) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { className: "px-4 py-3 text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "font-medium text-gray-900", children: [
               submission.first_name,
               " ",
               submission.last_name
             ] }),
-            submission.username && /* @__PURE__ */ jsxs("div", { className: "text-gray-500", children: [
+            submission.username && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-gray-500", children: [
               "@",
               submission.username
             ] }),
-            /* @__PURE__ */ jsxs("div", { className: "text-xs text-gray-400", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-xs text-gray-400", children: [
               "ID: ",
               submission.user_id
             ] })
           ] }),
-          /* @__PURE__ */ jsx("td", { className: "px-4 py-3 text-sm", children: getStatusBadge(submission.status) }),
-          /* @__PURE__ */ jsx("td", { className: "px-4 py-3 text-sm", children: /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-sm", children: getStatusBadge(submission.status) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: () => setSelectedSubmission(submission),
@@ -286,7 +285,7 @@ function SubmissionsTable({ formId }) {
               children: "Просмотр"
             }
           ) }),
-          /* @__PURE__ */ jsx("td", { className: "px-4 py-3 text-sm text-right", children: /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-4 py-3 text-sm text-right", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: () => handleDelete(submission.id),
@@ -296,8 +295,8 @@ function SubmissionsTable({ formId }) {
           ) })
         ] }, submission.id)) })
       ] }) }),
-      totalPages > 1 && /* @__PURE__ */ jsxs("div", { className: "px-4 py-3 border-t border-gray-200 flex items-center justify-between", children: [
-        /* @__PURE__ */ jsxs("div", { className: "text-sm text-gray-700", children: [
+      totalPages > 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-3 border-t border-gray-200 flex items-center justify-between", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm text-gray-700", children: [
           "Показано ",
           filters.offset + 1,
           " - ",
@@ -305,8 +304,8 @@ function SubmissionsTable({ formId }) {
           " из ",
           total
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex gap-2", children: [
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: () => goToPage(currentPage - 1),
@@ -315,9 +314,9 @@ function SubmissionsTable({ formId }) {
               children: "← Назад"
             }
           ),
-          /* @__PURE__ */ jsx("div", { className: "flex gap-1", children: Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-1", children: Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
             const page = i + 1;
-            return /* @__PURE__ */ jsx(
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
                 onClick: () => goToPage(page),
@@ -327,7 +326,7 @@ function SubmissionsTable({ formId }) {
               page
             );
           }) }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: () => goToPage(currentPage + 1),
@@ -339,20 +338,20 @@ function SubmissionsTable({ formId }) {
         ] })
       ] })
     ] }),
-    selectedSubmission && /* @__PURE__ */ jsx(
+    selectedSubmission && /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
         className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50",
         onClick: () => setSelectedSubmission(null),
-        children: /* @__PURE__ */ jsxs(
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "div",
           {
             className: "bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-auto p-6",
             onClick: (e) => e.stopPropagation(),
             children: [
-              /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-start mb-4", children: [
-                /* @__PURE__ */ jsx("h3", { className: "text-xl font-bold", children: "Детали заявки" }),
-                /* @__PURE__ */ jsx(
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start mb-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xl font-bold", children: "Детали заявки" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "button",
                   {
                     onClick: () => setSelectedSubmission(null),
@@ -361,50 +360,50 @@ function SubmissionsTable({ formId }) {
                   }
                 )
               ] }),
-              /* @__PURE__ */ jsxs("div", { className: "space-y-4", children: [
-                /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500", children: "ID заявки" }),
-                  /* @__PURE__ */ jsx("div", { className: "font-mono text-sm", children: selectedSubmission.id })
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500", children: "ID заявки" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-sm", children: selectedSubmission.id })
                 ] }),
-                /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500", children: "Дата создания" }),
-                  /* @__PURE__ */ jsx("div", { children: formatDate(selectedSubmission.created_at) })
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500", children: "Дата создания" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: formatDate(selectedSubmission.created_at) })
                 ] }),
-                /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500", children: "Пользователь" }),
-                  /* @__PURE__ */ jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500", children: "Пользователь" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                     selectedSubmission.first_name,
                     " ",
                     selectedSubmission.last_name,
                     selectedSubmission.username && ` (@${selectedSubmission.username})`,
-                    /* @__PURE__ */ jsx("br", {}),
-                    /* @__PURE__ */ jsxs("span", { className: "text-xs text-gray-400", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-gray-400", children: [
                       "Telegram ID: ",
                       selectedSubmission.user_id
                     ] })
                   ] })
                 ] }),
-                /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500", children: "Статус" }),
-                  /* @__PURE__ */ jsx("div", { children: getStatusBadge(selectedSubmission.status) })
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500", children: "Статус" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: getStatusBadge(selectedSubmission.status) })
                 ] }),
-                selectedSubmission.error_message && /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500", children: "Ошибка" }),
-                  /* @__PURE__ */ jsx("div", { className: "text-red-600 text-sm", children: selectedSubmission.error_message })
+                selectedSubmission.error_message && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500", children: "Ошибка" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-red-600 text-sm", children: selectedSubmission.error_message })
                 ] }),
-                /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500 mb-2", children: "Данные формы" }),
-                  /* @__PURE__ */ jsx("div", { className: "bg-gray-50 rounded p-4 space-y-2", children: Object.entries(selectedSubmission.data).map(([key, value]) => /* @__PURE__ */ jsxs("div", { children: [
-                    /* @__PURE__ */ jsx("div", { className: "text-xs text-gray-500 uppercase", children: key }),
-                    /* @__PURE__ */ jsx("div", { className: "font-medium", children: String(value) })
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500 mb-2", children: "Данные формы" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50 rounded p-4 space-y-2", children: Object.entries(selectedSubmission.data).map(([key, value]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-gray-500 uppercase", children: key }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-medium", children: String(value) })
                   ] }, key)) })
                 ] }),
-                selectedSubmission.telegram_message_id && /* @__PURE__ */ jsxs("div", { children: [
-                  /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-500", children: "Telegram Message ID" }),
-                  /* @__PURE__ */ jsx("div", { className: "font-mono text-sm", children: selectedSubmission.telegram_message_id })
+                selectedSubmission.telegram_message_id && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-gray-500", children: "Telegram Message ID" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-sm", children: selectedSubmission.telegram_message_id })
                 ] })
               ] }),
-              /* @__PURE__ */ jsx("div", { className: "mt-6 flex justify-end", children: /* @__PURE__ */ jsx(
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 flex justify-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
                   onClick: () => setSelectedSubmission(null),

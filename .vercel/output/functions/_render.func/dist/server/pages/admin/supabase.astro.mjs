@@ -1,25 +1,24 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate } from '../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 import { $ as $$Layout } from '../../chunks/Layout_lp9ZR76Z.mjs';
-import { u as useLang, A as AdminLayout } from '../../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
-import { useState, useEffect } from 'react';
+import { u as useLang, j as jsxRuntimeExports, A as AdminLayout } from '../../chunks/AdminLayout_xmS9cJRX.mjs';
+import { a as reactExports } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
+export { r as renderers } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
 import { createClient } from '@supabase/supabase-js';
-export { renderers } from '../../renderers.mjs';
 
 const SUPABASE_URL$1 = "https://mcmzdscpuoxwneuzsanu.supabase.co";
 const SUPABASE_KEY$1 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbXpkc2NwdW94d25ldXpzYW51Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkzNDAxMjEsImV4cCI6MjA4NDkxNjEyMX0.FINUETJbgsos3tJdrJp_cyAPVOPxqpT_XjWIeFywPzw";
 function KeepAliveModal({ isOpen, onClose }) {
   const lang = useLang();
-  const [tables, setTables] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [testingAll, setTestingAll] = useState(false);
-  const [testingTable, setTestingTable] = useState(null);
-  const [testResults, setTestResults] = useState([]);
-  const [showResults, setShowResults] = useState(false);
-  const [lastRunTime, setLastRunTime] = useState(null);
+  const [tables, setTables] = reactExports.useState([]);
+  const [loading, setLoading] = reactExports.useState(true);
+  const [testingAll, setTestingAll] = reactExports.useState(false);
+  const [testingTable, setTestingTable] = reactExports.useState(null);
+  const [testResults, setTestResults] = reactExports.useState([]);
+  const [showResults, setShowResults] = reactExports.useState(false);
+  const [lastRunTime, setLastRunTime] = reactExports.useState(null);
   const supabase = createClient(SUPABASE_URL$1, SUPABASE_KEY$1);
-  useEffect(() => {
+  reactExports.useEffect(() => {
     if (isOpen) {
       loadData();
       setShowResults(false);
@@ -132,30 +131,30 @@ function KeepAliveModal({ isOpen, onClose }) {
   if (!isOpen) return null;
   const enabledCount = tables.filter((t) => t.is_enabled && t.in_config).length;
   const newTablesCount = tables.filter((t) => !t.in_config).length;
-  return /* @__PURE__ */ jsx("div", { className: "modal-overlay", onClick: onClose, children: /* @__PURE__ */ jsxs("div", { className: "modal-container", onClick: (e) => e.stopPropagation(), children: [
-    /* @__PURE__ */ jsxs("div", { className: "modal-header", children: [
-      /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h2", { children: "🔄 Keep-Alive System" }),
-        /* @__PURE__ */ jsx("p", { className: "modal-subtitle", children: lang === "ru" ? "Управление тестовыми записями" : "Test records management" })
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-overlay", onClick: onClose, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-container", onClick: (e) => e.stopPropagation(), children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-header", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "🔄 Keep-Alive System" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "modal-subtitle", children: lang === "ru" ? "Управление тестовыми записями" : "Test records management" })
       ] }),
-      /* @__PURE__ */ jsx("button", { className: "close-btn", onClick: onClose, children: "✕" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "close-btn", onClick: onClose, children: "✕" })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "stats-bar", children: [
-      /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-        /* @__PURE__ */ jsx("span", { className: "stat-label", children: lang === "ru" ? "Всего таблиц:" : "Total tables:" }),
-        /* @__PURE__ */ jsx("span", { className: "stat-value", children: tables.length })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stats-bar", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: lang === "ru" ? "Всего таблиц:" : "Total tables:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", children: tables.length })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-        /* @__PURE__ */ jsx("span", { className: "stat-label", children: lang === "ru" ? "В автоматике:" : "In auto:" }),
-        /* @__PURE__ */ jsx("span", { className: "stat-value", style: { color: "#10B981" }, children: enabledCount })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: lang === "ru" ? "В автоматике:" : "In auto:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", style: { color: "#10B981" }, children: enabledCount })
       ] }),
-      newTablesCount > 0 && /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-        /* @__PURE__ */ jsx("span", { className: "stat-label", children: lang === "ru" ? "Новые:" : "New:" }),
-        /* @__PURE__ */ jsx("span", { className: "stat-value", style: { color: "#F59E0B" }, children: newTablesCount })
+      newTablesCount > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: lang === "ru" ? "Новые:" : "New:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", style: { color: "#F59E0B" }, children: newTablesCount })
       ] }),
-      lastRunTime && /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-        /* @__PURE__ */ jsx("span", { className: "stat-label", children: lang === "ru" ? "Последний запуск:" : "Last run:" }),
-        /* @__PURE__ */ jsx("span", { className: "stat-value", style: { fontSize: "13px" }, children: new Date(lastRunTime).toLocaleString(lang === "ru" ? "ru-RU" : "en-US", {
+      lastRunTime && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: lang === "ru" ? "Последний запуск:" : "Last run:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", style: { fontSize: "13px" }, children: new Date(lastRunTime).toLocaleString(lang === "ru" ? "ru-RU" : "en-US", {
           month: "short",
           day: "numeric",
           hour: "2-digit",
@@ -163,55 +162,55 @@ function KeepAliveModal({ isOpen, onClose }) {
         }) })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "action-section", children: /* @__PURE__ */ jsxs(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "button",
       {
         className: "test-all-btn",
         onClick: testAllTables,
         disabled: testingAll || testingTable !== null,
         children: [
-          /* @__PURE__ */ jsx("span", { className: "btn-icon", style: {
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "btn-icon", style: {
             animation: testingAll ? "spin 1s linear infinite" : "none"
           }, children: "🧪" }),
-          /* @__PURE__ */ jsx("span", { children: testingAll ? lang === "ru" ? "Тестирование..." : "Testing..." : lang === "ru" ? "Тест всех таблиц" : "Test All Tables" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: testingAll ? lang === "ru" ? "Тестирование..." : "Testing..." : lang === "ru" ? "Тест всех таблиц" : "Test All Tables" })
         ]
       }
     ) }),
-    showResults && testResults.length > 0 && /* @__PURE__ */ jsxs("div", { className: "results-panel", children: [
-      /* @__PURE__ */ jsxs("div", { className: "results-header", children: [
-        /* @__PURE__ */ jsx("span", { children: lang === "ru" ? "📊 Результаты тестирования" : "📊 Test Results" }),
-        /* @__PURE__ */ jsx("button", { onClick: () => setShowResults(false), children: "✕" })
+    showResults && testResults.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "results-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "results-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: lang === "ru" ? "📊 Результаты тестирования" : "📊 Test Results" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setShowResults(false), children: "✕" })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "results-list", children: testResults.map((result) => /* @__PURE__ */ jsxs("div", { className: `result-item ${result.status.toLowerCase()}`, children: [
-        /* @__PURE__ */ jsxs("div", { className: "result-name", children: [
-          /* @__PURE__ */ jsx("span", { className: "result-icon", children: result.status === "SUCCESS" ? "✅" : result.status === "ERROR" ? "❌" : "⏭️" }),
-          /* @__PURE__ */ jsx("code", { children: result.table_name })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "results-list", children: testResults.map((result) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `result-item ${result.status.toLowerCase()}`, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "result-name", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "result-icon", children: result.status === "SUCCESS" ? "✅" : result.status === "ERROR" ? "❌" : "⏭️" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: result.table_name })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "result-details", children: result.status === "SUCCESS" ? /* @__PURE__ */ jsxs("span", { className: "success-text", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "result-details", children: result.status === "SUCCESS" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "success-text", children: [
           lang === "ru" ? "Успешно" : "Success",
           result.executionTime && ` (${result.executionTime}ms)`
-        ] }) : /* @__PURE__ */ jsxs("span", { className: "error-text", title: result.error, children: [
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "error-text", title: result.error, children: [
           result.error?.substring(0, 60) || "Error",
           "..."
         ] }) })
       ] }, result.table_name)) })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "modal-body", children: loading ? /* @__PURE__ */ jsxs("div", { className: "loading-state", children: [
-      /* @__PURE__ */ jsx("div", { className: "spinner" }),
-      /* @__PURE__ */ jsx("p", { children: lang === "ru" ? "Загрузка..." : "Loading..." })
-    ] }) : /* @__PURE__ */ jsxs(Fragment, { children: [
-      /* @__PURE__ */ jsxs("div", { className: "tables-section", children: [
-        /* @__PURE__ */ jsxs("h3", { className: "section-title", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-body", children: loading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "loading-state", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "spinner" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: lang === "ru" ? "Загрузка..." : "Loading..." })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tables-section", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "section-title", children: [
           "✅ ",
           lang === "ru" ? "Автоматические таблицы" : "Automatic Tables",
           " (",
           enabledCount,
           ")"
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "tables-list", children: tables.filter((t) => t.in_config && t.is_enabled).map((table) => /* @__PURE__ */ jsxs("div", { className: "table-row", children: [
-          /* @__PURE__ */ jsxs("div", { className: "table-info", children: [
-            /* @__PURE__ */ jsx("code", { className: "table-name", children: table.table_name }),
-            table.last_success_at && /* @__PURE__ */ jsxs("span", { className: "table-time", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tables-list", children: tables.filter((t) => t.in_config && t.is_enabled).map((table) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-row", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-info", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "table-name", children: table.table_name }),
+            table.last_success_at && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "table-time", children: [
               "🕒 ",
               new Date(table.last_success_at).toLocaleString(lang === "ru" ? "ru-RU" : "en-US", {
                 month: "short",
@@ -221,7 +220,7 @@ function KeepAliveModal({ isOpen, onClose }) {
               })
             ] })
           ] }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               className: "test-btn",
@@ -232,21 +231,21 @@ function KeepAliveModal({ isOpen, onClose }) {
           )
         ] }, table.table_name)) })
       ] }),
-      tables.filter((t) => t.in_config && !t.is_enabled).length > 0 && /* @__PURE__ */ jsxs("div", { className: "tables-section", children: [
-        /* @__PURE__ */ jsxs("h3", { className: "section-title", children: [
+      tables.filter((t) => t.in_config && !t.is_enabled).length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tables-section", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "section-title", children: [
           "⏸️ ",
           lang === "ru" ? "Отключённые таблицы" : "Disabled Tables"
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "tables-list", children: tables.filter((t) => t.in_config && !t.is_enabled).map((table) => /* @__PURE__ */ jsxs("div", { className: "table-row disabled", children: [
-          /* @__PURE__ */ jsxs("div", { className: "table-info", children: [
-            /* @__PURE__ */ jsx("code", { className: "table-name", children: table.table_name }),
-            table.last_error && /* @__PURE__ */ jsxs("span", { className: "table-error", title: table.last_error, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tables-list", children: tables.filter((t) => t.in_config && !t.is_enabled).map((table) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-row disabled", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-info", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "table-name", children: table.table_name }),
+            table.last_error && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "table-error", title: table.last_error, children: [
               "⚠️ ",
               table.last_error.substring(0, 40),
               "..."
             ] })
           ] }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               className: "test-btn",
@@ -257,17 +256,17 @@ function KeepAliveModal({ isOpen, onClose }) {
           )
         ] }, table.table_name)) })
       ] }),
-      newTablesCount > 0 && /* @__PURE__ */ jsxs("div", { className: "tables-section highlight", children: [
-        /* @__PURE__ */ jsxs("h3", { className: "section-title", children: [
+      newTablesCount > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tables-section highlight", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "section-title", children: [
           "🆕 ",
           lang === "ru" ? "Новые таблицы (не в автоматике)" : "New Tables (not automated)"
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "tables-list", children: tables.filter((t) => !t.in_config).map((table) => /* @__PURE__ */ jsxs("div", { className: "table-row new", children: [
-          /* @__PURE__ */ jsxs("div", { className: "table-info", children: [
-            /* @__PURE__ */ jsx("code", { className: "table-name", children: table.table_name }),
-            /* @__PURE__ */ jsx("span", { className: "new-badge", children: "NEW" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tables-list", children: tables.filter((t) => !t.in_config).map((table) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-row new", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-info", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "table-name", children: table.table_name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "new-badge", children: "NEW" })
           ] }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               className: "test-btn",
@@ -279,8 +278,8 @@ function KeepAliveModal({ isOpen, onClose }) {
         ] }, table.table_name)) })
       ] })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { className: "modal-footer", children: /* @__PURE__ */ jsx("a", { href: "/admin/keep-alive", className: "link-btn", children: lang === "ru" ? "Полная панель управления →" : "Full dashboard →" }) }),
-    /* @__PURE__ */ jsx("style", { children: `
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-footer", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/keep-alive", className: "link-btn", children: lang === "ru" ? "Полная панель управления →" : "Full dashboard →" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
           .modal-overlay {
             position: fixed;
             top: 0;
@@ -643,36 +642,36 @@ const SUPABASE_KEY = "sb_publishable_oqeTkwpUNEhCWHIkCfhwpA_YmqUWWEx";
 const SERVICE_ROLE_KEY = "sb_secret_3M8nfMu6ZdYVvg_8Jh0JGw_ONxcbcc9";
 function SupabaseAdmin() {
   const lang = useLang();
-  const [stats, setStats] = useState(null);
-  const [pois, setPois] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("connection");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterCategory, setFilterCategory] = useState("");
-  const [filterLocation, setFilterLocation] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [connectionStatus, setConnectionStatus] = useState("checking");
-  const [showPublicKey, setShowPublicKey] = useState(false);
-  const [showServiceKey, setShowServiceKey] = useState(false);
+  const [stats, setStats] = reactExports.useState(null);
+  const [pois, setPois] = reactExports.useState([]);
+  const [loading, setLoading] = reactExports.useState(true);
+  const [activeTab, setActiveTab] = reactExports.useState("connection");
+  const [searchTerm, setSearchTerm] = reactExports.useState("");
+  const [filterCategory, setFilterCategory] = reactExports.useState("");
+  const [filterLocation, setFilterLocation] = reactExports.useState("");
+  const [currentPage, setCurrentPage] = reactExports.useState(1);
+  const [connectionStatus, setConnectionStatus] = reactExports.useState("checking");
+  const [showPublicKey, setShowPublicKey] = reactExports.useState(false);
+  const [showServiceKey, setShowServiceKey] = reactExports.useState(false);
   const itemsPerPage = 20;
-  const [availableTables, setAvailableTables] = useState([]);
-  const [selectedTable, setSelectedTable] = useState("poi_locations");
-  const [currentTableData, setCurrentTableData] = useState({
+  const [availableTables, setAvailableTables] = reactExports.useState([]);
+  const [selectedTable, setSelectedTable] = reactExports.useState("poi_locations");
+  const [currentTableData, setCurrentTableData] = reactExports.useState({
     columns: [],
     recordsCount: 0,
     tableSize: "Unknown",
     sampleData: [],
     statistics: null
   });
-  const [refreshing, setRefreshing] = useState(false);
-  const [showKeepAliveModal, setShowKeepAliveModal] = useState(false);
+  const [refreshing, setRefreshing] = reactExports.useState(false);
+  const [showKeepAliveModal, setShowKeepAliveModal] = reactExports.useState(false);
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-  useEffect(() => {
+  reactExports.useEffect(() => {
     loadAvailableTables();
     checkConnection();
     loadPOIData();
   }, []);
-  useEffect(() => {
+  reactExports.useEffect(() => {
     if (selectedTable) {
       loadTableData(selectedTable);
     }
@@ -773,36 +772,36 @@ function SupabaseAdmin() {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-  return /* @__PURE__ */ jsxs("div", { className: "dashboard supabase-admin-lumina", children: [
-    /* @__PURE__ */ jsxs("div", { className: "page-header-lumina", children: [
-      /* @__PURE__ */ jsxs("div", { className: "header-content", children: [
-        /* @__PURE__ */ jsxs("h1", { className: "header-title", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "dashboard supabase-admin-lumina", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-header-lumina", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "header-content", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "header-title", children: [
           "🗄️ ",
           lang === "ru" ? "База данных Supabase" : "Supabase Database"
         ] }),
-        /* @__PURE__ */ jsx("p", { className: "header-subtitle", children: lang === "ru" ? "Управление данными проекта Шри-Ланка" : "Manage Sri Lanka Project Data" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "header-subtitle", children: lang === "ru" ? "Управление данными проекта Шри-Ланка" : "Manage Sri Lanka Project Data" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "header-actions", children: [
-        /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "header-actions", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
             onClick: () => setShowKeepAliveModal(true),
             className: "btn-keep-alive",
             children: [
-              /* @__PURE__ */ jsx("span", { className: "btn-icon", children: "🔄" }),
-              /* @__PURE__ */ jsx("span", { className: "btn-text", children: lang === "ru" ? "Keep-Alive" : "Keep-Alive" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "btn-icon", children: "🔄" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "btn-text", children: lang === "ru" ? "Keep-Alive" : "Keep-Alive" })
             ]
           }
         ),
-        /* @__PURE__ */ jsxs("a", { href: "/admin/database", className: "btn-all-databases", children: [
-          /* @__PURE__ */ jsx("span", { className: "btn-icon", children: "🗄️" }),
-          /* @__PURE__ */ jsx("span", { className: "btn-text", children: lang === "ru" ? "Все базы" : "All Databases" }),
-          /* @__PURE__ */ jsx("span", { className: "btn-badge", children: availableTables.length || 24 })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/database", className: "btn-all-databases", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "btn-icon", children: "🗄️" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "btn-text", children: lang === "ru" ? "Все базы" : "All Databases" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "btn-badge", children: availableTables.length || 24 })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "tabs", children: [
-      /* @__PURE__ */ jsxs(
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tabs", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           className: `tab ${activeTab === "connection" ? "active" : ""}`,
@@ -813,7 +812,7 @@ function SupabaseAdmin() {
           ]
         }
       ),
-      /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           className: `tab ${activeTab === "stats" ? "active" : ""}`,
@@ -824,7 +823,7 @@ function SupabaseAdmin() {
           ]
         }
       ),
-      /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           className: `tab ${activeTab === "data" ? "active" : ""}`,
@@ -835,7 +834,7 @@ function SupabaseAdmin() {
           ]
         }
       ),
-      /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           className: `tab ${activeTab === "map" ? "active" : ""}`,
@@ -847,26 +846,26 @@ function SupabaseAdmin() {
         }
       )
     ] }),
-    activeTab === "connection" && /* @__PURE__ */ jsxs("div", { className: "tab-content", children: [
-      /* @__PURE__ */ jsxs("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }, children: [
-        /* @__PURE__ */ jsxs("div", { className: "card", children: [
-          /* @__PURE__ */ jsxs("h3", { children: [
+    activeTab === "connection" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tab-content", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
             "📍 ",
             lang === "ru" ? "Туристические объекты (POI)" : "Tourist POI Objects"
           ] }),
-          /* @__PURE__ */ jsx("p", { style: { color: "#666", fontSize: "14px", marginBottom: "20px" }, children: lang === "ru" ? "Таблица: poi_locations" : "Table: poi_locations" }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "URL проекта:" : "Project URL:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "text", className: "input", value: SUPABASE_URL, readOnly: true, style: { background: "#f5f5f5" } })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "#666", fontSize: "14px", marginBottom: "20px" }, children: lang === "ru" ? "Таблица: poi_locations" : "Table: poi_locations" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "URL проекта:" : "Project URL:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "input", value: SUPABASE_URL, readOnly: true, style: { background: "#f5f5f5" } })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Название таблицы:" : "Table Name:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "text", className: "input", value: "poi_locations", readOnly: true, style: { background: "#f5f5f5" } })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Название таблицы:" : "Table Name:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "input", value: "poi_locations", readOnly: true, style: { background: "#f5f5f5" } })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Публичный ключ API:" : "Public API Key:" }) }),
-            /* @__PURE__ */ jsxs("div", { style: { display: "flex", gap: "10px" }, children: [
-              /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Публичный ключ API:" : "Public API Key:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: "10px" }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
                   type: showPublicKey ? "text" : "password",
@@ -876,7 +875,7 @@ function SupabaseAdmin() {
                   style: { background: "#f5f5f5", flex: 1 }
                 }
               ),
-              /* @__PURE__ */ jsxs(
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "button",
                 {
                   className: "btn btn-secondary",
@@ -890,10 +889,10 @@ function SupabaseAdmin() {
               )
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Сервисный ключ:" : "Service Role Key:" }) }),
-            /* @__PURE__ */ jsxs("div", { style: { display: "flex", gap: "10px" }, children: [
-              /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Сервисный ключ:" : "Service Role Key:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: "10px" }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
                   type: showServiceKey ? "text" : "password",
@@ -903,7 +902,7 @@ function SupabaseAdmin() {
                   style: { background: "#f5f5f5", flex: 1 }
                 }
               ),
-              /* @__PURE__ */ jsxs(
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "button",
                 {
                   className: "btn btn-secondary",
@@ -917,26 +916,26 @@ function SupabaseAdmin() {
               )
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Статус подключения:" : "Connection Status:" }) }),
-            /* @__PURE__ */ jsxs("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginTop: "10px" }, children: [
-              connectionStatus === "checking" && /* @__PURE__ */ jsxs(Fragment, { children: [
-                /* @__PURE__ */ jsx("div", { className: "spinner", style: { width: "20px", height: "20px", borderWidth: "2px" } }),
-                /* @__PURE__ */ jsx("span", { children: lang === "ru" ? "Проверка..." : "Checking..." })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Статус подключения:" : "Connection Status:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginTop: "10px" }, children: [
+              connectionStatus === "checking" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "spinner", style: { width: "20px", height: "20px", borderWidth: "2px" } }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: lang === "ru" ? "Проверка..." : "Checking..." })
               ] }),
-              connectionStatus === "connected" && /* @__PURE__ */ jsxs(Fragment, { children: [
-                /* @__PURE__ */ jsx("span", { style: { fontSize: "24px" }, children: "✅" }),
-                /* @__PURE__ */ jsx("span", { style: { color: "#28a745", fontWeight: "bold" }, children: lang === "ru" ? "Подключено успешно" : "Connected Successfully" })
+              connectionStatus === "connected" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { fontSize: "24px" }, children: "✅" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#28a745", fontWeight: "bold" }, children: lang === "ru" ? "Подключено успешно" : "Connected Successfully" })
               ] }),
-              connectionStatus === "error" && /* @__PURE__ */ jsxs(Fragment, { children: [
-                /* @__PURE__ */ jsx("span", { style: { fontSize: "24px" }, children: "❌" }),
-                /* @__PURE__ */ jsx("span", { style: { color: "#dc3545", fontWeight: "bold" }, children: lang === "ru" ? "Ошибка подключения" : "Connection Error" })
+              connectionStatus === "error" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { fontSize: "24px" }, children: "❌" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#dc3545", fontWeight: "bold" }, children: lang === "ru" ? "Ошибка подключения" : "Connection Error" })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Всего записей:" : "Total Records:" }) }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Всего записей:" : "Total Records:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -947,48 +946,48 @@ function SupabaseAdmin() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Регион:" : "Region:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "text", className: "input", value: "Southwest Coast (Negombo → Tangalle)", readOnly: true, style: { background: "#f5f5f5" } })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Регион:" : "Region:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "input", value: "Southwest Coast (Negombo → Tangalle)", readOnly: true, style: { background: "#f5f5f5" } })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Источник данных:" : "Data Source:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "text", className: "input", value: "Google Places API", readOnly: true, style: { background: "#f5f5f5" } })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Источник данных:" : "Data Source:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "input", value: "Google Places API", readOnly: true, style: { background: "#f5f5f5" } })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "card", children: [
-          /* @__PURE__ */ jsxs("h3", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
             "👥 ",
             lang === "ru" ? "Объекты пользователей" : "User Objects"
           ] }),
-          /* @__PURE__ */ jsx("p", { style: { color: "#666", fontSize: "14px", marginBottom: "20px" }, children: lang === "ru" ? "Таблица: user_objects (не создана)" : "Table: user_objects (not created)" }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "URL проекта:" : "Project URL:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "text", className: "input", value: SUPABASE_URL, readOnly: true, style: { background: "#f5f5f5" } })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "#666", fontSize: "14px", marginBottom: "20px" }, children: lang === "ru" ? "Таблица: user_objects (не создана)" : "Table: user_objects (not created)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "URL проекта:" : "Project URL:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "input", value: SUPABASE_URL, readOnly: true, style: { background: "#f5f5f5" } })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Название таблицы:" : "Table Name:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "text", className: "input", value: "user_objects", readOnly: true, style: { background: "#fff3cd", border: "1px solid #ffc107" } }),
-            /* @__PURE__ */ jsxs("small", { style: { color: "#856404", display: "block", marginTop: "5px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Название таблицы:" : "Table Name:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "input", value: "user_objects", readOnly: true, style: { background: "#fff3cd", border: "1px solid #ffc107" } }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { style: { color: "#856404", display: "block", marginTop: "5px" }, children: [
               "⚠️ ",
               lang === "ru" ? "Таблица еще не создана" : "Table not created yet"
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Публичный ключ API:" : "Public API Key:" }) }),
-            /* @__PURE__ */ jsx("input", { type: "password", className: "input", value: SUPABASE_KEY, readOnly: true, style: { background: "#f5f5f5" } }),
-            /* @__PURE__ */ jsx("small", { style: { color: "#666", display: "block", marginTop: "5px" }, children: lang === "ru" ? "Используется тот же ключ" : "Same key as POI table" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Публичный ключ API:" : "Public API Key:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "password", className: "input", value: SUPABASE_KEY, readOnly: true, style: { background: "#f5f5f5" } }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("small", { style: { color: "#666", display: "block", marginTop: "5px" }, children: lang === "ru" ? "Используется тот же ключ" : "Same key as POI table" })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Статус подключения:" : "Connection Status:" }) }),
-            /* @__PURE__ */ jsxs("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginTop: "10px" }, children: [
-              /* @__PURE__ */ jsx("span", { style: { fontSize: "24px" }, children: "⚪" }),
-              /* @__PURE__ */ jsx("span", { style: { color: "#6c757d", fontWeight: "bold" }, children: lang === "ru" ? "Не настроено" : "Not Configured" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Статус подключения:" : "Connection Status:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginTop: "10px" }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { fontSize: "24px" }, children: "⚪" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#6c757d", fontWeight: "bold" }, children: lang === "ru" ? "Не настроено" : "Not Configured" })
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Всего записей:" : "Total Records:" }) }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Всего записей:" : "Total Records:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -999,9 +998,9 @@ function SupabaseAdmin() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { children: /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Назначение:" : "Purpose:" }) }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Назначение:" : "Purpose:" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -1012,7 +1011,7 @@ function SupabaseAdmin() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsx("div", { style: { marginTop: "30px", textAlign: "center" }, children: /* @__PURE__ */ jsxs(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { marginTop: "30px", textAlign: "center" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
               className: "btn btn-primary",
@@ -1026,29 +1025,29 @@ function SupabaseAdmin() {
           ) })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "card", style: { marginTop: "20px" }, children: [
-        /* @__PURE__ */ jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }, children: [
-          /* @__PURE__ */ jsxs("div", { style: { display: "flex", alignItems: "center", gap: "16px", flex: 1 }, children: [
-            /* @__PURE__ */ jsx("h3", { style: { margin: 0 }, children: lang === "ru" ? "Структура таблицы:" : "Table Structure:" }),
-            /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", style: { marginTop: "20px" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", alignItems: "center", gap: "16px", flex: 1 }, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { margin: 0 }, children: lang === "ru" ? "Структура таблицы:" : "Table Structure:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "select",
               {
                 className: "table-selector-dropdown",
                 style: { maxWidth: "400px" },
                 value: selectedTable,
                 onChange: (e) => setSelectedTable(e.target.value),
-                children: availableTables.length > 0 ? availableTables.map((table) => /* @__PURE__ */ jsx("option", { value: table.name, children: table.name }, table.name)) : /* @__PURE__ */ jsx("option", { value: "poi_locations", children: "poi_locations" })
+                children: availableTables.length > 0 ? availableTables.map((table) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: table.name, children: table.name }, table.name)) : /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "poi_locations", children: "poi_locations" })
               }
             )
           ] }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               className: "btn-refresh",
               onClick: handleRefresh,
               disabled: refreshing,
               style: { padding: "8px 16px", fontSize: "14px" },
-              children: /* @__PURE__ */ jsx("span", { className: "refresh-icon", style: {
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "refresh-icon", style: {
                 display: "inline-block",
                 animation: refreshing ? "spin 1s linear infinite" : "none",
                 fontSize: "16px"
@@ -1056,114 +1055,114 @@ function SupabaseAdmin() {
             }
           )
         ] }),
-        /* @__PURE__ */ jsx("div", { style: { marginBottom: "16px", padding: "12px", background: "#F9FAFB", borderRadius: "8px" }, children: /* @__PURE__ */ jsxs("div", { style: { display: "flex", gap: "24px", flexWrap: "wrap" }, children: [
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Колонок:" : "Columns:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { marginBottom: "16px", padding: "12px", background: "#F9FAFB", borderRadius: "8px" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "flex", gap: "24px", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Колонок:" : "Columns:" }),
             " ",
             currentTableData.columns.length || 0
           ] }),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Записей:" : "Records:" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Записей:" : "Records:" }),
             " ",
             currentTableData.recordsCount?.toLocaleString() || 0
           ] }),
-          /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("strong", { children: lang === "ru" ? "Размер:" : "Size:" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: lang === "ru" ? "Размер:" : "Size:" }),
             " ",
             currentTableData.tableSize || "Unknown"
           ] })
         ] }) }),
-        /* @__PURE__ */ jsx("div", { className: "table-container", children: loading ? /* @__PURE__ */ jsxs("div", { className: "loading-container", children: [
-          /* @__PURE__ */ jsx("div", { className: "spinner", style: { width: "30px", height: "30px", borderWidth: "3px" } }),
-          /* @__PURE__ */ jsx("p", { children: lang === "ru" ? "Загрузка структуры..." : "Loading structure..." })
-        ] }) : currentTableData.columns.length > 0 ? /* @__PURE__ */ jsxs("table", { className: "data-table", children: [
-          /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Поле" : "Field" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Тип" : "Type" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Nullable" : "Nullable" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "По умолчанию" : "Default" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "table-container", children: loading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "loading-container", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "spinner", style: { width: "30px", height: "30px", borderWidth: "3px" } }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: lang === "ru" ? "Загрузка структуры..." : "Loading structure..." })
+        ] }) : currentTableData.columns.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "data-table", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Поле" : "Field" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Тип" : "Type" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Nullable" : "Nullable" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "По умолчанию" : "Default" })
           ] }) }),
-          /* @__PURE__ */ jsx("tbody", { children: currentTableData.columns.map((col, idx) => /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("code", { children: col.column_name }) }),
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("span", { className: "badge", children: col.data_type }) }),
-            /* @__PURE__ */ jsx("td", { children: col.is_nullable === "YES" ? "✅" : "❌" }),
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("small", { children: col.column_default || "-" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: currentTableData.columns.map((col, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: col.column_name }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "badge", children: col.data_type }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: col.is_nullable === "YES" ? "✅" : "❌" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: col.column_default || "-" }) })
           ] }, idx)) })
-        ] }) : /* @__PURE__ */ jsx("div", { style: { textAlign: "center", padding: "40px", color: "#6B7280" }, children: lang === "ru" ? "Нет данных о структуре таблицы" : "No table structure data available" }) })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { textAlign: "center", padding: "40px", color: "#6B7280" }, children: lang === "ru" ? "Нет данных о структуре таблицы" : "No table structure data available" }) })
       ] })
     ] }),
-    activeTab === "stats" && /* @__PURE__ */ jsx("div", { className: "tab-content", children: loading ? /* @__PURE__ */ jsxs("div", { className: "loading-container", children: [
-      /* @__PURE__ */ jsx("div", { className: "spinner" }),
-      /* @__PURE__ */ jsx("p", { children: lang === "ru" ? "Загрузка статистики..." : "Loading statistics..." })
-    ] }) : stats && /* @__PURE__ */ jsxs(Fragment, { children: [
-      /* @__PURE__ */ jsxs("div", { className: "stats-grid", children: [
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "📍" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "stat-value", children: stats.total.toLocaleString() }),
-            /* @__PURE__ */ jsx("div", { className: "stat-label", children: lang === "ru" ? "Всего объектов" : "Total Objects" })
+    activeTab === "stats" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tab-content", children: loading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "loading-container", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "spinner" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: lang === "ru" ? "Загрузка статистики..." : "Loading statistics..." })
+    ] }) : stats && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stats-grid", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "📍" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: stats.total.toLocaleString() }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: lang === "ru" ? "Всего объектов" : "Total Objects" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "📸" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "stat-value", children: stats.withPhotos.toLocaleString() }),
-            /* @__PURE__ */ jsx("div", { className: "stat-label", children: lang === "ru" ? "С фотографиями" : "With Photos" }),
-            /* @__PURE__ */ jsxs("div", { className: "stat-change", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "📸" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: stats.withPhotos.toLocaleString() }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: lang === "ru" ? "С фотографиями" : "With Photos" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change", children: [
               (stats.withPhotos / stats.total * 100).toFixed(1),
               "%"
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "⭐" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "stat-value", children: stats.withRating.toLocaleString() }),
-            /* @__PURE__ */ jsx("div", { className: "stat-label", children: lang === "ru" ? "С рейтингом" : "With Rating" }),
-            /* @__PURE__ */ jsxs("div", { className: "stat-change", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "⭐" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: stats.withRating.toLocaleString() }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: lang === "ru" ? "С рейтингом" : "With Rating" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change", children: [
               (stats.withRating / stats.total * 100).toFixed(1),
               "%"
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "🏷️" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "stat-value", children: Object.keys(stats.categories).length }),
-            /* @__PURE__ */ jsx("div", { className: "stat-label", children: lang === "ru" ? "Категорий" : "Categories" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "🏷️" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: Object.keys(stats.categories).length }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: lang === "ru" ? "Категорий" : "Categories" })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "card", children: [
-        /* @__PURE__ */ jsx("h3", { children: lang === "ru" ? "По категориям" : "By Categories" }),
-        /* @__PURE__ */ jsx("div", { className: "table-container", children: /* @__PURE__ */ jsxs("table", { className: "data-table", children: [
-          /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Категория" : "Category" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Количество" : "Count" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Процент" : "Percent" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: lang === "ru" ? "По категориям" : "By Categories" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "table-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "data-table", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Категория" : "Category" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Количество" : "Count" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Процент" : "Percent" })
           ] }) }),
-          /* @__PURE__ */ jsx("tbody", { children: Object.entries(stats.categories).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([category, count]) => /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("span", { className: "badge", children: category }) }),
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("strong", { children: count }) }),
-            /* @__PURE__ */ jsxs("td", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: Object.entries(stats.categories).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([category, count]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "badge", children: category }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: count }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { children: [
               (count / stats.total * 100).toFixed(1),
               "%"
             ] })
           ] }, category)) })
         ] }) })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "card", children: [
-        /* @__PURE__ */ jsx("h3", { children: lang === "ru" ? "По локациям" : "By Locations" }),
-        /* @__PURE__ */ jsx("div", { className: "table-container", children: /* @__PURE__ */ jsxs("table", { className: "data-table", children: [
-          /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Локация" : "Location" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Количество" : "Count" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Процент" : "Percent" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: lang === "ru" ? "По локациям" : "By Locations" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "table-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "data-table", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Локация" : "Location" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Количество" : "Count" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Процент" : "Percent" })
           ] }) }),
-          /* @__PURE__ */ jsx("tbody", { children: Object.entries(stats.locations).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([location, count]) => /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("strong", { children: location }) }),
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("strong", { children: count }) }),
-            /* @__PURE__ */ jsxs("td", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: Object.entries(stats.locations).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([location, count]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: location }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: count }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { children: [
               (count / stats.total * 100).toFixed(1),
               "%"
             ] })
@@ -1171,12 +1170,12 @@ function SupabaseAdmin() {
         ] }) })
       ] })
     ] }) }),
-    activeTab === "data" && /* @__PURE__ */ jsx("div", { className: "tab-content", children: loading && pois.length === 0 ? /* @__PURE__ */ jsxs("div", { className: "loading-container", children: [
-      /* @__PURE__ */ jsx("div", { className: "spinner" }),
-      /* @__PURE__ */ jsx("p", { children: lang === "ru" ? "Загрузка данных..." : "Loading data..." })
-    ] }) : /* @__PURE__ */ jsxs(Fragment, { children: [
-      /* @__PURE__ */ jsxs("div", { className: "filters", children: [
-        /* @__PURE__ */ jsx(
+    activeTab === "data" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tab-content", children: loading && pois.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "loading-container", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "spinner" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: lang === "ru" ? "Загрузка данных..." : "Loading data..." })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "text",
@@ -1186,50 +1185,50 @@ function SupabaseAdmin() {
             onChange: (e) => setSearchTerm(e.target.value)
           }
         ),
-        /* @__PURE__ */ jsxs(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
             className: "select",
             value: filterCategory,
             onChange: (e) => setFilterCategory(e.target.value),
             children: [
-              /* @__PURE__ */ jsx("option", { value: "", children: lang === "ru" ? "Все категории" : "All categories" }),
-              stats && Object.keys(stats.categories).sort().map((cat) => /* @__PURE__ */ jsx("option", { value: cat, children: cat }, cat))
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: lang === "ru" ? "Все категории" : "All categories" }),
+              stats && Object.keys(stats.categories).sort().map((cat) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: cat, children: cat }, cat))
             ]
           }
         ),
-        /* @__PURE__ */ jsxs(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
             className: "select",
             value: filterLocation,
             onChange: (e) => setFilterLocation(e.target.value),
             children: [
-              /* @__PURE__ */ jsx("option", { value: "", children: lang === "ru" ? "Все локации" : "All locations" }),
-              stats && Object.keys(stats.locations).sort().map((loc) => /* @__PURE__ */ jsx("option", { value: loc, children: loc }, loc))
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: lang === "ru" ? "Все локации" : "All locations" }),
+              stats && Object.keys(stats.locations).sort().map((loc) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: loc, children: loc }, loc))
             ]
           }
         )
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "card", children: [
-        /* @__PURE__ */ jsx("div", { className: "table-container", children: /* @__PURE__ */ jsxs("table", { className: "data-table", children: [
-          /* @__PURE__ */ jsx("thead", { children: /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Название" : "Name" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Категория" : "Category" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Локация" : "Location" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Рейтинг" : "Rating" }),
-            /* @__PURE__ */ jsx("th", { children: lang === "ru" ? "Отзывы" : "Reviews" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "table-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "data-table", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Название" : "Name" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Категория" : "Category" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Локация" : "Location" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Рейтинг" : "Rating" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: lang === "ru" ? "Отзывы" : "Reviews" })
           ] }) }),
-          /* @__PURE__ */ jsx("tbody", { children: paginatedPois.length > 0 ? paginatedPois.map((poi) => /* @__PURE__ */ jsxs("tr", { children: [
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("strong", { children: poi.name }) }),
-            /* @__PURE__ */ jsx("td", { children: /* @__PURE__ */ jsx("span", { className: "badge", children: poi.category || "-" }) }),
-            /* @__PURE__ */ jsx("td", { children: poi.location || "-" }),
-            /* @__PURE__ */ jsx("td", { children: poi.rating ? `${poi.rating} ⭐` : "-" }),
-            /* @__PURE__ */ jsx("td", { children: poi.total_reviews || 0 })
-          ] }, poi.id)) : /* @__PURE__ */ jsx("tr", { children: /* @__PURE__ */ jsx("td", { colSpan: 5, style: { textAlign: "center", padding: "40px" }, children: lang === "ru" ? "Нет данных" : "No data" }) }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: paginatedPois.length > 0 ? paginatedPois.map((poi) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: poi.name }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "badge", children: poi.category || "-" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: poi.location || "-" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: poi.rating ? `${poi.rating} ⭐` : "-" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: poi.total_reviews || 0 })
+          ] }, poi.id)) : /* @__PURE__ */ jsxRuntimeExports.jsx("tr", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("td", { colSpan: 5, style: { textAlign: "center", padding: "40px" }, children: lang === "ru" ? "Нет данных" : "No data" }) }) })
         ] }) }),
-        /* @__PURE__ */ jsxs("div", { className: "pagination", children: [
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pagination", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               className: "btn btn-secondary",
@@ -1238,7 +1237,7 @@ function SupabaseAdmin() {
               children: "←"
             }
           ),
-          /* @__PURE__ */ jsxs("span", { className: "pagination-info", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "pagination-info", children: [
             lang === "ru" ? "Страница" : "Page",
             " ",
             currentPage,
@@ -1247,7 +1246,7 @@ function SupabaseAdmin() {
             " ",
             totalPages || 1
           ] }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               className: "btn btn-secondary",
@@ -1259,7 +1258,7 @@ function SupabaseAdmin() {
         ] })
       ] })
     ] }) }),
-    activeTab === "map" && /* @__PURE__ */ jsx("div", { className: "tab-content", children: /* @__PURE__ */ jsx("div", { className: "card", style: { padding: 0, overflow: "hidden" }, children: /* @__PURE__ */ jsx(
+    activeTab === "map" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tab-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "card", style: { padding: 0, overflow: "hidden" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       "iframe",
       {
         src: "/map",
@@ -1267,14 +1266,14 @@ function SupabaseAdmin() {
         title: "POI Map"
       }
     ) }) }),
-    /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
       KeepAliveModal,
       {
         isOpen: showKeepAliveModal,
         onClose: () => setShowKeepAliveModal(false)
       }
     ),
-    /* @__PURE__ */ jsx("style", { children: `
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
         /* Lumina Design System for Supabase Admin */
         .supabase-admin-lumina {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

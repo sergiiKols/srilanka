@@ -1,21 +1,20 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate } from '../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 import { $ as $$Layout } from '../../chunks/Layout_lp9ZR76Z.mjs';
-import { u as useLang, A as AdminLayout } from '../../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsxs, jsx } from 'react/jsx-runtime';
-import { useState, useEffect } from 'react';
+import { u as useLang, j as jsxRuntimeExports, A as AdminLayout } from '../../chunks/AdminLayout_xmS9cJRX.mjs';
+import { a as reactExports } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
+export { r as renderers } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
 import { createClient } from '@supabase/supabase-js';
-export { renderers } from '../../renderers.mjs';
 
 const SUPABASE_URL = "https://mcmzdscpuoxwneuzsanu.supabase.co";
 const SUPABASE_KEY = "sb_publishable_oqeTkwpUNEhCWHIkCfhwpA_YmqUWWEx";
 function DatabaseTables() {
   const lang = useLang();
-  const [tables, setTables] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedTable, setSelectedTable] = useState(null);
+  const [tables, setTables] = reactExports.useState([]);
+  const [loading, setLoading] = reactExports.useState(true);
+  const [selectedCategory, setSelectedCategory] = reactExports.useState("all");
+  const [searchTerm, setSearchTerm] = reactExports.useState("");
+  const [selectedTable, setSelectedTable] = reactExports.useState(null);
   createClient(SUPABASE_URL, SUPABASE_KEY);
   const fallbackTablesData = [
     // TELEGRAM LISTING SYSTEM (6 таблиц)
@@ -47,7 +46,7 @@ function DatabaseTables() {
     { name: "schema_migrations", size: "32 kB", columns: 3, description: "Database migration history", category: "system" },
     { name: "spatial_ref_sys", size: "7144 kB", columns: 5, description: "PostGIS spatial reference systems", category: "system" }
   ];
-  useEffect(() => {
+  reactExports.useEffect(() => {
     loadTables();
   }, []);
   async function loadTables() {
@@ -129,12 +128,12 @@ function DatabaseTables() {
     return stats;
   };
   const categoryStats = getCategoryStats();
-  return /* @__PURE__ */ jsxs("div", { className: "database-tables", children: [
-    /* @__PURE__ */ jsx("div", { className: "page-header", children: /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("h1", { children: lang === "ru" ? "🗄️ База данных Supabase" : "🗄️ Supabase Database" }),
-      /* @__PURE__ */ jsx("p", { className: "subtitle", children: lang === "ru" ? `Всего таблиц: ${tables.length} | Проверено: 2026-01-28` : `Total tables: ${tables.length} | Verified: 2026-01-28` })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "database-tables", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "page-header", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: lang === "ru" ? "🗄️ База данных Supabase" : "🗄️ Supabase Database" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: lang === "ru" ? `Всего таблиц: ${tables.length} | Проверено: 2026-01-28` : `Total tables: ${tables.length} | Verified: 2026-01-28` })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { className: "category-pills", children: categories.map((cat) => /* @__PURE__ */ jsxs(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "category-pills", children: categories.map((cat) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "button",
       {
         className: `category-pill ${selectedCategory === cat.id ? "active" : ""}`,
@@ -144,9 +143,9 @@ function DatabaseTables() {
           background: selectedCategory === cat.id ? `linear-gradient(135deg, ${getCategoryColor(cat.id === "all" ? "telegram_listing" : cat.id)}10, ${getCategoryColor(cat.id === "all" ? "telegram_listing" : cat.id)}05)` : "white"
         },
         children: [
-          /* @__PURE__ */ jsx("span", { className: "pill-icon", children: cat.icon }),
-          /* @__PURE__ */ jsx("span", { className: "pill-label", children: cat.label }),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "pill-icon", children: cat.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "pill-label", children: cat.label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "span",
             {
               className: "pill-badge",
@@ -161,7 +160,7 @@ function DatabaseTables() {
       },
       cat.id
     )) }),
-    /* @__PURE__ */ jsx("div", { className: "search-box", children: /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "search-box", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       "input",
       {
         type: "text",
@@ -171,10 +170,10 @@ function DatabaseTables() {
         onChange: (e) => setSearchTerm(e.target.value)
       }
     ) }),
-    loading ? /* @__PURE__ */ jsxs("div", { className: "loading-container", children: [
-      /* @__PURE__ */ jsx("div", { className: "spinner" }),
-      /* @__PURE__ */ jsx("p", { children: lang === "ru" ? "Загрузка таблиц..." : "Loading tables..." })
-    ] }) : /* @__PURE__ */ jsx("div", { className: "tables-grid", children: filteredTables.map((table) => /* @__PURE__ */ jsxs(
+    loading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "loading-container", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "spinner" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: lang === "ru" ? "Загрузка таблиц..." : "Loading tables..." })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tables-grid", children: filteredTables.map((table) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
         className: "table-card",
@@ -183,9 +182,9 @@ function DatabaseTables() {
           borderTop: `3px solid ${getCategoryColor(table.category)}`
         },
         children: [
-          /* @__PURE__ */ jsxs("div", { className: "table-card-header", children: [
-            /* @__PURE__ */ jsx("h3", { className: "table-name", children: /* @__PURE__ */ jsx("code", { children: table.name }) }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-card-header", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "table-name", children: /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: table.name }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "span",
               {
                 className: "category-badge",
@@ -194,48 +193,48 @@ function DatabaseTables() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "table-stats", children: [
-            /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-              /* @__PURE__ */ jsx("span", { className: "stat-icon", children: "💾" }),
-              /* @__PURE__ */ jsx("span", { className: "stat-value", children: table.size })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "table-stats", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-icon", children: "💾" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", children: table.size })
             ] }),
-            /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-              /* @__PURE__ */ jsx("span", { className: "stat-icon", children: "📊" }),
-              /* @__PURE__ */ jsxs("span", { className: "stat-value", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-icon", children: "📊" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "stat-value", children: [
                 table.columns,
                 " ",
                 lang === "ru" ? "колонок" : "columns"
               ] })
             ] }),
-            table.recordsCount && /* @__PURE__ */ jsxs("div", { className: "stat-item", children: [
-              /* @__PURE__ */ jsx("span", { className: "stat-icon", children: "📝" }),
-              /* @__PURE__ */ jsxs("span", { className: "stat-value", children: [
+            table.recordsCount && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-item", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-icon", children: "📝" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "stat-value", children: [
                 table.recordsCount.toLocaleString(),
                 " ",
                 lang === "ru" ? "записей" : "records"
               ] })
             ] })
           ] }),
-          table.description && /* @__PURE__ */ jsx("p", { className: "table-description", children: table.description }),
-          /* @__PURE__ */ jsx("div", { className: "table-card-footer", children: /* @__PURE__ */ jsx("button", { className: "btn-ghost", children: lang === "ru" ? "Подробнее →" : "Details →" }) })
+          table.description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "table-description", children: table.description }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "table-card-footer", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "btn-ghost", children: lang === "ru" ? "Подробнее →" : "Details →" }) })
         ]
       },
       table.name
     )) }),
-    filteredTables.length === 0 && !loading && /* @__PURE__ */ jsxs("div", { className: "empty-state", children: [
-      /* @__PURE__ */ jsx("div", { className: "empty-icon", children: "🔍" }),
-      /* @__PURE__ */ jsx("p", { children: lang === "ru" ? "Таблицы не найдены" : "No tables found" })
+    filteredTables.length === 0 && !loading && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty-state", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "empty-icon", children: "🔍" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: lang === "ru" ? "Таблицы не найдены" : "No tables found" })
     ] }),
-    selectedTable && /* @__PURE__ */ jsx("div", { className: "modal-overlay", onClick: () => setSelectedTable(null), children: /* @__PURE__ */ jsxs("div", { className: "modal-content", onClick: (e) => e.stopPropagation(), children: [
-      /* @__PURE__ */ jsxs("div", { className: "modal-header", children: [
-        /* @__PURE__ */ jsx("h2", { children: /* @__PURE__ */ jsx("code", { children: selectedTable.name }) }),
-        /* @__PURE__ */ jsx("button", { className: "modal-close", onClick: () => setSelectedTable(null), children: "✕" })
+    selectedTable && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-overlay", onClick: () => setSelectedTable(null), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-content", onClick: (e) => e.stopPropagation(), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: selectedTable.name }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "modal-close", onClick: () => setSelectedTable(null), children: "✕" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "modal-body", children: [
-        /* @__PURE__ */ jsxs("div", { className: "detail-grid", children: [
-          /* @__PURE__ */ jsxs("div", { className: "detail-item", children: [
-            /* @__PURE__ */ jsx("span", { className: "detail-label", children: lang === "ru" ? "Категория:" : "Category:" }),
-            /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "modal-body", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "detail-grid", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "detail-item", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-label", children: lang === "ru" ? "Категория:" : "Category:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "span",
               {
                 className: "detail-value category-badge",
@@ -244,24 +243,24 @@ function DatabaseTables() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "detail-item", children: [
-            /* @__PURE__ */ jsx("span", { className: "detail-label", children: lang === "ru" ? "Размер:" : "Size:" }),
-            /* @__PURE__ */ jsx("span", { className: "detail-value", children: selectedTable.size })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "detail-item", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-label", children: lang === "ru" ? "Размер:" : "Size:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-value", children: selectedTable.size })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "detail-item", children: [
-            /* @__PURE__ */ jsx("span", { className: "detail-label", children: lang === "ru" ? "Колонок:" : "Columns:" }),
-            /* @__PURE__ */ jsx("span", { className: "detail-value", children: selectedTable.columns })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "detail-item", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-label", children: lang === "ru" ? "Колонок:" : "Columns:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-value", children: selectedTable.columns })
           ] }),
-          selectedTable.recordsCount && /* @__PURE__ */ jsxs("div", { className: "detail-item", children: [
-            /* @__PURE__ */ jsx("span", { className: "detail-label", children: lang === "ru" ? "Записей:" : "Records:" }),
-            /* @__PURE__ */ jsx("span", { className: "detail-value", children: selectedTable.recordsCount.toLocaleString() })
+          selectedTable.recordsCount && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "detail-item", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-label", children: lang === "ru" ? "Записей:" : "Records:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "detail-value", children: selectedTable.recordsCount.toLocaleString() })
           ] })
         ] }),
-        selectedTable.description && /* @__PURE__ */ jsxs("div", { className: "detail-section", children: [
-          /* @__PURE__ */ jsx("h4", { children: lang === "ru" ? "Описание:" : "Description:" }),
-          /* @__PURE__ */ jsx("p", { children: selectedTable.description })
+        selectedTable.description && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "detail-section", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: lang === "ru" ? "Описание:" : "Description:" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: selectedTable.description })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "modal-actions", children: /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "modal-actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
           "a",
           {
             href: `https://supabase.com/dashboard/project/mcmzdscpuoxwneuzsanu/editor/${selectedTable.name}`,
@@ -273,7 +272,7 @@ function DatabaseTables() {
         ) })
       ] })
     ] }) }),
-    /* @__PURE__ */ jsx("style", { children: `
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
         .database-tables {
           max-width: 1400px;
           margin: 0 auto;

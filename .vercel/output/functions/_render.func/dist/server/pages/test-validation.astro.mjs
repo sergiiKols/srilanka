@@ -2,7 +2,7 @@ import { e as createComponent, k as renderComponent, l as renderScript, r as ren
 import 'piccolore';
 import { $ as $$Layout } from '../chunks/Layout_lp9ZR76Z.mjs';
 /* empty css                                           */
-export { renderers } from '../renderers.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const $$TestValidation = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "POI Validation Test", "data-astro-cid-kghdjgdf": true }, { "default": async ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="container mx-auto px-4 py-8" data-astro-cid-kghdjgdf> <h1 class="text-3xl font-bold mb-6" data-astro-cid-kghdjgdf>🔍 POI Validation System Test</h1> <div class="max-w-4xl mx-auto space-y-6" data-astro-cid-kghdjgdf> <!-- Test Instructions --> <div class="bg-blue-50 border border-blue-200 rounded-lg p-6" data-astro-cid-kghdjgdf> <h2 class="text-xl font-bold text-blue-900 mb-3" data-astro-cid-kghdjgdf>📋 Test Instructions</h2> <p class="text-blue-800 mb-3" data-astro-cid-kghdjgdf>

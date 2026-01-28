@@ -1,17 +1,16 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate } from '../../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 import { $ as $$Layout } from '../../../chunks/Layout_lp9ZR76Z.mjs';
-import { A as AdminLayout } from '../../../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsxs, jsx } from 'react/jsx-runtime';
-import { useState } from 'react';
-export { renderers } from '../../../renderers.mjs';
+import { j as jsxRuntimeExports, A as AdminLayout } from '../../../chunks/AdminLayout_xmS9cJRX.mjs';
+import { a as reactExports } from '../../../chunks/_@astro-renderers_1ISMqT13.mjs';
+export { r as renderers } from '../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 function URLExpander() {
-  const [shortUrl, setShortUrl] = useState("");
-  const [expandedUrl, setExpandedUrl] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [expandTime, setExpandTime] = useState(0);
+  const [shortUrl, setShortUrl] = reactExports.useState("");
+  const [expandedUrl, setExpandedUrl] = reactExports.useState("");
+  const [loading, setLoading] = reactExports.useState(false);
+  const [error, setError] = reactExports.useState("");
+  const [expandTime, setExpandTime] = reactExports.useState(0);
   const handleExpand = async () => {
     if (!shortUrl.trim()) {
       setError("Please enter a URL");
@@ -56,14 +55,14 @@ function URLExpander() {
       alert("Expanded URL copied to clipboard!");
     }
   };
-  return /* @__PURE__ */ jsxs("div", { className: "url-expander", children: [
-    /* @__PURE__ */ jsxs("div", { className: "tool-card", children: [
-      /* @__PURE__ */ jsx("h3", { children: "🔗 URL Expander" }),
-      /* @__PURE__ */ jsx("p", { className: "description", children: "Expand short URLs (bit.ly, goo.gl, t.co, etc.) to their full destination" }),
-      /* @__PURE__ */ jsxs("div", { className: "input-section", children: [
-        /* @__PURE__ */ jsx("label", { htmlFor: "short-url", children: "Short URL" }),
-        /* @__PURE__ */ jsxs("div", { className: "input-group", children: [
-          /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "url-expander", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tool-card", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "🔗 URL Expander" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "description", children: "Expand short URLs (bit.ly, goo.gl, t.co, etc.) to their full destination" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "input-section", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "short-url", children: "Short URL" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "input-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "text",
@@ -75,7 +74,7 @@ function URLExpander() {
               onKeyDown: (e) => e.key === "Enter" && handleExpand()
             }
           ),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: handleExpand,
@@ -85,42 +84,42 @@ function URLExpander() {
             }
           )
         ] }),
-        error && /* @__PURE__ */ jsxs("p", { className: "error-message", children: [
+        error && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "error-message", children: [
           "❌ ",
           error
         ] })
       ] }),
-      expandedUrl && /* @__PURE__ */ jsxs("div", { className: "result-section success", children: [
-        /* @__PURE__ */ jsxs("div", { className: "result-header", children: [
-          /* @__PURE__ */ jsx("h4", { children: "✅ Expanded URL" }),
-          /* @__PURE__ */ jsxs("div", { className: "result-meta", children: [
-            /* @__PURE__ */ jsxs("span", { className: "badge", children: [
+      expandedUrl && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "result-section success", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "result-header", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { children: "✅ Expanded URL" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "result-meta", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "badge", children: [
               "Time: ",
               expandTime,
               "s"
             ] }),
-            /* @__PURE__ */ jsx("span", { className: "badge", children: "Perplexity API" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "badge", children: "Perplexity API" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "result-url", children: [
-          /* @__PURE__ */ jsx("code", { children: expandedUrl }),
-          /* @__PURE__ */ jsx("button", { onClick: handleCopyExpanded, className: "btn-icon", title: "Copy", children: "📋" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "result-url", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: expandedUrl }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCopyExpanded, className: "btn-icon", title: "Copy", children: "📋" })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "result-actions", children: [
-          /* @__PURE__ */ jsx("a", { href: expandedUrl, target: "_blank", rel: "noopener noreferrer", className: "btn-secondary", children: "🌐 Open in New Tab" }),
-          /* @__PURE__ */ jsx("button", { onClick: handleClear, className: "btn-ghost", children: "🔄 Clear" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "result-actions", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: expandedUrl, target: "_blank", rel: "noopener noreferrer", className: "btn-secondary", children: "🌐 Open in New Tab" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleClear, className: "btn-ghost", children: "🔄 Clear" })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "tool-card", children: [
-      /* @__PURE__ */ jsx("h3", { children: "📚 Example URLs" }),
-      /* @__PURE__ */ jsx("p", { className: "description", children: "Click to test with example short URLs:" }),
-      /* @__PURE__ */ jsx("div", { className: "examples", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tool-card", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "📚 Example URLs" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "description", children: "Click to test with example short URLs:" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "examples", children: [
         "https://bit.ly/3example",
         "https://goo.gl/maps/test",
         "https://t.co/abcd1234",
         "https://tinyurl.com/test123"
-      ].map((url) => /* @__PURE__ */ jsx(
+      ].map((url) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setShortUrl(url),
@@ -131,23 +130,23 @@ function URLExpander() {
         url
       )) })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "tool-card disabled-section", children: [
-      /* @__PURE__ */ jsxs("div", { className: "section-header", children: [
-        /* @__PURE__ */ jsx("h3", { children: "📱 Telegram Integration Settings" }),
-        /* @__PURE__ */ jsx("span", { className: "status-badge inactive", children: "Coming Soon" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tool-card disabled-section", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "section-header", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "📱 Telegram Integration Settings" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "status-badge inactive", children: "Coming Soon" })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "future-notice", children: /* @__PURE__ */ jsxs("p", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "future-notice", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         "🚧 ",
-        /* @__PURE__ */ jsx("strong", { children: "Future Feature" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Future Feature" }),
         " - Telegram bot and client API integration will be available soon"
       ] }) }),
-      /* @__PURE__ */ jsxs("div", { className: "settings-grid", children: [
-        /* @__PURE__ */ jsxs("div", { className: "settings-group", children: [
-          /* @__PURE__ */ jsx("h4", { className: "subsection-title", children: "🤖 Bot Configuration" }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-bot-token", children: "Bot Token" }),
-            /* @__PURE__ */ jsxs("div", { className: "input-with-icon", children: [
-              /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "settings-grid", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "settings-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "subsection-title", children: "🤖 Bot Configuration" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-bot-token", children: "Bot Token" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "input-with-icon", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
                   type: "password",
@@ -156,16 +155,16 @@ function URLExpander() {
                   disabled: true
                 }
               ),
-              /* @__PURE__ */ jsx("button", { className: "btn-icon", disabled: true, title: "Show/Hide", children: "👁️" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "btn-icon", disabled: true, title: "Show/Hide", children: "👁️" })
             ] }),
-            /* @__PURE__ */ jsxs("small", { className: "help-text", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { className: "help-text", children: [
               "Get from ",
-              /* @__PURE__ */ jsx("a", { href: "https://t.me/BotFather", target: "_blank", children: "@BotFather" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://t.me/BotFather", target: "_blank", children: "@BotFather" })
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-bot-username", children: "Bot Username" }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-bot-username", children: "Bot Username" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -175,9 +174,9 @@ function URLExpander() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-webhook-url", children: "Webhook URL (Optional)" }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-webhook-url", children: "Webhook URL (Optional)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -188,11 +187,11 @@ function URLExpander() {
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "settings-group", children: [
-          /* @__PURE__ */ jsx("h4", { className: "subsection-title", children: "👤 User Client API" }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-api-id", children: "API ID" }),
-            /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "settings-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "subsection-title", children: "👤 User Client API" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-api-id", children: "API ID" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -201,15 +200,15 @@ function URLExpander() {
                 disabled: true
               }
             ),
-            /* @__PURE__ */ jsxs("small", { className: "help-text", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { className: "help-text", children: [
               "Get from ",
-              /* @__PURE__ */ jsx("a", { href: "https://my.telegram.org/apps", target: "_blank", children: "my.telegram.org" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://my.telegram.org/apps", target: "_blank", children: "my.telegram.org" })
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-api-hash", children: "API Hash" }),
-            /* @__PURE__ */ jsxs("div", { className: "input-with-icon", children: [
-              /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-api-hash", children: "API Hash" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "input-with-icon", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
                   type: "password",
@@ -218,12 +217,12 @@ function URLExpander() {
                   disabled: true
                 }
               ),
-              /* @__PURE__ */ jsx("button", { className: "btn-icon", disabled: true, title: "Show/Hide", children: "👁️" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "btn-icon", disabled: true, title: "Show/Hide", children: "👁️" })
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-phone", children: "Phone Number" }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-phone", children: "Phone Number" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "tel",
@@ -233,9 +232,9 @@ function URLExpander() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-session", children: "Session String" }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-session", children: "Session String" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "textarea",
               {
                 id: "tg-session",
@@ -244,14 +243,14 @@ function URLExpander() {
                 disabled: true
               }
             ),
-            /* @__PURE__ */ jsx("small", { className: "help-text", children: "⚠️ Keep this secret! Full account access." })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("small", { className: "help-text", children: "⚠️ Keep this secret! Full account access." })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "settings-group", children: [
-          /* @__PURE__ */ jsx("h4", { className: "subsection-title", children: "📢 Channels & Groups" }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-channel-id", children: "Main Channel ID" }),
-            /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "settings-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "subsection-title", children: "📢 Channels & Groups" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-channel-id", children: "Main Channel ID" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -260,11 +259,11 @@ function URLExpander() {
                 disabled: true
               }
             ),
-            /* @__PURE__ */ jsx("small", { className: "help-text", children: "For posting properties/POIs" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("small", { className: "help-text", children: "For posting properties/POIs" })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-admin-chat", children: "Admin Chat ID" }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-admin-chat", children: "Admin Chat ID" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -273,11 +272,11 @@ function URLExpander() {
                 disabled: true
               }
             ),
-            /* @__PURE__ */ jsx("small", { className: "help-text", children: "For notifications and logs" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("small", { className: "help-text", children: "For notifications and logs" })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "form-group", children: [
-            /* @__PURE__ */ jsx("label", { htmlFor: "tg-backup-channel", children: "Backup Channel ID" }),
-            /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "tg-backup-channel", children: "Backup Channel ID" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
@@ -286,71 +285,71 @@ function URLExpander() {
                 disabled: true
               }
             ),
-            /* @__PURE__ */ jsx("small", { className: "help-text", children: "Optional backup channel" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("small", { className: "help-text", children: "Optional backup channel" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "settings-group", children: [
-          /* @__PURE__ */ jsx("h4", { className: "subsection-title", children: "⚙️ Features" }),
-          /* @__PURE__ */ jsxs("div", { className: "checkbox-group", children: [
-            /* @__PURE__ */ jsxs("label", { children: [
-              /* @__PURE__ */ jsx("input", { type: "checkbox", disabled: true }),
-              /* @__PURE__ */ jsx("span", { children: "Enable auto-posting to channel" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "settings-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "subsection-title", children: "⚙️ Features" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "checkbox-group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", disabled: true }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Enable auto-posting to channel" })
             ] }),
-            /* @__PURE__ */ jsxs("label", { children: [
-              /* @__PURE__ */ jsx("input", { type: "checkbox", disabled: true }),
-              /* @__PURE__ */ jsx("span", { children: "Send parsing notifications" })
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", disabled: true }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Send parsing notifications" })
             ] }),
-            /* @__PURE__ */ jsxs("label", { children: [
-              /* @__PURE__ */ jsx("input", { type: "checkbox", disabled: true }),
-              /* @__PURE__ */ jsx("span", { children: "Enable inline search via bot" })
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", disabled: true }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Enable inline search via bot" })
             ] }),
-            /* @__PURE__ */ jsxs("label", { children: [
-              /* @__PURE__ */ jsx("input", { type: "checkbox", disabled: true }),
-              /* @__PURE__ */ jsx("span", { children: "Allow user submissions via bot" })
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", disabled: true }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Allow user submissions via bot" })
             ] }),
-            /* @__PURE__ */ jsxs("label", { children: [
-              /* @__PURE__ */ jsx("input", { type: "checkbox", disabled: true }),
-              /* @__PURE__ */ jsx("span", { children: "Auto-expand short URLs in messages" })
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", disabled: true }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Auto-expand short URLs in messages" })
             ] })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "telegram-stats", children: [
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "🤖" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("span", { className: "stat-label", children: "Bot Status" }),
-            /* @__PURE__ */ jsx("span", { className: "stat-value", children: "Not Configured" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "telegram-stats", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "🤖" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: "Bot Status" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", children: "Not Configured" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "📨" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("span", { className: "stat-label", children: "Messages Today" }),
-            /* @__PURE__ */ jsx("span", { className: "stat-value", children: "0" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "📨" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: "Messages Today" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", children: "0" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "👥" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("span", { className: "stat-label", children: "Subscribers" }),
-            /* @__PURE__ */ jsx("span", { className: "stat-value", children: "0" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "👥" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: "Subscribers" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", children: "0" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "⚡" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-            /* @__PURE__ */ jsx("span", { className: "stat-label", children: "API Calls" }),
-            /* @__PURE__ */ jsx("span", { className: "stat-value", children: "0" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "⚡" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-label", children: "API Calls" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "stat-value", children: "0" })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "disabled-actions", children: [
-        /* @__PURE__ */ jsx("button", { className: "btn-primary", disabled: true, children: "💾 Save Telegram Settings" }),
-        /* @__PURE__ */ jsx("button", { className: "btn-secondary", disabled: true, children: "🔄 Test Connection" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "disabled-actions", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "btn-primary", disabled: true, children: "💾 Save Telegram Settings" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "btn-secondary", disabled: true, children: "🔄 Test Connection" })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("style", { jsx: true, children: `
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { jsx: true, children: `
         .url-expander {
           display: flex;
           flex-direction: column;

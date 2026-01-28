@@ -7,10 +7,16 @@ import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: { enabled: false },
+    speedInsights: { enabled: false }
+  }),
   integrations: [react()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ['react', 'react-dom']
+    }
   }
 });

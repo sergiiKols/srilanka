@@ -2,7 +2,7 @@ import { e as createComponent, l as renderScript, v as renderHead, k as renderCo
 import 'piccolore';
 /* empty css                                      */
 /* empty css                                      */
-export { renderers } from '../renderers.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const $$TenantApp = createComponent(($$result, $$props, $$slots) => {
   const pageTitle = "Find Accommodation in Sri Lanka";

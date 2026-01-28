@@ -2,7 +2,7 @@ import { e as createComponent, r as renderTemplate, k as renderComponent, v as r
 import 'piccolore';
 /* empty css                                      */
 /* empty css                                            */
-export { renderers } from '../renderers.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;

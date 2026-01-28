@@ -1,23 +1,22 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 import { $ as $$Layout } from '../../chunks/Layout_lp9ZR76Z.mjs';
-import { A as AdminLayout } from '../../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsx, jsxs } from 'react/jsx-runtime';
-import { useState, useEffect } from 'react';
+import { j as jsxRuntimeExports, A as AdminLayout } from '../../chunks/AdminLayout_xmS9cJRX.mjs';
+import { a as reactExports } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
+export { r as renderers } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
 import { s as supabase } from '../../chunks/supabase_CyZfh9_5.mjs';
 /* empty css                                        */
-export { renderers } from '../../renderers.mjs';
 
 function KeepAliveToggle() {
-  const [status, setStatus] = useState({
+  const [status, setStatus] = reactExports.useState({
     enabled: false,
     lastRun: null,
     nextRun: null
   });
-  const [loading, setLoading] = useState(true);
-  const [toggling, setToggling] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
-  useEffect(() => {
+  const [loading, setLoading] = reactExports.useState(true);
+  const [toggling, setToggling] = reactExports.useState(false);
+  const [showInfo, setShowInfo] = reactExports.useState(false);
+  reactExports.useEffect(() => {
     loadStatus();
   }, []);
   const loadStatus = async () => {
@@ -78,20 +77,20 @@ function KeepAliveToggle() {
     }
   };
   if (loading) {
-    return /* @__PURE__ */ jsx("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ jsxs("div", { className: "animate-pulse", children: [
-      /* @__PURE__ */ jsx("div", { className: "h-4 bg-gray-200 rounded w-1/4 mb-4" }),
-      /* @__PURE__ */ jsx("div", { className: "h-8 bg-gray-200 rounded w-full" })
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "animate-pulse", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-gray-200 rounded w-1/4 mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-8 bg-gray-200 rounded w-full" })
     ] }) });
   }
-  return /* @__PURE__ */ jsxs("div", { className: "lumina-toggle-card", children: [
-    /* @__PURE__ */ jsx("div", { className: "lumina-toggle-header", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
-        /* @__PURE__ */ jsx("div", { className: `lumina-status-indicator ${status.enabled ? "lumina-status-active" : "lumina-status-inactive"}` }),
-        /* @__PURE__ */ jsx("div", { className: "lumina-icon-3d-small", children: "🔄" }),
-        /* @__PURE__ */ jsx("h3", { className: "lumina-toggle-title", children: "Keep-Alive System" }),
-        /* @__PURE__ */ jsx("span", { className: `lumina-badge ${status.enabled ? "lumina-badge-green" : "lumina-badge-gray"}`, children: status.enabled ? "Включено" : "Выключено" })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-toggle-card", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-toggle-header", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `lumina-status-indicator ${status.enabled ? "lumina-status-active" : "lumina-status-inactive"}` }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-icon-3d-small", children: "🔄" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "lumina-toggle-title", children: "Keep-Alive System" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `lumina-badge ${status.enabled ? "lumina-badge-green" : "lumina-badge-gray"}`, children: status.enabled ? "Включено" : "Выключено" })
       ] }),
-      /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setShowInfo(!showInfo),
@@ -100,38 +99,38 @@ function KeepAliveToggle() {
         }
       )
     ] }) }),
-    showInfo && /* @__PURE__ */ jsxs("div", { className: "lumina-info-panel", children: [
-      /* @__PURE__ */ jsx("h4", { className: "lumina-info-panel-title", children: "ℹ️ Что это такое?" }),
-      /* @__PURE__ */ jsxs("div", { className: "lumina-info-panel-text", children: [
-        /* @__PURE__ */ jsxs("p", { children: [
-          /* @__PURE__ */ jsx("strong", { children: "Keep-Alive" }),
+    showInfo && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-info-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "lumina-info-panel-title", children: "ℹ️ Что это такое?" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-info-panel-text", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Keep-Alive" }),
           " - автоматическая система для поддержания активности базы данных Supabase на бесплатном тарифе."
         ] }),
-        /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx("strong", { children: "Как работает:" }) }),
-        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside ml-4 space-y-1", children: [
-          /* @__PURE__ */ jsx("li", { children: "Каждые 3 дня создаются тестовые записи во всех таблицах" }),
-          /* @__PURE__ */ jsxs("li", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Как работает:" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc list-inside ml-4 space-y-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Каждые 3 дня создаются тестовые записи во всех таблицах" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
             "Все записи помечены как ",
-            /* @__PURE__ */ jsx("code", { className: "bg-blue-100 px-1 rounded", children: "test" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "bg-blue-100 px-1 rounded", children: "test" }),
             " и неактивны"
           ] }),
-          /* @__PURE__ */ jsx("li", { children: "Записи старше 30 дней автоматически удаляются" }),
-          /* @__PURE__ */ jsx("li", { children: "Не влияет на работу приложения" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Записи старше 30 дней автоматически удаляются" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Не влияет на работу приложения" })
         ] }),
-        /* @__PURE__ */ jsxs("p", { className: "mt-3", children: [
-          /* @__PURE__ */ jsx("strong", { children: "Зачем это нужно?" }),
-          /* @__PURE__ */ jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Зачем это нужно?" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
           "Supabase паузирует бесплатные проекты после 7 дней неактивности. Keep-Alive предотвращает паузу, создавая минимальную активность в базе данных."
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "lumina-toggle-controls", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between gap-4", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex-1", children: [
-        /* @__PURE__ */ jsx("p", { className: "lumina-control-status", children: status.enabled ? "🟢 Автоматические тестовые записи активны. Создаются каждые 3 дня в 3:00." : "⚫ Автоматические тестовые записи отключены." }),
-        status.enabled && /* @__PURE__ */ jsx("p", { className: "lumina-control-info", children: "Следующий запуск: каждые 3 дня (по расписанию Cron)" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-toggle-controls", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "lumina-control-status", children: status.enabled ? "🟢 Автоматические тестовые записи активны. Создаются каждые 3 дня в 3:00." : "⚫ Автоматические тестовые записи отключены." }),
+        status.enabled && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "lumina-control-info", children: "Следующий запуск: каждые 3 дня (по расписанию Cron)" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
-        /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
             onClick: toggleKeepAlive,
@@ -140,7 +139,7 @@ function KeepAliveToggle() {
             children: toggling ? "⏳ Сохранение..." : status.enabled ? "❌ Выключить" : "✅ Включить"
           }
         ),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
             onClick: runManualTest,
@@ -152,9 +151,9 @@ function KeepAliveToggle() {
         )
       ] })
     ] }) }),
-    !status.enabled && /* @__PURE__ */ jsx("div", { className: "lumina-warning-panel", children: /* @__PURE__ */ jsxs("p", { className: "lumina-warning-text", children: [
+    !status.enabled && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-warning-panel", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "lumina-warning-text", children: [
       "⚠️ ",
-      /* @__PURE__ */ jsx("strong", { children: "Внимание:" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Внимание:" }),
       " При отключённом Keep-Alive проект может быть приостановлен через 7 дней неактивности на бесплатном тарифе Supabase."
     ] }) })
   ] });
@@ -380,16 +379,16 @@ if (typeof document !== "undefined") {
 }
 
 function CoolDownToggle() {
-  const [status, setStatus] = useState({
+  const [status, setStatus] = reactExports.useState({
     enabled: false,
     lastRun: null,
     totalCooledDown: 0
   });
-  const [loading, setLoading] = useState(true);
-  const [toggling, setToggling] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
-  const [recentResults, setRecentResults] = useState([]);
-  useEffect(() => {
+  const [loading, setLoading] = reactExports.useState(true);
+  const [toggling, setToggling] = reactExports.useState(false);
+  const [showInfo, setShowInfo] = reactExports.useState(false);
+  const [recentResults, setRecentResults] = reactExports.useState([]);
+  reactExports.useEffect(() => {
     loadStatus();
   }, []);
   const loadStatus = async () => {
@@ -505,20 +504,20 @@ function CoolDownToggle() {
     }
   };
   if (loading) {
-    return /* @__PURE__ */ jsx("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ jsxs("div", { className: "animate-pulse", children: [
-      /* @__PURE__ */ jsx("div", { className: "h-4 bg-gray-200 rounded w-1/4 mb-4" }),
-      /* @__PURE__ */ jsx("div", { className: "h-8 bg-gray-200 rounded w-full" })
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white rounded-lg shadow p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "animate-pulse", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-gray-200 rounded w-1/4 mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-8 bg-gray-200 rounded w-full" })
     ] }) });
   }
-  return /* @__PURE__ */ jsxs("div", { className: "lumina-toggle-card", children: [
-    /* @__PURE__ */ jsx("div", { className: "lumina-toggle-header", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
-        /* @__PURE__ */ jsx("div", { className: `lumina-status-indicator ${status.enabled ? "lumina-status-active" : "lumina-status-inactive"}` }),
-        /* @__PURE__ */ jsx("div", { className: "lumina-icon-3d-small", children: "🌡️" }),
-        /* @__PURE__ */ jsx("h3", { className: "lumina-toggle-title", children: "Автоохлаждение Объектов" }),
-        /* @__PURE__ */ jsx("span", { className: `lumina-badge ${status.enabled ? "lumina-badge-green" : "lumina-badge-gray"}`, children: status.enabled ? "Включено" : "Выключено" })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-toggle-card", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-toggle-header", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `lumina-status-indicator ${status.enabled ? "lumina-status-active" : "lumina-status-inactive"}` }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-icon-3d-small", children: "🌡️" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "lumina-toggle-title", children: "Автоохлаждение Объектов" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `lumina-badge ${status.enabled ? "lumina-badge-green" : "lumina-badge-gray"}`, children: status.enabled ? "Включено" : "Выключено" })
       ] }),
-      /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setShowInfo(!showInfo),
@@ -527,50 +526,50 @@ function CoolDownToggle() {
         }
       )
     ] }) }),
-    showInfo && /* @__PURE__ */ jsxs("div", { className: "lumina-info-panel", children: [
-      /* @__PURE__ */ jsx("h4", { className: "lumina-info-panel-title", children: "ℹ️ Что это такое?" }),
-      /* @__PURE__ */ jsxs("div", { className: "lumina-info-panel-text", children: [
-        /* @__PURE__ */ jsxs("p", { children: [
-          /* @__PURE__ */ jsx("strong", { children: "Автоохлаждение" }),
+    showInfo && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-info-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "lumina-info-panel-title", children: "ℹ️ Что это такое?" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-info-panel-text", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Автоохлаждение" }),
           " - автоматическая система изменения температуры (приоритета) объявлений о недвижимости по времени."
         ] }),
-        /* @__PURE__ */ jsx("p", { children: /* @__PURE__ */ jsx("strong", { children: "Как работает система температуры:" }) }),
-        /* @__PURE__ */ jsxs("ul", { className: "list-disc list-inside ml-4 space-y-1", children: [
-          /* @__PURE__ */ jsxs("li", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "🔴 Горячий (HOT)" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Как работает система температуры:" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc list-inside ml-4 space-y-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "🔴 Горячий (HOT)" }),
             " - 0-24 часа - Приоритет 4 - Всегда видим"
           ] }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "🟠 Тёплый (WARM)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "🟠 Тёплый (WARM)" }),
             " - 24-72 часа - Приоритет 3 - Всегда видим"
           ] }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "🟡 Прохладный (COOL)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "🟡 Прохладный (COOL)" }),
             " - 72-120 часов - Приоритет 2 - С фильтрами"
           ] }),
-          /* @__PURE__ */ jsxs("li", { children: [
-            /* @__PURE__ */ jsx("strong", { children: "🔵 Холодный (COLD)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "🔵 Холодный (COLD)" }),
             " - 120+ часов - Приоритет 1 - Только с фильтрами"
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("p", { className: "mt-3", children: [
-          /* @__PURE__ */ jsx("strong", { children: "Зачем это нужно?" }),
-          /* @__PURE__ */ jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Зачем это нужно?" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
           'Новые объявления показываются с высоким приоритетом (🔴 горячие). Со временем они автоматически "охлаждаются", давая место новым объявлениям. Это обеспечивает справедливую ротацию объявлений на карте.'
         ] }),
-        /* @__PURE__ */ jsxs("p", { className: "mt-2", children: [
-          /* @__PURE__ */ jsx("strong", { children: "Частота:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Частота:" }),
           " Функция запускается каждый час через Cron Job и автоматически понижает температуру объектов по времени."
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "lumina-toggle-controls", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between gap-4", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex-1", children: [
-        /* @__PURE__ */ jsx("p", { className: "lumina-control-status", children: status.enabled ? "🟢 Автоматическое охлаждение активно. Температура объектов обновляется каждый час." : "⚫ Автоматическое охлаждение отключено. Температура объектов не изменяется." }),
-        status.enabled && /* @__PURE__ */ jsx("p", { className: "lumina-control-info", children: "Следующий запуск: каждый час :00 минут (по расписанию Cron)" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-toggle-controls", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "lumina-control-status", children: status.enabled ? "🟢 Автоматическое охлаждение активно. Температура объектов обновляется каждый час." : "⚫ Автоматическое охлаждение отключено. Температура объектов не изменяется." }),
+        status.enabled && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "lumina-control-info", children: "Следующий запуск: каждый час :00 минут (по расписанию Cron)" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex gap-3", children: [
-        /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
             onClick: toggleCoolDown,
@@ -579,7 +578,7 @@ function CoolDownToggle() {
             children: toggling ? "⏳ Сохранение..." : status.enabled ? "❌ Выключить" : "✅ Включить"
           }
         ),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
             onClick: runManualCoolDown,
@@ -591,31 +590,31 @@ function CoolDownToggle() {
         )
       ] })
     ] }) }),
-    recentResults.length > 0 && /* @__PURE__ */ jsxs("div", { className: "lumina-results-panel", children: [
-      /* @__PURE__ */ jsx("h4", { className: "lumina-results-title", children: "📊 Последние изменения температуры" }),
-      /* @__PURE__ */ jsx("div", { className: "space-y-2", children: recentResults.map((result, index) => /* @__PURE__ */ jsxs("div", { className: "lumina-result-item", children: [
-        /* @__PURE__ */ jsxs("span", { className: "lumina-result-id", children: [
+    recentResults.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-results-panel", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "lumina-results-title", children: "📊 Последние изменения температуры" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: recentResults.map((result, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lumina-result-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "lumina-result-id", children: [
           result.listing_id.substring(0, 8),
           "..."
         ] }),
-        /* @__PURE__ */ jsxs("span", { className: "lumina-temp-display", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "lumina-temp-display", children: [
           getTemperatureEmoji(result.old_temp),
-          /* @__PURE__ */ jsx("span", { className: "lumina-temp-label", children: getTemperatureLabel(result.old_temp) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "lumina-temp-label", children: getTemperatureLabel(result.old_temp) })
         ] }),
-        /* @__PURE__ */ jsx("span", { className: "lumina-arrow", children: "→" }),
-        /* @__PURE__ */ jsxs("span", { className: "lumina-temp-display", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "lumina-arrow", children: "→" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "lumina-temp-display", children: [
           getTemperatureEmoji(result.new_temp),
-          /* @__PURE__ */ jsx("span", { className: "lumina-temp-label", children: getTemperatureLabel(result.new_temp) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "lumina-temp-label", children: getTemperatureLabel(result.new_temp) })
         ] }),
-        result.hours_elapsed > 0 && /* @__PURE__ */ jsxs("span", { className: "lumina-result-time", children: [
+        result.hours_elapsed > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "lumina-result-time", children: [
           result.hours_elapsed,
           "ч назад"
         ] })
       ] }, index)) })
     ] }),
-    !status.enabled && /* @__PURE__ */ jsx("div", { className: "lumina-warning-panel", children: /* @__PURE__ */ jsxs("p", { className: "lumina-warning-text", children: [
+    !status.enabled && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lumina-warning-panel", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "lumina-warning-text", children: [
       "⚠️ ",
-      /* @__PURE__ */ jsx("strong", { children: "Внимание:" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Внимание:" }),
       " При отключённом автоохлаждении все объекты останутся с текущей температурой и не будут понижать приоритет со временем."
     ] }) })
   ] });

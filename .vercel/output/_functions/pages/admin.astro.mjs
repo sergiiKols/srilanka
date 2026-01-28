@@ -1,81 +1,80 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate } from '../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
 import { $ as $$Layout } from '../chunks/Layout_lp9ZR76Z.mjs';
-import { u as useLang, t, A as AdminLayout } from '../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsxs, jsx } from 'react/jsx-runtime';
-export { renderers } from '../renderers.mjs';
+import { u as useLang, j as jsxRuntimeExports, t, A as AdminLayout } from '../chunks/AdminLayout_xmS9cJRX.mjs';
+export { r as renderers } from '../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 function DashboardRu() {
   const lang = useLang();
-  return /* @__PURE__ */ jsxs("div", { className: "dashboard", children: [
-    /* @__PURE__ */ jsxs("div", { className: "stats-grid", children: [
-      /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-        /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "📍" }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-value", children: "1,234" }),
-          /* @__PURE__ */ jsx("div", { className: "stat-label", children: t("totalPOIs", lang) }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-change positive", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "dashboard", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stats-grid", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "📍" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: "1,234" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: t("totalPOIs", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change positive", children: [
             "+45 ",
             t("thisWeek", lang)
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-        /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "✅" }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-value", children: "892" }),
-          /* @__PURE__ */ jsx("div", { className: "stat-label", children: t("validatedPOIs", lang) }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-change", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "✅" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: "892" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: t("validatedPOIs", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change", children: [
             "72% ",
             t("validationRate", lang)
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-        /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "🏠" }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-value", children: "156" }),
-          /* @__PURE__ */ jsx("div", { className: "stat-label", children: t("properties", lang) }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-change positive", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "🏠" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: "156" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: t("properties", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change positive", children: [
             "+12 ",
             t("today", lang)
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "stat-card", children: [
-        /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "👥" }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-value", children: "23" }),
-          /* @__PURE__ */ jsx("div", { className: "stat-label", children: t("totalUsers", lang) }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-change", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "👥" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: "23" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: t("totalUsers", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change", children: [
             "5 ",
             t("activeToday", lang)
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "stat-card", onClick: () => window.location.href = "/admin/forms/telegram", style: { cursor: "pointer" }, children: [
-        /* @__PURE__ */ jsx("div", { className: "stat-icon", children: "📋" }),
-        /* @__PURE__ */ jsxs("div", { className: "stat-content", children: [
-          /* @__PURE__ */ jsx("div", { className: "stat-value", children: "5" }),
-          /* @__PURE__ */ jsx("div", { className: "stat-label", children: "Telegram Forms" }),
-          /* @__PURE__ */ jsxs("div", { className: "stat-change positive", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-card", onClick: () => window.location.href = "/admin/forms/telegram", style: { cursor: "pointer" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-icon", children: "📋" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-content", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-value", children: "5" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-label", children: "Telegram Forms" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stat-change positive", children: [
             "+3 ",
             t("thisWeek", lang)
           ] })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "section", children: [
-      /* @__PURE__ */ jsxs("h2", { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "section", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { children: [
         "🚦 ",
         t("systemStatus", lang)
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "status-grid", children: [
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Supabase Database" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-grid", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Supabase Database" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("connected", lang),
               " • ",
               t("lastPing", lang),
@@ -83,13 +82,13 @@ function DashboardRu() {
               t("ago", lang)
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("button", { className: "btn-icon", children: "🔄" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "btn-icon", children: "🔄" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Google Maps API" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Google Maps API" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • ",
               t("quota", lang),
@@ -97,37 +96,37 @@ function DashboardRu() {
               t("today", lang)
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/api-settings", className: "btn-icon", children: "⚙️" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/api-settings", className: "btn-icon", children: "⚙️" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Groq AI (Парсинг)" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Groq AI (Парсинг)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • 45K/100K ",
               t("tokensUsed", lang)
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/api-settings", className: "btn-icon", children: "⚙️" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/api-settings", className: "btn-icon", children: "⚙️" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Perplexity API" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Perplexity API" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • 12/50 ",
               t("requestsToday", lang)
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/tools/url-expander", className: "btn-icon", children: "🔗" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/tools/url-expander", className: "btn-icon", children: "🔗" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator idle" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: t("parsingSystem", lang) }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator idle" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: t("parsingSystem", lang) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("idle", lang),
               " • ",
               t("lastRun", lang),
@@ -137,88 +136,88 @@ function DashboardRu() {
               t("ago", lang)
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/parsing", className: "btn-icon", children: "▶️" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/parsing", className: "btn-icon", children: "▶️" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Telegram Bot" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Telegram Bot" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • 5 forms configured"
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/forms/telegram", className: "btn-icon", children: "📋" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/forms/telegram", className: "btn-icon", children: "📋" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Telegram Forms" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Telegram Forms" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • 5 active forms"
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/forms/telegram/submissions", className: "btn-icon", children: "📊" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/forms/telegram/submissions", className: "btn-icon", children: "📊" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Cron Jobs" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Cron Jobs" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • 2 автоматические задачи"
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/cron-jobs", className: "btn-icon", children: "⏰" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/cron-jobs", className: "btn-icon", children: "⏰" }) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "status-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "status-indicator active" }),
-          /* @__PURE__ */ jsxs("div", { className: "status-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "status-name", children: "Database Tables" }),
-            /* @__PURE__ */ jsxs("div", { className: "status-info", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-indicator active" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-name", children: "Database Tables" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-info", children: [
               t("active", lang),
               " • 24 tables | 12.7 MB total"
             ] })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "status-action", children: /* @__PURE__ */ jsx("a", { href: "/admin/database", className: "btn-icon", children: "🗄️" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "status-action", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "/admin/database", className: "btn-icon", children: "🗄️" }) })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "section", children: [
-      /* @__PURE__ */ jsxs("h2", { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "section", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { children: [
         "📋 ",
         t("recentActivity", lang)
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "activity-list", children: [
-        /* @__PURE__ */ jsxs("div", { className: "activity-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "activity-icon", children: "✅" }),
-          /* @__PURE__ */ jsxs("div", { className: "activity-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "activity-title", children: t("poiValidated", lang) }),
-            /* @__PURE__ */ jsx("div", { className: "activity-description", children: '"Unawatuna Beach Hotel" проверен администратором' }),
-            /* @__PURE__ */ jsxs("div", { className: "activity-time", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-list", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-icon", children: "✅" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-title", children: t("poiValidated", lang) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-description", children: '"Unawatuna Beach Hotel" проверен администратором' }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-time", children: [
               "5 ",
               t("minutesAgo", lang)
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "activity-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "activity-icon", children: "📍" }),
-          /* @__PURE__ */ jsxs("div", { className: "activity-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "activity-title", children: t("newPOICreated", lang) }),
-            /* @__PURE__ */ jsx("div", { className: "activity-description", children: '"Sunset Bar & Grill" добавлен в регион Негомбо' }),
-            /* @__PURE__ */ jsxs("div", { className: "activity-time", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-icon", children: "📍" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-title", children: t("newPOICreated", lang) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-description", children: '"Sunset Bar & Grill" добавлен в регион Негомбо' }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-time", children: [
               "23 ",
               t("minutesAgo", lang)
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "activity-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "activity-icon", children: "🏠" }),
-          /* @__PURE__ */ jsxs("div", { className: "activity-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "activity-title", children: t("propertyImported", lang) }),
-            /* @__PURE__ */ jsx("div", { className: "activity-description", children: "3 новых объекта импортировано через AI инструмент" }),
-            /* @__PURE__ */ jsxs("div", { className: "activity-time", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-icon", children: "🏠" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-title", children: t("propertyImported", lang) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-description", children: "3 новых объекта импортировано через AI инструмент" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-time", children: [
               "1 ",
               t("hour", lang),
               " ",
@@ -226,12 +225,12 @@ function DashboardRu() {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "activity-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "activity-icon", children: "🔄" }),
-          /* @__PURE__ */ jsxs("div", { className: "activity-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "activity-title", children: t("parsingCompleted", lang) }),
-            /* @__PURE__ */ jsx("div", { className: "activity-description", children: "Pass 1: 127/150 POI обработано успешно" }),
-            /* @__PURE__ */ jsxs("div", { className: "activity-time", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-icon", children: "🔄" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-title", children: t("parsingCompleted", lang) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-description", children: "Pass 1: 127/150 POI обработано успешно" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-time", children: [
               "2 ",
               t("hours", lang),
               " ",
@@ -239,12 +238,12 @@ function DashboardRu() {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "activity-item", children: [
-          /* @__PURE__ */ jsx("div", { className: "activity-icon", children: "👤" }),
-          /* @__PURE__ */ jsxs("div", { className: "activity-content", children: [
-            /* @__PURE__ */ jsx("div", { className: "activity-title", children: t("newUserRegistered", lang) }),
-            /* @__PURE__ */ jsx("div", { className: "activity-description", children: "user@example.com присоединился к платформе" }),
-            /* @__PURE__ */ jsxs("div", { className: "activity-time", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-item", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-icon", children: "👤" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-content", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-title", children: t("newUserRegistered", lang) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "activity-description", children: "user@example.com присоединился к платформе" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "activity-time", children: [
               "3 ",
               t("hours", lang),
               " ",
@@ -254,45 +253,45 @@ function DashboardRu() {
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsxs("div", { className: "section", children: [
-      /* @__PURE__ */ jsxs("h2", { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "section", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { children: [
         "⚡ ",
         t("quickActions", lang)
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "actions-grid", children: [
-        /* @__PURE__ */ jsxs("a", { href: "/admin/tools/url-expander", className: "action-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "action-icon", children: "🔗" }),
-          /* @__PURE__ */ jsx("div", { className: "action-title", children: t("expandShortURL", lang) }),
-          /* @__PURE__ */ jsx("div", { className: "action-description", children: t("convertShortURLs", lang) })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "actions-grid", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/tools/url-expander", className: "action-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-icon", children: "🔗" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-title", children: t("expandShortURL", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-description", children: t("convertShortURLs", lang) })
         ] }),
-        /* @__PURE__ */ jsxs("a", { href: "/admin/pois", className: "action-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "action-icon", children: "📍" }),
-          /* @__PURE__ */ jsx("div", { className: "action-title", children: t("browsePOIs", lang) }),
-          /* @__PURE__ */ jsx("div", { className: "action-description", children: t("viewManagePOIs", lang) })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/pois", className: "action-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-icon", children: "📍" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-title", children: t("browsePOIs", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-description", children: t("viewManagePOIs", lang) })
         ] }),
-        /* @__PURE__ */ jsxs("a", { href: "/admin/parsing", className: "action-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "action-icon", children: "🔄" }),
-          /* @__PURE__ */ jsx("div", { className: "action-title", children: t("startParsing", lang) }),
-          /* @__PURE__ */ jsx("div", { className: "action-description", children: t("parseNewPOIs", lang) })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/parsing", className: "action-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-icon", children: "🔄" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-title", children: t("startParsing", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-description", children: t("parseNewPOIs", lang) })
         ] }),
-        /* @__PURE__ */ jsxs("a", { href: "/admin/api-settings", className: "action-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "action-icon", children: "🔑" }),
-          /* @__PURE__ */ jsx("div", { className: "action-title", children: t("apiSettingsAction", lang) }),
-          /* @__PURE__ */ jsx("div", { className: "action-description", children: t("manageAPIKeys", lang) })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/api-settings", className: "action-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-icon", children: "🔑" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-title", children: t("apiSettingsAction", lang) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-description", children: t("manageAPIKeys", lang) })
         ] }),
-        /* @__PURE__ */ jsxs("a", { href: "/admin/database", className: "action-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "action-icon", children: "🗄️" }),
-          /* @__PURE__ */ jsx("div", { className: "action-title", children: lang === "ru" ? "База данных" : "Database Tables" }),
-          /* @__PURE__ */ jsx("div", { className: "action-description", children: lang === "ru" ? "Просмотр всех 24 таблиц Supabase" : "View all 24 Supabase tables" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/database", className: "action-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-icon", children: "🗄️" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-title", children: lang === "ru" ? "База данных" : "Database Tables" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-description", children: lang === "ru" ? "Просмотр всех 24 таблиц Supabase" : "View all 24 Supabase tables" })
         ] }),
-        /* @__PURE__ */ jsxs("a", { href: "/admin/supabase", className: "action-card", children: [
-          /* @__PURE__ */ jsx("div", { className: "action-icon", children: "📊" }),
-          /* @__PURE__ */ jsx("div", { className: "action-title", children: lang === "ru" ? "Supabase POI" : "Supabase POI" }),
-          /* @__PURE__ */ jsx("div", { className: "action-description", children: lang === "ru" ? "Статистика POI объектов (6,176)" : "POI Statistics (6,176)" })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/admin/supabase", className: "action-card", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-icon", children: "📊" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-title", children: lang === "ru" ? "Supabase POI" : "Supabase POI" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "action-description", children: lang === "ru" ? "Статистика POI объектов (6,176)" : "POI Statistics (6,176)" })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("style", { jsx: true, children: `
+    /* @__PURE__ */ jsxRuntimeExports.jsx("style", { jsx: true, children: `
         .dashboard {
           display: flex;
           flex-direction: column;

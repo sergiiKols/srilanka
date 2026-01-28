@@ -1,7 +1,7 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate } from '../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
-import { A as AdminLayout } from '../../chunks/AdminLayout_DTgBj3su.mjs';
-export { renderers } from '../../renderers.mjs';
+import { A as AdminLayout } from '../../chunks/AdminLayout_xmS9cJRX.mjs';
+export { r as renderers } from '../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const $$KeepAlive = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "AdminLayout", AdminLayout, { "title": "Keep-Alive Management v2.0" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "KeepAliveDynamic", null, { "client:only": "react", "client:component-hydration": "only", "client:component-path": "C:/Users/User/Desktop/sri/src/components/admin/KeepAliveDynamic.tsx", "client:component-export": "default" })} ` })}`;

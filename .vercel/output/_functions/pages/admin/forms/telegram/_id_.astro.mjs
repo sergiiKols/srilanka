@@ -1,23 +1,22 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate, n as defineScriptVars, h as addAttribute, m as maybeRenderHead } from '../../../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
-import { A as AdminLayout } from '../../../../chunks/AdminLayout_DTgBj3su.mjs';
-import { jsxs, jsx } from 'react/jsx-runtime';
-import { useState, useEffect } from 'react';
+import { j as jsxRuntimeExports, A as AdminLayout } from '../../../../chunks/AdminLayout_xmS9cJRX.mjs';
+import { a as reactExports } from '../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
+export { r as renderers } from '../../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 import { useSensors, useSensor, PointerSensor, KeyboardSensor, DndContext, closestCenter } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates, SortableContext, verticalListSortingStrategy, arrayMove, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import toast from 'react-hot-toast';
-import { E as ErrorBoundary } from '../../../../chunks/ErrorBoundary_Kxi8QkMt.mjs';
+import { E as ErrorBoundary } from '../../../../chunks/ErrorBoundary_BH6ConEo.mjs';
 import { r as requireAdminPage } from '../../../../chunks/auth_DRVvN-zp.mjs';
-export { renderers } from '../../../../renderers.mjs';
 
 function FieldEditor({
   field,
   onUpdate,
   onDelete
 }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedField, setEditedField] = useState(field);
+  const [isEditing, setIsEditing] = reactExports.useState(false);
+  const [editedField, setEditedField] = reactExports.useState(field);
   const {
     attributes,
     listeners,
@@ -40,37 +39,37 @@ function FieldEditor({
     setEditedField(field);
     setIsEditing(false);
   };
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
     {
       ref: setNodeRef,
       style,
       className: "bg-white border border-gray-200 rounded-lg p-4 mb-3 shadow-sm",
-      children: !isEditing ? /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 flex-1", children: [
-          /* @__PURE__ */ jsx(
+      children: !isEditing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 flex-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               ...attributes,
               ...listeners,
               className: "cursor-grab active:cursor-grabbing text-gray-400 hover:text-gray-600",
-              children: /* @__PURE__ */ jsx("svg", { className: "w-5 h-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M4 8h16M4 16h16" }) })
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M4 8h16M4 16h16" }) })
             }
           ),
-          /* @__PURE__ */ jsxs("div", { className: "flex-1", children: [
-            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
-              /* @__PURE__ */ jsx("span", { className: "font-medium", children: field.label }),
-              field.required && /* @__PURE__ */ jsx("span", { className: "text-red-500 text-xs", children: "* обязательно" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: field.label }),
+              field.required && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500 text-xs", children: "* обязательно" })
             ] }),
-            /* @__PURE__ */ jsxs("div", { className: "text-sm text-gray-500", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm text-gray-500", children: [
               "Тип: ",
-              /* @__PURE__ */ jsx("span", { className: "font-mono", children: field.type }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono", children: field.type }),
               field.placeholder && ` • Placeholder: "${field.placeholder}"`
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex gap-2", children: [
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: () => setIsEditing(true),
@@ -78,7 +77,7 @@ function FieldEditor({
               children: "Изменить"
             }
           ),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: onDelete,
@@ -87,10 +86,10 @@ function FieldEditor({
             }
           )
         ] })
-      ] }) : /* @__PURE__ */ jsxs("div", { className: "space-y-3", children: [
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Метка поля *" }),
-          /* @__PURE__ */ jsx(
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Метка поля *" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "text",
@@ -100,9 +99,9 @@ function FieldEditor({
             }
           )
         ] }),
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "ID поля *" }),
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "ID поля *" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "text",
@@ -113,31 +112,31 @@ function FieldEditor({
             }
           )
         ] }),
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Тип *" }),
-          /* @__PURE__ */ jsxs(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Тип *" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "select",
             {
               value: editedField.type,
               onChange: (e) => setEditedField({ ...editedField, type: e.target.value }),
               className: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500",
               children: [
-                /* @__PURE__ */ jsx("option", { value: "text", children: "Текст" }),
-                /* @__PURE__ */ jsx("option", { value: "email", children: "Email" }),
-                /* @__PURE__ */ jsx("option", { value: "tel", children: "Телефон" }),
-                /* @__PURE__ */ jsx("option", { value: "number", children: "Число" }),
-                /* @__PURE__ */ jsx("option", { value: "date", children: "Дата" }),
-                /* @__PURE__ */ jsx("option", { value: "textarea", children: "Многострочный текст" }),
-                /* @__PURE__ */ jsx("option", { value: "select", children: "Выпадающий список" }),
-                /* @__PURE__ */ jsx("option", { value: "radio", children: "Радио-кнопки" }),
-                /* @__PURE__ */ jsx("option", { value: "checkbox", children: "Чекбокс" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "text", children: "Текст" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "email", children: "Email" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "tel", children: "Телефон" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "number", children: "Число" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "date", children: "Дата" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "textarea", children: "Многострочный текст" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "select", children: "Выпадающий список" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "radio", children: "Радио-кнопки" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "checkbox", children: "Чекбокс" })
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Placeholder" }),
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Placeholder" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "text",
@@ -147,9 +146,9 @@ function FieldEditor({
             }
           )
         ] }),
-        (editedField.type === "select" || editedField.type === "radio") && /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Опции (через запятую)" }),
-          /* @__PURE__ */ jsx(
+        (editedField.type === "select" || editedField.type === "radio") && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Опции (через запятую)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "text",
@@ -163,8 +162,8 @@ function FieldEditor({
             }
           )
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center", children: [
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "checkbox",
@@ -174,10 +173,10 @@ function FieldEditor({
               className: "w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
             }
           ),
-          /* @__PURE__ */ jsx("label", { htmlFor: `required-${editedField.id}`, className: "ml-2 text-sm", children: "Обязательное поле" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: `required-${editedField.id}`, className: "ml-2 text-sm", children: "Обязательное поле" })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex gap-2 pt-2", children: [
-          /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 pt-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: handleSave,
@@ -185,7 +184,7 @@ function FieldEditor({
               children: "Сохранить"
             }
           ),
-          /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               onClick: handleCancel,
@@ -199,9 +198,9 @@ function FieldEditor({
   );
 }
 function FormBuilder({ formId, initialFields = [], onSave }) {
-  const [fields, setFields] = useState(initialFields);
-  const [isAddingField, setIsAddingField] = useState(false);
-  const [newField, setNewField] = useState({
+  const [fields, setFields] = reactExports.useState(initialFields);
+  const [isAddingField, setIsAddingField] = reactExports.useState(false);
+  const [newField, setNewField] = reactExports.useState({
     type: "text",
     label: "",
     placeholder: "",
@@ -213,7 +212,7 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
       coordinateGetter: sortableKeyboardCoordinates
     })
   );
-  useEffect(() => {
+  reactExports.useEffect(() => {
     setFields(initialFields);
   }, [initialFields]);
   const handleDragEnd = (event) => {
@@ -284,24 +283,24 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
       toast.error("Ошибка сохранения");
     }
   };
-  return /* @__PURE__ */ jsxs("div", { className: "space-y-4", children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", children: [
-      /* @__PURE__ */ jsx("h2", { className: "text-xl font-bold", children: "Поля формы" }),
-      /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold", children: "Поля формы" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           onClick: () => setIsAddingField(true),
           className: "px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2",
           children: [
-            /* @__PURE__ */ jsx("svg", { className: "w-5 h-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M12 4v16m8-8H4" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M12 4v16m8-8H4" }) }),
             "Добавить поле"
           ]
         }
       )
     ] }),
-    fields.length === 0 && !isAddingField && /* @__PURE__ */ jsxs("div", { className: "text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300", children: [
-      /* @__PURE__ */ jsx("p", { className: "text-gray-500 mb-4", children: "Пока нет полей в форме" }),
-      /* @__PURE__ */ jsx(
+    fields.length === 0 && !isAddingField && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-500 mb-4", children: "Пока нет полей в форме" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setIsAddingField(true),
@@ -310,11 +309,11 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
         }
       )
     ] }),
-    isAddingField && /* @__PURE__ */ jsxs("div", { className: "bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-3", children: [
-      /* @__PURE__ */ jsx("h3", { className: "font-medium text-blue-900", children: "Новое поле" }),
-      /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Метка поля *" }),
-        /* @__PURE__ */ jsx(
+    isAddingField && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-3", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-medium text-blue-900", children: "Новое поле" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Метка поля *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "text",
@@ -325,31 +324,31 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
           }
         )
       ] }),
-      /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Тип *" }),
-        /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Тип *" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
             value: newField.type,
             onChange: (e) => setNewField({ ...newField, type: e.target.value }),
             className: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500",
             children: [
-              /* @__PURE__ */ jsx("option", { value: "text", children: "Текст" }),
-              /* @__PURE__ */ jsx("option", { value: "email", children: "Email" }),
-              /* @__PURE__ */ jsx("option", { value: "tel", children: "Телефон" }),
-              /* @__PURE__ */ jsx("option", { value: "number", children: "Число" }),
-              /* @__PURE__ */ jsx("option", { value: "date", children: "Дата" }),
-              /* @__PURE__ */ jsx("option", { value: "textarea", children: "Многострочный текст" }),
-              /* @__PURE__ */ jsx("option", { value: "select", children: "Выпадающий список" }),
-              /* @__PURE__ */ jsx("option", { value: "radio", children: "Радио-кнопки" }),
-              /* @__PURE__ */ jsx("option", { value: "checkbox", children: "Чекбокс" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "text", children: "Текст" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "email", children: "Email" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "tel", children: "Телефон" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "number", children: "Число" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "date", children: "Дата" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "textarea", children: "Многострочный текст" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "select", children: "Выпадающий список" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "radio", children: "Радио-кнопки" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "checkbox", children: "Чекбокс" })
             ]
           }
         )
       ] }),
-      /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Placeholder" }),
-        /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Placeholder" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "text",
@@ -360,9 +359,9 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
           }
         )
       ] }),
-      (newField.type === "select" || newField.type === "radio") && /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("label", { className: "block text-sm font-medium mb-1", children: "Опции (через запятую)" }),
-        /* @__PURE__ */ jsx(
+      (newField.type === "select" || newField.type === "radio") && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Опции (через запятую)" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "text",
@@ -375,8 +374,8 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
           }
         )
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center", children: [
-        /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "checkbox",
@@ -386,10 +385,10 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
             className: "w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
           }
         ),
-        /* @__PURE__ */ jsx("label", { htmlFor: "new-field-required", className: "ml-2 text-sm", children: "Обязательное поле" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "new-field-required", className: "ml-2 text-sm", children: "Обязательное поле" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex gap-2 pt-2", children: [
-        /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 pt-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
             onClick: handleAddField,
@@ -397,7 +396,7 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
             children: "Добавить"
           }
         ),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
             onClick: () => setIsAddingField(false),
@@ -407,18 +406,18 @@ function FormBuilder({ formId, initialFields = [], onSave }) {
         )
       ] })
     ] }),
-    /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
       DndContext,
       {
         sensors,
         collisionDetection: closestCenter,
         onDragEnd: handleDragEnd,
-        children: /* @__PURE__ */ jsx(
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
           SortableContext,
           {
             items: fields.map((f) => f.id),
             strategy: verticalListSortingStrategy,
-            children: fields.map((field, index) => /* @__PURE__ */ jsx(
+            children: fields.map((field, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
               FieldEditor,
               {
                 field,
@@ -440,7 +439,7 @@ function FormPreview({
   description,
   submitText = "Отправить"
 }) {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = reactExports.useState({});
   const handleChange = (fieldId, value) => {
     setFormData({ ...formData, [fieldId]: value });
   };
@@ -452,7 +451,7 @@ function FormPreview({
       case "email":
       case "tel":
       case "number":
-        return /* @__PURE__ */ jsx(
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: field.type,
@@ -464,7 +463,7 @@ function FormPreview({
           }
         );
       case "textarea":
-        return /* @__PURE__ */ jsx(
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
           "textarea",
           {
             value,
@@ -476,7 +475,7 @@ function FormPreview({
           }
         );
       case "select":
-        return /* @__PURE__ */ jsxs(
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
             value,
@@ -484,14 +483,14 @@ function FormPreview({
             required: field.required,
             className: commonClasses,
             children: [
-              /* @__PURE__ */ jsx("option", { value: "", children: "Выберите..." }),
-              field.options?.map((option) => /* @__PURE__ */ jsx("option", { value: option.value, children: option.label }, option.value))
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Выберите..." }),
+              field.options?.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
             ]
           }
         );
       case "radio":
-        return /* @__PURE__ */ jsx("div", { className: "space-y-2", children: field.options?.map((option) => /* @__PURE__ */ jsxs("label", { className: "flex items-center space-x-2 cursor-pointer", children: [
-          /* @__PURE__ */ jsx(
+        return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: field.options?.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex items-center space-x-2 cursor-pointer", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "radio",
@@ -503,11 +502,11 @@ function FormPreview({
               className: "text-blue-600"
             }
           ),
-          /* @__PURE__ */ jsx("span", { className: "text-sm", children: option.label })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: option.label })
         ] }, option.value)) });
       case "checkbox":
-        return /* @__PURE__ */ jsxs("label", { className: "flex items-center space-x-2 cursor-pointer", children: [
-          /* @__PURE__ */ jsx(
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex items-center space-x-2 cursor-pointer", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
               type: "checkbox",
@@ -517,10 +516,10 @@ function FormPreview({
               className: "rounded text-blue-600"
             }
           ),
-          /* @__PURE__ */ jsx("span", { className: "text-sm", children: field.label })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: field.label })
         ] });
       default:
-        return /* @__PURE__ */ jsx(
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "text",
@@ -532,30 +531,30 @@ function FormPreview({
         );
     }
   };
-  return /* @__PURE__ */ jsxs("div", { className: "max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden", children: [
-    /* @__PURE__ */ jsx("div", { className: "bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 text-white", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center space-x-2", children: [
-        /* @__PURE__ */ jsx("button", { className: "text-white hover:bg-blue-600 rounded p-1", children: "←" }),
-        /* @__PURE__ */ jsx("span", { className: "font-semibold", children: title })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 text-white", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-white hover:bg-blue-600 rounded p-1", children: "←" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold", children: title })
       ] }),
-      /* @__PURE__ */ jsx("button", { className: "text-white hover:bg-blue-600 rounded p-1", children: "⋮" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-white hover:bg-blue-600 rounded p-1", children: "⋮" })
     ] }) }),
-    /* @__PURE__ */ jsxs("div", { className: "p-4 space-y-4 max-h-[600px] overflow-y-auto", children: [
-      description && /* @__PURE__ */ jsx("p", { className: "text-sm text-gray-600 mb-4", children: description }),
-      fields.length === 0 ? /* @__PURE__ */ jsxs("div", { className: "text-center py-8 text-gray-400", children: [
-        /* @__PURE__ */ jsx("p", { className: "text-sm", children: "Поля формы не добавлены" }),
-        /* @__PURE__ */ jsx("p", { className: "text-xs mt-1", children: "Используйте FormBuilder для добавления полей" })
-      ] }) : /* @__PURE__ */ jsx("form", { className: "space-y-4", onSubmit: (e) => e.preventDefault(), children: fields.map((field) => /* @__PURE__ */ jsxs("div", { className: "space-y-1", children: [
-        field.type !== "checkbox" && /* @__PURE__ */ jsxs("label", { className: "block text-sm font-medium text-gray-700", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 space-y-4 max-h-[600px] overflow-y-auto", children: [
+      description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-gray-600 mb-4", children: description }),
+      fields.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center py-8 text-gray-400", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm", children: "Поля формы не добавлены" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs mt-1", children: "Используйте FormBuilder для добавления полей" })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("form", { className: "space-y-4", onSubmit: (e) => e.preventDefault(), children: fields.map((field) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1", children: [
+        field.type !== "checkbox" && /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "block text-sm font-medium text-gray-700", children: [
           field.label,
-          field.required && /* @__PURE__ */ jsx("span", { className: "text-red-500 ml-1", children: "*" })
+          field.required && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-500 ml-1", children: "*" })
         ] }),
         renderField(field),
-        field.validation?.message && /* @__PURE__ */ jsx("p", { className: "text-xs text-gray-500", children: field.validation.message })
+        field.validation?.message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-gray-500", children: field.validation.message })
       ] }, field.id)) })
     ] }),
-    fields.length > 0 && /* @__PURE__ */ jsxs("div", { className: "border-t border-gray-200 p-3 bg-gray-50", children: [
-      /* @__PURE__ */ jsx(
+    fields.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-gray-200 p-3 bg-gray-50", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           className: "w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors",
@@ -563,7 +562,7 @@ function FormPreview({
           children: submitText
         }
       ),
-      /* @__PURE__ */ jsx("p", { className: "text-xs text-center text-gray-500 mt-2", children: "Это предпросмотр. Форма не отправляется." })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-center text-gray-500 mt-2", children: "Это предпросмотр. Форма не отправляется." })
     ] })
   ] });
 }

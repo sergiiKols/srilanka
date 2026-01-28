@@ -1,7 +1,7 @@
 import { a as requireAdmin, g as getCurrentUser } from '../../../chunks/auth_DRVvN-zp.mjs';
 import { e as getAllForms, f as createForm, c as createLog } from '../../../chunks/db_CeY49yL6.mjs';
 import { a as FormConfigCreateSchema } from '../../../chunks/telegram.types_hrEzItCz.mjs';
-export { renderers } from '../../../renderers.mjs';
+export { r as renderers } from '../../../chunks/_@astro-renderers_1ISMqT13.mjs';
 
 const GET = async (context) => {
   const authError = await requireAdmin(context);
