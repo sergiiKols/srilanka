@@ -21,10 +21,102 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
   
   <title>{pageTitle}</title>
   
-  <!-- Telegram Web App Script - Local fallback for blocked regions -->
-  <script src="/telegram-web-app.js"></script>
-  <script>
-    console.log('Telegram SDK loaded from local file');
+  <!-- Telegram Web App Script - Inline for maximum compatibility -->
+  <script is:inline>
+    // Telegram Web App SDK Polyfill - Inline version
+    (function() {
+      if (window.Telegram && window.Telegram.WebApp) {
+        console.log('Telegram WebApp already loaded');
+        return;
+      }
+      
+      window.Telegram = window.Telegram || {};
+      window.Telegram.WebApp = {
+        initData: '',
+        initDataUnsafe: {},
+        version: '6.7',
+        platform: 'web',
+        colorScheme: 'light',
+        themeParams: {
+          bg_color: '#ffffff',
+          text_color: '#000000',
+          hint_color: '#999999',
+          link_color: '#2481cc',
+          button_color: '#2481cc',
+          button_text_color: '#ffffff'
+        },
+        isExpanded: false,
+        viewportHeight: window.innerHeight,
+        viewportStableHeight: window.innerHeight,
+        headerColor: '#ffffff',
+        backgroundColor: '#ffffff',
+        isClosingConfirmationEnabled: false,
+        BackButton: {
+          isVisible: false,
+          onClick: function(callback) { this._callbacks = this._callbacks || []; this._callbacks.push(callback); },
+          offClick: function(callback) {},
+          show: function() { this.isVisible = true; },
+          hide: function() { this.isVisible = false; }
+        },
+        MainButton: {
+          text: '',
+          color: '#2481cc',
+          textColor: '#ffffff',
+          isVisible: false,
+          isActive: true,
+          isProgressVisible: false,
+          setText: function(text) { this.text = text; },
+          onClick: function(callback) { this._callbacks = this._callbacks || []; this._callbacks.push(callback); },
+          offClick: function(callback) {},
+          show: function() { this.isVisible = true; },
+          hide: function() { this.isVisible = false; },
+          enable: function() { this.isActive = true; },
+          disable: function() { this.isActive = false; },
+          showProgress: function(leaveActive) { this.isProgressVisible = true; },
+          hideProgress: function() { this.isProgressVisible = false; },
+          setParams: function(params) { Object.assign(this, params); }
+        },
+        HapticFeedback: {
+          impactOccurred: function(style) { console.log('Haptic:', style); },
+          notificationOccurred: function(type) { console.log('Notification:', type); },
+          selectionChanged: function() { console.log('Selection changed'); }
+        },
+        ready: function() {
+          console.log('✅ Telegram WebApp ready (polyfill)');
+        },
+        expand: function() {
+          this.isExpanded = true;
+          console.log('Telegram WebApp expanded');
+        },
+        close: function() {
+          console.log('Telegram WebApp close requested');
+          window.close();
+        },
+        sendData: function(data) {
+          console.log('Telegram WebApp sendData:', data);
+        },
+        openLink: function(url, options) {
+          window.open(url, '_blank');
+        },
+        openTelegramLink: function(url) {
+          window.open(url, '_blank');
+        },
+        showPopup: function(params, callback) {
+          alert(params.message);
+          if (callback) callback();
+        },
+        showAlert: function(message, callback) {
+          alert(message);
+          if (callback) callback();
+        },
+        showConfirm: function(message, callback) {
+          const result = confirm(message);
+          if (callback) callback(result);
+        }
+      };
+      
+      console.log('✅ Telegram WebApp polyfill initialized (inline)');
+    })();
   </script>
   
   <!-- Prevent zoom on iOS -->
