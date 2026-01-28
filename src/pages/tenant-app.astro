@@ -88,9 +88,16 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
   </div>
   
   <script>
+    // Debug: Log Telegram availability
+    console.log('Telegram object:', window.Telegram);
+    console.log('WebApp object:', window.Telegram?.WebApp);
+    
     // Initialize Telegram WebApp
     if (window.Telegram && window.Telegram.WebApp) {
       const tg = window.Telegram.WebApp;
+      
+      console.log('Telegram WebApp initialized:', tg);
+      console.log('InitData:', tg.initData);
       
       // Initialize
       tg.ready();
@@ -108,7 +115,7 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
       }, 100);
       
     } else {
-      // Not in Telegram - show warning
+      // Not in Telegram - show warning with debug info
       document.getElementById('app-loading').innerHTML = `
         <div style="text-align: center; padding: 20px;">
           <h2 style="color: #EF4444; margin-bottom: 16px;">⚠️ Error</h2>
@@ -116,6 +123,12 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
           <p style="color: #999; font-size: 14px; margin-top: 16px;">
             Please use the Telegram bot to access this form.
           </p>
+          <div style="margin-top: 20px; padding: 10px; background: #f3f4f6; border-radius: 8px; font-size: 12px; text-align: left;">
+            <strong>Debug Info:</strong><br>
+            Telegram: ${typeof window.Telegram}<br>
+            WebApp: ${typeof window.Telegram?.WebApp}<br>
+            URL: ${window.location.href}
+          </div>
         </div>
       `;
     }
