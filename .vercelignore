@@ -1,0 +1,7 @@
+# Vercel ignore file
+.astro/
+dist/
+node_modules/
+.env
+.env.local
+*.log
