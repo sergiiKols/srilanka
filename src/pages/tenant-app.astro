@@ -20,6 +20,7 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
   <meta name="theme-color" content="#7C3AED" />
   
   <title>{pageTitle}</title>
+  <meta name="version" content="2.0" />
   
   <!-- Telegram Web App Script - Inline for maximum compatibility -->
   <script is:inline>
@@ -213,24 +214,14 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
         }, 100);
         
       } else {
-        // Not in Telegram - show warning with debug info
-        console.log('❌ Telegram WebApp not available');
-        document.getElementById('app-loading').innerHTML = `
-          <div style="text-align: center; padding: 20px;">
-            <h2 style="color: #EF4444; margin-bottom: 16px;">⚠️ Error</h2>
-            <p style="color: #666;">This page must be opened from Telegram.</p>
-            <p style="color: #999; font-size: 14px; margin-top: 16px;">
-              Please use the Telegram bot to access this form.
-            </p>
-            <div style="margin-top: 20px; padding: 10px; background: #f3f4f6; border-radius: 8px; font-size: 12px; text-align: left;">
-              <strong>Debug Info:</strong><br>
-              Telegram: ${typeof window.Telegram}<br>
-              WebApp: ${typeof window.Telegram?.WebApp}<br>
-              URL: ${window.location.href}<br>
-              User Agent: ${navigator.userAgent.substring(0, 50)}...
-            </div>
-          </div>
-        `;
+        // Not in Telegram - but show form anyway for testing
+        console.log('⚠️ Telegram WebApp not available, showing form anyway');
+        
+        // Show app anyway
+        setTimeout(() => {
+          document.getElementById('app-loading').style.display = 'none';
+          document.getElementById('app').style.display = 'block';
+        }, 100);
       }
     }
     
