@@ -5,6 +5,8 @@
  * URL: /telegram-app?form_id=xxx
  */
 
+import TelegramForm from '../components/TelegramForm.tsx';
+
 const formId = Astro.url.searchParams.get('form_id');
 
 if (!formId) {
@@ -54,18 +56,6 @@ if (!formId) {
   </script>
   
   <!-- React компонент -->
-  <div id="telegram-form-root"></div>
-  
-  <script type="module">
-    import TelegramForm from '../components/TelegramForm';
-    import { createRoot } from 'react-dom/client';
-    
-    const root = document.getElementById('telegram-form-root');
-    if (root) {
-      createRoot(root).render(
-        <TelegramForm formId="{formId}" />
-      );
-    }
-  </script>
+  <TelegramForm formId={formId} client:only="react" />
 </body>
 </html>
