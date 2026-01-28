@@ -21,43 +21,10 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
   
   <title>{pageTitle}</title>
   
-  <!-- Telegram Web App Script -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <!-- Fallback CDN if telegram.org is blocked -->
+  <!-- Telegram Web App Script - Local fallback for blocked regions -->
+  <script src="/telegram-web-app.js"></script>
   <script>
-    // If Telegram script didn't load, try to inject it manually
-    window.addEventListener('DOMContentLoaded', function() {
-      if (!window.Telegram) {
-        console.log('Telegram SDK not loaded, injecting inline version...');
-        // Create minimal Telegram WebApp stub for testing
-        window.Telegram = {
-          WebApp: {
-            initData: new URLSearchParams(window.location.hash.substring(1)).toString(),
-            initDataUnsafe: {},
-            version: '6.0',
-            platform: 'unknown',
-            colorScheme: 'light',
-            themeParams: {},
-            isExpanded: false,
-            viewportHeight: window.innerHeight,
-            viewportStableHeight: window.innerHeight,
-            headerColor: '#ffffff',
-            backgroundColor: '#ffffff',
-            isClosingConfirmationEnabled: false,
-            ready: function() { console.log('WebApp.ready()'); },
-            expand: function() { console.log('WebApp.expand()'); this.isExpanded = true; },
-            close: function() { console.log('WebApp.close()'); },
-            MainButton: { isVisible: false, isActive: false },
-            BackButton: { isVisible: false },
-            HapticFeedback: {},
-            showPopup: function() {},
-            showAlert: function() {},
-            showConfirm: function() {}
-          }
-        };
-        console.log('✅ Telegram WebApp stub created');
-      }
-    });
+    console.log('Telegram SDK loaded from local file');
   </script>
   
   <!-- Prevent zoom on iOS -->
