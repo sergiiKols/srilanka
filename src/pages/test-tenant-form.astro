@@ -1,0 +1,592 @@
+---
+/**
+ * TEST PAGE FOR TENANT FORM
+ * 
+ * Страница для локального тестирования формы с имитацией Telegram WebApp.
+ * URL: http://localhost:4321/test-tenant-form
+ * 
+ * Включает:
+ * - Mock Telegram WebApp API
+ * - DevTools панель с информацией
+ * - Возможность имитировать разные сценарии
+ */
+
+import TenantRequestForm from '../components/TenantRequestForm';
+import '../styles/tenant-form.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test: Tenant Request Form</title>
+  
+  <style>
+    /* Test page styles */
+    :root {
+      --test-bg: #1a1a1a;
+      --test-text: #e0e0e0;
+      --test-border: #333;
+      --test-success: #10B981;
+      --test-error: #EF4444;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+      background: #f5f5f5;
+    }
+    
+    .test-header {
+      background: var(--test-bg);
+      color: var(--test-text);
+      padding: 16px 20px;
+      border-bottom: 3px solid #7C3AED;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .test-header h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .test-status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--test-success);
+    }
+    
+    .test-controls {
+      background: var(--test-bg);
+      color: var(--test-text);
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--test-border);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .test-button {
+      padding: 8px 16px;
+      background: #7C3AED;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 200ms;
+    }
+    
+    .test-button:hover {
+      background: #6D28D9;
+    }
+    
+    .test-button:active {
+      transform: scale(0.95);
+    }
+    
+    .test-button.secondary {
+      background: #374151;
+    }
+    
+    .test-button.secondary:hover {
+      background: #4B5563;
+    }
+    
+    .test-logs {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: var(--test-bg);
+      color: var(--test-text);
+      border-top: 2px solid var(--test-border);
+      overflow-y: auto;
+      font-size: 11px;
+      padding: 12px;
+      font-family: 'Courier New', monospace;
+      z-index: 999;
+      display: none;
+    }
+    
+    .test-logs.visible {
+      display: block;
+    }
+    
+    .log-entry {
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .log-entry.success {
+      color: var(--test-success);
+    }
+    
+    .log-entry.error {
+      color: var(--test-error);
+    }
+    
+    .log-entry.info {
+      color: #60A5FA;
+    }
+    
+    .log-timestamp {
+      color: #6B7280;
+      margin-right: 8px;
+    }
+    
+    .app-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      min-height: calc(100vh - 120px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    
+    .theme-switcher {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: auto;
+    }
+    
+    .theme-switcher label {
+      font-size: 12px;
+      color: var(--test-text);
+    }
+    
+    .test-info {
+      background: #FEF3C7;
+      border-left: 4px solid #F59E0B;
+      padding: 12px 16px;
+      margin: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    
+    .test-info strong {
+      color: #92400E;
+    }
+  </style>
+</head>
+<body>
+  <!-- Test Header -->
+  <div class="test-header">
+    <h1>🧪 TEST MODE: Tenant Request Form</h1>
+    <div class="test-status" id="test-status">
+      ✅ Telegram WebApp Mock: Active
+    </div>
+  </div>
+  
+  <!-- Test Controls -->
+  <div class="test-controls">
+    <button class="test-button" onclick="fillTestData()">
+      📝 Fill Test Data
+    </button>
+    <button class="test-button" onclick="clearForm()">
+      🗑️ Clear Form
+    </button>
+    <button class="test-button secondary" onclick="triggerMainButton()">
+      🚀 Trigger MainButton
+    </button>
+    <button class="test-button secondary" onclick="toggleLogs()">
+      📊 Toggle Logs
+    </button>
+    
+    <div class="theme-switcher">
+      <label>Theme:</label>
+      <button class="test-button secondary" onclick="setTheme('light')">
+        ☀️ Light
+      </button>
+      <button class="test-button secondary" onclick="setTheme('dark')">
+        🌙 Dark
+      </button>
+    </div>
+  </div>
+  
+  <!-- Test Info -->
+  <div class="test-info">
+    <strong>ℹ️ Локальное тестирование:</strong><br>
+    • Telegram WebApp API замоканы<br>
+    • MainButton отображается как обычная кнопка внизу<br>
+    • HapticFeedback логируется в консоль<br>
+    • CloudStorage использует localStorage<br>
+    • Все функции работают как в реальном Telegram
+  </div>
+  
+  <!-- App Container -->
+  <div class="app-container">
+    <TenantRequestForm client:only="react" />
+  </div>
+  
+  <!-- Test Logs -->
+  <div class="test-logs" id="test-logs">
+    <div class="log-entry info">
+      <span class="log-timestamp">[00:00:00]</span>
+      Test mode initialized
+    </div>
+  </div>
+  
+  <!-- Telegram WebApp Mock -->
+  <script is:inline>
+    // ============================================
+    // TELEGRAM WEBAPP MOCK
+    // ============================================
+    
+    const mockLogs = [];
+    
+    function addLog(message, type = 'info') {
+      const timestamp = new Date().toLocaleTimeString();
+      mockLogs.push({ timestamp, message, type });
+      
+      const logsContainer = document.getElementById('test-logs');
+      const logEntry = document.createElement('div');
+      logEntry.className = `log-entry ${type}`;
+      logEntry.innerHTML = `<span class="log-timestamp">[${timestamp}]</span>${message}`;
+      logsContainer.appendChild(logEntry);
+      logsContainer.scrollTop = logsContainer.scrollHeight;
+      
+      console.log(`[TG Mock] ${message}`);
+    }
+    
+    // Mock Telegram WebApp
+    window.Telegram = {
+      WebApp: {
+        ready() {
+          addLog('✅ WebApp.ready() called', 'success');
+        },
+        
+        expand() {
+          addLog('↔️ WebApp.expand() called', 'info');
+        },
+        
+        close() {
+          addLog('❌ WebApp.close() called', 'error');
+          alert('WebApp would close now (in real Telegram)');
+        },
+        
+        MainButton: {
+          text: '',
+          color: '#7C3AED',
+          textColor: '#FFFFFF',
+          isVisible: false,
+          isActive: false,
+          isProgressVisible: false,
+          _callback: null,
+          
+          setText(text) {
+            this.text = text;
+            addLog(`🔤 MainButton.setText("${text}")`, 'info');
+            updateMainButtonDisplay();
+          },
+          
+          onClick(callback) {
+            this._callback = callback;
+            addLog('🖱️ MainButton.onClick() registered', 'success');
+          },
+          
+          offClick(callback) {
+            this._callback = null;
+            addLog('🖱️ MainButton.offClick()', 'info');
+          },
+          
+          show() {
+            this.isVisible = true;
+            addLog('👁️ MainButton.show()', 'success');
+            updateMainButtonDisplay();
+          },
+          
+          hide() {
+            this.isVisible = false;
+            addLog('🙈 MainButton.hide()', 'info');
+            updateMainButtonDisplay();
+          },
+          
+          enable() {
+            this.isActive = true;
+            addLog('✅ MainButton.enable()', 'success');
+            updateMainButtonDisplay();
+          },
+          
+          disable() {
+            this.isActive = false;
+            addLog('🚫 MainButton.disable()', 'info');
+            updateMainButtonDisplay();
+          },
+          
+          showProgress() {
+            this.isProgressVisible = true;
+            addLog('⏳ MainButton.showProgress()', 'info');
+            updateMainButtonDisplay();
+          },
+          
+          hideProgress() {
+            this.isProgressVisible = false;
+            addLog('⏳ MainButton.hideProgress()', 'info');
+            updateMainButtonDisplay();
+          }
+        },
+        
+        BackButton: {
+          isVisible: false,
+          _callback: null,
+          
+          onClick(callback) {
+            this._callback = callback;
+            addLog('⬅️ BackButton.onClick() registered', 'success');
+          },
+          
+          offClick(callback) {
+            this._callback = null;
+          },
+          
+          show() {
+            this.isVisible = true;
+            addLog('⬅️ BackButton.show()', 'success');
+          },
+          
+          hide() {
+            this.isVisible = false;
+            addLog('⬅️ BackButton.hide()', 'info');
+          }
+        },
+        
+        HapticFeedback: {
+          impactOccurred(style) {
+            addLog(`📳 HapticFeedback.impactOccurred("${style}")`, 'info');
+          },
+          
+          notificationOccurred(type) {
+            addLog(`🔔 HapticFeedback.notificationOccurred("${type}")`, type === 'success' ? 'success' : 'error');
+          },
+          
+          selectionChanged() {
+            addLog('🎯 HapticFeedback.selectionChanged()', 'info');
+          }
+        },
+        
+        CloudStorage: {
+          setItem(key, value, callback) {
+            localStorage.setItem(`tg_cloud_${key}`, value);
+            addLog(`💾 CloudStorage.setItem("${key}")`, 'success');
+            if (callback) callback(null, true);
+          },
+          
+          getItem(key, callback) {
+            const value = localStorage.getItem(`tg_cloud_${key}`);
+            addLog(`📂 CloudStorage.getItem("${key}") → ${value ? 'found' : 'not found'}`, 'info');
+            if (callback) callback(null, value);
+          },
+          
+          removeItem(key, callback) {
+            localStorage.removeItem(`tg_cloud_${key}`);
+            addLog(`🗑️ CloudStorage.removeItem("${key}")`, 'info');
+            if (callback) callback(null, true);
+          },
+          
+          getKeys(callback) {
+            const keys = Object.keys(localStorage)
+              .filter(k => k.startsWith('tg_cloud_'))
+              .map(k => k.replace('tg_cloud_', ''));
+            if (callback) callback(null, keys);
+          }
+        },
+        
+        themeParams: {
+          bg_color: '#ffffff',
+          text_color: '#000000',
+          hint_color: '#999999',
+          link_color: '#168acd',
+          button_color: '#7C3AED',
+          button_text_color: '#ffffff',
+          secondary_bg_color: '#f4f4f5'
+        },
+        
+        initDataUnsafe: {
+          query_id: 'test_query_123',
+          user: {
+            id: 123456789,
+            first_name: 'Test',
+            last_name: 'User',
+            username: 'testuser',
+            language_code: 'ru'
+          },
+          auth_date: Math.floor(Date.now() / 1000),
+          hash: 'test_hash_mock'
+        },
+        
+        initData: 'query_id=test_query_123&user=%7B%22id%22%3A123456789%2C%22first_name%22%3A%22Test%22%7D&auth_date=1234567890&hash=test_hash',
+        
+        viewportHeight: window.innerHeight,
+        viewportStableHeight: window.innerHeight,
+        isExpanded: true,
+        platform: 'web',
+        
+        enableClosingConfirmation() {
+          addLog('🛡️ Closing confirmation enabled', 'info');
+        },
+        
+        disableClosingConfirmation() {
+          addLog('🛡️ Closing confirmation disabled', 'info');
+        },
+        
+        showPopup(params, callback) {
+          addLog(`🔔 Popup: "${params.message}"`, 'info');
+          const result = confirm(params.message + '\n\n' + (params.title || ''));
+          if (callback) {
+            callback(result ? (params.buttons?.[0]?.id || 'ok') : 'cancel');
+          }
+        },
+        
+        onEvent(eventType, callback) {
+          addLog(`👂 Listening to event: ${eventType}`, 'info');
+        },
+        
+        offEvent(eventType, callback) {
+          addLog(`👂 Stopped listening: ${eventType}`, 'info');
+        }
+      }
+    };
+    
+    // ============================================
+    // MAIN BUTTON DISPLAY (визуальная имитация)
+    // ============================================
+    
+    function updateMainButtonDisplay() {
+      let button = document.getElementById('mock-main-button');
+      const mb = window.Telegram.WebApp.MainButton;
+      
+      if (!mb.isVisible && button) {
+        button.remove();
+        return;
+      }
+      
+      if (!button && mb.isVisible) {
+        button = document.createElement('div');
+        button.id = 'mock-main-button';
+        button.style.cssText = `
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 60px;
+          background: ${mb.color};
+          color: ${mb.textColor};
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          font-weight: 600;
+          cursor: pointer;
+          z-index: 998;
+          box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+          transition: all 200ms;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        `;
+        
+        button.onclick = () => {
+          if (mb.isActive && mb._callback) {
+            addLog('🚀 MainButton clicked!', 'success');
+            mb._callback();
+          } else {
+            addLog('⚠️ MainButton is disabled', 'error');
+          }
+        };
+        
+        document.body.appendChild(button);
+      }
+      
+      if (button) {
+        button.textContent = mb.isProgressVisible ? '⏳ Loading...' : mb.text;
+        button.style.opacity = mb.isActive ? '1' : '0.5';
+        button.style.cursor = mb.isActive ? 'pointer' : 'not-allowed';
+        button.style.background = mb.isActive ? mb.color : '#999';
+      }
+    }
+    
+    // ============================================
+    // TEST HELPERS
+    // ============================================
+    
+    function fillTestData() {
+      addLog('📝 Filling test data...', 'info');
+      
+      // Trigger events to fill form
+      const today = new Date();
+      const checkIn = new Date(today);
+      checkIn.setDate(today.getDate() + 7);
+      const checkOut = new Date(checkIn);
+      checkOut.setDate(checkIn.getDate() + 14);
+      
+      setTimeout(() => {
+        document.querySelector('input[type="date"]').value = checkIn.toISOString().split('T')[0];
+        document.querySelector('input[type="date"]').dispatchEvent(new Event('change', { bubbles: true }));
+      }, 100);
+      
+      setTimeout(() => {
+        const dates = document.querySelectorAll('input[type="date"]');
+        if (dates[1]) {
+          dates[1].value = checkOut.toISOString().split('T')[0];
+          dates[1].dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }, 200);
+      
+      addLog('✅ Test data filled (check form)', 'success');
+    }
+    
+    function clearForm() {
+      addLog('🗑️ Clearing form...', 'info');
+      location.reload();
+    }
+    
+    function triggerMainButton() {
+      const mb = window.Telegram.WebApp.MainButton;
+      if (mb._callback) {
+        addLog('🚀 Manually triggering MainButton callback', 'info');
+        mb._callback();
+      } else {
+        addLog('⚠️ No MainButton callback registered', 'error');
+      }
+    }
+    
+    function toggleLogs() {
+      const logs = document.getElementById('test-logs');
+      logs.classList.toggle('visible');
+    }
+    
+    function setTheme(theme) {
+      const themeParams = window.Telegram.WebApp.themeParams;
+      
+      if (theme === 'dark') {
+        themeParams.bg_color = '#1c1c1d';
+        themeParams.text_color = '#ffffff';
+        themeParams.hint_color = '#8e8e93';
+        themeParams.secondary_bg_color = '#2c2c2e';
+        themeParams.button_color = '#A78BFA';
+        document.body.style.background = '#1c1c1d';
+      } else {
+        themeParams.bg_color = '#ffffff';
+        themeParams.text_color = '#000000';
+        themeParams.hint_color = '#999999';
+        themeParams.secondary_bg_color = '#f4f4f5';
+        themeParams.button_color = '#7C3AED';
+        document.body.style.background = '#f5f5f5';
+      }
+      
+      addLog(`🎨 Theme switched to ${theme}`, 'success');
+      location.reload();
+    }
+    
+    // Initialize
+    addLog('🚀 Test environment initialized', 'success');
+    addLog('💡 Use controls above to test the form', 'info');
+  </script>
+</body>
+</html>

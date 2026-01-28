@@ -17,7 +17,7 @@ function ZoomListener({ onZoomChange, mapRef, onMapReady }: { onZoomChange: (zoo
             mapRef.current = map;
             console.log('🗺️  Map instance set in ZoomListener:', map);
         }
-        
+
         // Вызываем callback onMapReady
         if (onMapReady) {
             onMapReady(map);
@@ -119,7 +119,7 @@ const createIcon = (type: string, size: number = 34, showShadow: boolean = false
     // Масштабируем размер шрифта эмодзи в зависимости от размера маркера
     const fontSize = Math.max(4, Math.round(size * 0.65));
     const half = Math.round(size / 2);
-    
+
     // Тень только если showShadow = true
     const shadow = showShadow ? '0 4px 10px rgba(0,0,0,0.15)' : 'none';
 
@@ -200,7 +200,50 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
                             }}
                         >
                             <Popup maxWidth={260} minWidth={220}>
-                                {/* Popup content для stay */}
+                                <div className="flex flex-col gap-2 p-1">
+                                    {getThumbnail(marker) && (
+                                        <div
+                                            className="w-full h-32 rounded-lg overflow-hidden relative shadow-sm border border-slate-100 cursor-pointer"
+                                            onClick={() => onMarkerClick?.(marker.id)}
+                                        >
+                                            <img
+                                                src={getThumbnail(marker)}
+                                                alt={marker.title}
+                                                loading="lazy"
+                                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                            />
+                                            {marker.price && (
+                                                <div className="absolute top-2 right-2 bg-indigo-600/95 text-white px-2 py-1 rounded-md text-[11px] font-black shadow-sm">
+                                                    {marker.price}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    <div className="mt-1">
+                                        <h3 className="text-base font-bold text-slate-900 leading-tight mb-0">{marker.title}</h3>
+                                        <div className="flex items-center gap-1 mt-1 text-slate-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                            <span className="text-[11px] leading-tight">{marker.address || 'Address on request'}</span>
+                                        </div>
+                                    </div>
+
+                                    {marker.description && (
+                                        <p className="text-[12px] text-slate-600 leading-snug line-clamp-2 mt-1">
+                                            {marker.description}
+                                        </p>
+                                    )}
+
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            onMarkerClick?.(marker.id);
+                                        }}
+                                        className="w-full mt-2 bg-indigo-600 text-white py-2 rounded-lg text-sm font-bold shadow-sm hover:shadow-md transition-all active:scale-95"
+                                    >
+                                        View Details
+                                    </button>
+                                </div>
                             </Popup>
                         </Marker>
                     );
@@ -213,122 +256,122 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
 
                 // Для POI используем динамический размер и условную тень
                 return (
-                <Marker
-                    key={marker.id}
-                    position={marker.position}
-                    icon={marker.type ? createIcon(marker.type, getMarkerSize(zoom), shouldShowShadow(zoom), { waves: (marker as any).waves, is247: (marker as any).is247 }) : DefaultIcon}
-                    eventHandlers={{
-                        click: () => !marker.type?.includes('food') && onMarkerClick?.(marker.id),
-                    }}
-                >
-                    <Popup maxWidth={260} minWidth={220}>
-                        <div className="flex flex-col gap-2 p-1">
-                            {getThumbnail(marker) && (
-                                <div
-                                    className={`w-full h-32 rounded-lg overflow-hidden relative shadow-sm border border-slate-100 ${marker.type === 'stay' ? 'cursor-pointer' : ''}`}
-                                    onClick={() => marker.type === 'stay' && onMarkerClick?.(marker.id)}
-                                >
-                                    <img
-                                        src={getThumbnail(marker)}
-                                        alt={marker.title}
-                                        loading="lazy"
-                                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                    />
-                                    {(marker.type === 'food' || marker.type === 'pharmacy' || marker.type === 'supermarket') && (
-                                        <div className="absolute top-2 right-2 bg-white/95 px-2 py-0.5 rounded-md text-[10px] font-black text-indigo-600 uppercase tracking-tight shadow-sm border border-indigo-100/50">
-                                            Open
+                    <Marker
+                        key={marker.id}
+                        position={marker.position}
+                        icon={marker.type ? createIcon(marker.type, getMarkerSize(zoom), shouldShowShadow(zoom), { waves: (marker as any).waves, is247: (marker as any).is247 }) : DefaultIcon}
+                        eventHandlers={{
+                            click: () => !marker.type?.includes('food') && onMarkerClick?.(marker.id),
+                        }}
+                    >
+                        <Popup maxWidth={260} minWidth={220}>
+                            <div className="flex flex-col gap-2 p-1">
+                                {getThumbnail(marker) && (
+                                    <div
+                                        className={`w-full h-32 rounded-lg overflow-hidden relative shadow-sm border border-slate-100 ${marker.type === 'stay' ? 'cursor-pointer' : ''}`}
+                                        onClick={() => marker.type === 'stay' && onMarkerClick?.(marker.id)}
+                                    >
+                                        <img
+                                            src={getThumbnail(marker)}
+                                            alt={marker.title}
+                                            loading="lazy"
+                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                        />
+                                        {(marker.type === 'food' || marker.type === 'pharmacy' || marker.type === 'supermarket') && (
+                                            <div className="absolute top-2 right-2 bg-white/95 px-2 py-0.5 rounded-md text-[10px] font-black text-indigo-600 uppercase tracking-tight shadow-sm border border-indigo-100/50">
+                                                Open
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                <div className="mt-1">
+                                    <h3 className="text-base font-bold text-slate-900 leading-tight mb-0">{marker.title}</h3>
+                                    {marker.address && (
+                                        <div className="flex items-center gap-1 mt-1 text-slate-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                            <span className="text-[11px] leading-tight">{marker.address}</span>
+                                        </div>
+                                    )}
+                                    {marker.type === 'food' && (
+                                        <div className="flex flex-wrap gap-2 mt-2">
+                                            {marker.cuisine && (
+                                                <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full text-[10px] font-semibold">{marker.cuisine}</span>
+                                            )}
+                                            {marker.price_level && (
+                                                <span className="text-emerald-600 text-[10px] font-bold tracking-widest">{marker.price_level}</span>
+                                            )}
+                                            {marker.atmosphere && (
+                                                <span className="text-slate-400 text-[10px] italic">· {marker.atmosphere}</span>
+                                            )}
                                         </div>
                                     )}
                                 </div>
-                            )}
 
-                            <div className="mt-1">
-                                <h3 className="text-base font-bold text-slate-900 leading-tight mb-0">{marker.title}</h3>
-                                {marker.address && (
-                                    <div className="flex items-center gap-1 mt-1 text-slate-500">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                        <span className="text-[11px] leading-tight">{marker.address}</span>
+                                {marker.description && (
+                                    <p className="text-[12px] text-slate-600 leading-normal line-clamp-3 mt-1 whitespace-pre-line">
+                                        {formatOpeningHours(marker.description)}
+                                    </p>
+                                )}
+
+                                {marker.hours && (
+                                    <div className="flex items-center gap-2 mt-2 p-1.5 bg-green-50 rounded-md text-[11px] text-green-700 font-medium">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        <span>Hours: {marker.hours}</span>
                                     </div>
                                 )}
-                                {marker.type === 'food' && (
-                                    <div className="flex flex-wrap gap-2 mt-2">
-                                        {marker.cuisine && (
-                                            <span className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full text-[10px] font-semibold">{marker.cuisine}</span>
-                                        )}
-                                        {marker.price_level && (
-                                            <span className="text-emerald-600 text-[10px] font-bold tracking-widest">{marker.price_level}</span>
-                                        )}
-                                        {marker.atmosphere && (
-                                            <span className="text-slate-400 text-[10px] italic">· {marker.atmosphere}</span>
+
+                                {marker.info && (
+                                    <div className="mt-2 p-1.5 bg-slate-50 rounded-md text-[11px] text-slate-600 border border-slate-100 italic leading-snug">
+                                        {marker.info}
+                                    </div>
+                                )}
+
+                                {marker.phone && (
+                                    <a
+                                        href={`tel:${marker.phone.replace(/\s/g, '')}`}
+                                        className="flex items-center gap-2 mt-2 p-2 bg-slate-50 border border-slate-100 rounded-lg text-indigo-600 hover:bg-slate-100 transition-colors no-underline"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                        <span className="text-[12px] font-bold">{marker.phone}</span>
+                                    </a>
+                                )}
+
+                                {marker.website && (
+                                    <a
+                                        href={marker.website}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 mt-2 p-2 bg-slate-50 border border-slate-100 rounded-lg text-indigo-600 hover:bg-slate-100 transition-colors no-underline"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        <span className="text-[12px] font-bold truncate">{marker.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}</span>
+                                    </a>
+                                )}
+
+                                {!marker.type?.includes('culture') && !marker.type?.includes('beach') && !marker.phone && marker.price && (
+                                    <div className="mt-1">
+                                        <div className="text-sm font-black text-indigo-600">{marker.price}</div>
+                                        {marker.priceLKR && (
+                                            <div className="text-[10px] font-bold text-slate-400 -mt-0.5">{marker.priceLKR}</div>
                                         )}
                                     </div>
+                                )}
+
+                                {marker.type === 'stay' && (
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            onMarkerClick?.(marker.id);
+                                        }}
+                                        className="w-full mt-3 bg-indigo-600 text-white py-2 rounded-lg text-sm font-bold shadow-sm hover:shadow-md transition-all active:scale-95"
+                                    >
+                                        View Details
+                                    </button>
                                 )}
                             </div>
-
-                            {marker.description && (
-                                <p className="text-[12px] text-slate-600 leading-normal line-clamp-3 mt-1 whitespace-pre-line">
-                                    {formatOpeningHours(marker.description)}
-                                </p>
-                            )}
-
-                            {marker.hours && (
-                                <div className="flex items-center gap-2 mt-2 p-1.5 bg-green-50 rounded-md text-[11px] text-green-700 font-medium">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    <span>Hours: {marker.hours}</span>
-                                </div>
-                            )}
-
-                            {marker.info && (
-                                <div className="mt-2 p-1.5 bg-slate-50 rounded-md text-[11px] text-slate-600 border border-slate-100 italic leading-snug">
-                                    {marker.info}
-                                </div>
-                            )}
-
-                            {marker.phone && (
-                                <a
-                                    href={`tel:${marker.phone.replace(/\s/g, '')}`}
-                                    className="flex items-center gap-2 mt-2 p-2 bg-slate-50 border border-slate-100 rounded-lg text-indigo-600 hover:bg-slate-100 transition-colors no-underline"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                    <span className="text-[12px] font-bold">{marker.phone}</span>
-                                </a>
-                            )}
-
-                            {marker.website && (
-                                <a
-                                    href={marker.website}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 mt-2 p-2 bg-slate-50 border border-slate-100 rounded-lg text-indigo-600 hover:bg-slate-100 transition-colors no-underline"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                    <span className="text-[12px] font-bold truncate">{marker.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}</span>
-                                </a>
-                            )}
-
-                            {!marker.type?.includes('culture') && !marker.type?.includes('beach') && !marker.phone && marker.price && (
-                                <div className="mt-1">
-                                    <div className="text-sm font-black text-indigo-600">{marker.price}</div>
-                                    {marker.priceLKR && (
-                                        <div className="text-[10px] font-bold text-slate-400 -mt-0.5">{marker.priceLKR}</div>
-                                    )}
-                                </div>
-                            )}
-
-                            {marker.type === 'stay' && (
-                                <button
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        onMarkerClick?.(marker.id);
-                                    }}
-                                    className="w-full mt-3 bg-indigo-600 text-white py-2 rounded-lg text-sm font-bold shadow-sm hover:shadow-md transition-all active:scale-95"
-                                >
-                                    View Details
-                                </button>
-                            )}
-                        </div>
-                    </Popup>
-                </Marker>
+                        </Popup>
+                    </Marker>
                 );
             })}
             {selectedPropertyPos && (

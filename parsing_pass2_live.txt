@@ -1,0 +1,171 @@
+[2026-01-25T12:46:27.738Z] [INFO] 
+[2026-01-25T12:46:27.742Z] [INFO] ======================================================================
+[2026-01-25T12:46:27.743Z] [INFO] POI PARSING: НЕГОМБО - ТАНГАЛЕ
+[2026-01-25T12:46:27.744Z] [INFO] PASS 2: 1-3km (Infrastructure zone)
+[2026-01-25T12:46:27.745Z] [INFO] ======================================================================
+[2026-01-25T12:46:27.746Z] [INFO] Region: Southwest Coast
+[2026-01-25T12:46:27.746Z] [INFO] Distance: 220 km
+[2026-01-25T12:46:27.747Z] [INFO] Search Points: 29
+[2026-01-25T12:46:27.748Z] [INFO] Categories: beach, water_sports, diving_center, surf_school, tourist_attraction, night_club, bar, park, pharmacy, drugstore, hospital, clinic, doctor, supermarket, convenience_store, liquor_store, spa, yoga_studio, beauty_salon, atm, bank, taxi_stand, bus_station, transit_station, bus_stop, hindu_temple, church, mosque, museum, aquarium, zoo, restaurant, cafe
+[2026-01-25T12:46:27.749Z] [INFO] Rate Limit: 1500ms between requests
+[2026-01-25T12:46:27.749Z] [INFO] Resume mode: NO
+[2026-01-25T12:46:27.749Z] [INFO] ======================================================================
+[2026-01-25T12:46:27.750Z] [INFO] 
+[2026-01-25T12:46:27.750Z] [INFO] [1/29] Processing Negombo...
+[2026-01-25T12:46:27.751Z] [INFO] Parsing Negombo (Pass 2: 1-3km)
+[2026-01-25T12:46:27.751Z] [INFO]   Coordinates: 7.2089, 79.8357
+[2026-01-25T12:46:27.751Z] [INFO]   Radius: 2000m
+[2026-01-25T12:46:27.752Z] [INFO]   Priority: 10/10
+[2026-01-25T12:46:27.752Z] [INFO]   Searching: beach...
+[2026-01-25T12:46:29.716Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:29.717Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:29.718Z] [INFO]   Searching: water_sports...
+[2026-01-25T12:46:31.359Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:31.359Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:31.360Z] [INFO]   Searching: diving_center...
+[2026-01-25T12:46:33.004Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:33.004Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:33.005Z] [INFO]   Searching: surf_school...
+[2026-01-25T12:46:34.637Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:34.638Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:34.638Z] [INFO]   Searching: tourist_attraction...
+[2026-01-25T12:46:36.289Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:36.289Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:36.290Z] [INFO]   Searching: night_club...
+[2026-01-25T12:46:37.932Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:37.933Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:37.933Z] [INFO]   Searching: bar...
+[2026-01-25T12:46:39.576Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:39.577Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:39.577Z] [INFO]   Searching: park...
+[2026-01-25T12:46:41.216Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:41.216Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:41.217Z] [INFO]   Searching: pharmacy...
+[2026-01-25T12:46:42.857Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:42.858Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:42.858Z] [INFO]   Searching: drugstore...
+[2026-01-25T12:46:44.499Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:44.499Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:44.500Z] [INFO]   Searching: hospital...
+[2026-01-25T12:46:46.143Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:46.143Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:46.144Z] [INFO]   Searching: clinic...
+[2026-01-25T12:46:47.779Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:47.780Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:47.780Z] [INFO]   Searching: doctor...
+[2026-01-25T12:46:49.419Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:49.419Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:49.420Z] [INFO]   Searching: supermarket...
+[2026-01-25T12:46:51.056Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:51.057Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:51.057Z] [INFO]   Searching: convenience_store...
+[2026-01-25T12:46:52.690Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:52.691Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:52.691Z] [INFO]   Searching: liquor_store...
+[2026-01-25T12:46:54.329Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:54.330Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:54.331Z] [INFO]   Searching: spa...
+[2026-01-25T12:46:55.961Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:55.961Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:55.962Z] [INFO]   Searching: yoga_studio...
+[2026-01-25T12:46:57.604Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:57.605Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:57.605Z] [INFO]   Searching: beauty_salon...
+[2026-01-25T12:46:59.246Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:46:59.247Z] [INFO]     Found: 0 places
+[2026-01-25T12:46:59.247Z] [INFO]   Searching: atm...
+[2026-01-25T12:47:00.878Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:00.879Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:00.879Z] [INFO]   Searching: bank...
+[2026-01-25T12:47:02.515Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:02.516Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:02.517Z] [INFO]   Searching: taxi_stand...
+[2026-01-25T12:47:04.145Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:04.146Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:04.147Z] [INFO]   Searching: bus_station...
+[2026-01-25T12:47:05.784Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:05.785Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:05.785Z] [INFO]   Searching: transit_station...
+[2026-01-25T12:47:07.434Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:07.435Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:07.435Z] [INFO]   Searching: bus_stop...
+[2026-01-25T12:47:09.080Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:09.081Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:09.081Z] [INFO]   Searching: hindu_temple...
+[2026-01-25T12:47:10.721Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:10.722Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:10.723Z] [INFO]   Searching: church...
+[2026-01-25T12:47:12.358Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:12.359Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:12.359Z] [INFO]   Searching: mosque...
+[2026-01-25T12:47:13.996Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:13.996Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:13.997Z] [INFO]   Searching: museum...
+[2026-01-25T12:47:15.632Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:15.633Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:15.634Z] [INFO]   Searching: aquarium...
+[2026-01-25T12:47:17.263Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:17.264Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:17.265Z] [INFO]   Searching: zoo...
+[2026-01-25T12:47:18.901Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:18.902Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:18.902Z] [INFO]   Searching: restaurant...
+[2026-01-25T12:47:20.533Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:20.534Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:20.534Z] [INFO]   Searching: cafe...
+[2026-01-25T12:47:22.176Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:22.177Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:22.177Z] [INFO]   Total POIs for Negombo: 0
+[2026-01-25T12:47:22.178Z] [INFO] Progress: 0 POIs collected
+[2026-01-25T12:47:22.178Z] [INFO] 
+[2026-01-25T12:47:22.179Z] [INFO] [2/29] Processing Negombo South...
+[2026-01-25T12:47:22.179Z] [INFO] Parsing Negombo South (Pass 2: 1-3km)
+[2026-01-25T12:47:22.180Z] [INFO]   Coordinates: 7.15, 79.85
+[2026-01-25T12:47:22.180Z] [INFO]   Radius: 2000m
+[2026-01-25T12:47:22.180Z] [INFO]   Priority: 8/10
+[2026-01-25T12:47:22.181Z] [INFO]   Searching: beach...
+[2026-01-25T12:47:23.814Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:23.815Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:23.815Z] [INFO]   Searching: water_sports...
+[2026-01-25T12:47:25.451Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:25.451Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:25.452Z] [INFO]   Searching: diving_center...
+[2026-01-25T12:47:27.087Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:27.088Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:27.088Z] [INFO]   Searching: surf_school...
+[2026-01-25T12:47:28.726Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:28.727Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:28.728Z] [INFO]   Searching: tourist_attraction...
+[2026-01-25T12:47:30.357Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:30.358Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:30.358Z] [INFO]   Searching: night_club...
+[2026-01-25T12:47:31.994Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:31.994Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:31.995Z] [INFO]   Searching: bar...
+[2026-01-25T12:47:33.624Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:33.625Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:33.625Z] [INFO]   Searching: park...
+[2026-01-25T12:47:35.262Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:35.263Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:35.264Z] [INFO]   Searching: pharmacy...
+[2026-01-25T12:47:36.901Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:36.902Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:36.902Z] [INFO]   Searching: drugstore...
+[2026-01-25T12:47:38.537Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:38.538Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:38.539Z] [INFO]   Searching: hospital...
+[2026-01-25T12:47:40.175Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:40.176Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:40.177Z] [INFO]   Searching: clinic...
+[2026-01-25T12:47:41.814Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:41.815Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:41.815Z] [INFO]   Searching: doctor...
+[2026-01-25T12:47:43.451Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:43.452Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:43.452Z] [INFO]   Searching: supermarket...
+[2026-01-25T12:47:45.084Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:45.085Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:45.085Z] [INFO]   Searching: convenience_store...
+[2026-01-25T12:47:46.719Z] [ERROR] Search failed: API Error: REQUEST_DENIED - The provided API key is invalid.
+[2026-01-25T12:47:46.720Z] [INFO]     Found: 0 places
+[2026-01-25T12:47:46.721Z] [INFO]   Searching: liquor_store...

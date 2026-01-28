@@ -1,0 +1,244 @@
+---
+/**
+ * Админ страница: Редактирование Telegram формы
+ * /admin/forms/telegram/[id]
+ */
+
+import AdminLayout from '../../../../components/admin/AdminLayout.tsx';
+import FormBuilder from '../../../../components/admin/FormBuilder.tsx';
+import FormPreview from '../../../../components/admin/FormPreview.tsx';
+import ErrorBoundary from '../../../../components/ErrorBoundary.tsx';
+import { requireAdminPage } from '../../../../lib/auth';
+
+// Проверка прав админа
+const authResult = await requireAdminPage(Astro);
+if (authResult.redirect) return authResult.redirect;
+
+const user = authResult.user;
+const formId = Astro.params.id;
+
+if (!formId || formId === 'new') {
+  return Astro.redirect('/admin/forms/telegram/new');
+}
+---
+
+<AdminLayout title="Редактирование формы" user={user}>
+  <div class="max-w-5xl mx-auto space-y-6">
+    <!-- Навигация -->
+    <div class="flex items-center gap-2 text-sm text-gray-600">
+      <a href="/admin/forms/telegram" class="hover:text-blue-600">Формы</a>
+      <span>/</span>
+      <span class="text-gray-900">Редактирование</span>
+    </div>
+
+    <!-- Основная информация формы -->
+    <div class="bg-white rounded-lg border border-gray-200 p-6">
+      <h1 class="text-2xl font-bold mb-6">Настройки формы</h1>
+      
+      <form id="form-settings" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Название формы *</label>
+          <input
+            type="text"
+            id="form-title"
+            name="title"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Например: Заявка на консультацию"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Описание</label>
+          <textarea
+            id="form-description"
+            name="description"
+            rows="3"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Краткое описание формы"
+          ></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Текст кнопки отправки</label>
+          <input
+            type="text"
+            id="form-submit-text"
+            name="submit_text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Отправить"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Telegram Chat ID</label>
+          <input
+            type="text"
+            id="form-chat-id"
+            name="chat_id"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Например: -1001234567890"
+          />
+          <p class="text-xs text-gray-500 mt-1">ID чата или канала, куда будут отправляться уведомления</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Шаблон сообщения *</label>
+          <textarea
+            id="form-message-template"
+            name="message_template"
+            rows="6"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+            placeholder="🆕 Новая заявка от {firstName}
+
+Имя: {name}
+Email: {email}
+
+ID пользователя: {userId}"
+          ></textarea>
+          <p class="text-xs text-gray-500 mt-1">
+            Доступные плейсхолдеры: {firstName}, {lastName}, {username}, {userId}, а также ID любых полей формы
+          </p>
+        </div>
+
+        <div class="flex items-center">
+          <input
+            type="checkbox"
+            id="form-is-active"
+            name="is_active"
+            class="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+          />
+          <label for="form-is-active" class="ml-2 text-sm">
+            Форма активна (принимает заявки)
+          </label>
+        </div>
+
+        <div class="flex gap-3 pt-4">
+          <button
+            type="submit"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            💾 Сохранить настройки
+          </button>
+          <a
+            href={`/admin/forms/telegram/${formId}/submissions`}
+            class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+          >
+            📨 Заявки
+          </a>
+          <a
+            href="/admin/forms/telegram"
+            class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+          >
+            ← Назад к списку
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Конструктор полей с preview -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Form Builder -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6">
+        <h2 class="text-xl font-semibold mb-4">Поля формы</h2>
+        <ErrorBoundary client:load>
+          <FormBuilder formId={formId} client:load />
+        </ErrorBoundary>
+      </div>
+
+      <!-- Form Preview -->
+      <div class="bg-white rounded-lg border border-gray-200 p-6">
+        <h2 class="text-xl font-semibold mb-4">Предпросмотр</h2>
+        <div id="form-preview-container">
+          <ErrorBoundary client:load>
+            <FormPreview fields={[]} client:load />
+          </ErrorBoundary>
+        </div>
+      </div>
+    </div>
+
+    <!-- Превью и ссылка -->
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <h3 class="font-bold text-blue-900 mb-3">🔗 Ссылка на форму</h3>
+      <div class="bg-white rounded p-3 font-mono text-sm break-all">
+        <span id="form-url"></span>
+      </div>
+      <p class="text-sm text-blue-700 mt-2">
+        Используйте эту ссылку в настройках вашего Telegram бота (Web App URL)
+      </p>
+    </div>
+  </div>
+
+  <script define:vars={{ formId }}>
+    let currentForm = null;
+
+    // Загрузка формы
+    async function loadForm() {
+      try {
+        const response = await fetch(`/api/admin/forms/${formId}`);
+        const result = await response.json();
+        
+        if (result.success && result.data) {
+          currentForm = result.data;
+          
+          // Заполняем поля
+          document.getElementById('form-title').value = currentForm.title || '';
+          document.getElementById('form-description').value = currentForm.description || '';
+          document.getElementById('form-submit-text').value = currentForm.submit_text || 'Отправить';
+          document.getElementById('form-chat-id').value = currentForm.chat_id || '';
+          document.getElementById('form-message-template').value = currentForm.message_template || '';
+          document.getElementById('form-is-active').checked = currentForm.is_active || false;
+          
+          // Показываем URL
+          const formUrl = `${window.location.origin}/telegram-app?form_id=${formId}`;
+          document.getElementById('form-url').textContent = formUrl;
+        } else {
+          alert('Форма не найдена');
+          window.location.href = '/admin/forms/telegram';
+        }
+      } catch (error) {
+        console.error('Load form error:', error);
+        alert('Ошибка загрузки формы');
+      }
+    }
+
+    // Сохранение настроек
+    document.getElementById('form-settings').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target);
+      const data = {
+        title: formData.get('title'),
+        description: formData.get('description'),
+        submit_text: formData.get('submit_text'),
+        chat_id: formData.get('chat_id'),
+        message_template: formData.get('message_template'),
+        is_active: formData.get('is_active') === 'on',
+      };
+
+      try {
+        const response = await fetch(`/api/admin/forms/${formId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert('✅ Настройки сохранены');
+          loadForm();
+        } else {
+          alert('❌ Ошибка: ' + (result.error?.message || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Save error:', error);
+        alert('❌ Ошибка сохранения');
+      }
+    });
+
+    // Загружаем форму при загрузке страницы
+    loadForm();
+  </script>
+</AdminLayout>

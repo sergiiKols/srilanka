@@ -43,6 +43,15 @@ export default function DashboardRu() {
             <div className="stat-change">5 {t('activeToday', lang)}</div>
           </div>
         </div>
+
+        <div className="stat-card" onClick={() => window.location.href = '/admin/forms/telegram'} style={{ cursor: 'pointer' }}>
+          <div className="stat-icon">📋</div>
+          <div className="stat-content">
+            <div className="stat-value">5</div>
+            <div className="stat-label">Telegram Forms</div>
+            <div className="stat-change positive">+3 {t('thisWeek', lang)}</div>
+          </div>
+        </div>
       </div>
 
       {/* System Status */}
@@ -105,13 +114,46 @@ export default function DashboardRu() {
           </div>
 
           <div className="status-item">
-            <div className="status-indicator inactive"></div>
+            <div className="status-indicator active"></div>
             <div className="status-content">
               <div className="status-name">Telegram Bot</div>
-              <div className="status-info">{t('notConfigured', lang)} • {t('comingSoon', lang)}</div>
+              <div className="status-info">{t('active', lang)} • 5 forms configured</div>
             </div>
             <div className="status-action">
-              <a href="/admin/tools/url-expander" className="btn-icon">⚙️</a>
+              <a href="/admin/forms/telegram" className="btn-icon">📋</a>
+            </div>
+          </div>
+          
+          <div className="status-item">
+            <div className="status-indicator active"></div>
+            <div className="status-content">
+              <div className="status-name">Telegram Forms</div>
+              <div className="status-info">{t('active', lang)} • 5 active forms</div>
+            </div>
+            <div className="status-action">
+              <a href="/admin/forms/telegram/submissions" className="btn-icon">📊</a>
+            </div>
+          </div>
+
+          <div className="status-item">
+            <div className="status-indicator active"></div>
+            <div className="status-content">
+              <div className="status-name">Cron Jobs</div>
+              <div className="status-info">{t('active', lang)} • 2 автоматические задачи</div>
+            </div>
+            <div className="status-action">
+              <a href="/admin/cron-jobs" className="btn-icon">⏰</a>
+            </div>
+          </div>
+
+          <div className="status-item">
+            <div className="status-indicator active"></div>
+            <div className="status-content">
+              <div className="status-name">Database Tables</div>
+              <div className="status-info">{t('active', lang)} • 24 tables | 12.7 MB total</div>
+            </div>
+            <div className="status-action">
+              <a href="/admin/database" className="btn-icon">🗄️</a>
             </div>
           </div>
         </div>
@@ -194,6 +236,18 @@ export default function DashboardRu() {
             <div className="action-icon">🔑</div>
             <div className="action-title">{t('apiSettingsAction', lang)}</div>
             <div className="action-description">{t('manageAPIKeys', lang)}</div>
+          </a>
+
+          <a href="/admin/database" className="action-card">
+            <div className="action-icon">🗄️</div>
+            <div className="action-title">{lang === 'ru' ? 'База данных' : 'Database Tables'}</div>
+            <div className="action-description">{lang === 'ru' ? 'Просмотр всех 24 таблиц Supabase' : 'View all 24 Supabase tables'}</div>
+          </a>
+
+          <a href="/admin/supabase" className="action-card">
+            <div className="action-icon">📊</div>
+            <div className="action-title">{lang === 'ru' ? 'Supabase POI' : 'Supabase POI'}</div>
+            <div className="action-description">{lang === 'ru' ? 'Статистика POI объектов (6,176)' : 'POI Statistics (6,176)'}</div>
           </a>
         </div>
       </div>

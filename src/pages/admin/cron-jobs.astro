@@ -1,0 +1,475 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdminLayout from '../../components/admin/AdminLayout.tsx';
+import KeepAliveToggle from '../../components/admin/KeepAliveToggle.tsx';
+import CoolDownToggle from '../../components/admin/CoolDownToggle.tsx';
+---
+
+<Layout title="Cron Jobs - Управление">
+<AdminLayout client:load>
+  <div class="max-w-7xl mx-auto py-10 px-6">
+    <!-- Hero Header with LUMINA styling -->
+    <div class="mb-10">
+      <div class="flex items-center gap-4 mb-3">
+        <div class="lumina-icon-3d">⏰</div>
+        <h1 class="lumina-heading-primary">
+          Cron Jobs - Автоматические Задачи
+        </h1>
+      </div>
+      <p class="lumina-text-description">
+        Управление автоматическими процессами и фоновыми задачами
+      </p>
+    </div>
+
+    <!-- Bento Grid Layout -->
+    <div class="lumina-bento-grid">
+      <!-- Cron Job 1: Автоохлаждение объектов -->
+      <div class="lumina-bento-item">
+        <CoolDownToggle client:load />
+      </div>
+
+      <!-- Cron Job 2: Keep-Alive -->
+      <div class="lumina-bento-item">
+        <KeepAliveToggle client:load />
+      </div>
+    </div>
+
+    <!-- Статистика с Airy Gradients -->
+    <div class="lumina-card mt-8">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="lumina-icon-3d-small">📊</div>
+        <h2 class="lumina-heading-secondary">
+          Сводка по Cron Jobs
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="lumina-stat-card lumina-gradient-blue">
+          <div class="lumina-stat-value">2</div>
+          <div class="lumina-stat-label">Всего задач</div>
+        </div>
+        
+        <div class="lumina-stat-card lumina-gradient-green">
+          <div class="lumina-stat-value">Каждый час</div>
+          <div class="lumina-stat-label">Охлаждение</div>
+        </div>
+        
+        <div class="lumina-stat-card lumina-gradient-purple">
+          <div class="lumina-stat-value">Каждые 3 дня</div>
+          <div class="lumina-stat-label">Keep-Alive</div>
+        </div>
+
+        <div class="lumina-stat-card lumina-gradient-orange">
+          <div class="lumina-stat-value">Авто</div>
+          <div class="lumina-stat-label">Режим работы</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Инструкция по настройке обоих Cron -->
+    <div class="lumina-card mt-8 lumina-gradient-instructions">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="lumina-icon-3d-small">📖</div>
+        <h2 class="lumina-heading-secondary">
+          Настройка Cron Jobs в Supabase
+        </h2>
+      </div>
+      
+      <div class="space-y-6">
+        <!-- Cron #1: Cool Down -->
+        <div class="lumina-inner-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="lumina-icon-3d-small">🌡️</div>
+            <h3 class="lumina-heading-tertiary">
+              Cron Job #1: Автоохлаждение объектов
+            </h3>
+          </div>
+          <div class="space-y-3 lumina-text-body">
+            <div><strong class="lumina-text-strong">Name:</strong> <code class="lumina-code-inline">cool-down-objects</code></div>
+            <div><strong class="lumina-text-strong">Schedule:</strong> <code class="lumina-code-inline">0 * * * *</code> (каждый час)</div>
+            <div><strong class="lumina-text-strong">SQL Command:</strong></div>
+            <pre class="lumina-code-block">SELECT * FROM cool_down_objects();</pre>
+            <div class="lumina-info-text">
+              ℹ️ Запускается каждый час в :00 минут. Автоматически понижает температуру объектов: hot→warm→cool→cold
+            </div>
+          </div>
+        </div>
+
+        <!-- Cron #2: Keep-Alive -->
+        <div class="lumina-inner-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="lumina-icon-3d-small">🔄</div>
+            <h3 class="lumina-heading-tertiary">
+              Cron Job #2: Keep-Alive
+            </h3>
+          </div>
+          <div class="space-y-3 lumina-text-body">
+            <div><strong class="lumina-text-strong">Name:</strong> <code class="lumina-code-inline">keep-alive-test-records</code></div>
+            <div><strong class="lumina-text-strong">Schedule:</strong> <code class="lumina-code-inline">0 3 */3 * *</code> (каждые 3 дня)</div>
+            <div><strong class="lumina-text-strong">SQL Command:</strong></div>
+            <pre class="lumina-code-block">SELECT * FROM keep_alive_test_records();</pre>
+            <div class="lumina-info-text">
+              ℹ️ Запускается каждые 3 дня в 3:00. Создаёт тестовые записи для поддержания активности БД.
+            </div>
+          </div>
+        </div>
+
+        <!-- Шаги настройки -->
+        <div class="lumina-divider">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="lumina-icon-3d-small">🛠️</div>
+            <h3 class="lumina-heading-tertiary">Пошаговая настройка</h3>
+          </div>
+          <ol class="lumina-ordered-list">
+            <li>Откройте <a href="https://supabase.com/dashboard/project/mcmzdscpuoxwneuzsanu/database/cron-jobs" target="_blank" class="lumina-link">Supabase Dashboard → Database → Cron Jobs</a></li>
+            <li>Нажмите <strong class="lumina-text-accent-green">Enable Cron</strong> (если ещё не включено)</li>
+            <li>Нажмите <strong class="lumina-text-accent-blue">Create a new cron job</strong></li>
+            <li>Создайте первый job для <strong class="lumina-text-strong">охлаждения</strong> (параметры выше)</li>
+            <li>Создайте второй job для <strong class="lumina-text-strong">Keep-Alive</strong> (параметры выше)</li>
+            <li>Сохраните оба job'а</li>
+            <li>Готово! ✅ Оба процесса будут работать автоматически</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Проверка статуса Cron -->
+    <div class="lumina-card mt-8">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="lumina-icon-3d-small">🔍</div>
+        <h2 class="lumina-heading-secondary">
+          Проверка статуса Cron Jobs
+        </h2>
+      </div>
+      <p class="lumina-text-description mb-6">
+        Выполните эти SQL команды в Supabase SQL Editor для проверки:
+      </p>
+      
+      <div class="space-y-6">
+        <div>
+          <div class="lumina-text-body mb-3"><strong class="lumina-text-strong">Посмотреть все Cron Jobs:</strong></div>
+          <pre class="lumina-code-block">SELECT * FROM cron.job;</pre>
+        </div>
+        
+        <div>
+          <div class="lumina-text-body mb-3"><strong class="lumina-text-strong">Посмотреть историю запусков:</strong></div>
+          <pre class="lumina-code-block">SELECT * FROM cron.job_run_details 
+ORDER BY start_time DESC 
+LIMIT 10;</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</AdminLayout>
+</Layout>
+
+<style>
+/* ========================================
+   LUMINA DESIGN SYSTEM 2026
+   Visual & Readability Rules
+   ======================================== */
+
+/* 1. КОНТРАСТ И ЧИТАЕМОСТЬ (CORE) */
+:root {
+  --lumina-white: #FFFFFF;
+  --lumina-deep-slate: #111827;
+  --lumina-charcoal: #374151;
+  --lumina-tech-bg: #F1F5F9;
+  --lumina-tech-text: #0F172A;
+  --lumina-border: #E5E7EB;
+  
+  /* Accent Colors */
+  --lumina-purple: #7C3AED;
+  --lumina-blue: #2563EB;
+  --lumina-green: #10B981;
+  --lumina-orange: #F97316;
+}
+
+/* Typography - High Contrast */
+.lumina-heading-primary {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--lumina-deep-slate);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.lumina-heading-secondary {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--lumina-deep-slate);
+  line-height: 1.3;
+}
+
+.lumina-heading-tertiary {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--lumina-deep-slate);
+  line-height: 1.4;
+}
+
+.lumina-text-description {
+  font-size: 1rem;
+  color: var(--lumina-charcoal);
+  line-height: 1.6;
+}
+
+.lumina-text-body {
+  font-size: 0.9375rem;
+  color: var(--lumina-charcoal);
+  line-height: 1.6;
+}
+
+.lumina-text-strong {
+  font-weight: 600;
+  color: var(--lumina-deep-slate);
+}
+
+.lumina-info-text {
+  font-size: 0.8125rem;
+  color: var(--lumina-charcoal);
+  line-height: 1.5;
+}
+
+.lumina-text-accent-blue {
+  color: var(--lumina-blue);
+  font-weight: 600;
+}
+
+.lumina-text-accent-green {
+  color: var(--lumina-green);
+  font-weight: 600;
+}
+
+/* 2. 3D CLAYMORPHISM ICONS */
+.lumina-icon-3d {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 16px;
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.08),
+    -4px -4px 12px rgba(255, 255, 255, 0.9),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.lumina-icon-3d-small {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 12px;
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.06),
+    -3px -3px 8px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+/* 3. BENTO GRID LAYOUT */
+.lumina-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .lumina-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lumina-bento-item {
+  /* Items inherit styles from children */
+}
+
+/* 4. CARDS - Border Delineation (no shadows) */
+.lumina-card {
+  background: var(--lumina-white);
+  border: 1px solid var(--lumina-border);
+  border-radius: 12px;
+  padding: 32px;
+  transition: border-color 0.2s ease;
+}
+
+.lumina-card:hover {
+  border-color: #D1D5DB;
+}
+
+.lumina-inner-card {
+  background: var(--lumina-white);
+  border: 1px solid var(--lumina-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* 5. AIRY GRADIENTS */
+.lumina-gradient-blue {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+}
+
+.lumina-gradient-green {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+}
+
+.lumina-gradient-purple {
+  background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+}
+
+.lumina-gradient-orange {
+  background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+}
+
+.lumina-gradient-instructions {
+  background: linear-gradient(135deg, #F5F3FF 0%, #EFF6FF 100%);
+  border: 1px solid #E0E7FF;
+}
+
+/* 6. STAT CARDS */
+.lumina-stat-card {
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--lumina-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lumina-stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--lumina-deep-slate);
+  line-height: 1;
+}
+
+.lumina-stat-label {
+  font-size: 0.875rem;
+  color: var(--lumina-charcoal);
+  font-weight: 500;
+}
+
+/* 7. CODE BLOCKS - Technical Text */
+.lumina-code-inline {
+  background: var(--lumina-tech-bg);
+  color: var(--lumina-tech-text);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--lumina-border);
+}
+
+.lumina-code-block {
+  background: var(--lumina-tech-text);
+  color: #10B981;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.6;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  /* Grain effect */
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.02) 4px
+    );
+}
+
+/* 8. DIVIDERS */
+.lumina-divider {
+  border-top: 1px solid var(--lumina-border);
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+/* 9. LISTS */
+.lumina-ordered-list {
+  list-style: decimal;
+  list-style-position: inside;
+  color: var(--lumina-charcoal);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lumina-ordered-list li {
+  padding-left: 8px;
+}
+
+/* 10. LINKS */
+.lumina-link {
+  color: var(--lumina-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.lumina-link:hover {
+  color: #1D4ED8;
+  border-bottom-color: #1D4ED8;
+}
+
+/* 11. GLASSMORPHISM (for future use) */
+.lumina-glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+}
+
+/* 12. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 640px) {
+  .lumina-heading-primary {
+    font-size: 1.5rem;
+  }
+  
+  .lumina-heading-secondary {
+    font-size: 1.25rem;
+  }
+  
+  .lumina-card {
+    padding: 20px;
+  }
+  
+  .lumina-icon-3d {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+}
+
+/* 13. ACCESSIBILITY - WCAG AAA Compliance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.lumina-link:focus-visible,
+.lumina-card:focus-visible {
+  outline: 2px solid var(--lumina-blue);
+  outline-offset: 2px;
+}
+</style>
+

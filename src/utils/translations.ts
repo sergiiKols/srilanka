@@ -9,6 +9,10 @@ export const translations = {
     parsingSystem: 'Parsing System',
     users: 'Users',
     settings: 'Settings',
+    telegramForms: 'Telegram Forms',
+    formsList: 'Forms List',
+    allSubmissions: 'All Submissions',
+    botSettings: 'Bot Settings',
     backToSite: 'Back to Site',
     toMap: 'To Map',
     
@@ -112,16 +116,20 @@ export const translations = {
   },
   ru: {
     // Sidebar
-    adminPanel: 'Админ-панель',
-    dashboard: 'Главная',
-    apiSettings: 'Настройки API',
-    urlExpander: 'Разворот ссылок',
-    poiManagement: 'Управление POI',
-    parsingSystem: 'Система парсинга',
-    users: 'Пользователи',
-    settings: 'Настройки',
-    backToSite: 'На сайт',
-    toMap: 'На карту',
+    adminPanel: 'Admin Panel',
+    dashboard: 'Dashboard',
+    apiSettings: 'API Settings',
+    urlExpander: 'URL Expander',
+    poiManagement: 'POI Management',
+    parsingSystem: 'Parsing System',
+    users: 'Users',
+    settings: 'Settings',
+    telegramForms: 'Telegram Forms',
+    formsList: 'Forms List',
+    allSubmissions: 'All Submissions',
+    botSettings: 'Bot Settings',
+    backToSite: 'Back to Site',
+    toMap: 'To Map',
     
     // Dashboard
     dashboardTitle: 'Главная панель',
@@ -231,3 +239,4 @@ export function getLang(): 'en' | 'ru' {
   if (typeof window === 'undefined') return 'ru';
   return (localStorage.getItem('admin_lang') as 'en' | 'ru') || 'ru';
 }
+

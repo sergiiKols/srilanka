@@ -1,0 +1,215 @@
+---
+/**
+ * Админ страница: Список Telegram форм
+ * /admin/forms/telegram
+ */
+
+import AdminLayout from '../../../components/admin/AdminLayout.tsx';
+import { requireAdminPage } from '../../../lib/auth';
+
+// Проверка прав админа
+const authResult = await requireAdminPage(Astro);
+if (authResult.redirect) return authResult.redirect;
+
+const user = authResult.user;
+---
+
+<AdminLayout title="Telegram Формы" user={user}>
+  <div class="space-y-6">
+    <!-- Заголовок и кнопка создания -->
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900">Telegram Формы</h1>
+        <p class="text-gray-600 mt-1">Управление формами для Telegram Web App</p>
+      </div>
+      <a
+        href="/admin/forms/telegram/new"
+        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        Создать форму
+      </a>
+    </div>
+
+    <!-- Список форм -->
+    <div id="forms-list" class="space-y-4">
+      <!-- Загружается через React компонент -->
+    </div>
+  </div>
+
+  <script>
+    import { h, render } from 'preact';
+    import { useState, useEffect } from 'preact/hooks';
+
+    function FormsList() {
+      const [forms, setForms] = useState([]);
+      const [loading, setLoading] = useState(true);
+      const [stats, setStats] = useState(null);
+
+      useEffect(() => {
+        loadForms();
+        loadStats();
+      }, []);
+
+      const loadForms = async () => {
+        try {
+          const response = await fetch('/api/admin/forms');
+          const result = await response.json();
+          if (result.success) {
+            setForms(result.data || []);
+          }
+        } catch (error) {
+          console.error('Load forms error:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      const loadStats = async () => {
+        try {
+          const response = await fetch('/api/admin/stats');
+          const result = await response.json();
+          if (result.success) {
+            setStats(result.data);
+          }
+        } catch (error) {
+          console.error('Load stats error:', error);
+        }
+      };
+
+      const handleDelete = async (id) => {
+        if (!confirm('Удалить эту форму? Все связанные заявки также будут удалены.')) return;
+
+        try {
+          const response = await fetch(`/api/admin/forms/${id}`, {
+            method: 'DELETE',
+          });
+
+          if (response.ok) {
+            alert('Форма удалена');
+            loadForms();
+            loadStats();
+          } else {
+            alert('Ошибка удаления');
+          }
+        } catch (error) {
+          console.error('Delete error:', error);
+          alert('Ошибка удаления');
+        }
+      };
+
+      const toggleActive = async (id, currentStatus) => {
+        try {
+          const response = await fetch(`/api/admin/forms/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ is_active: !currentStatus }),
+          });
+
+          if (response.ok) {
+            loadForms();
+          }
+        } catch (error) {
+          console.error('Toggle active error:', error);
+        }
+      };
+
+      if (loading) {
+        return h('div', { class: 'flex justify-center py-12' },
+          h('div', { class: 'animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600' })
+        );
+      }
+
+      return h('div', { class: 'space-y-6' },
+        // Статистика
+        stats && h('div', { class: 'grid grid-cols-4 gap-4' },
+          h('div', { class: 'bg-white p-6 rounded-lg border border-gray-200' },
+            h('div', { class: 'text-3xl font-bold text-gray-900' }, stats.total_forms),
+            h('div', { class: 'text-sm text-gray-600 mt-1' }, 'Всего форм')
+          ),
+          h('div', { class: 'bg-white p-6 rounded-lg border border-gray-200' },
+            h('div', { class: 'text-3xl font-bold text-green-600' }, stats.active_forms),
+            h('div', { class: 'text-sm text-gray-600 mt-1' }, 'Активных')
+          ),
+          h('div', { class: 'bg-white p-6 rounded-lg border border-gray-200' },
+            h('div', { class: 'text-3xl font-bold text-blue-600' }, stats.total_submissions),
+            h('div', { class: 'text-sm text-gray-600 mt-1' }, 'Всего заявок')
+          ),
+          h('div', { class: 'bg-white p-6 rounded-lg border border-gray-200' },
+            h('div', { class: 'text-3xl font-bold text-purple-600' }, stats.submissions_today),
+            h('div', { class: 'text-sm text-gray-600 mt-1' }, 'Заявок сегодня')
+          )
+        ),
+
+        // Список форм
+        forms.length === 0 
+          ? h('div', { class: 'bg-white p-12 rounded-lg border-2 border-dashed border-gray-300 text-center' },
+              h('p', { class: 'text-gray-500 mb-4' }, 'У вас пока нет форм'),
+              h('a', {
+                href: '/admin/forms/telegram/new',
+                class: 'text-blue-600 hover:underline'
+              }, 'Создать первую форму')
+            )
+          : h('div', { class: 'grid gap-4' },
+              forms.map(form => h('div', {
+                key: form.id,
+                class: 'bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow'
+              },
+                h('div', { class: 'flex justify-between items-start' },
+                  h('div', { class: 'flex-1' },
+                    h('div', { class: 'flex items-center gap-3 mb-2' },
+                      h('h3', { class: 'text-xl font-bold text-gray-900' }, form.title),
+                      form.is_active
+                        ? h('span', { class: 'px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full' }, 'Активна')
+                        : h('span', { class: 'px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full' }, 'Неактивна')
+                    ),
+                    form.description && h('p', { class: 'text-gray-600 mb-3' }, form.description),
+                    h('div', { class: 'flex gap-4 text-sm text-gray-500' },
+                      h('div', null, `📝 ${form.fields?.length || 0} полей`),
+                      h('div', null, `📨 ${form.total_submissions || 0} заявок`),
+                      form.last_submission_at && h('div', null, 
+                        `Последняя: ${new Date(form.last_submission_at).toLocaleDateString('ru-RU')}`
+                      )
+                    )
+                  ),
+                  h('div', { class: 'flex gap-2' },
+                    h('a', {
+                      href: `/admin/forms/telegram/${form.id}`,
+                      class: 'px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700'
+                    }, 'Редактировать'),
+                    h('a', {
+                      href: `/admin/forms/telegram/${form.id}/submissions`,
+                      class: 'px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200'
+                    }, 'Заявки'),
+                    h('button', {
+                      onClick: () => toggleActive(form.id, form.is_active),
+                      class: 'px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200'
+                    }, form.is_active ? 'Деактивировать' : 'Активировать'),
+                    h('button', {
+                      onClick: () => handleDelete(form.id),
+                      class: 'px-4 py-2 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200'
+                    }, 'Удалить')
+                  )
+                ),
+                h('div', { class: 'mt-4 pt-4 border-t border-gray-200' },
+                  h('div', { class: 'text-sm text-gray-500' },
+                    h('strong', null, 'Web App URL: '),
+                    h('code', { class: 'bg-gray-100 px-2 py-1 rounded text-xs' },
+                      `${window.location.origin}/telegram-app?form_id=${form.id}`
+                    )
+                  )
+                )
+              ))
+            )
+      );
+    }
+
+    // Рендерим компонент
+    const container = document.getElementById('forms-list');
+    if (container) {
+      render(h(FormsList), container);
+    }
+  </script>
+</AdminLayout>

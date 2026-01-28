@@ -1,354 +1,6 @@
 [
   {
-    "id": "poi_1769247857631_2",
-    "name": "Choys negombo",
-    "coordinates": {
-      "lat": 7.208478700000001,
-      "lng": 79.83546849999999
-    },
-    "address": "Customs House Road, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "food",
-    "types": [
-      "restaurant",
-      "food",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3.9,
-    "totalReviews": 615,
-    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:17.631Z"
-  },
-  {
-    "id": "poi_1769247857631_6",
-    "name": "Bank of Ceylon - Negombo Branch",
-    "coordinates": {
-      "lat": 7.209922699999998,
-      "lng": 79.8413601
-    },
-    "address": "118 Rajapakse Broadway, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "atm",
-    "types": [
-      "bank",
-      "finance",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3.2,
-    "totalReviews": 61,
-    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:17.631Z"
-  },
-  {
-    "id": "poi_1769247857632_9",
-    "name": "St. Mary's Church - Grand Street",
-    "coordinates": {
-      "lat": 7.2103836,
-      "lng": 79.8372971
-    },
-    "address": "Main Street, No.100 Grand Street, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "culture",
-    "types": [
-      "church",
-      "place_of_worship",
-      "tourist_attraction",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 4.7,
-    "totalReviews": 1424,
-    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:17.632Z"
-  },
-  {
-    "id": "poi_1769247857632_11",
-    "name": "Red Rose මීගමුව",
-    "coordinates": {
-      "lat": 7.2087901,
-      "lng": 79.8401374
-    },
-    "address": "68 A, First Floor, Shopping Complex, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "attraction",
-    "types": [
-      "point_of_interest",
-      "store",
-      "establishment"
-    ],
-    "rating": 4.1,
-    "totalReviews": 271,
-    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:17.632Z"
-  },
-  {
-    "id": "poi_1769247857633_14",
-    "name": "Commercial Bank",
-    "coordinates": {
-      "lat": 7.2118835,
-      "lng": 79.8398721
-    },
-    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "atm",
-    "types": [
-      "bank",
-      "atm",
-      "finance",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3,
-    "totalReviews": 89,
-    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:17.633Z"
-  },
-  {
-    "id": "poi_1769247857633_17",
-    "name": "Negombo Marine Engineers",
-    "coordinates": {
-      "lat": 7.208481999999999,
-      "lng": 79.836146
-    },
-    "address": "No.49,Custom road, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "attraction",
-    "types": [
-      "point_of_interest",
-      "store",
-      "establishment"
-    ],
-    "rating": 3.9,
-    "totalReviews": 9,
-    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:17.633Z"
-  },
-  {
-    "id": "poi_1769247859423_22",
-    "name": "Choys negombo",
-    "coordinates": {
-      "lat": 7.208478700000001,
-      "lng": 79.83546849999999
-    },
-    "address": "Customs House Road, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "food",
-    "types": [
-      "restaurant",
-      "food",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3.9,
-    "totalReviews": 615,
-    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:19.423Z"
-  },
-  {
-    "id": "poi_1769247859424_26",
-    "name": "Bank of Ceylon - Negombo Branch",
-    "coordinates": {
-      "lat": 7.209922699999998,
-      "lng": 79.8413601
-    },
-    "address": "118 Rajapakse Broadway, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "atm",
-    "types": [
-      "bank",
-      "finance",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3.2,
-    "totalReviews": 61,
-    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:19.424Z"
-  },
-  {
-    "id": "poi_1769247859425_29",
-    "name": "St. Mary's Church - Grand Street",
-    "coordinates": {
-      "lat": 7.2103836,
-      "lng": 79.8372971
-    },
-    "address": "Main Street, No.100 Grand Street, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "attraction",
-    "types": [
-      "tourist_attraction",
-      "church",
-      "place_of_worship",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 4.7,
-    "totalReviews": 1424,
-    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:19.425Z"
-  },
-  {
-    "id": "poi_1769247859425_31",
-    "name": "Red Rose මීගමුව",
-    "coordinates": {
-      "lat": 7.2087901,
-      "lng": 79.8401374
-    },
-    "address": "68 A, First Floor, Shopping Complex, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "attraction",
-    "types": [
-      "store",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 4.1,
-    "totalReviews": 271,
-    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:19.425Z"
-  },
-  {
-    "id": "poi_1769247859426_34",
-    "name": "Commercial Bank",
-    "coordinates": {
-      "lat": 7.2118835,
-      "lng": 79.8398721
-    },
-    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "atm",
-    "types": [
-      "bank",
-      "atm",
-      "finance",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3,
-    "totalReviews": 89,
-    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:19.426Z"
-  },
-  {
-    "id": "poi_1769247859427_37",
-    "name": "Negombo Marine Engineers",
-    "coordinates": {
-      "lat": 7.208481999999999,
-      "lng": 79.836146
-    },
-    "address": "No.49,Custom road, Negombo",
-    "phone": "",
-    "website": "",
-    "hours": "",
-    "mainPhoto": "",
-    "description": "",
-    "category": "attraction",
-    "types": [
-      "store",
-      "point_of_interest",
-      "establishment"
-    ],
-    "rating": 3.9,
-    "totalReviews": 9,
-    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
-    "location": "Negombo",
-    "region": "negombo_tangalle",
-    "parsingPass": 1,
-    "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:19.427Z"
-  },
-  {
-    "id": "poi_1769247861162_42",
+    "id": "poi_1769331111561_2",
     "name": "Choys negombo",
     "coordinates": {
       "lat": 7.208478700000001,
@@ -374,10 +26,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:21.162Z"
+    "createdAt": "2026-01-25T08:51:51.561Z"
   },
   {
-    "id": "poi_1769247861163_46",
+    "id": "poi_1769331111562_6",
     "name": "Bank of Ceylon - Negombo Branch",
     "coordinates": {
       "lat": 7.209922699999998,
@@ -403,10 +55,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:21.163Z"
+    "createdAt": "2026-01-25T08:51:51.562Z"
   },
   {
-    "id": "poi_1769247861163_49",
+    "id": "poi_1769331111562_9",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -427,16 +79,16 @@
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:21.163Z"
+    "createdAt": "2026-01-25T08:51:51.562Z"
   },
   {
-    "id": "poi_1769247861163_51",
+    "id": "poi_1769331111562_11",
     "name": "Red Rose මීගමුව",
     "coordinates": {
       "lat": 7.2087901,
@@ -461,10 +113,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:21.164Z"
+    "createdAt": "2026-01-25T08:51:51.562Z"
   },
   {
-    "id": "poi_1769247861164_54",
+    "id": "poi_1769331111563_14",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -491,10 +143,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:21.164Z"
+    "createdAt": "2026-01-25T08:51:51.563Z"
   },
   {
-    "id": "poi_1769247861165_57",
+    "id": "poi_1769331111564_17",
     "name": "Negombo Marine Engineers",
     "coordinates": {
       "lat": 7.208481999999999,
@@ -519,10 +171,358 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:21.165Z"
+    "createdAt": "2026-01-25T08:51:51.564Z"
   },
   {
-    "id": "poi_1769247862940_62",
+    "id": "poi_1769331113251_22",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:53.251Z"
+  },
+  {
+    "id": "poi_1769331113252_26",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:53.252Z"
+  },
+  {
+    "id": "poi_1769331113252_29",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1425,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:53.252Z"
+  },
+  {
+    "id": "poi_1769331113252_31",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:53.252Z"
+  },
+  {
+    "id": "poi_1769331113253_34",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:53.253Z"
+  },
+  {
+    "id": "poi_1769331113253_37",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "point_of_interest",
+      "store",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:53.253Z"
+  },
+  {
+    "id": "poi_1769331114952_42",
+    "name": "Choys negombo",
+    "coordinates": {
+      "lat": 7.208478700000001,
+      "lng": 79.83546849999999
+    },
+    "address": "Customs House Road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "food",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 615,
+    "placeId": "ChIJ6-5BgJvu4joR9C5o11y5Rxo",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:54.952Z"
+  },
+  {
+    "id": "poi_1769331114952_46",
+    "name": "Bank of Ceylon - Negombo Branch",
+    "coordinates": {
+      "lat": 7.209922699999998,
+      "lng": 79.8413601
+    },
+    "address": "118 Rajapakse Broadway, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.2,
+    "totalReviews": 61,
+    "placeId": "ChIJYQa8o5Du4joRbjrFlgoSsYw",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:54.952Z"
+  },
+  {
+    "id": "poi_1769331114953_49",
+    "name": "St. Mary's Church - Grand Street",
+    "coordinates": {
+      "lat": 7.2103836,
+      "lng": 79.8372971
+    },
+    "address": "Main Street, No.100 Grand Street, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "tourist_attraction",
+      "church",
+      "place_of_worship",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.7,
+    "totalReviews": 1425,
+    "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:54.953Z"
+  },
+  {
+    "id": "poi_1769331114953_51",
+    "name": "Red Rose මීගමුව",
+    "coordinates": {
+      "lat": 7.2087901,
+      "lng": 79.8401374
+    },
+    "address": "68 A, First Floor, Shopping Complex, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 4.1,
+    "totalReviews": 271,
+    "placeId": "ChIJbf3OZJru4joREIGOWHwWkjI",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:54.953Z"
+  },
+  {
+    "id": "poi_1769331114953_54",
+    "name": "Commercial Bank",
+    "coordinates": {
+      "lat": 7.2118835,
+      "lng": 79.8398721
+    },
+    "address": "No 24 & 26, Fernando Avenue, 29 Fernando Avenue, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "atm",
+    "types": [
+      "bank",
+      "atm",
+      "finance",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3,
+    "totalReviews": 89,
+    "placeId": "ChIJG-2P7pnu4joRL4mEUrwyNp8",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:54.953Z"
+  },
+  {
+    "id": "poi_1769331114954_57",
+    "name": "Negombo Marine Engineers",
+    "coordinates": {
+      "lat": 7.208481999999999,
+      "lng": 79.836146
+    },
+    "address": "No.49,Custom road, Negombo",
+    "phone": "",
+    "website": "",
+    "hours": "",
+    "mainPhoto": "",
+    "description": "",
+    "category": "attraction",
+    "types": [
+      "store",
+      "point_of_interest",
+      "establishment"
+    ],
+    "rating": 3.9,
+    "totalReviews": 9,
+    "placeId": "ChIJFctYm5vu4joRyiTj23BD1I4",
+    "location": "Negombo",
+    "region": "negombo_tangalle",
+    "parsingPass": 1,
+    "source": "google_places_api",
+    "createdAt": "2026-01-25T08:51:54.954Z"
+  },
+  {
+    "id": "poi_1769331116632_62",
     "name": "Choys negombo",
     "coordinates": {
       "lat": 7.208478700000001,
@@ -548,10 +548,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:22.940Z"
+    "createdAt": "2026-01-25T08:51:56.632Z"
   },
   {
-    "id": "poi_1769247862941_66",
+    "id": "poi_1769331116633_66",
     "name": "Bank of Ceylon - Negombo Branch",
     "coordinates": {
       "lat": 7.209922699999998,
@@ -563,11 +563,11 @@
     "hours": "",
     "mainPhoto": "",
     "description": "",
-    "category": "attraction",
+    "category": "atm",
     "types": [
-      "point_of_interest",
       "bank",
       "finance",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 3.2,
@@ -577,10 +577,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:22.941Z"
+    "createdAt": "2026-01-25T08:51:56.633Z"
   },
   {
-    "id": "poi_1769247862941_69",
+    "id": "poi_1769331116633_69",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -601,16 +601,16 @@
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:22.941Z"
+    "createdAt": "2026-01-25T08:51:56.633Z"
   },
   {
-    "id": "poi_1769247862942_71",
+    "id": "poi_1769331116634_71",
     "name": "Red Rose මීගමුව",
     "coordinates": {
       "lat": 7.2087901,
@@ -635,10 +635,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:22.942Z"
+    "createdAt": "2026-01-25T08:51:56.634Z"
   },
   {
-    "id": "poi_1769247862942_74",
+    "id": "poi_1769331116634_74",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -654,8 +654,8 @@
     "types": [
       "bank",
       "atm",
-      "point_of_interest",
       "finance",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 3,
@@ -665,10 +665,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:22.942Z"
+    "createdAt": "2026-01-25T08:51:56.634Z"
   },
   {
-    "id": "poi_1769247862943_77",
+    "id": "poi_1769331116635_77",
     "name": "Negombo Marine Engineers",
     "coordinates": {
       "lat": 7.208481999999999,
@@ -693,10 +693,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:22.943Z"
+    "createdAt": "2026-01-25T08:51:56.635Z"
   },
   {
-    "id": "poi_1769247864791_80",
+    "id": "poi_1769331118387_80",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -708,25 +708,25 @@
     "hours": "",
     "mainPhoto": "",
     "description": "",
-    "category": "culture",
+    "category": "attraction",
     "types": [
+      "tourist_attraction",
       "church",
       "place_of_worship",
-      "tourist_attraction",
       "point_of_interest",
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_81",
+    "id": "poi_1769331118387_81",
     "name": "T-TEC Tours",
     "coordinates": {
       "lat": 7.205241000000002,
@@ -751,10 +751,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_82",
+    "id": "poi_1769331118387_82",
     "name": "Sri Lankan Riders - Holiday & Tours",
     "coordinates": {
       "lat": 7.210171900000002,
@@ -768,8 +768,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "travel_agency",
       "tourist_attraction",
+      "travel_agency",
       "point_of_interest",
       "establishment"
     ],
@@ -780,10 +780,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_83",
+    "id": "poi_1769331118387_83",
     "name": "Story House",
     "coordinates": {
       "lat": 7.2067933,
@@ -797,9 +797,9 @@
     "description": "",
     "category": "attraction",
     "types": [
+      "tourist_attraction",
       "travel_agency",
       "lodging",
-      "tourist_attraction",
       "point_of_interest",
       "establishment"
     ],
@@ -810,10 +810,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_84",
+    "id": "poi_1769331118387_84",
     "name": "Grand Street Bridge",
     "coordinates": {
       "lat": 7.211029300000003,
@@ -838,10 +838,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_86",
+    "id": "poi_1769331118387_86",
     "name": "Negombo Dutch Fort",
     "coordinates": {
       "lat": 7.208615000000002,
@@ -866,10 +866,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_87",
+    "id": "poi_1769331118387_87",
     "name": "The King's island Negombo",
     "coordinates": {
       "lat": 7.203916999999999,
@@ -883,8 +883,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "lodging",
       "tourist_attraction",
+      "lodging",
       "point_of_interest",
       "establishment"
     ],
@@ -895,10 +895,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247864791_88",
+    "id": "poi_1769331118387_88",
     "name": "Captain Fernando Negombo Boat Tours",
     "coordinates": {
       "lat": 7.213796,
@@ -912,8 +912,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "travel_agency",
       "tourist_attraction",
+      "travel_agency",
       "point_of_interest",
       "establishment"
     ],
@@ -924,10 +924,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:24.791Z"
+    "createdAt": "2026-01-25T08:51:58.387Z"
   },
   {
-    "id": "poi_1769247868363_89",
+    "id": "poi_1769331121808_89",
     "name": "Coronation Restaurant & Bar",
     "coordinates": {
       "lat": 7.207300699999999,
@@ -954,10 +954,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:28.363Z"
+    "createdAt": "2026-01-25T08:52:01.808Z"
   },
   {
-    "id": "poi_1769247868363_90",
+    "id": "poi_1769331121808_90",
     "name": "Bonjo murukku",
     "coordinates": {
       "lat": 7.202262600000001,
@@ -982,10 +982,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:28.363Z"
+    "createdAt": "2026-01-25T08:52:01.808Z"
   },
   {
-    "id": "poi_1769247868363_91",
+    "id": "poi_1769331121808_91",
     "name": "Beer House Pub & Restaurant",
     "coordinates": {
       "lat": 7.204204099999999,
@@ -1010,10 +1010,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:28.363Z"
+    "createdAt": "2026-01-25T08:52:01.808Z"
   },
   {
-    "id": "poi_1769247870239_93",
+    "id": "poi_1769331123535_93",
     "name": "CORONATION Boat House",
     "coordinates": {
       "lat": 7.207299199999998,
@@ -1028,8 +1028,8 @@
     "category": "culture",
     "types": [
       "zoo",
-      "travel_agency",
       "park",
+      "travel_agency",
       "point_of_interest",
       "establishment"
     ],
@@ -1040,10 +1040,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:30.239Z"
+    "createdAt": "2026-01-25T08:52:03.535Z"
   },
   {
-    "id": "poi_1769247870239_94",
+    "id": "poi_1769331123535_94",
     "name": "Park road",
     "coordinates": {
       "lat": 7.207185,
@@ -1068,10 +1068,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:30.239Z"
+    "createdAt": "2026-01-25T08:52:03.535Z"
   },
   {
-    "id": "poi_1769247872101_95",
+    "id": "poi_1769331125301_95",
     "name": "Harcourts Pharmacy",
     "coordinates": {
       "lat": 7.2111746,
@@ -1087,8 +1087,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 4.5,
@@ -1098,10 +1098,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_96",
+    "id": "poi_1769331125301_96",
     "name": "Shanthi pharmacy",
     "coordinates": {
       "lat": 7.206906,
@@ -1117,8 +1117,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 0,
@@ -1128,10 +1128,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_97",
+    "id": "poi_1769331125301_97",
     "name": "Union Pharmacy",
     "coordinates": {
       "lat": 7.2115408,
@@ -1147,8 +1147,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 4.3,
@@ -1158,10 +1158,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_98",
+    "id": "poi_1769331125301_98",
     "name": "Shanthi Pharmacy & Supermarket",
     "coordinates": {
       "lat": 7.206012199999999,
@@ -1177,8 +1177,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 4.8,
@@ -1188,10 +1188,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_99",
+    "id": "poi_1769331125301_99",
     "name": "Negombo Drugs Pharmacy",
     "coordinates": {
       "lat": 7.212361299999999,
@@ -1207,8 +1207,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 5,
@@ -1218,10 +1218,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_100",
+    "id": "poi_1769331125301_100",
     "name": "Super Medical Shopping Complex",
     "coordinates": {
       "lat": 7.208994100000002,
@@ -1237,8 +1237,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 5,
@@ -1248,10 +1248,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_101",
+    "id": "poi_1769331125301_101",
     "name": "The Lanka Pharmacy",
     "coordinates": {
       "lat": 7.2110363,
@@ -1267,8 +1267,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 4.4,
@@ -1278,10 +1278,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_102",
+    "id": "poi_1769331125301_102",
     "name": "Better Health Pharmacy",
     "coordinates": {
       "lat": 7.211116400000003,
@@ -1297,8 +1297,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 4.3,
@@ -1308,10 +1308,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_103",
+    "id": "poi_1769331125301_103",
     "name": "Shanthi sinhala medicine (Ayurvedic)",
     "coordinates": {
       "lat": 7.211239500000001,
@@ -1327,8 +1327,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 5,
@@ -1338,10 +1338,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_104",
+    "id": "poi_1769331125301_104",
     "name": "Royal Pharmacy",
     "coordinates": {
       "lat": 7.212998899999998,
@@ -1357,8 +1357,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 5,
@@ -1368,10 +1368,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_105",
+    "id": "poi_1769331125301_105",
     "name": "Citymedical Negombo",
     "coordinates": {
       "lat": 7.211604199999999,
@@ -1387,8 +1387,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 2.3,
@@ -1398,10 +1398,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_106",
+    "id": "poi_1769331125301_106",
     "name": "New Central Pharmacy",
     "coordinates": {
       "lat": 7.211756200000001,
@@ -1417,8 +1417,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 4.7,
@@ -1428,10 +1428,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247872101_107",
+    "id": "poi_1769331125301_107",
     "name": "Osu Medura Pharmacy",
     "coordinates": {
       "lat": 7.206359199999999,
@@ -1447,8 +1447,8 @@
     "types": [
       "pharmacy",
       "health",
-      "point_of_interest",
       "store",
+      "point_of_interest",
       "establishment"
     ],
     "rating": 0,
@@ -1458,10 +1458,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:32.101Z"
+    "createdAt": "2026-01-25T08:52:05.301Z"
   },
   {
-    "id": "poi_1769247875637_108",
+    "id": "poi_1769331128731_108",
     "name": "Central Nursing Home",
     "coordinates": {
       "lat": 7.2139024,
@@ -1487,10 +1487,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:35.637Z"
+    "createdAt": "2026-01-25T08:52:08.731Z"
   },
   {
-    "id": "poi_1769247875637_109",
+    "id": "poi_1769331128731_109",
     "name": "Dr.Stanley Fernando's Dispensary",
     "coordinates": {
       "lat": 7.205988,
@@ -1516,10 +1516,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:35.637Z"
+    "createdAt": "2026-01-25T08:52:08.731Z"
   },
   {
-    "id": "poi_1769247875637_110",
+    "id": "poi_1769331128731_110",
     "name": "St. Jude medical center",
     "coordinates": {
       "lat": 7.2063633,
@@ -1545,10 +1545,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:35.637Z"
+    "createdAt": "2026-01-25T08:52:08.731Z"
   },
   {
-    "id": "poi_1769247875637_111",
+    "id": "poi_1769331128731_111",
     "name": "Manthri Nursing Home",
     "coordinates": {
       "lat": 7.213907799999998,
@@ -1574,10 +1574,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:35.637Z"
+    "createdAt": "2026-01-25T08:52:08.731Z"
   },
   {
-    "id": "poi_1769247875637_112",
+    "id": "poi_1769331128731_112",
     "name": "The Helping Hand Psychological Hospital",
     "coordinates": {
       "lat": 7.204169,
@@ -1603,10 +1603,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:35.637Z"
+    "createdAt": "2026-01-25T08:52:08.731Z"
   },
   {
-    "id": "poi_1769247877414_115",
+    "id": "poi_1769331130431_115",
     "name": "Choys negombo",
     "coordinates": {
       "lat": 7.208478700000001,
@@ -1632,10 +1632,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:37.414Z"
+    "createdAt": "2026-01-25T08:52:10.431Z"
   },
   {
-    "id": "poi_1769247877415_119",
+    "id": "poi_1769331130431_119",
     "name": "Bank of Ceylon - Negombo Branch",
     "coordinates": {
       "lat": 7.209922699999998,
@@ -1661,10 +1661,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:37.415Z"
+    "createdAt": "2026-01-25T08:52:10.431Z"
   },
   {
-    "id": "poi_1769247877415_122",
+    "id": "poi_1769331130432_122",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -1685,16 +1685,16 @@
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:37.415Z"
+    "createdAt": "2026-01-25T08:52:10.432Z"
   },
   {
-    "id": "poi_1769247877416_124",
+    "id": "poi_1769331130432_124",
     "name": "Red Rose මීගමුව",
     "coordinates": {
       "lat": 7.2087901,
@@ -1719,10 +1719,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:37.416Z"
+    "createdAt": "2026-01-25T08:52:10.432Z"
   },
   {
-    "id": "poi_1769247877416_127",
+    "id": "poi_1769331130432_127",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -1749,10 +1749,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:37.416Z"
+    "createdAt": "2026-01-25T08:52:10.432Z"
   },
   {
-    "id": "poi_1769247877417_130",
+    "id": "poi_1769331130433_130",
     "name": "Negombo Marine Engineers",
     "coordinates": {
       "lat": 7.208481999999999,
@@ -1777,10 +1777,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:37.417Z"
+    "createdAt": "2026-01-25T08:52:10.433Z"
   },
   {
-    "id": "poi_1769247879175_133",
+    "id": "poi_1769331132170_133",
     "name": "Central Dispensary and sea stree osu sala pharmacy",
     "coordinates": {
       "lat": 7.2149587,
@@ -1806,10 +1806,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:39.175Z"
+    "createdAt": "2026-01-25T08:52:12.170Z"
   },
   {
-    "id": "poi_1769247879175_134",
+    "id": "poi_1769331132170_134",
     "name": "Restaurant",
     "coordinates": {
       "lat": 7.2093844,
@@ -1835,10 +1835,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:39.175Z"
+    "createdAt": "2026-01-25T08:52:12.170Z"
   },
   {
-    "id": "poi_1769247880941_135",
+    "id": "poi_1769331133944_135",
     "name": "Laugfs Supermarket",
     "coordinates": {
       "lat": 7.209759999999998,
@@ -1854,9 +1854,9 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 4.1,
@@ -1866,10 +1866,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247880941_136",
+    "id": "poi_1769331133944_136",
     "name": "MATARA SUPPER",
     "coordinates": {
       "lat": 7.210518599999999,
@@ -1885,9 +1885,9 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 0,
@@ -1897,10 +1897,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247880941_137",
+    "id": "poi_1769331133944_137",
     "name": "Coronation Grinding Mills",
     "coordinates": {
       "lat": 7.2116248,
@@ -1916,9 +1916,9 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 4.1,
@@ -1928,10 +1928,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247880941_138",
+    "id": "poi_1769331133944_138",
     "name": "Negombo Sunday Street Market",
     "coordinates": {
       "lat": 7.2119911,
@@ -1947,9 +1947,9 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 4,
@@ -1959,10 +1959,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247880941_139",
+    "id": "poi_1769331133944_139",
     "name": "Cargills Food City Express - Greens Road",
     "coordinates": {
       "lat": 7.206041799999999,
@@ -1978,9 +1978,9 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 3.9,
@@ -1990,10 +1990,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247880941_140",
+    "id": "poi_1769331133944_140",
     "name": "Arpico Super Centre - Negombo",
     "coordinates": {
       "lat": 7.207204,
@@ -2009,9 +2009,9 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 4.3,
@@ -2021,10 +2021,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247880941_141",
+    "id": "poi_1769331133944_141",
     "name": "MBF Sales Centre",
     "coordinates": {
       "lat": 7.206692800000001,
@@ -2040,10 +2040,10 @@
     "types": [
       "supermarket",
       "grocery_or_supermarket",
+      "store",
       "restaurant",
       "food",
       "point_of_interest",
-      "store",
       "establishment"
     ],
     "rating": 0,
@@ -2053,10 +2053,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:40.941Z"
+    "createdAt": "2026-01-25T08:52:13.944Z"
   },
   {
-    "id": "poi_1769247884409_142",
+    "id": "poi_1769331137389_142",
     "name": "Frankwins Wine Shop",
     "coordinates": {
       "lat": 7.211196800000002,
@@ -2083,10 +2083,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:44.409Z"
+    "createdAt": "2026-01-25T08:52:17.389Z"
   },
   {
-    "id": "poi_1769247884409_143",
+    "id": "poi_1769331137389_143",
     "name": "Bethani Wine Shop",
     "coordinates": {
       "lat": 7.206299399999998,
@@ -2113,10 +2113,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:44.409Z"
+    "createdAt": "2026-01-25T08:52:17.389Z"
   },
   {
-    "id": "poi_1769247884409_144",
+    "id": "poi_1769331137389_144",
     "name": "G S Wine Stores",
     "coordinates": {
       "lat": 7.209528499999999,
@@ -2143,10 +2143,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:44.409Z"
+    "createdAt": "2026-01-25T08:52:17.389Z"
   },
   {
-    "id": "poi_1769247884409_145",
+    "id": "poi_1769331137389_145",
     "name": "K.R.F. Wine Stores",
     "coordinates": {
       "lat": 7.210780699999998,
@@ -2173,10 +2173,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:44.409Z"
+    "createdAt": "2026-01-25T08:52:17.389Z"
   },
   {
-    "id": "poi_1769247884409_146",
+    "id": "poi_1769331137389_146",
     "name": "Sesatha Wine Stores",
     "coordinates": {
       "lat": 7.2070834,
@@ -2203,10 +2203,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:44.409Z"
+    "createdAt": "2026-01-25T08:52:17.389Z"
   },
   {
-    "id": "poi_1769247886188_148",
+    "id": "poi_1769331139135_148",
     "name": "BC Lifestyle Studio - Negombo",
     "coordinates": {
       "lat": 7.211387000000001,
@@ -2221,24 +2221,24 @@
     "category": "spa",
     "types": [
       "beauty_salon",
-      "hair_care",
       "spa",
-      "store",
+      "hair_care",
       "health",
       "point_of_interest",
+      "store",
       "establishment"
     ],
     "rating": 4.9,
-    "totalReviews": 444,
+    "totalReviews": 445,
     "placeId": "ChIJZa4u7dfv4joRKZ102-basY4",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:46.188Z"
+    "createdAt": "2026-01-25T08:52:19.135Z"
   },
   {
-    "id": "poi_1769247887859_151",
+    "id": "poi_1769331140851_151",
     "name": "Choys negombo",
     "coordinates": {
       "lat": 7.208478700000001,
@@ -2264,10 +2264,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:47.859Z"
+    "createdAt": "2026-01-25T08:52:20.851Z"
   },
   {
-    "id": "poi_1769247887860_155",
+    "id": "poi_1769331140852_155",
     "name": "Bank of Ceylon - Negombo Branch",
     "coordinates": {
       "lat": 7.209922699999998,
@@ -2293,10 +2293,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:47.860Z"
+    "createdAt": "2026-01-25T08:52:20.852Z"
   },
   {
-    "id": "poi_1769247887860_158",
+    "id": "poi_1769331140852_158",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -2308,25 +2308,25 @@
     "hours": "",
     "mainPhoto": "",
     "description": "",
-    "category": "attraction",
+    "category": "culture",
     "types": [
-      "tourist_attraction",
       "church",
       "place_of_worship",
+      "tourist_attraction",
       "point_of_interest",
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:47.860Z"
+    "createdAt": "2026-01-25T08:52:20.852Z"
   },
   {
-    "id": "poi_1769247887860_160",
+    "id": "poi_1769331140853_160",
     "name": "Red Rose මීගමුව",
     "coordinates": {
       "lat": 7.2087901,
@@ -2340,8 +2340,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "store",
       "point_of_interest",
+      "store",
       "establishment"
     ],
     "rating": 4.1,
@@ -2351,10 +2351,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:47.860Z"
+    "createdAt": "2026-01-25T08:52:20.853Z"
   },
   {
-    "id": "poi_1769247887861_163",
+    "id": "poi_1769331140853_163",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -2381,10 +2381,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:47.861Z"
+    "createdAt": "2026-01-25T08:52:20.853Z"
   },
   {
-    "id": "poi_1769247887862_166",
+    "id": "poi_1769331140854_166",
     "name": "Negombo Marine Engineers",
     "coordinates": {
       "lat": 7.208481999999999,
@@ -2398,8 +2398,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "store",
       "point_of_interest",
+      "store",
       "establishment"
     ],
     "rating": 3.9,
@@ -2409,10 +2409,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:47.862Z"
+    "createdAt": "2026-01-25T08:52:20.854Z"
   },
   {
-    "id": "poi_1769247889692_169",
+    "id": "poi_1769331142636_169",
     "name": "Salon Jacqui",
     "coordinates": {
       "lat": 7.210853,
@@ -2437,10 +2437,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_170",
+    "id": "poi_1769331142637_170",
     "name": "Dilu Salon",
     "coordinates": {
       "lat": 7.211075,
@@ -2465,10 +2465,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_171",
+    "id": "poi_1769331142637_171",
     "name": "Salon Hansi",
     "coordinates": {
       "lat": 7.2075131,
@@ -2493,10 +2493,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_172",
+    "id": "poi_1769331142637_172",
     "name": "New Comb Salon",
     "coordinates": {
       "lat": 7.207347400000001,
@@ -2521,10 +2521,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_173",
+    "id": "poi_1769331142637_173",
     "name": "Natural Beauty Radiance",
     "coordinates": {
       "lat": 7.207234700000001,
@@ -2549,10 +2549,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_174",
+    "id": "poi_1769331142637_174",
     "name": "Salon Marriya",
     "coordinates": {
       "lat": 7.207144700000001,
@@ -2577,10 +2577,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_175",
+    "id": "poi_1769331142637_175",
     "name": "Orient Lanka",
     "coordinates": {
       "lat": 7.210190000000001,
@@ -2605,10 +2605,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_176",
+    "id": "poi_1769331142637_176",
     "name": "Black scissors",
     "coordinates": {
       "lat": 7.2086447,
@@ -2633,10 +2633,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_177",
+    "id": "poi_1769331142637_177",
     "name": "Luxus king",
     "coordinates": {
       "lat": 7.208658699999998,
@@ -2661,10 +2661,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_178",
+    "id": "poi_1769331142637_178",
     "name": "CEYLON SECRET",
     "coordinates": {
       "lat": 7.2131443,
@@ -2689,10 +2689,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_179",
+    "id": "poi_1769331142637_179",
     "name": "The Beauty Centre",
     "coordinates": {
       "lat": 7.208174899999999,
@@ -2717,10 +2717,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_180",
+    "id": "poi_1769331142637_180",
     "name": "Nadeeka gunawadhane salon",
     "coordinates": {
       "lat": 7.207271599999998,
@@ -2745,10 +2745,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_181",
+    "id": "poi_1769331142637_181",
     "name": "Masha Salon",
     "coordinates": {
       "lat": 7.207661799999999,
@@ -2773,10 +2773,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_182",
+    "id": "poi_1769331142637_182",
     "name": "SALON MINODI",
     "coordinates": {
       "lat": 7.2043283,
@@ -2801,10 +2801,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_183",
+    "id": "poi_1769331142637_183",
     "name": "Colombo Salon",
     "coordinates": {
       "lat": 7.210156,
@@ -2829,10 +2829,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_184",
+    "id": "poi_1769331142637_184",
     "name": "Shine Salon Unisex",
     "coordinates": {
       "lat": 7.2060901,
@@ -2857,10 +2857,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_185",
+    "id": "poi_1769331142637_185",
     "name": "Radha Salon",
     "coordinates": {
       "lat": 7.2063258,
@@ -2885,10 +2885,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_186",
+    "id": "poi_1769331142637_186",
     "name": "Romantika Cosmetics shop",
     "coordinates": {
       "lat": 7.2062009,
@@ -2902,8 +2902,8 @@
     "description": "",
     "category": "spa",
     "types": [
-      "clothing_store",
       "beauty_salon",
+      "clothing_store",
       "point_of_interest",
       "store",
       "establishment"
@@ -2915,10 +2915,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_187",
+    "id": "poi_1769331142637_187",
     "name": "DD Beauty Lounge",
     "coordinates": {
       "lat": 7.2141908,
@@ -2943,10 +2943,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247889692_188",
+    "id": "poi_1769331142637_188",
     "name": "beauty saloon",
     "coordinates": {
       "lat": 7.2141172,
@@ -2971,10 +2971,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:49.692Z"
+    "createdAt": "2026-01-25T08:52:22.637Z"
   },
   {
-    "id": "poi_1769247891444_189",
+    "id": "poi_1769331144400_189",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -3001,10 +3001,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.400Z"
   },
   {
-    "id": "poi_1769247891444_190",
+    "id": "poi_1769331144400_190",
     "name": "Bank of Ceylon - City Branch Negombo",
     "coordinates": {
       "lat": 7.2113778,
@@ -3031,10 +3031,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.400Z"
   },
   {
-    "id": "poi_1769247891444_191",
+    "id": "poi_1769331144400_191",
     "name": "Hatton National Bank ATM",
     "coordinates": {
       "lat": 7.2054916,
@@ -3060,10 +3060,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.400Z"
   },
   {
-    "id": "poi_1769247891444_192",
+    "id": "poi_1769331144400_192",
     "name": "Sampath Bank ATM",
     "coordinates": {
       "lat": 7.205081400000002,
@@ -3089,10 +3089,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.400Z"
   },
   {
-    "id": "poi_1769247891444_193",
+    "id": "poi_1769331144400_193",
     "name": "Commercial Bank Negombo Minicom Branch",
     "coordinates": {
       "lat": 7.207563899999999,
@@ -3119,10 +3119,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.400Z"
   },
   {
-    "id": "poi_1769247891444_194",
+    "id": "poi_1769331144400_194",
     "name": "BOC ATM",
     "coordinates": {
       "lat": 7.211303699999998,
@@ -3148,10 +3148,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.400Z"
   },
   {
-    "id": "poi_1769247891444_195",
+    "id": "poi_1769331144401_195",
     "name": "BOC ATM/CRM",
     "coordinates": {
       "lat": 7.2099591,
@@ -3177,10 +3177,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.401Z"
   },
   {
-    "id": "poi_1769247891444_196",
+    "id": "poi_1769331144401_196",
     "name": "Seylan Bank ATM",
     "coordinates": {
       "lat": 7.210269299999999,
@@ -3206,10 +3206,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.401Z"
   },
   {
-    "id": "poi_1769247891444_197",
+    "id": "poi_1769331144401_197",
     "name": "HNB ATM - Mankuliya",
     "coordinates": {
       "lat": 7.2053752,
@@ -3235,10 +3235,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.401Z"
   },
   {
-    "id": "poi_1769247891444_198",
+    "id": "poi_1769331144401_198",
     "name": "NDB Bank - Negombo",
     "coordinates": {
       "lat": 7.207074099999999,
@@ -3265,10 +3265,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.401Z"
   },
   {
-    "id": "poi_1769247891444_199",
+    "id": "poi_1769331144401_199",
     "name": "NSB ATM",
     "coordinates": {
       "lat": 7.206762699999998,
@@ -3294,10 +3294,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.401Z"
   },
   {
-    "id": "poi_1769247891444_200",
+    "id": "poi_1769331144401_200",
     "name": "BOC ATM",
     "coordinates": {
       "lat": 7.2051069,
@@ -3323,10 +3323,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:51.444Z"
+    "createdAt": "2026-01-25T08:52:24.401Z"
   },
   {
-    "id": "poi_1769247893308_201",
+    "id": "poi_1769331146155_201",
     "name": "Bank of Ceylon - Negombo Branch",
     "coordinates": {
       "lat": 7.209922699999998,
@@ -3352,10 +3352,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.308Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893308_202",
+    "id": "poi_1769331146155_202",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -3382,10 +3382,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.308Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893308_203",
+    "id": "poi_1769331146155_203",
     "name": "Bank of Ceylon - City Branch Negombo",
     "coordinates": {
       "lat": 7.2113778,
@@ -3412,10 +3412,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.308Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_204",
+    "id": "poi_1769331146155_204",
     "name": "Hatton National Bank (HNB) - Negombo",
     "coordinates": {
       "lat": 7.208743600000001,
@@ -3441,10 +3441,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_205",
+    "id": "poi_1769331146155_205",
     "name": "Nations Trust Bank (NTB) - Negombo Branch",
     "coordinates": {
       "lat": 7.212673199999998,
@@ -3470,10 +3470,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_206",
+    "id": "poi_1769331146155_206",
     "name": "Commercial Bank Negombo Minicom Branch",
     "coordinates": {
       "lat": 7.207563899999999,
@@ -3500,10 +3500,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_207",
+    "id": "poi_1769331146155_207",
     "name": "Sampath Bank Negombo Super",
     "coordinates": {
       "lat": 7.2123537,
@@ -3529,10 +3529,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_208",
+    "id": "poi_1769331146155_208",
     "name": "People's Bank",
     "coordinates": {
       "lat": 7.208395899999998,
@@ -3558,10 +3558,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_209",
+    "id": "poi_1769331146155_209",
     "name": "Seylan Bank PLC - Negombo",
     "coordinates": {
       "lat": 7.210259099999999,
@@ -3587,10 +3587,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_210",
+    "id": "poi_1769331146155_210",
     "name": "SDB Bank Negombo Branch",
     "coordinates": {
       "lat": 7.2054377,
@@ -3616,10 +3616,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_211",
+    "id": "poi_1769331146155_211",
     "name": "Cargills Bank - Negombo",
     "coordinates": {
       "lat": 7.211544200000001,
@@ -3645,10 +3645,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_212",
+    "id": "poi_1769331146155_212",
     "name": "NDB Bank - Negombo",
     "coordinates": {
       "lat": 7.207074099999999,
@@ -3675,10 +3675,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_213",
+    "id": "poi_1769331146155_213",
     "name": "SMB Finance PLC Negombo",
     "coordinates": {
       "lat": 7.211358299999999,
@@ -3704,10 +3704,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_214",
+    "id": "poi_1769331146155_214",
     "name": "National Savings Bank",
     "coordinates": {
       "lat": 7.2067291,
@@ -3733,10 +3733,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_215",
+    "id": "poi_1769331146155_215",
     "name": "Citizens Development Business Finance PLC (CDB Negombo Branch)",
     "coordinates": {
       "lat": 7.206982099999999,
@@ -3762,10 +3762,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_216",
+    "id": "poi_1769331146155_216",
     "name": "Regional Development Bank",
     "coordinates": {
       "lat": 7.204520400000001,
@@ -3791,10 +3791,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247893309_217",
+    "id": "poi_1769331146155_217",
     "name": "MBSL Bank",
     "coordinates": {
       "lat": 7.2123341,
@@ -3820,10 +3820,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:53.309Z"
+    "createdAt": "2026-01-25T08:52:26.155Z"
   },
   {
-    "id": "poi_1769247896842_218",
+    "id": "poi_1769331149570_218",
     "name": "Negombo Bus Terminal",
     "coordinates": {
       "lat": 7.2053916,
@@ -3849,10 +3849,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:56.842Z"
+    "createdAt": "2026-01-25T08:52:29.570Z"
   },
   {
-    "id": "poi_1769247896842_219",
+    "id": "poi_1769331149570_219",
     "name": "Negombo Bus Terminal",
     "coordinates": {
       "lat": 7.2053902,
@@ -3878,10 +3878,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:56.842Z"
+    "createdAt": "2026-01-25T08:52:29.570Z"
   },
   {
-    "id": "poi_1769247896842_220",
+    "id": "poi_1769331149570_220",
     "name": "Negombo Bus Terminal",
     "coordinates": {
       "lat": 7.205334899999998,
@@ -3907,10 +3907,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:56.842Z"
+    "createdAt": "2026-01-25T08:52:29.570Z"
   },
   {
-    "id": "poi_1769247896842_221",
+    "id": "poi_1769331149570_221",
     "name": "Negambo Bus Terminal",
     "coordinates": {
       "lat": 7.205374899999998,
@@ -3936,10 +3936,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:56.842Z"
+    "createdAt": "2026-01-25T08:52:29.570Z"
   },
   {
-    "id": "poi_1769247898674_222",
+    "id": "poi_1769331151347_222",
     "name": "Bus Stop",
     "coordinates": {
       "lat": 7.210079999999998,
@@ -3964,10 +3964,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_223",
+    "id": "poi_1769331151347_223",
     "name": "Bus Stop",
     "coordinates": {
       "lat": 7.208886799999999,
@@ -3992,10 +3992,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_224",
+    "id": "poi_1769331151347_224",
     "name": "Bus Stop",
     "coordinates": {
       "lat": 7.207648799999998,
@@ -4020,10 +4020,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_226",
+    "id": "poi_1769331151347_226",
     "name": "Negombo Railway Bus Stop",
     "coordinates": {
       "lat": 7.211360000000003,
@@ -4048,10 +4048,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_227",
+    "id": "poi_1769331151347_227",
     "name": "Negombo Bus Terminal",
     "coordinates": {
       "lat": 7.2053916,
@@ -4077,10 +4077,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_228",
+    "id": "poi_1769331151347_228",
     "name": "Negombo Bus Terminal",
     "coordinates": {
       "lat": 7.2053902,
@@ -4106,10 +4106,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_229",
+    "id": "poi_1769331151347_229",
     "name": "Negombo Railway Bus Stop",
     "coordinates": {
       "lat": 7.2104797,
@@ -4134,10 +4134,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_230",
+    "id": "poi_1769331151347_230",
     "name": "Bus Stop",
     "coordinates": {
       "lat": 7.210623200000001,
@@ -4162,10 +4162,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_231",
+    "id": "poi_1769331151347_231",
     "name": "Negombo",
     "coordinates": {
       "lat": 7.210421900000001,
@@ -4191,10 +4191,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_232",
+    "id": "poi_1769331151347_232",
     "name": "Negombo Bus Terminal",
     "coordinates": {
       "lat": 7.205334899999998,
@@ -4220,10 +4220,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_233",
+    "id": "poi_1769331151347_233",
     "name": "Negambo Bus Terminal",
     "coordinates": {
       "lat": 7.205374899999998,
@@ -4249,10 +4249,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_234",
+    "id": "poi_1769331151347_234",
     "name": "Bus Stop",
     "coordinates": {
       "lat": 7.212249999999999,
@@ -4277,10 +4277,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_235",
+    "id": "poi_1769331151347_235",
     "name": "Archbishop Nicholas Marcus Fernando Mawatha",
     "coordinates": {
       "lat": 7.203617599999999,
@@ -4305,10 +4305,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247898674_236",
+    "id": "poi_1769331151347_236",
     "name": "Bus Stop",
     "coordinates": {
       "lat": 7.212610000000001,
@@ -4333,10 +4333,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:44:58.674Z"
+    "createdAt": "2026-01-25T08:52:31.347Z"
   },
   {
-    "id": "poi_1769247900425_239",
+    "id": "poi_1769331153030_239",
     "name": "Choys negombo",
     "coordinates": {
       "lat": 7.208478700000001,
@@ -4362,10 +4362,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:00.425Z"
+    "createdAt": "2026-01-25T08:52:33.030Z"
   },
   {
-    "id": "poi_1769247900426_243",
+    "id": "poi_1769331153030_243",
     "name": "Bank of Ceylon - Negombo Branch",
     "coordinates": {
       "lat": 7.209922699999998,
@@ -4391,10 +4391,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:00.426Z"
+    "createdAt": "2026-01-25T08:52:33.030Z"
   },
   {
-    "id": "poi_1769247900426_246",
+    "id": "poi_1769331153031_246",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -4415,16 +4415,16 @@
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:00.426Z"
+    "createdAt": "2026-01-25T08:52:33.031Z"
   },
   {
-    "id": "poi_1769247900427_248",
+    "id": "poi_1769331153031_248",
     "name": "Red Rose මීගමුව",
     "coordinates": {
       "lat": 7.2087901,
@@ -4438,8 +4438,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "store",
       "point_of_interest",
+      "store",
       "establishment"
     ],
     "rating": 4.1,
@@ -4449,10 +4449,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:00.427Z"
+    "createdAt": "2026-01-25T08:52:33.031Z"
   },
   {
-    "id": "poi_1769247900427_251",
+    "id": "poi_1769331153031_251",
     "name": "Commercial Bank",
     "coordinates": {
       "lat": 7.2118835,
@@ -4479,10 +4479,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:00.427Z"
+    "createdAt": "2026-01-25T08:52:33.031Z"
   },
   {
-    "id": "poi_1769247900428_254",
+    "id": "poi_1769331153032_254",
     "name": "Negombo Marine Engineers",
     "coordinates": {
       "lat": 7.208481999999999,
@@ -4496,8 +4496,8 @@
     "description": "",
     "category": "attraction",
     "types": [
-      "store",
       "point_of_interest",
+      "store",
       "establishment"
     ],
     "rating": 3.9,
@@ -4507,10 +4507,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:00.428Z"
+    "createdAt": "2026-01-25T08:52:33.032Z"
   },
   {
-    "id": "poi_1769247902233_257",
+    "id": "poi_1769331154790_257",
     "name": "Duvi home",
     "coordinates": {
       "lat": 7.2132217,
@@ -4536,10 +4536,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247902233_258",
+    "id": "poi_1769331154790_258",
     "name": "Sri Mutthu Mari Amman Temple",
     "coordinates": {
       "lat": 7.213052199999999,
@@ -4565,10 +4565,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247902233_259",
+    "id": "poi_1769331154790_259",
     "name": "Aiyappan Temple",
     "coordinates": {
       "lat": 7.213191499999999,
@@ -4594,10 +4594,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247902233_260",
+    "id": "poi_1769331154790_260",
     "name": "Sri Anjaneyar Temple",
     "coordinates": {
       "lat": 7.2147579,
@@ -4623,10 +4623,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247902233_261",
+    "id": "poi_1769331154790_261",
     "name": "Sri Sitthi Vinayagar Temple",
     "coordinates": {
       "lat": 7.214592199999999,
@@ -4652,10 +4652,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247902233_262",
+    "id": "poi_1769331154790_262",
     "name": "Sri Singama Kali Amman Kovil",
     "coordinates": {
       "lat": 7.215262800000001,
@@ -4681,10 +4681,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247902233_263",
+    "id": "poi_1769331154790_263",
     "name": "Durgha matha Kovil",
     "coordinates": {
       "lat": 7.203356599999998,
@@ -4710,10 +4710,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:02.233Z"
+    "createdAt": "2026-01-25T08:52:34.790Z"
   },
   {
-    "id": "poi_1769247904050_264",
+    "id": "poi_1769331156563_264",
     "name": "St. Mary's Church - Grand Street",
     "coordinates": {
       "lat": 7.2103836,
@@ -4734,16 +4734,16 @@
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 1424,
+    "totalReviews": 1425,
     "placeId": "ChIJuVDx2pvu4joR0bLtHc9xr3A",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_265",
+    "id": "poi_1769331156563_265",
     "name": "St. Peter's Church - Negombo",
     "coordinates": {
       "lat": 7.212421600000003,
@@ -4769,10 +4769,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_266",
+    "id": "poi_1769331156563_266",
     "name": "Wesleyan Methodist Church",
     "coordinates": {
       "lat": 7.2095335,
@@ -4798,10 +4798,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_267",
+    "id": "poi_1769331156563_267",
     "name": "Maza",
     "coordinates": {
       "lat": 7.211496400000001,
@@ -4827,10 +4827,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_268",
+    "id": "poi_1769331156563_268",
     "name": "St. Stephen's Anglican Church",
     "coordinates": {
       "lat": 7.2082773,
@@ -4856,10 +4856,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_269",
+    "id": "poi_1769331156563_269",
     "name": "Velankanni Church, Negombo",
     "coordinates": {
       "lat": 7.206126000000001,
@@ -4885,10 +4885,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_270",
+    "id": "poi_1769331156563_270",
     "name": "Saint Jude's Church",
     "coordinates": {
       "lat": 7.205543899999999,
@@ -4914,10 +4914,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_271",
+    "id": "poi_1769331156563_271",
     "name": "St. Nicholas' Church - Munnakkaraya | සාන්ත නිකුලා දේවස්ථානය - මුන්නක්කරය",
     "coordinates": {
       "lat": 7.203603699999999,
@@ -4943,10 +4943,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_272",
+    "id": "poi_1769331156563_272",
     "name": "Our Lady Of Fatima Church - Kuttiduwa | පාතිමා මාතා දේවස්ථානය - කුට්ටිදූව",
     "coordinates": {
       "lat": 7.2084594,
@@ -4972,10 +4972,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_273",
+    "id": "poi_1769331156563_273",
     "name": "St. Anthony's Church Mankuliya | සාන්ත අන්තෝනි දේවස්ථානය - මංකුලිය",
     "coordinates": {
       "lat": 7.204227200000001,
@@ -5001,10 +5001,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.563Z"
   },
   {
-    "id": "poi_1769247904050_274",
+    "id": "poi_1769331156564_274",
     "name": "Good Shepherd God Mission Negombo main branch",
     "coordinates": {
       "lat": 7.216074499999999,
@@ -5030,10 +5030,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.564Z"
   },
   {
-    "id": "poi_1769247904050_275",
+    "id": "poi_1769331156564_275",
     "name": "Negombo North & Katunayaka Kingdom Hall",
     "coordinates": {
       "lat": 7.205024700000001,
@@ -5059,10 +5059,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:04.050Z"
+    "createdAt": "2026-01-25T08:52:36.564Z"
   },
   {
-    "id": "poi_1769247905884_276",
+    "id": "poi_1769331158301_276",
     "name": "Negombo Town Jumma Masjid",
     "coordinates": {
       "lat": 7.212930699999999,
@@ -5088,10 +5088,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:05.884Z"
+    "createdAt": "2026-01-25T08:52:38.301Z"
   },
   {
-    "id": "poi_1769247905884_277",
+    "id": "poi_1769331158301_277",
     "name": "Kamachchode Jumma Mosque",
     "coordinates": {
       "lat": 7.214224000000001,
@@ -5117,10 +5117,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:05.884Z"
+    "createdAt": "2026-01-25T08:52:38.301Z"
   },
   {
-    "id": "poi_1769247905884_278",
+    "id": "poi_1769331158301_278",
     "name": "Shiyam deen marzook",
     "coordinates": {
       "lat": 7.214411999999999,
@@ -5146,10 +5146,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:05.884Z"
+    "createdAt": "2026-01-25T08:52:38.301Z"
   },
   {
-    "id": "poi_1769247907614_279",
+    "id": "poi_1769331160039_279",
     "name": "Cactu sale negombo",
     "coordinates": {
       "lat": 7.2049741,
@@ -5174,10 +5174,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:07.614Z"
+    "createdAt": "2026-01-25T08:52:40.039Z"
   },
   {
-    "id": "poi_1769247909380_280",
+    "id": "poi_1769331161767_280",
     "name": "Living Aqua Negombo",
     "coordinates": {
       "lat": 7.2120229,
@@ -5191,8 +5191,8 @@
     "description": "",
     "category": "culture",
     "types": [
-      "pet_store",
       "aquarium",
+      "pet_store",
       "point_of_interest",
       "store",
       "establishment"
@@ -5204,10 +5204,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:09.380Z"
+    "createdAt": "2026-01-25T08:52:41.767Z"
   },
   {
-    "id": "poi_1769247911094_281",
+    "id": "poi_1769331163482_281",
     "name": "CORONATION Boat House",
     "coordinates": {
       "lat": 7.207299199999998,
@@ -5234,10 +5234,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:11.094Z"
+    "createdAt": "2026-01-25T08:52:43.482Z"
   },
   {
-    "id": "poi_1769247912899_282",
+    "id": "poi_1769331165248_282",
     "name": "Choys negombo",
     "coordinates": {
       "lat": 7.208478700000001,
@@ -5252,8 +5252,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.9,
@@ -5263,10 +5263,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_283",
+    "id": "poi_1769331165248_283",
     "name": "New Peking Restaurant",
     "coordinates": {
       "lat": 7.208898699999999,
@@ -5281,8 +5281,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4,
@@ -5292,10 +5292,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_284",
+    "id": "poi_1769331165248_284",
     "name": "Bombay Sweet Palace",
     "coordinates": {
       "lat": 7.21051,
@@ -5312,8 +5312,8 @@
       "cafe",
       "bakery",
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "store",
       "establishment"
     ],
@@ -5324,10 +5324,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_285",
+    "id": "poi_1769331165248_285",
     "name": "P&S (Perera and Sons) - Negambo",
     "coordinates": {
       "lat": 7.210699600000002,
@@ -5342,21 +5342,21 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.8,
-    "totalReviews": 295,
+    "totalReviews": 296,
     "placeId": "ChIJ1-KArpDu4joR6Twrvw0Z4XQ",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_286",
+    "id": "poi_1769331165248_286",
     "name": "Brix Restaurant",
     "coordinates": {
       "lat": 7.208514399999999,
@@ -5371,8 +5371,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.2,
@@ -5382,10 +5382,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_287",
+    "id": "poi_1769331165248_287",
     "name": "Nayomi's fortress",
     "coordinates": {
       "lat": 7.208600699999999,
@@ -5400,8 +5400,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.6,
@@ -5411,10 +5411,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_288",
+    "id": "poi_1769331165248_288",
     "name": "Sambole Bojun Hala",
     "coordinates": {
       "lat": 7.210028400000001,
@@ -5429,8 +5429,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.5,
@@ -5440,10 +5440,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.248Z"
   },
   {
-    "id": "poi_1769247912899_290",
+    "id": "poi_1769331165249_290",
     "name": "Dream Puffs - Anil's Garden",
     "coordinates": {
       "lat": 7.210375000000001,
@@ -5458,8 +5458,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4,
@@ -5469,10 +5469,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_291",
+    "id": "poi_1769331165249_291",
     "name": "CLUB. Ceylon (Seafood)",
     "coordinates": {
       "lat": 7.2102352,
@@ -5487,21 +5487,21 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.7,
-    "totalReviews": 365,
+    "totalReviews": 366,
     "placeId": "ChIJY5krKPbv4joRMZev4aJDBZU",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_292",
+    "id": "poi_1769331165249_292",
     "name": "hola",
     "coordinates": {
       "lat": 7.2104121,
@@ -5516,8 +5516,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 0,
@@ -5527,10 +5527,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_293",
+    "id": "poi_1769331165249_293",
     "name": "Kanrose Restaurant",
     "coordinates": {
       "lat": 7.208748699999999,
@@ -5545,8 +5545,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.1,
@@ -5556,10 +5556,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_294",
+    "id": "poi_1769331165249_294",
     "name": "Dhoni family restaurant",
     "coordinates": {
       "lat": 7.2077718,
@@ -5574,8 +5574,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.4,
@@ -5585,10 +5585,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_295",
+    "id": "poi_1769331165249_295",
     "name": "Rasa Kutiya",
     "coordinates": {
       "lat": 7.207004299999999,
@@ -5603,8 +5603,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.8,
@@ -5614,10 +5614,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_296",
+    "id": "poi_1769331165249_296",
     "name": "Gatsbee",
     "coordinates": {
       "lat": 7.2092448,
@@ -5632,8 +5632,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.7,
@@ -5643,10 +5643,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_297",
+    "id": "poi_1769331165249_297",
     "name": "Dinos Kitchen",
     "coordinates": {
       "lat": 7.2077206,
@@ -5661,8 +5661,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 0,
@@ -5672,10 +5672,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_298",
+    "id": "poi_1769331165249_298",
     "name": "The Grill by Kalapuwa",
     "coordinates": {
       "lat": 7.207761199999999,
@@ -5690,8 +5690,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 5,
@@ -5701,10 +5701,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_299",
+    "id": "poi_1769331165249_299",
     "name": "Sri Ragavas Restaurant",
     "coordinates": {
       "lat": 7.211064799999998,
@@ -5719,8 +5719,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.9,
@@ -5730,10 +5730,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247912899_301",
+    "id": "poi_1769331165249_301",
     "name": "JFK Chicken",
     "coordinates": {
       "lat": 7.2075936,
@@ -5748,8 +5748,8 @@
     "category": "food",
     "types": [
       "restaurant",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 0,
@@ -5759,10 +5759,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:12.899Z"
+    "createdAt": "2026-01-25T08:52:45.249Z"
   },
   {
-    "id": "poi_1769247914698_302",
+    "id": "poi_1769331167015_302",
     "name": "Bombay Sweet Palace",
     "coordinates": {
       "lat": 7.21051,
@@ -5778,10 +5778,10 @@
     "types": [
       "cafe",
       "bakery",
-      "store",
       "restaurant",
-      "food",
       "point_of_interest",
+      "store",
+      "food",
       "establishment"
     ],
     "rating": 4.1,
@@ -5791,10 +5791,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_303",
+    "id": "poi_1769331167015_303",
     "name": "Coffee break",
     "coordinates": {
       "lat": 7.2103547,
@@ -5809,9 +5809,9 @@
     "category": "food",
     "types": [
       "cafe",
+      "point_of_interest",
       "store",
       "food",
-      "point_of_interest",
       "establishment"
     ],
     "rating": 5,
@@ -5821,10 +5821,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_304",
+    "id": "poi_1769331167015_304",
     "name": "The Century Cafe",
     "coordinates": {
       "lat": 7.210262299999999,
@@ -5839,8 +5839,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.5,
@@ -5850,10 +5850,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_305",
+    "id": "poi_1769331167015_305",
     "name": "Divisional Secretariat - Canteen",
     "coordinates": {
       "lat": 7.2093847,
@@ -5868,8 +5868,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 5,
@@ -5879,10 +5879,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_306",
+    "id": "poi_1769331167015_306",
     "name": "Calton",
     "coordinates": {
       "lat": 7.207813499999999,
@@ -5897,8 +5897,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.1,
@@ -5908,10 +5908,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_308",
+    "id": "poi_1769331167015_308",
     "name": "National Bake House",
     "coordinates": {
       "lat": 7.209956000000001,
@@ -5926,8 +5926,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.3,
@@ -5937,10 +5937,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_309",
+    "id": "poi_1769331167015_309",
     "name": "Crave",
     "coordinates": {
       "lat": 7.207403899999999,
@@ -5955,9 +5955,9 @@
     "category": "food",
     "types": [
       "cafe",
+      "point_of_interest",
       "store",
       "food",
-      "point_of_interest",
       "establishment"
     ],
     "rating": 4.9,
@@ -5967,10 +5967,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_310",
+    "id": "poi_1769331167015_310",
     "name": "New Negombo Cafe",
     "coordinates": {
       "lat": 7.209162099999999,
@@ -5986,9 +5986,9 @@
     "types": [
       "restaurant",
       "cafe",
+      "point_of_interest",
       "store",
       "food",
-      "point_of_interest",
       "establishment"
     ],
     "rating": 4.7,
@@ -5998,10 +5998,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.698Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914698_311",
+    "id": "poi_1769331167015_311",
     "name": "Amigo's Pastry And Juice Bar",
     "coordinates": {
       "lat": 7.2066399,
@@ -6016,8 +6016,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.7,
@@ -6027,10 +6027,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_312",
+    "id": "poi_1769331167015_312",
     "name": "Sri Ragavas Cafe",
     "coordinates": {
       "lat": 7.206952100000001,
@@ -6045,8 +6045,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.3,
@@ -6056,10 +6056,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_313",
+    "id": "poi_1769331167015_313",
     "name": "Chai Karak",
     "coordinates": {
       "lat": 7.2060545,
@@ -6074,8 +6074,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 3.9,
@@ -6085,10 +6085,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_314",
+    "id": "poi_1769331167015_314",
     "name": "Jupico Ice Cream",
     "coordinates": {
       "lat": 7.2049651,
@@ -6103,8 +6103,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.6,
@@ -6114,10 +6114,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_315",
+    "id": "poi_1769331167015_315",
     "name": "Nachelle",
     "coordinates": {
       "lat": 7.205379600000001,
@@ -6132,8 +6132,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.2,
@@ -6143,10 +6143,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_316",
+    "id": "poi_1769331167015_316",
     "name": "Nayanadini cafe",
     "coordinates": {
       "lat": 7.204829500000001,
@@ -6161,9 +6161,9 @@
     "category": "food",
     "types": [
       "cafe",
+      "point_of_interest",
       "store",
       "food",
-      "point_of_interest",
       "establishment"
     ],
     "rating": 4,
@@ -6173,10 +6173,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_317",
+    "id": "poi_1769331167015_317",
     "name": "Fizz and Flat",
     "coordinates": {
       "lat": 7.214045400000002,
@@ -6191,8 +6191,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.6,
@@ -6202,10 +6202,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_318",
+    "id": "poi_1769331167015_318",
     "name": "Chai Karak Education City",
     "coordinates": {
       "lat": 7.203752000000001,
@@ -6220,8 +6220,8 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 0,
@@ -6231,10 +6231,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_319",
+    "id": "poi_1769331167015_319",
     "name": "Cafe",
     "coordinates": {
       "lat": 7.203618999999999,
@@ -6249,9 +6249,9 @@
     "category": "food",
     "types": [
       "cafe",
+      "point_of_interest",
       "store",
       "food",
-      "point_of_interest",
       "establishment"
     ],
     "rating": 0,
@@ -6261,10 +6261,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_320",
+    "id": "poi_1769331167015_320",
     "name": "Urban Blend",
     "coordinates": {
       "lat": 7.206524899999999,
@@ -6279,21 +6279,21 @@
     "category": "food",
     "types": [
       "cafe",
-      "food",
       "point_of_interest",
+      "food",
       "establishment"
     ],
     "rating": 4.8,
-    "totalReviews": 145,
+    "totalReviews": 146,
     "placeId": "ChIJOfnryZXv4joR8QTODSg8hTk",
     "location": "Negombo",
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247914699_321",
+    "id": "poi_1769331167015_321",
     "name": "Cupcakes by Sharon",
     "coordinates": {
       "lat": 7.2067048,
@@ -6309,9 +6309,9 @@
     "types": [
       "cafe",
       "bakery",
+      "point_of_interest",
       "store",
       "food",
-      "point_of_interest",
       "establishment"
     ],
     "rating": 4.7,
@@ -6321,10 +6321,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:14.699Z"
+    "createdAt": "2026-01-25T08:52:47.015Z"
   },
   {
-    "id": "poi_1769247916458_0",
+    "id": "poi_1769331168774_1",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6348,10 +6348,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:16.458Z"
+    "createdAt": "2026-01-25T08:52:48.774Z"
   },
   {
-    "id": "poi_1769247918128_1",
+    "id": "poi_1769331170422_3",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6375,10 +6375,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:18.128Z"
+    "createdAt": "2026-01-25T08:52:50.422Z"
   },
   {
-    "id": "poi_1769247919793_2",
+    "id": "poi_1769331172065_5",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6402,10 +6402,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:19.793Z"
+    "createdAt": "2026-01-25T08:52:52.065Z"
   },
   {
-    "id": "poi_1769247921457_3",
+    "id": "poi_1769331173709_7",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6429,10 +6429,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:21.457Z"
+    "createdAt": "2026-01-25T08:52:53.709Z"
   },
   {
-    "id": "poi_1769247934996_4",
+    "id": "poi_1769331187174_9",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6456,10 +6456,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:34.996Z"
+    "createdAt": "2026-01-25T08:53:07.174Z"
   },
   {
-    "id": "poi_1769247945259_5",
+    "id": "poi_1769331197282_11",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6483,10 +6483,10 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:45.259Z"
+    "createdAt": "2026-01-25T08:53:17.282Z"
   },
   {
-    "id": "poi_1769247957161_6",
+    "id": "poi_1769331209020_13",
     "name": "Negombo Lagoon",
     "coordinates": {
       "lat": 7.1513642,
@@ -6510,6 +6510,6 @@
     "region": "negombo_tangalle",
     "parsingPass": 1,
     "source": "google_places_api",
-    "createdAt": "2026-01-24T09:45:57.161Z"
+    "createdAt": "2026-01-25T08:53:29.020Z"
   }
 ]

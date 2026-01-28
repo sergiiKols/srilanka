@@ -1,0 +1,56 @@
+================================================================================
+                    POI EXPORT STATISTICS
+================================================================================
+
+Date: 2026-01-25 15:53:10
+Total POIs: 3772
+Region: Southwest Coast, Sri Lanka
+Coverage: Negombo to Hikkaduwa
+
+================================================================================
+BY CATEGORY
+================================================================================
+attraction: 609 POIs
+food: 533 POIs
+spa: 427 POIs
+culture: 418 POIs
+hospital: 373 POIs
+atm: 354 POIs
+bus: 327 POIs
+supermarket: 238 POIs
+pharmacy: 200 POIs
+nightlife: 189 POIs
+liquor: 57 POIs
+beach: 39 POIs
+tuktuk: 8 POIs
+
+================================================================================
+TOP 20 LOCATIONS BY POI COUNT
+================================================================================
+Colombo: 479 POIs
+Colombo South: 410 POIs
+Mount Lavinia: 310 POIs
+Negombo: 293 POIs
+Kalutara: 259 POIs
+Moratuwa: 242 POIs
+Beruwala: 242 POIs
+Hikkaduwa: 230 POIs
+Bentota: 222 POIs
+Ja-Ela: 169 POIs
+Aluthgama: 167 POIs
+Kosgoda: 162 POIs
+Panadura: 162 POIs
+Balapitiya: 116 POIs
+Kalutara South: 114 POIs
+Induruwa: 108 POIs
+Negombo South: 87 POIs
+
+================================================================================
+DATA QUALITY
+================================================================================
+
+Total POIs: 3772
+With Addresses: 99.9%
+With Ratings: 74.6%
+
+================================================================================

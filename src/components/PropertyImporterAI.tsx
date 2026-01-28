@@ -325,66 +325,99 @@ export default function PropertyImporterAI({ onImport, onClose }: PropertyImport
   const stepProgress = state.step === 'complete' ? 100 : (state.step / 2) * 100;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[3000] p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Header with Progress */}
-        <div className="sticky top-0 bg-white border-b z-10">
-          <div className="p-6 flex justify-between items-center">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">🤖 AI-импорт объекта</h2>
-              <p className="text-sm text-slate-500 mt-1">
-                {state.step === 1 && 'Шаг 1: Загрузка фотографий (опционально)'}
-                {state.step === 2 && 'Шаг 2: Google Maps ссылка + Описание'}
-                {state.step === 'complete' && '✅ AI анализ завершен'}
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-end md:items-center justify-center z-[3000] p-0 md:p-4">
+      <div className="bg-white rounded-t-3xl md:rounded-2xl shadow-2xl max-w-2xl w-full max-h-[95vh] md:max-h-[90vh] overflow-hidden flex flex-col" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+        {/* LUMINA HEADER with Progress */}
+        <div className="sticky top-0 bg-white border-b border-slate-100 z-10">
+          {/* Top Bar */}
+          <div className="px-4 md:px-6 pt-4 md:pt-6 pb-3 flex justify-between items-start">
+            <div className="flex-1">
+              <h2 className="text-xl md:text-2xl font-bold text-[#111827] tracking-tight">
+                🤖 AI Import
+              </h2>
+              <p className="text-xs md:text-sm text-slate-500 mt-1 font-medium">
+                {state.step === 1 && 'Step 1 of 2: Media Upload'}
+                {state.step === 2 && 'Step 2 of 2: Location & Details'}
+                {state.step === 'complete' && '✅ Analysis Complete'}
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+              className="p-2 hover:bg-slate-100 rounded-full transition-all active:scale-95 -mr-2"
+              aria-label="Close"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
           </div>
 
-          {/* Progress Bar */}
-          <div className="h-2 bg-slate-100">
+          {/* Progress Bar - LUMINA STYLE */}
+          <div className="h-1.5 bg-slate-100">
             <div 
-              className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500"
+              className="h-full bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] transition-all duration-500 ease-out"
               style={{ width: `${stepProgress}%` }}
             />
           </div>
 
-          {/* Step Indicators */}
-          <div className="flex items-center justify-center gap-4 py-4 px-6">
-            <StepIndicator number={1} active={state.step === 1} complete={state.step > 1} label="Фото" />
-            <div className="h-px w-16 bg-slate-300" />
-            <StepIndicator number={2} active={state.step === 2} complete={state.step === 'complete'} label="Ссылка + AI" />
+          {/* Step Pills - Mobile Optimized */}
+          <div className="flex items-center justify-center gap-2 py-3 px-4">
+            <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+              state.step === 1 ? 'bg-[#2563EB] text-white shadow-md' : 
+              state.step > 1 ? 'bg-[#10B981] text-white' : 
+              'bg-slate-100 text-slate-400'
+            }`}>
+              {state.step > 1 ? '✓' : '1'}
+              <span className="hidden sm:inline ml-0.5">Media</span>
+            </div>
+            <div className="h-px w-8 bg-slate-200" />
+            <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+              state.step === 2 ? 'bg-[#2563EB] text-white shadow-md' : 
+              state.step === 'complete' ? 'bg-[#10B981] text-white' : 
+              'bg-slate-100 text-slate-400'
+            }`}>
+              {state.step === 'complete' ? '✓' : '2'}
+              <span className="hidden sm:inline ml-0.5">Details</span>
+            </div>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6">
-          {/* Error Message */}
-          {state.error && (
-            <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
-              ❌ {state.error}
-            </div>
-          )}
+        {/* Content - Scrollable */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-4 md:p-6">
+            {/* Error Message */}
+            {state.error && (
+              <div className="mb-4 bg-red-50 border border-red-200 rounded-xl p-3 text-red-700 text-sm font-medium">
+                ❌ {state.error}
+              </div>
+            )}
 
-          {/* Step 1: Photos */}
-          {state.step === 1 && (
-            <div className="space-y-6">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <label className="block text-sm font-bold text-slate-700">
-                    Фотографии объекта
+            {/* Step 1: Photos - LUMINA BENTO STYLE */}
+            {state.step === 1 && (
+              <div className="space-y-4">
+                {/* Header */}
+                <div className="flex items-center justify-between">
+                  <label className="block text-sm font-bold text-[#111827]">
+                    📸 Media Upload
                   </label>
-                  <span className="text-xs text-slate-500">
-                    {state.images.length + state.imageUrls.length} загружено
+                  <span className="text-xs font-mono text-[#10B981] bg-green-50 px-2 py-1 rounded-full">
+                    {state.images.length + state.imageUrls.length} files
                   </span>
                 </div>
                 
-                <div className="grid grid-cols-3 gap-3 mb-4">
+                {/* BENTO DROP ZONE - Центральный модуль */}
+                <div className="relative bg-slate-50 border-2 border-dashed border-[#D1D5DB] rounded-2xl p-6 md:p-8 transition-all hover:border-[#2563EB] hover:bg-blue-50/30">
+                  <div className="text-center space-y-3">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 text-slate-400">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-[#111827]">Drop media here</p>
+                      <p className="text-xs text-slate-500 mt-1">or choose from options below</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3D CLAYMORPHISM ACTION BUTTONS */}
+                <div className="grid grid-cols-3 gap-3">
                   <input
                     type="file"
                     ref={fileInputRef}
@@ -393,83 +426,104 @@ export default function PropertyImporterAI({ onImport, onClose }: PropertyImport
                     multiple
                     className="hidden"
                   />
+                  
+                  {/* Upload Button */}
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="p-6 border-2 border-dashed border-slate-300 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all flex flex-col items-center justify-center gap-2 text-slate-600"
+                    className="group relative flex flex-col items-center gap-2 p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all active:scale-95 active:shadow-sm"
+                    style={{
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
+                    }}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    <span className="font-medium text-sm">Загрузить с диска</span>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#2563EB] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    </div>
+                    <span className="text-xs font-bold text-[#111827] text-center leading-tight">Upload</span>
                   </button>
+
+                  {/* URL Button */}
                   <button
                     onClick={handleAddImageUrl}
-                    className="p-6 border-2 border-dashed border-slate-300 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all flex flex-col items-center justify-center gap-2 text-slate-600"
+                    className="group relative flex flex-col items-center gap-2 p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all active:scale-95 active:shadow-sm"
+                    style={{
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
+                    }}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                    <span className="font-medium text-sm">Добавить по URL</span>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#2563EB] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    </div>
+                    <span className="text-xs font-bold text-[#111827] text-center leading-tight">URL</span>
                   </button>
+
+                  {/* Paste Button */}
                   <div
                     onPaste={handlePaste}
                     tabIndex={0}
-                    className="p-6 border-2 border-dashed border-purple-300 bg-purple-50 rounded-xl hover:border-purple-500 hover:bg-purple-100 transition-all flex flex-col items-center justify-center gap-2 text-purple-700 cursor-pointer group"
+                    className="group relative flex flex-col items-center gap-2 p-4 md:p-5 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all active:scale-95 active:shadow-sm cursor-pointer"
                     onClick={(e) => e.currentTarget.focus()}
+                    style={{
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8)',
+                    }}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                    <span className="font-medium text-sm text-center">Вставить из буфера</span>
-                    <span className="text-xs opacity-70 group-hover:opacity-100">Ctrl+V</span>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#2563EB] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    </div>
+                    <span className="text-xs font-bold text-[#111827] text-center leading-tight">Paste</span>
+                    <span className="text-[10px] font-mono text-slate-400 absolute -bottom-1 opacity-0 group-hover:opacity-100 transition-opacity">⌘V</span>
                   </div>
                 </div>
                 
-                {/* Подсказка */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-                  <p className="text-xs text-blue-800">
-                    💡 <strong>Совет:</strong> Скопируйте изображение (Ctrl+C) и нажмите на зону "Вставить из буфера", затем Ctrl+V
+                {/* Hint - LUMINA GREEN */}
+                <div className="bg-[#10B981]/10 border border-[#10B981]/20 rounded-xl p-3">
+                  <p className="text-xs text-[#059669] font-medium">
+                    💡 <strong className="font-bold">Tip:</strong> Copy image (Ctrl+C) then click Paste and press Ctrl+V
                   </p>
                 </div>
 
-                {/* Image Preview - Improved with thumbnails */}
+                {/* Image Preview - LUMINA Grid */}
                 {(state.images.length > 0 || state.imageUrls.length > 0) && (
                   <div>
-                    <div className="text-sm font-bold text-slate-700 mb-2">
-                      Загруженные фотографии ({state.images.length + state.imageUrls.length})
+                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">
+                      Uploaded Media ({state.images.length + state.imageUrls.length})
                     </div>
-                    <div className="grid grid-cols-4 gap-3 mb-6">
+                    <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
                       {state.images.map((img, idx) => (
-                        <div key={`local-${idx}`} className="relative group">
+                        <div key={`local-${idx}`} className="relative group aspect-square">
                           <img 
                             src={img} 
-                            alt={`Фото ${idx + 1}`} 
-                            className="w-full h-24 object-cover rounded-lg border-2 border-slate-200 group-hover:border-indigo-400 transition-all shadow-sm" 
+                            alt={`Photo ${idx + 1}`} 
+                            className="w-full h-full object-cover rounded-xl border-2 border-slate-200 group-hover:border-[#2563EB] transition-all" 
                           />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all rounded-lg" />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all rounded-xl" />
                           <button
                             onClick={() => handleRemoveImage(idx, 'local')}
-                            className="absolute top-1 right-1 bg-red-500 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-red-600"
-                            title="Удалить"
+                            className="absolute top-1.5 right-1.5 bg-red-500 text-white p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-lg hover:bg-red-600 active:scale-90"
+                            title="Remove"
                           >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                           </button>
-                          <div className="absolute bottom-1 left-1 bg-black/70 text-white text-xs px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="absolute bottom-1.5 left-1.5 bg-[#111827]/80 text-white text-[10px] font-mono px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                             #{idx + 1}
                           </div>
                         </div>
                       ))}
                       {state.imageUrls.map((url, idx) => (
-                        <div key={`url-${idx}`} className="relative group">
+                        <div key={`url-${idx}`} className="relative group aspect-square">
                           <img 
                             src={url} 
                             alt={`URL ${idx + 1}`} 
-                            className="w-full h-24 object-cover rounded-lg border-2 border-slate-200 group-hover:border-indigo-400 transition-all shadow-sm" 
+                            className="w-full h-full object-cover rounded-xl border-2 border-slate-200 group-hover:border-[#2563EB] transition-all" 
                           />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all rounded-lg" />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all rounded-xl" />
                           <button
                             onClick={() => handleRemoveImage(idx, 'url')}
-                            className="absolute top-1 right-1 bg-red-500 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-red-600"
-                            title="Удалить"
+                            className="absolute top-1.5 right-1.5 bg-red-500 text-white p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all shadow-lg hover:bg-red-600 active:scale-90"
+                            title="Remove"
                           >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                           </button>
-                          <div className="absolute bottom-1 left-1 bg-indigo-600 text-white text-xs px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                            URL #{idx + 1}
+                          <div className="absolute bottom-1.5 left-1.5 bg-[#2563EB]/90 text-white text-[10px] font-mono px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                            URL
                           </div>
                         </div>
                       ))}
@@ -477,19 +531,11 @@ export default function PropertyImporterAI({ onImport, onClose }: PropertyImport
                   </div>
                 )}
               </div>
+            )}
 
-              <button
-                onClick={handleNextToDescriptionStep}
-                className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg"
-              >
-                Далее →
-              </button>
-            </div>
-          )}
-
-          {/* Step 2: URL + Description + AI */}
-          {state.step === 2 && (
-            <div className="space-y-6">
+            {/* Step 2: URL + Description + AI */}
+            {state.step === 2 && (
+              <div className="space-y-4">
               {/* Google Maps URL */}
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">
@@ -705,28 +751,22 @@ export default function PropertyImporterAI({ onImport, onClose }: PropertyImport
                 </button>
               </div>
             </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
-    </div>
-  );
-}
 
-// Step Indicator Component
-function StepIndicator({ number, active, complete, label }: { number: number; active: boolean; complete: boolean; label: string }) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
-        complete ? 'bg-green-500 text-white' :
-        active ? 'bg-indigo-600 text-white ring-4 ring-indigo-100' :
-        'bg-slate-200 text-slate-500'
-      }`}>
-        {complete ? '✓' : number}
-      </div>
-      <div className={`text-xs font-medium ${
-        active ? 'text-indigo-600' : complete ? 'text-green-600' : 'text-slate-500'
-      }`}>
-        {label}
+        {/* Bottom Actions - Sticky */}
+        {state.step === 1 && (
+          <div className="sticky bottom-0 bg-white border-t border-slate-100 p-4 md:p-6">
+            <button
+              onClick={handleNextToDescriptionStep}
+              className="w-full bg-[#2563EB] text-white py-3.5 md:py-4 rounded-xl font-bold hover:bg-[#1D4ED8] transition-all shadow-lg active:scale-98 flex items-center justify-center gap-2"
+            >
+              <span>Continue</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

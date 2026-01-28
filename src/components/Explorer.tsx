@@ -4,6 +4,13 @@ import PropertyDrawer from './property/PropertyDrawer';
 import PropertyImporter from './PropertyImporter';
 import PropertyImporterAI from './PropertyImporterAI';
 import GeoPickerButton from './GeoPickerButton';
+import { createClient } from '@supabase/supabase-js';
+
+// Создаём Supabase клиент напрямую в компоненте (для клиента)
+const supabase = createClient(
+    'https://mcmzdscpuoxwneuzsanu.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbXpkc2NwdW94d25ldXpzYW51Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkzNDAxMjEsImV4cCI6MjA4NDkxNjEyMX0.FINUETJbgsos3tJdrJp_cyAPVOPxqpT_XjWIeFywPzw'
+);
 
 // Mock Data - In a real app this would come from an API or prop
 // Mock Data
@@ -162,35 +169,42 @@ export default function Explorer() {
     
     // Parsed POIs from Google Places API
     const [parsedPOIs, setParsedPOIs] = useState<any[]>([]);
+    
+    // Zoom level tracking for dynamic POI loading
+    const [currentZoom, setCurrentZoom] = useState<number>(9);
+    
+    // Dynamic POIs loaded from Supabase around properties
+    const [dynamicPOIs, setDynamicPOIs] = useState<any[]>([]);
 
+    // ОТКЛЮЧЕНА загрузка из JSON - теперь используем динамическую загрузку из Supabase
     // Load parsed POI data
-    useEffect(() => {
-        const loadParsedPOIs = async () => {
-            try {
-                const response = await fetch('/SRI/parsed_data/negombo_tangalle/pass_1_0-1km.json');
-                const data = await response.json();
-                const mapped = data.map((poi: any) => ({
-                    id: poi.id,
-                    position: [poi.coordinates.lat, poi.coordinates.lng] as [number, number],
-                    title: poi.name,
-                    type: poi.category,
-                    description: poi.description || '',
-                    address: poi.address || '',
-                    phone: poi.phone || '',
-                    website: poi.website || '',
-                    hours: poi.hours || '',
-                    image: poi.mainPhoto || '',
-                    rating: poi.rating || 0,
-                    reviews: poi.totalReviews || 0
-                }));
-                setParsedPOIs(mapped);
-                console.log(`Loaded ${mapped.length} parsed POIs from Google Places API`);
-            } catch (e) {
-                console.warn('Failed to load parsed POI data:', e);
-            }
-        };
-        loadParsedPOIs();
-    }, []);
+    // useEffect(() => {
+    //     const loadParsedPOIs = async () => {
+    //         try {
+    //             const response = await fetch('/SRI/parsed_data/negombo_tangalle/pass_1_0-1km.json');
+    //             const data = await response.json();
+    //             const mapped = data.map((poi: any) => ({
+    //                 id: poi.id,
+    //                 position: [poi.coordinates.lat, poi.coordinates.lng] as [number, number],
+    //                 title: poi.name,
+    //                 type: poi.category,
+    //                 description: poi.description || '',
+    //                 address: poi.address || '',
+    //                 phone: poi.phone || '',
+    //                 website: poi.website || '',
+    //                 hours: poi.hours || '',
+    //                 image: poi.mainPhoto || '',
+    //                 rating: poi.rating || 0,
+    //                 reviews: poi.totalReviews || 0
+    //             }));
+    //             setParsedPOIs(mapped);
+    //             console.log(`Loaded ${mapped.length} parsed POIs from Google Places API`);
+    //         } catch (e) {
+    //             console.warn('Failed to load parsed POI data:', e);
+    //         }
+    //     };
+    //     loadParsedPOIs();
+    // }, []);
 
     useEffect(() => {
         const fetchRate = async () => {
@@ -236,6 +250,131 @@ export default function Explorer() {
             maximumFractionDigits: 0
         }).format(lkr).replace('LKR', 'Rs');
     };
+
+    // ОТКЛЮЧЕНО: Функция загрузки POI из Supabase вокруг properties
+    // Можно включить позже по команде
+    const loadPOIsAroundProperties = async (properties: any[], zoom: number) => {
+        if (zoom < 16) {
+            // Если zoom меньше 16 - очищаем POI
+            setDynamicPOIs([]);
+            console.log('🔍 Zoom < 16, POI скрыты');
+            return;
+        }
+
+        if (properties.length === 0) {
+            console.log('📍 Нет properties для загрузки POI');
+            return;
+        }
+
+        console.log(`📍 Загрузка POI вокруг ${properties.length} properties (zoom: ${zoom})`);
+
+        try {
+            const radius = 20000; // 20 км в метрах
+            const allPOIs: any[] = [];
+
+            // Загружаем POI вокруг каждого property
+            for (const property of properties) {
+                const [lat, lng] = property.position;
+
+                // Запрос к Supabase с фильтром по координатам (bounding box)
+                // Приблизительный расчет: 1 градус ≈ 111км
+                const latDelta = (radius / 1000) / 111; // в градусах
+                const lngDelta = (radius / 1000) / (111 * Math.cos(lat * Math.PI / 180)); // в градусах
+
+                const { data, error } = await supabase
+                    .from('poi_locations')
+                    .select('*')
+                    .gte('lat', lat - latDelta)
+                    .lte('lat', lat + latDelta)
+                    .gte('lng', lng - lngDelta)
+                    .lte('lng', lng + lngDelta)
+                    .limit(500); // Максимум 500 POI на property
+
+                if (error) {
+                    console.error('Ошибка загрузки POI:', error);
+                    continue;
+                }
+
+                if (data && data.length > 0) {
+                    console.log(`✅ Загружено ${data.length} POI вокруг ${property.title}`);
+                    allPOIs.push(...data);
+                }
+            }
+
+            // Убираем дубликаты по id (используем глобальный Map)
+            const uniquePOIs = Array.from(
+                new globalThis.Map(allPOIs.map(poi => [poi.id, poi])).values()
+            );
+
+            // Преобразуем в формат маркеров
+            const mappedPOIs = uniquePOIs.map((poi: any) => ({
+                id: poi.id,
+                position: [poi.lat, poi.lng] as [number, number],
+                title: poi.name,
+                type: poi.category,
+                description: poi.description || '',
+                address: poi.address || '',
+                phone: poi.phone || '',
+                website: poi.website || '',
+                hours: poi.hours || '',
+                image: poi.main_photo || '',
+                rating: poi.rating || 0,
+                reviews: poi.total_reviews || 0
+            }));
+
+            setDynamicPOIs(mappedPOIs);
+            console.log(`🎯 Всего загружено ${mappedPOIs.length} уникальных POI`);
+
+        } catch (err) {
+            console.error('Ошибка при загрузке POI:', err);
+        }
+    };
+
+    // ОТКЛЮЧЕНО: Отслеживание zoom карты и автоматическая загрузка POI
+    // Можно включить позже по команде
+    useEffect(() => {
+        if (!mapInstance) return;
+
+        const handleZoomEnd = () => {
+            const zoom = mapInstance.getZoom();
+            setCurrentZoom(zoom);
+            console.log(`🔍 Zoom изменился: ${zoom}`);
+            
+            // ОТКЛЮЧЕНО: Автоматически включаем все слои при zoom >= 16
+            // if (zoom >= 16 && activeLayers.length === 1 && activeLayers[0] === 'stay') {
+            //     console.log('✅ Автоматически включаем все POI слои');
+            //     setActiveLayers(['food', 'pharmacy', 'beach', 'stay', 'transport', 'medical']);
+            // }
+        };
+
+        // Подписываемся на события zoom
+        mapInstance.on('zoomend', handleZoomEnd);
+
+        // Инициализируем текущий zoom
+        const initialZoom = mapInstance.getZoom();
+        setCurrentZoom(initialZoom);
+        
+        // ОТКЛЮЧЕНО: Если уже zoom >= 16, включаем слои
+        // if (initialZoom >= 16 && activeLayers.length === 1 && activeLayers[0] === 'stay') {
+        //     setActiveLayers(['food', 'pharmacy', 'beach', 'stay', 'transport', 'medical']);
+        // }
+
+        return () => {
+            mapInstance.off('zoomend', handleZoomEnd);
+        };
+    }, [mapInstance]);
+
+    // ОТКЛЮЧЕНО: Загрузка POI при изменении zoom или списка properties
+    // Можно включить позже по команде
+    // useEffect(() => {
+    //     const allProperties = [...PROPERTIES, ...customProperties];
+    //     const filteredProps = allProperties.filter(p => {
+    //         // Применяем те же фильтры что и для отображения
+    //         return true; // Пока загружаем вокруг всех properties
+    //     });
+
+    //     loadPOIsAroundProperties(filteredProps, currentZoom);
+    // }, [currentZoom, customProperties]);
 
     const MAIN_LAYERS = [
         { id: 'stay', label: 'Supporting Point', icon: '🏠', status: 'ON 100%' },
@@ -401,8 +540,8 @@ export default function Explorer() {
         return selectedAmenities.every(a => p.amenities.includes(a));
     });
 
-    // Use only parsed POIs from JSON files (no hardcoded data)
-    const allPOIs = parsedPOIs;
+    // Use dynamic POIs from Supabase (loaded around properties when zoom >= 16)
+    const allPOIs = [...parsedPOIs, ...dynamicPOIs];
     
     const filteredPOIs = allPOIs.filter(poi => {
         if (activeLayers.includes(poi.type)) return true;

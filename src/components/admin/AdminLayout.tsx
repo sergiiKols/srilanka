@@ -23,8 +23,20 @@ export default function AdminLayout({
     { href: '/admin/api-settings', icon: '🔑', label: t('apiSettings', lang) },
     { href: '/admin/tools/url-expander', icon: '🔗', label: t('urlExpander', lang) },
     { href: '/admin/pois', icon: '📍', label: t('poiManagement', lang) },
+    { href: '/admin/supabase', icon: '🗄️', label: 'Supabase DB' },
     { href: '/admin/parsing', icon: '🔄', label: t('parsingSystem', lang) },
+    { href: '/admin/cron-jobs', icon: '⏰', label: lang === 'ru' ? 'Cron Jobs' : 'Cron Jobs' },
     { href: '/admin/users', icon: '👥', label: t('users', lang) },
+    { 
+      icon: '📋', 
+      label: t('telegramForms', lang),
+      submenu: [
+        { href: '/admin/forms/telegram', label: t('formsList', lang) },
+        { href: '/admin/forms/telegram/submissions', label: t('allSubmissions', lang) },
+        { href: '/admin/forms/telegram/settings', label: t('botSettings', lang) },
+      ]
+    },
+    { href: '/admin/skills', icon: '🤖', label: lang === 'ru' ? 'MCP Skills' : 'MCP Skills' },
     { href: '/admin/settings', icon: '⚙️', label: t('settings', lang) },
   ];
 
@@ -37,15 +49,35 @@ export default function AdminLayout({
           <p className="version">v0.1.0</p>
         </div>
         <nav className="sidebar-nav">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`nav-item ${currentPath === item.href ? 'active' : ''}`}
-            >
-              <span className="icon">{item.icon}</span>
-              <span>{item.label}</span>
-            </a>
+          {navItems.map((item, index) => (
+            item.submenu ? (
+              <div key={`submenu-${index}`} className="nav-group">
+                <div className="nav-item nav-group-header">
+                  <span className="icon">{item.icon}</span>
+                  <span>{item.label}</span>
+                </div>
+                <div className="submenu">
+                  {item.submenu.map((subitem) => (
+                    <a
+                      key={subitem.href}
+                      href={subitem.href}
+                      className={`nav-item submenu-item ${currentPath === subitem.href ? 'active' : ''}`}
+                    >
+                      <span>{subitem.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`nav-item ${currentPath === item.href ? 'active' : ''}`}
+              >
+                <span className="icon">{item.icon}</span>
+                <span>{item.label}</span>
+              </a>
+            )
           ))}
         </nav>
         <div className="sidebar-footer">
@@ -144,6 +176,35 @@ export default function AdminLayout({
           font-size: 18px;
         }
 
+        .nav-group {
+          margin-bottom: 8px;
+        }
+
+        .nav-group-header {
+          cursor: default;
+          font-weight: 500;
+        }
+
+        .submenu {
+          background: rgba(0, 0, 0, 0.2);
+          border-left: 2px solid rgba(255, 255, 255, 0.1);
+          margin-left: 20px;
+        }
+
+        .submenu-item {
+          padding-left: 44px;
+          font-size: 14px;
+        }
+
+        .submenu-item:hover {
+          background: rgba(255, 255, 255, 0.08);
+        }
+
+        .submenu-item.active {
+          background: rgba(59, 130, 246, 0.2);
+          border-left: 3px solid #3b82f6;
+        }
+
         .admin-main {
           flex: 1;
           margin-left: 260px;
@@ -210,3 +271,4 @@ export default function AdminLayout({
     </div>
   );
 }
+

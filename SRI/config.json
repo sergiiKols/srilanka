@@ -1,157 +1,172 @@
 {
-  "project": {
-    "name": "Sri Lanka Complete POIs Coverage",
-    "version": "1.0.0",
-    "author": "Rovo Dev",
-    "created": "2025-01-22"
-  },
-  
-  "api_keys": {
-    "google_places": "YOUR_GOOGLE_PLACES_API_KEY_HERE",
-    "google_places_enabled": false,
-    "openstreetmap_enabled": true,
-    "tripadvisor": "YOUR_TRIPADVISOR_API_KEY_HERE",
-    "tripadvisor_enabled": false
-  },
-  
-  "parsing_settings": {
-    "grid_cell_size_km": 10,
-    "max_retries": 3,
-    "retry_delay_seconds": 2,
-    "exponential_backoff": true,
-    "checkpoint_interval": 50,
-    "batch_size": 20,
-    "rate_limit_delay_ms": 100,
-    "timeout_seconds": 30
-  },
-  
-  "data_collection": {
-    "required_fields": ["name", "coordinates", "category"],
-    "optional_fields": ["address", "phone", "website", "hours", "rating"],
-    "social_networks": ["facebook", "instagram", "tripadvisor", "google_business"],
-    "collect_photos": true,
-    "max_photos_per_poi": 1,
-    "photo_quality": "medium"
-  },
-  
-  "validation": {
-    "min_coverage_percent": 95,
-    "min_address_percent": 95,
-    "min_phone_percent": 90,
-    "min_website_percent": 50,
-    "min_social_percent": 60,
-    "min_photo_percent": 100,
-    "min_hours_percent": 85
-  },
-  
-  "categories": {
-    "beaches": {
-      "osm_tag": "natural=beach",
-      "google_type": "beach",
-      "priority": 5,
-      "enabled": true
-    },
-    "restaurants": {
-      "osm_tag": "amenity=restaurant",
-      "google_type": "restaurant",
-      "priority": 5,
-      "enabled": true
-    },
-    "hotels": {
-      "osm_tag": "tourism=hotel",
-      "google_type": "lodging",
-      "priority": 5,
-      "enabled": true
-    },
-    "water_sports": {
-      "osm_tag": "sport=surfing",
-      "google_type": "point_of_interest",
-      "keywords": ["surf", "diving", "snorkeling"],
-      "priority": 4,
-      "enabled": true
-    },
-    "culture": {
-      "osm_tag": "tourism=attraction",
-      "google_type": "tourist_attraction",
-      "keywords": ["temple", "fort", "museum"],
-      "priority": 4,
-      "enabled": true
-    },
-    "medical": {
-      "osm_tag": "amenity=hospital",
-      "google_type": "hospital",
-      "priority": 4,
-      "enabled": true
-    },
-    "pharmacy": {
-      "osm_tag": "amenity=pharmacy",
-      "google_type": "pharmacy",
-      "priority": 3,
-      "enabled": true
-    },
-    "atm": {
-      "osm_tag": "amenity=atm",
-      "google_type": "atm",
-      "priority": 3,
-      "enabled": true
-    },
-    "supermarket": {
-      "osm_tag": "shop=supermarket",
-      "google_type": "supermarket",
-      "priority": 2,
-      "enabled": true
-    },
-    "transport": {
-      "osm_tag": "highway=bus_stop",
-      "google_type": "bus_station",
-      "priority": 3,
-      "enabled": true
-    }
-  },
-  
-  "regions": {
-    "negombo_tangalle": {
-      "name": "Негомбо - Тангале (Основной туристический коридор)",
-      "description": "Юго-западное побережье от Негомбо до Тангале - главный туристический район",
-      "bounds": {
-        "north": 7.2089,
-        "south": 6.0244,
-        "east": 80.3,
-        "west": 79.8
-      },
-      "key_cities": [
-        "Negombo (Негомбо)",
-        "Colombo (Коломбо)", 
-        "Mount Lavinia (Маунт-Лавиния)",
-        "Kalutara (Калутара)",
-        "Beruwala (Берувела)",
-        "Bentota (Бентота)",
-        "Hikkaduwa (Хиккадува)",
-        "Galle (Галле)",
-        "Unawatuna (Унаватуна)",
-        "Mirissa (Мирисса)",
-        "Matara (Матара)",
-        "Tangalle (Тангале)"
-      ],
-      "priority": 10,
-      "enabled": true,
-      "estimated_pois": 8000,
-      "coastline_length_km": 220
-    }
-  },
-  
-  "output": {
-    "data_format": "json",
-    "save_incremental": true,
-    "backup_enabled": true,
-    "generate_reports": true,
-    "log_level": "info"
-  },
-  
-  "notifications": {
-    "console_output": true,
-    "progress_bar": true,
-    "sound_on_completion": false,
-    "pause_after_pass": true
-  }
+    "project":  {
+                    "name":  "Sri Lanka Complete POIs Coverage",
+                    "version":  "1.0.0",
+                    "author":  "Rovo Dev",
+                    "created":  "2025-01-22"
+                },
+    "api_keys":  {
+                     "google_places":  "AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                     "google_places_enabled":  false,
+                     "openstreetmap_enabled":  true,
+                     "tripadvisor":  "YOUR_TRIPADVISOR_API_KEY_HERE",
+                     "tripadvisor_enabled":  false
+                 },
+    "parsing_settings":  {
+                             "grid_cell_size_km":  10,
+                             "max_retries":  3,
+                             "retry_delay_seconds":  2,
+                             "exponential_backoff":  true,
+                             "checkpoint_interval":  50,
+                             "batch_size":  20,
+                             "rate_limit_delay_ms":  100,
+                             "timeout_seconds":  30
+                         },
+    "data_collection":  {
+                            "required_fields":  [
+                                                    "name",
+                                                    "coordinates",
+                                                    "category"
+                                                ],
+                            "optional_fields":  [
+                                                    "address",
+                                                    "phone",
+                                                    "website",
+                                                    "hours",
+                                                    "rating"
+                                                ],
+                            "social_networks":  [
+                                                    "facebook",
+                                                    "instagram",
+                                                    "tripadvisor",
+                                                    "google_business"
+                                                ],
+                            "collect_photos":  true,
+                            "max_photos_per_poi":  1,
+                            "photo_quality":  "medium"
+                        },
+    "validation":  {
+                       "min_coverage_percent":  95,
+                       "min_address_percent":  95,
+                       "min_phone_percent":  90,
+                       "min_website_percent":  50,
+                       "min_social_percent":  60,
+                       "min_photo_percent":  100,
+                       "min_hours_percent":  85
+                   },
+    "categories":  {
+                       "beaches":  {
+                                       "osm_tag":  "natural=beach",
+                                       "google_type":  "beach",
+                                       "priority":  5,
+                                       "enabled":  true
+                                   },
+                       "restaurants":  {
+                                           "osm_tag":  "amenity=restaurant",
+                                           "google_type":  "restaurant",
+                                           "priority":  5,
+                                           "enabled":  true
+                                       },
+                       "hotels":  {
+                                      "osm_tag":  "tourism=hotel",
+                                      "google_type":  "lodging",
+                                      "priority":  5,
+                                      "enabled":  true
+                                  },
+                       "water_sports":  {
+                                            "osm_tag":  "sport=surfing",
+                                            "google_type":  "point_of_interest",
+                                            "keywords":  [
+                                                             "surf",
+                                                             "diving",
+                                                             "snorkeling"
+                                                         ],
+                                            "priority":  4,
+                                            "enabled":  true
+                                        },
+                       "culture":  {
+                                       "osm_tag":  "tourism=attraction",
+                                       "google_type":  "tourist_attraction",
+                                       "keywords":  [
+                                                        "temple",
+                                                        "fort",
+                                                        "museum"
+                                                    ],
+                                       "priority":  4,
+                                       "enabled":  true
+                                   },
+                       "medical":  {
+                                       "osm_tag":  "amenity=hospital",
+                                       "google_type":  "hospital",
+                                       "priority":  4,
+                                       "enabled":  true
+                                   },
+                       "pharmacy":  {
+                                        "osm_tag":  "amenity=pharmacy",
+                                        "google_type":  "pharmacy",
+                                        "priority":  3,
+                                        "enabled":  true
+                                    },
+                       "atm":  {
+                                   "osm_tag":  "amenity=atm",
+                                   "google_type":  "atm",
+                                   "priority":  3,
+                                   "enabled":  true
+                               },
+                       "supermarket":  {
+                                           "osm_tag":  "shop=supermarket",
+                                           "google_type":  "supermarket",
+                                           "priority":  2,
+                                           "enabled":  true
+                                       },
+                       "transport":  {
+                                         "osm_tag":  "highway=bus_stop",
+                                         "google_type":  "bus_station",
+                                         "priority":  3,
+                                         "enabled":  true
+                                     }
+                   },
+    "regions":  {
+                    "negombo_tangalle":  {
+                                             "name":  "Негомбо - Тангале (Основной туристический коридор)",
+                                             "description":  "Юго-западное побережье от Негомбо до Тангале - главный туристический район",
+                                             "bounds":  {
+                                                            "north":  7.2089,
+                                                            "south":  6.0244,
+                                                            "east":  80.3,
+                                                            "west":  79.8
+                                                        },
+                                             "key_cities":  [
+                                                                "Negombo (Негомбо)",
+                                                                "Colombo (Коломбо)",
+                                                                "Mount Lavinia (Маунт-Лавиния)",
+                                                                "Kalutara (Калутара)",
+                                                                "Beruwala (Берувела)",
+                                                                "Bentota (Бентота)",
+                                                                "Hikkaduwa (Хиккадува)",
+                                                                "Galle (Галле)",
+                                                                "Unawatuna (Унаватуна)",
+                                                                "Mirissa (Мирисса)",
+                                                                "Matara (Матара)",
+                                                                "Tangalle (Тангале)"
+                                                            ],
+                                             "priority":  10,
+                                             "enabled":  true,
+                                             "estimated_pois":  8000,
+                                             "coastline_length_km":  220
+                                         }
+                },
+    "output":  {
+                   "data_format":  "json",
+                   "save_incremental":  true,
+                   "backup_enabled":  true,
+                   "generate_reports":  true,
+                   "log_level":  "info"
+               },
+    "notifications":  {
+                          "console_output":  true,
+                          "progress_bar":  true,
+                          "sound_on_completion":  false,
+                          "pause_after_pass":  true
+                      }
 }
