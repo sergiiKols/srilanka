@@ -88,49 +88,80 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
   </div>
   
   <script>
-    // Debug: Log Telegram availability
-    console.log('Telegram object:', window.Telegram);
-    console.log('WebApp object:', window.Telegram?.WebApp);
-    
-    // Initialize Telegram WebApp
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tg = window.Telegram.WebApp;
+    // Wait for Telegram WebApp script to load
+    function initTelegramApp() {
+      console.log('Checking Telegram availability...');
+      console.log('Telegram object:', window.Telegram);
+      console.log('WebApp object:', window.Telegram?.WebApp);
       
-      console.log('Telegram WebApp initialized:', tg);
-      console.log('InitData:', tg.initData);
-      
-      // Initialize
-      tg.ready();
-      tg.expand();
-      
-      // Apply theme
-      if (tg.themeParams.bg_color) {
-        document.body.style.backgroundColor = tg.themeParams.bg_color;
-      }
-      
-      // Show app when React loads
-      setTimeout(() => {
-        document.getElementById('app-loading').style.display = 'none';
-        document.getElementById('app').style.display = 'block';
-      }, 100);
-      
-    } else {
-      // Not in Telegram - show warning with debug info
-      document.getElementById('app-loading').innerHTML = `
-        <div style="text-align: center; padding: 20px;">
-          <h2 style="color: #EF4444; margin-bottom: 16px;">⚠️ Error</h2>
-          <p style="color: #666;">This page must be opened from Telegram.</p>
-          <p style="color: #999; font-size: 14px; margin-top: 16px;">
-            Please use the Telegram bot to access this form.
-          </p>
-          <div style="margin-top: 20px; padding: 10px; background: #f3f4f6; border-radius: 8px; font-size: 12px; text-align: left;">
-            <strong>Debug Info:</strong><br>
-            Telegram: ${typeof window.Telegram}<br>
-            WebApp: ${typeof window.Telegram?.WebApp}<br>
-            URL: ${window.location.href}
+      // Initialize Telegram WebApp
+      if (window.Telegram && window.Telegram.WebApp) {
+        const tg = window.Telegram.WebApp;
+        
+        console.log('✅ Telegram WebApp initialized:', tg);
+        console.log('InitData:', tg.initData);
+        console.log('User:', tg.initDataUnsafe?.user);
+        
+        // Initialize
+        tg.ready();
+        tg.expand();
+        
+        // Apply theme
+        if (tg.themeParams.bg_color) {
+          document.body.style.backgroundColor = tg.themeParams.bg_color;
+        }
+        
+        // Show app when React loads
+        setTimeout(() => {
+          document.getElementById('app-loading').style.display = 'none';
+          document.getElementById('app').style.display = 'block';
+        }, 100);
+        
+      } else {
+        // Not in Telegram - show warning with debug info
+        console.log('❌ Telegram WebApp not available');
+        document.getElementById('app-loading').innerHTML = `
+          <div style="text-align: center; padding: 20px;">
+            <h2 style="color: #EF4444; margin-bottom: 16px;">⚠️ Error</h2>
+            <p style="color: #666;">This page must be opened from Telegram.</p>
+            <p style="color: #999; font-size: 14px; margin-top: 16px;">
+              Please use the Telegram bot to access this form.
+            </p>
+            <div style="margin-top: 20px; padding: 10px; background: #f3f4f6; border-radius: 8px; font-size: 12px; text-align: left;">
+              <strong>Debug Info:</strong><br>
+              Telegram: ${typeof window.Telegram}<br>
+              WebApp: ${typeof window.Telegram?.WebApp}<br>
+              URL: ${window.location.href}<br>
+              User Agent: ${navigator.userAgent.substring(0, 50)}...
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      }
+    }
+    
+    // Try multiple times to catch the script loading
+    let attempts = 0;
+    const maxAttempts = 10;
+    
+    function tryInit() {
+      attempts++;
+      console.log(`Attempt ${attempts}/${maxAttempts}`);
+      
+      if (window.Telegram && window.Telegram.WebApp) {
+        initTelegramApp();
+      } else if (attempts < maxAttempts) {
+        setTimeout(tryInit, 200);
+      } else {
+        console.log('Max attempts reached, showing error');
+        initTelegramApp();
+      }
+    }
+    
+    // Start trying when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', tryInit);
+    } else {
+      tryInit();
     }
   </script>
 </body>
