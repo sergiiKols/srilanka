@@ -1,0 +1,369 @@
+[
+    {
+        "id":  "poi_00000001",
+        "google_place_id":  "ChIJT27MDu9y4ToRb-wWd9CGqnw",
+        "name":  "Thaproban Beach House",
+        "coordinates":  {
+                            "lat":  6.0095535,
+                            "lng":  80.2454614
+                        },
+        "area":  "Unawatuna",
+        "distanceToBeach":  597,
+        "region":  "Southern",
+        "category":  "food",
+        "tags":  [
+
+                 ],
+        "description":  "Thaproban Beach House in Unawatuna, Sri Lanka",
+        "address":  "Yaddehimulla Rd, Unawatuna 80600, Sri Lanka",
+        "phone":  "0914 381 722",
+        "website":  "https://www.thambapannileisure.com/",
+        "rating":  4.3,
+        "totalReviews":  1310,
+        "amenities":  [
+
+                      ],
+        "photos":  [
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2TfPCybmW4I1HBpOs6LreFp_8qgldz8lahgZbnceRlKyyUNuxn1T0rdRkvBz8wrbqAqoyUdHV2Iex3DY6pTsrqKeQhUdlp8lEZR5hu5x6TcAU9WNCY-Q8fRKUiXpV3cnKAI4YlY66k87KxMCzNLcey1SeVDy8qwZ7CUy2nNZdyoZikUkHpBHImfBhZLDAfYnkyKA9-_3JMlxI7oR02iKzIqdgAQDob5ACuW4iNRPbPzQVWT6D6j1y46vD-Ze7Zipp1HIwY84dHUiByvlAr1T7lZYumWXqngsV9C1Q6hvJckg\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  4032,
+                           "height":  3024,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/103139449573971784632\"\u003eThaproban Beach House\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN1m3iSw7DJi_STlsKtQzIE0jf6spFZZI5A2dpB3SwZiEn5tkxxCkZr4NHlzmXtXz6GCH3x9Nc1GvM4uOtMHgfzvyod-YuyuGhmT7TnMIxGKPXGlh1qcbgQ2vwAIchdihb7PO0QYmNdJQSymRj7DiGrMjFptSIN4iO6nRo9FcdrDZ9U-ZcCLokaTvFesPPNjMU4A1HwP52ZDB1Fah82QPWkOEHU8OfivPJJIdffC5H0oBEE_OOtap6YNkJ7_HwYIQQcjCGEX406r4Q8AxCvZRVYxqY_dGVqz9E64zpUbpUNp7f4tc8WRfJ7ikWUXnExQtm0ufkkb0pri11_lypfQZj3h_0HZrG-gfZCfofaZVkRX692vuV6yP_VZqJPDOQaSH9XahLieKk5ZyiprYt2E3CAEoTt3aTKUYNjfXKs1R1wEMTE\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  4032,
+                           "height":  3024,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/105313201672495422461\"\u003eDulan Dias\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3WV8gbdZO4yeBzvcW7Op5XfN2Z6KbQ8oQ4AOvwrL3Acgd8eq99-efgB3h7-IlSA5UPice8fm-8aHC6h6TN1dIdP2pTXYyIV3jO_UE_2RjihwPrtxEZIR3I3xCXUtW9Le9JK1kZOEITJkjEKkLlyX4DCuKBflcb5cqgyzL1U3u47mE0etViDY13tfdHeRPl8uT2rfqSsloYsU4Lndn7FfnRCKFRbROh74tLEUj2cMoe3d__gGJp_kM9ZjVTlEJCD0uPJMQef8CiaBSmolYLAz995w_i5B-WpkgkYx3_1f9W-6FrAjZRzTzSVdkacC5Kz4gXrHUd3CQyoQrt9YPsb8r-Cb0TMIWdq_bi6NOug9bamBPhrikV2-jot1aXCalw4r6SRX7BDbrMBdeiXNifpadLPezExhAv9xN0EfY-SD2P8hn7\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  3000,
+                           "height":  4000,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/102655176235249655249\"\u003eSanja Skiljo\u003c/a\u003e"
+                       }
+                   ],
+        "mainPhoto":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2TfPCybmW4I1HBpOs6LreFp_8qgldz8lahgZbnceRlKyyUNuxn1T0rdRkvBz8wrbqAqoyUdHV2Iex3DY6pTsrqKeQhUdlp8lEZR5hu5x6TcAU9WNCY-Q8fRKUiXpV3cnKAI4YlY66k87KxMCzNLcey1SeVDy8qwZ7CUy2nNZdyoZikUkHpBHImfBhZLDAfYnkyKA9-_3JMlxI7oR02iKzIqdgAQDob5ACuW4iNRPbPzQVWT6D6j1y46vD-Ze7Zipp1HIwY84dHUiByvlAr1T7lZYumWXqngsV9C1Q6hvJckg\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+        "googleMapsUrl":  "https://www.google.com/maps/place/?q=place_id:ChIJT27MDu9y4ToRb-wWd9CGqnw",
+        "types":  [
+                      "establishment",
+                      "food",
+                      "lodging",
+                      "point_of_interest",
+                      "restaurant"
+                  ],
+        "verified":  true,
+        "createdAt":  "2026-01-23T05:59:07.682Z",
+        "updatedAt":  "2026-01-23T05:59:07.682Z",
+        "source":  "google_places_api",
+        "parsingPass":  1,
+        "qualityScore":  100,
+        "social":  {
+                       "facebook":  "https://facebook.com/thaprobanbeachhouse"
+                   },
+        "hours":  "24/7"
+    },
+    {
+        "id":  "poi_00000004",
+        "google_place_id":  "ChIJyWMQfO5y4ToRd2aRFmn-mBs",
+        "name":  "Tartaruga Beach Unawatuna",
+        "coordinates":  {
+                            "lat":  6.010013499999999,
+                            "lng":  80.24847969999999
+                        },
+        "area":  "Unawatuna",
+        "distanceToBeach":  198,
+        "region":  "Southern",
+        "category":  "food",
+        "tags":  [
+
+                 ],
+        "description":  "Tartaruga Beach Unawatuna in Unawatuna, Sri Lanka",
+        "address":  "Yaddehimulla Rd, Unawatuna 80600, Sri Lanka",
+        "phone":  "0914 944 263",
+        "website":  "http://www.tartarugahotel.com/",
+        "hours":  "Monday: Open 24 hours, Tuesday: Open 24 hours, Wednesday: Open 24 hours, Thursday: Open 24 hours, Friday: Open 24 hours, Saturday: Open 24 hours, Sunday: Open 24 hours",
+        "rating":  4,
+        "totalReviews":  1008,
+        "amenities":  [
+
+                      ],
+        "photos":  [
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3dC7-n6LlR0Li5reir8yeKIR722V4-ZJeRPc8PuBt4lhNQq5aGpjkrEbAXhY9biUVR_2ioqInYp9JaE2HJcENYRS1guT89kB4XBMLNp8KGBhplpWxGGa9ztOvmOH6NoYuVJeOvf9_m44ta4mcFvVdH2pJ2AlkkQDBqtlcREc7tkxm24F0RhboyclyLLlpUFo1qXDZs5zo1-nq5gqO1Wbufb_eJ8Q_-1Oqvs4ku0C_E3w1QPPBwtLKwFlls8ltspns_m3tsHj8bLDTJ-g0kFtcj4JpwqWXssxZ5EfxiGgrysw\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  4800,
+                           "height":  3200,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/114886529960735758785\"\u003eTartaruga Hotel and Restaurant\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3yLGyWpRvJIHdYDCxkE-nYGNz5pKqnuJHfW2IIw80kmmT99IQuEb9noMXqL97ymIeSYCIDB-2VkeS78VaAbXBJC-bmQxUkFwAcrmTWZ6XO-hgbRvfWTv7k67ayJFkPEH3twQqWuId-yx0xmEDu4lf9MNGsnem0dTIj5vN3tgod6DAOeVXzwwXbBqVGhti88YqBOXymvzYkklx3LaIgsink5vUeGqxBFHt40dqdiZTLnJRM7C-0RYEjZ_-cWq1TVFWn00fQU5N3LhXQm1qCXNHYxP6eSGaJHUepEI5Aliq4bA\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  4800,
+                           "height":  3200,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/114886529960735758785\"\u003eTartaruga Hotel and Restaurant\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3ZePQNg991R6lQPvKBNY0-BMBzXDHrJBwzcDoLSOdY6xNF3HNNu-WLZMwJPEHGTgr8_a4WD6rvfJQ9vgO86NSpQ9-Vl0lAZ29kRNpAlgvGvSBdYATxyv-UWvqSg8kHYhrGsJxxPC9bLk7wlqopueCgpWIo6zUaRVfUqsALya1VOhFIZU2cKaf7ivO1EKebdAkV3LoKxyDU43f929rDzzShK9JddR95Y5joKFT9ONIk1vMeaZbWQki_F8OuRnLvTxg97fQJx6PCfUQbqMpkroyuRjZ9-u4vIG2XsCzh_xpUpKrQYkyBhSjYMqXI3d9GeJQi5RhWPD0s7iQ4zoVJeINLQakeJtIDLPviX_5ctbouz7k-p_GQLQvoAL_j2RqOc08rS4U6h24jvpSyHT6Zg__dDmOTZyUV0MNZaB5ZJhcLBA\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  4032,
+                           "height":  3024,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/111552761822916315598\"\u003eChamath Erandika\u003c/a\u003e"
+                       }
+                   ],
+        "mainPhoto":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3dC7-n6LlR0Li5reir8yeKIR722V4-ZJeRPc8PuBt4lhNQq5aGpjkrEbAXhY9biUVR_2ioqInYp9JaE2HJcENYRS1guT89kB4XBMLNp8KGBhplpWxGGa9ztOvmOH6NoYuVJeOvf9_m44ta4mcFvVdH2pJ2AlkkQDBqtlcREc7tkxm24F0RhboyclyLLlpUFo1qXDZs5zo1-nq5gqO1Wbufb_eJ8Q_-1Oqvs4ku0C_E3w1QPPBwtLKwFlls8ltspns_m3tsHj8bLDTJ-g0kFtcj4JpwqWXssxZ5EfxiGgrysw\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+        "googleMapsUrl":  "https://www.google.com/maps/place/?q=place_id:ChIJyWMQfO5y4ToRd2aRFmn-mBs",
+        "types":  [
+                      "bar",
+                      "establishment",
+                      "food",
+                      "lodging",
+                      "point_of_interest",
+                      "restaurant"
+                  ],
+        "verified":  true,
+        "createdAt":  "2026-01-23T05:59:17.543Z",
+        "updatedAt":  "2026-01-23T05:59:17.543Z",
+        "source":  "google_places_api",
+        "parsingPass":  1,
+        "qualityScore":  100
+    },
+    {
+        "id":  "poi_00000009",
+        "google_place_id":  "ChIJ-4gV0O1y4ToRqLh3j5dZ1r4",
+        "name":  "Love Bar Unawatuna",
+        "coordinates":  {
+                            "lat":  6.0123417,
+                            "lng":  80.2481851
+                        },
+        "area":  "Unawatuna",
+        "distanceToBeach":  109,
+        "region":  "Southern",
+        "category":  "food",
+        "tags":  [
+
+                 ],
+        "description":  "Love Bar Unawatuna in Unawatuna, Sri Lanka",
+        "address":  "52 Yaddehimulla Rd, Unawatuna 80000, Sri Lanka",
+        "website":  "https://www.facebook.com/BrothersKitchengalle?mibextid=ZbWKwL",
+        "hours":  "Monday: 8:00 AM – 1:00 AM, Tuesday: 8:00 AM – 1:00 AM, Wednesday: 8:00 AM – 1:00 AM, Thursday: 8:00 AM – 1:00 AM, Friday: 8:00 AM – 1:00 AM, Saturday: 8:00 AM – 1:00 AM, Sunday: 8:00 AM – 1:00 AM",
+        "rating":  4,
+        "totalReviews":  120,
+        "amenities":  [
+
+                      ],
+        "photos":  [
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3ejoeEJh0C0R_En9nuLffpojazskbupy5TStHYU_s8O5YjLW0OL9_RGxV7L-VkkkYDHLsjTKhqipa9j8VuMEoE47_smCh6UCyyg3pRy7NkkfPC8hXQmal629Sao4ArTKP1Cy6c5P-PEsGiMMyjEyiv2gNy604RCzVhda9J_3ciQiw8uSvrG9CGAi3MA0EBTy5yLyy4vGe-QKytCfFNeVkA8yiEOXn5vn_9CAU3REK2gyl8m_KUTES0_ktD4k7fzDPT_zYnd2SR89YDv45fE1CRur2vWrCX6oIEKwPhl93n7Q\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  1600,
+                           "height":  1066,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/109110555817696588082\"\u003eLove Bar Unawatuna\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2oOPj8d_EDFTuZqJQDuKDQGnSSx2pH-KpfbAi9FgxPhzCOgzGySRYJgWoXdMRrvj1wOtvTjVh8P34_IIwM14QUuLNY6KaHvmxBxNaGhBXQTznaGt5-obLGlNUntObxnbFryIk8M5EA_LzeRPLiKGbZWCImvK_33fhTZ7LWgJ8y8D4G8WHlOOXEYD8wkoW_thMG8TVRuxp_uPZE9eMrkk787Xxbfu9WL0ioo8PxzKWjqqIxTbwlGd60nm7n2AnTVLQOh8Jh7APsnxoNYHSI7P3QuANigYcfFHkestQyf_HwQw\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  1068,
+                           "height":  1600,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/109110555817696588082\"\u003eLove Bar Unawatuna\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3F4jVTX1TJbGJHqt-uZyXSOBRvCwt5V-q6imwflMEiukcqE0KPpG8GiSrowzy2DIRgCp459PHA5VqEEt2ujgL3a0qb8E0i1t8EKTmjxarwNh2Cd9bVxDyqCiUalLZWKz1BPdlHDvSeIZ8RkgWMXAGuxcDn9BEvrRqlA_1VnFaabo2F-IHAefdX0BIrNd82MhW9pykUOu8-Dk5Evec6NTmPnXTnyKAaXK2Kl5vuoHr05zqDKXar6aOYyd3k_hoHI0K7HLeKk67fTQT6F_en3zYZyZMd9IFdYeZPpihQd0xpTw\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  1600,
+                           "height":  1066,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/109110555817696588082\"\u003eLove Bar Unawatuna\u003c/a\u003e"
+                       }
+                   ],
+        "mainPhoto":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3ejoeEJh0C0R_En9nuLffpojazskbupy5TStHYU_s8O5YjLW0OL9_RGxV7L-VkkkYDHLsjTKhqipa9j8VuMEoE47_smCh6UCyyg3pRy7NkkfPC8hXQmal629Sao4ArTKP1Cy6c5P-PEsGiMMyjEyiv2gNy604RCzVhda9J_3ciQiw8uSvrG9CGAi3MA0EBTy5yLyy4vGe-QKytCfFNeVkA8yiEOXn5vn_9CAU3REK2gyl8m_KUTES0_ktD4k7fzDPT_zYnd2SR89YDv45fE1CRur2vWrCX6oIEKwPhl93n7Q\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+        "googleMapsUrl":  "https://www.google.com/maps/place/?q=place_id:ChIJ-4gV0O1y4ToRqLh3j5dZ1r4",
+        "types":  [
+                      "bar",
+                      "establishment",
+                      "food",
+                      "point_of_interest",
+                      "restaurant"
+                  ],
+        "verified":  true,
+        "createdAt":  "2026-01-23T05:59:34.133Z",
+        "updatedAt":  "2026-01-23T05:59:34.133Z",
+        "source":  "google_places_api",
+        "parsingPass":  1,
+        "qualityScore":  100,
+        "social":  {
+                       "tripadvisor":  "https://tripadvisor.com/Attraction_Review-Love_Bar_Unawatuna"
+                   }
+    },
+    {
+        "id":  "poi_00000034",
+        "google_place_id":  "ChIJ60drkMVz4ToRjZorVar28A8",
+        "name":  "Malee\u0027s Restaurant",
+        "coordinates":  {
+                            "lat":  6.050171999999999,
+                            "lng":  80.22019
+                        },
+        "area":  "Galle",
+        "distanceToBeach":  939,
+        "region":  "Southern",
+        "category":  "food",
+        "tags":  [
+
+                 ],
+        "description":  "Malee\u0027s Restaurant in Galle, Sri Lanka",
+        "address":  "No: 93 1/1 Steel Road Dangedara, Galle 80000, Sri Lanka",
+        "phone":  "0913 911 380",
+        "hours":  "Monday: 10:30 AM –���10:30 PM, Tuesday: 10:30 AM – 10:30 PM, Wednesday: 10:30 AM – 10:30 PM, Thursday: 10:30 AM – 10:30 PM, Friday: 10:30 AM – 10:30 PM, Saturday: 10:30 AM – 10:30 PM, Sunday: 10:30 AM – 10:30 PM",
+        "rating":  4.3,
+        "totalReviews":  10,
+        "amenities":  [
+
+                      ],
+        "photos":  [
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2Y4PjrMztX-KhW-IIOeuDBvzxBToMOuuG5SsEu4Y1nT1bYfZH2PqaYcpY3PGsrJOJX3UyYPsd9rRqSgvR6rpmkq1f0zO2XZKtzWeEUmJBOp8U1j1uAOdmCPujsLGtIQZKmEzskWwP5kiOkJiMxRNFSZQ22Gkm_9rMQsvBs_WAo-vS3OVrxk55rESnPmOpSi-d_tRRikANPW1Eg6vIb8xwKEvIRwkah8HUCqyHATmBxATDvm9fyoI7laY-kDJo5SmuPtSAyhdwKfQXwXIEJ11zWzHf3fa5hXg8eWoSpoo_hzBt-kL_gipyGhzP0zFYNi88-SJ82tmAcCB-LtsDDoD3IsopS0GMztjoXZArzhB4Ef4A3MdwSBzVMutDqkTYtfUTwMduzjmiTH-GV6IoP-qhrQGeKdLiI_77I_UyRM9NtlNAQ\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  2445,
+                           "height":  2307,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/116808866975608351264\"\u003eHarsha Weerasinghe\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN09TMeuhELLYkGHEvhWCmCFIxUg_4Kkk3syrIGJ-6K5YFot59MDt1MFc-iZWCH55L99xs9Rj8zlxF6YTLC-daqRUSGyuIb3tSQPgZ9Xg_eePyj7YvSyk4wMrtBXIZ6oR8GKszsksq3rNas1w5tyUqq-Elkqy1qq6jHr2Zr54qV9i0z3dBrbrBxHmL_F8kncRkilKBuYYnNJr6FsjwhRsqjWB7tN_9Tj07hyhcE0QVwlA8Bg8aD3jiRQk6B4xY3hzbELnfmgIAbYeB3_gw1Q5Ek9qv8CAdqwpOd_b_OcVd10dIu9Q9dhWs9nlOag7Ii9UMbp8o_8z_-hDk_2uCYkDVB0gnY4usMTRuRSeQ1wJCnQ1HdAe1WyL1FF2CSNqTgz_WRTyy6J3wqR9LdI18XS5TuL7lk4f6fd1kxlNTiBMUtNIQ\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  3024,
+                           "height":  4032,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/103485290522675286743\"\u003eShamil Abyeratne\u003c/a\u003e"
+                       }
+                   ],
+        "mainPhoto":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2Y4PjrMztX-KhW-IIOeuDBvzxBToMOuuG5SsEu4Y1nT1bYfZH2PqaYcpY3PGsrJOJX3UyYPsd9rRqSgvR6rpmkq1f0zO2XZKtzWeEUmJBOp8U1j1uAOdmCPujsLGtIQZKmEzskWwP5kiOkJiMxRNFSZQ22Gkm_9rMQsvBs_WAo-vS3OVrxk55rESnPmOpSi-d_tRRikANPW1Eg6vIb8xwKEvIRwkah8HUCqyHATmBxATDvm9fyoI7laY-kDJo5SmuPtSAyhdwKfQXwXIEJ11zWzHf3fa5hXg8eWoSpoo_hzBt-kL_gipyGhzP0zFYNi88-SJ82tmAcCB-LtsDDoD3IsopS0GMztjoXZArzhB4Ef4A3MdwSBzVMutDqkTYtfUTwMduzjmiTH-GV6IoP-qhrQGeKdLiI_77I_UyRM9NtlNAQ\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+        "googleMapsUrl":  "https://www.google.com/maps/place/?q=place_id:ChIJ60drkMVz4ToRjZorVar28A8",
+        "types":  [
+                      "establishment",
+                      "food",
+                      "point_of_interest",
+                      "restaurant"
+                  ],
+        "verified":  true,
+        "createdAt":  "2026-01-23T06:00:57.372Z",
+        "updatedAt":  "2026-01-23T06:00:57.372Z",
+        "source":  "google_places_api",
+        "parsingPass":  1,
+        "qualityScore":  100
+    },
+    {
+        "id":  "poi_00000042",
+        "google_place_id":  "ChIJAQDAktQ_4ToRv_FMyTCGVQA",
+        "name":  "Paradise Beach Club",
+        "coordinates":  {
+                            "lat":  5.94534,
+                            "lng":  80.457447
+                        },
+        "area":  "Mirissa",
+        "distanceToBeach":  699,
+        "region":  "Southern",
+        "category":  "food",
+        "tags":  [
+
+                 ],
+        "description":  "Paradise Beach Club in Mirissa, Sri Lanka",
+        "address":  "140, Ven. Gunasiri Mahimi Mawatha, Mirissa 81740, Sri Lanka",
+        "phone":  "0412 251 206",
+        "website":  "https://paradisebeachclubmirissa.net/",
+        "hours":  "Monday: Open 24 hours, Tuesday: Open 24 hours, Wednesday: Open 24 hours, Thursday: Open 24 hours, Friday: Open 24 hours, Saturday: Open 24 hours, Sunday: Open 24 hours",
+        "rating":  4,
+        "totalReviews":  1241,
+        "amenities":  [
+
+                      ],
+        "photos":  [
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2tLuMSkmxKKasiL6KSNUSXIAPiwUHwA05-Sc5r2WaXOuVt0nrVWmpbSZ17ohk4c4LkHJyXnpKzWOfS8bVBwOfuBUHI1vWbXDYzw6-1wt0OlwkhZ7o2-5hVTf2pIDxMpJDy2jIvLM-cJ7d86MDd1m4o2tUyp2OR1N6KACAQo35YVAU5Gbf7RjTKrIYd4AjNmOFfowMEQglpBnyVkCJAe2NhxwWh6yIyoKeaBjUH_GMs9yRqgPpHcM18g0yptk7nDWGSr0-x_y79tmyDpCiM18QfLKjoJOAKtxF87N4HIbP9LBgILWrw50WMX4yKAejd-waLc1np2QIjVUZl_VELlQcLWwSLKmo8ljGQmqFtiMbSRgz3pm2d2_iIv_wNnN6vMRNRMoSW-zui4G_bo4e_fKG7APWjr5ry9c-bvWDG20WEpoJ2DYtH8v-APYwDRahz\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  4032,
+                           "height":  3024,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/117108687877549903278\"\u003eBiswajit Kumar Roy\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN37GRMdpUuJJkuZ2nXrDarR19O48xiXeJBH9h6kUIIAzzvfleSb8sLsnDkMbbcZinn9UUqt7Z9Q21WFdtYCWdV2fD19jL4v6XfNmS3Fe1GJJEjsk1TGE-P8x1a2WZQnM4XjzhSoU856AAZmN2Z5tc-Swct1nBXqnewie2RON4WR3lfCGmDSFuGP6Y5ivIhtFCoLR1RFMNCAHW6PiTWgGZ0eAGgTJNQC9zTnvTAdzwNY1sg_wRTEaZno7vwGZQAqUhliDL749fKcBjwjpOnPtge_-hmj4EIC28mwDh8mYnRo_HQMKUQ_iAgabHAl-Z9lEvOh97YN7h70Gd_4PEqxfeN4G9ndenOSGR3TRWUAs-ghCVU_i8ipE-WRNrPHcgFC6P1t3MOLabrBboxxXCbnmLd87SgrleOhJS2mAFd8qB3zcA\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  2400,
+                           "height":  1345,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/115947351121709108867\"\u003eKasun Senarathna\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3rc01Kv-6lILUMHNbwpUk0zZJMMRMs7zf_IONAyHc_cQJLz7eG3QRd4rRKuJI4KyYzyMncbte4a9G66Qvq4k7kBv1THiXBDwEQ8nxwpt_XfJ3EH557oaDset1hbnpupchsg7QM4V4nMkVw3wWtS6no-mzPoY6xkIx1PE-ueBnbl59bjrlAWmO7Cay8abGpx9Cq8Yk48HT-7Mo3n-1Ydl-5_DnetuXfu5BMLFq6C0g6bM-1rTSpXhnkIOZR5kF5vj9KhLah4Hg7n-5RoG73D-5LRq9KShW2LZU5hhbZfL-u2DHYx9s8fXXssm4peKZvt-dE8QCiOZfSCXf00A15NQiWKnm1xs1_a50fSQU8fVkNnf9CCsZWDP5G7LXsG7ibBHKf1EN4-8-9dE-qhxvorxIXQtJCBrQBlORFIDOJ9ZxEZBOqbp0eLGFovcohrA\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  3072,
+                           "height":  4096,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/102074202649879595954\"\u003eMegha N Juneja\u003c/a\u003e"
+                       }
+                   ],
+        "mainPhoto":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN2tLuMSkmxKKasiL6KSNUSXIAPiwUHwA05-Sc5r2WaXOuVt0nrVWmpbSZ17ohk4c4LkHJyXnpKzWOfS8bVBwOfuBUHI1vWbXDYzw6-1wt0OlwkhZ7o2-5hVTf2pIDxMpJDy2jIvLM-cJ7d86MDd1m4o2tUyp2OR1N6KACAQo35YVAU5Gbf7RjTKrIYd4AjNmOFfowMEQglpBnyVkCJAe2NhxwWh6yIyoKeaBjUH_GMs9yRqgPpHcM18g0yptk7nDWGSr0-x_y79tmyDpCiM18QfLKjoJOAKtxF87N4HIbP9LBgILWrw50WMX4yKAejd-waLc1np2QIjVUZl_VELlQcLWwSLKmo8ljGQmqFtiMbSRgz3pm2d2_iIv_wNnN6vMRNRMoSW-zui4G_bo4e_fKG7APWjr5ry9c-bvWDG20WEpoJ2DYtH8v-APYwDRahz\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+        "googleMapsUrl":  "https://www.google.com/maps/place/?q=place_id:ChIJAQDAktQ_4ToRv_FMyTCGVQA",
+        "types":  [
+                      "establishment",
+                      "food",
+                      "lodging",
+                      "point_of_interest",
+                      "restaurant"
+                  ],
+        "verified":  true,
+        "createdAt":  "2026-01-23T06:01:25.132Z",
+        "updatedAt":  "2026-01-23T06:01:25.132Z",
+        "source":  "google_places_api",
+        "parsingPass":  1,
+        "qualityScore":  100,
+        "social":  {
+
+                   }
+    },
+    {
+        "id":  "poi_00000044",
+        "google_place_id":  "ChIJeXvOd9M_4ToRIYszi_tnoYw",
+        "name":  "Celestial Inn Mirissa",
+        "coordinates":  {
+                            "lat":  5.9452798,
+                            "lng":  80.4612002
+                        },
+        "area":  "Mirissa",
+        "distanceToBeach":  415,
+        "region":  "Southern",
+        "category":  "food",
+        "tags":  [
+
+                 ],
+        "description":  "Celestial Inn Mirissa in Mirissa, Sri Lanka",
+        "address":  "Merenchigoda Rd, Mirissa, Sri Lanka",
+        "phone":  "077 359 6433",
+        "hours":  "Monday: 7:00 AM – 10:00���PM, Tuesday: 7:00 AM – 10:00 PM, Wednesday: 7:00 AM – 10:00 PM, Thursday: 7:00 AM – 10:00 PM, Friday: 7:00 AM – 10:00 PM, Saturday: 7:00 AM – 10:00 PM, Sunday: 7:00 AM – 10:00 PM",
+        "rating":  4.5,
+        "totalReviews":  106,
+        "amenities":  [
+
+                      ],
+        "photos":  [
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3P5TrnDjFrHXiYUl7RgB4zcTv-kDFwrYMVWJRZR320nuo8xVYiSwTDFyHg7oPeWsYb3J4MA29AIl1At-sa055Sfmd7HeTeTQEO8M4o_bLNF4xS-ATlf0EIBNBfuUAgW2HlQsODMe6IG4LlvJEAirU9hTtErtAMqKcNASWYiDsfa7M2ixklBdNCAvZ453S0GZ5rel0CLMuvQN5TFxGj0GukY9ReqXIHCKIc4JuvTVTqr6X0h53WddC_XYgivmzCmmQODCgdkUYgVDJSshb2xGoKK2DmHwvbZEYV8UG87eRAjg\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  1024,
+                           "height":  768,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/104846679983227224959\"\u003eCelestial Inn Mirissa\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN0scwBC3wos0377oHhTsv2UdstWoa21wtt5agFRUxciSdg_nyTsQTxM0nataE_L1wcWBDRuy_s751Cllfxxx-M88EsSAE9Cplni6bauBL6yhWitQ8QYQCtiz0ONWs1649uMPVZ93TbRvGDKLj-sWXVc_6uLjEp9iv1AAqHakkwB59GfaaZc1nW8LsGkV6GUI3N9cpfqyoCVjmDU47lRAg1YBM4tpZKeMnHL41PH9q9GFo4ciEg2l34bmly0sbUR3geBIj8lGYOpFy1uRmpv9qBmhGkMBGwbtoCGnZs6AONO6A\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  1024,
+                           "height":  720,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/104846679983227224959\"\u003eCelestial Inn Mirissa\u003c/a\u003e"
+                       },
+                       {
+                           "url":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN1QMnAm7n8Bk-b3DjDltdhMDZAFutm7RbliUAYRYcHOS9wev-7uWmChPUMb5ZzVGIDXsMSR80zSNZ4A_fKb2EEfOJX_obozofZmENQ6etWlHxdOTWUKpowiXfSf0ONe-7si8DhJP7c0mXGnqwptZK6WWXwBQz1lxTr-sjW3DyuSro_-PNfUcZz5F6VYnkzZsQu78U2iR6dhpV5LdxW0MzfXDB19qv2jqS2UK3tWlawTlIxmYDTMXgEEylZuBMP0kgP7apXIxhKScEcEX5BeAaLMLjXgaTfgCY9SFelWcdpaMg\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+                           "width":  1024,
+                           "height":  768,
+                           "attribution":  "\u003ca href=\"https://maps.google.com/maps/contrib/104846679983227224959\"\u003eCelestial Inn Mirissa\u003c/a\u003e"
+                       }
+                   ],
+        "mainPhoto":  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920\u0026photoreference=AcnlKN3P5TrnDjFrHXiYUl7RgB4zcTv-kDFwrYMVWJRZR320nuo8xVYiSwTDFyHg7oPeWsYb3J4MA29AIl1At-sa055Sfmd7HeTeTQEO8M4o_bLNF4xS-ATlf0EIBNBfuUAgW2HlQsODMe6IG4LlvJEAirU9hTtErtAMqKcNASWYiDsfa7M2ixklBdNCAvZ453S0GZ5rel0CLMuvQN5TFxGj0GukY9ReqXIHCKIc4JuvTVTqr6X0h53WddC_XYgivmzCmmQODCgdkUYgVDJSshb2xGoKK2DmHwvbZEYV8UG87eRAjg\u0026key=AIzaSyBpBqHcyk_X-ocdmmJzWZO-Ma0KJA3WeYw",
+        "googleMapsUrl":  "https://www.google.com/maps/place/?q=place_id:ChIJeXvOd9M_4ToRIYszi_tnoYw",
+        "types":  [
+                      "establishment",
+                      "food",
+                      "lodging",
+                      "point_of_interest",
+                      "restaurant"
+                  ],
+        "verified":  true,
+        "createdAt":  "2026-01-23T06:01:31.602Z",
+        "updatedAt":  "2026-01-23T06:01:31.602Z",
+        "source":  "google_places_api",
+        "parsingPass":  1,
+        "qualityScore":  100,
+        "website":  "https://www.celestialinnmirissa.lk"
+    }
+]

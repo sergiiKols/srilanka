@@ -1,0 +1,73 @@
+---
+/**
+ * Админ страница: Заявки конкретной формы
+ * /admin/forms/telegram/[id]/submissions
+ */
+
+import AdminLayout from '../../../../../components/admin/AdminLayout.tsx';
+import SubmissionsTable from '../../../../../components/admin/SubmissionsTable.tsx';
+import ErrorBoundary from '../../../../../components/ErrorBoundary.tsx';
+import { requireAdminPage } from '../../../../../lib/auth';
+
+// Проверка прав админа
+const authResult = await requireAdminPage(Astro);
+if (authResult.redirect) return authResult.redirect;
+
+const user = authResult.user;
+const formId = Astro.params.id;
+
+if (!formId) {
+  return Astro.redirect('/admin/forms/telegram');
+}
+---
+
+<AdminLayout title="Заявки формы" user={user}>
+  <div class="space-y-6">
+    <!-- Навигация -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2 text-sm text-gray-600">
+        <a href="/admin/forms/telegram" class="hover:text-blue-600">Формы</a>
+        <span>/</span>
+        <a href={`/admin/forms/telegram/${formId}`} class="hover:text-blue-600">Редактирование</a>
+        <span>/</span>
+        <span class="text-gray-900">Заявки</span>
+      </div>
+      
+      <a
+        href={`/admin/forms/telegram/${formId}`}
+        class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+      >
+        ← Назад к форме
+      </a>
+    </div>
+
+    <!-- Заголовок -->
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900">Заявки формы</h1>
+      <p class="text-gray-600 mt-1" id="form-title-display">Загрузка...</p>
+    </div>
+
+    <!-- Таблица заявок -->
+    <ErrorBoundary client:load>
+      <SubmissionsTable formId={formId} client:load />
+    </ErrorBoundary>
+  </div>
+
+  <script define:vars={{ formId }}>
+    // Загружаем название формы
+    async function loadFormTitle() {
+      try {
+        const response = await fetch(`/api/admin/forms/${formId}`);
+        const result = await response.json();
+        
+        if (result.success && result.data) {
+          document.getElementById('form-title-display').textContent = result.data.title;
+        }
+      } catch (error) {
+        console.error('Load form title error:', error);
+      }
+    }
+
+    loadFormTitle();
+  </script>
+</AdminLayout>

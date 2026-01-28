@@ -1,0 +1,19 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import AdminLayout from '../../../components/admin/AdminLayout';
+import SkillEditor from '../../../components/admin/SkillEditor';
+
+// TODO: Add admin auth check here
+// const session = await getSession(Astro.request);
+// if (!session || session.role !== 'admin') {
+//   return Astro.redirect('/?error=unauthorized');
+// }
+
+const { id } = Astro.params;
+---
+
+<Layout title={`Редактирование Skill - ${id}`}>
+  <AdminLayout client:load>
+    <SkillEditor client:load skillId={id} />
+  </AdminLayout>
+</Layout>

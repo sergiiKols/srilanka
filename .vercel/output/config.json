@@ -1,0 +1,171 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/cron-jobs/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/database/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/forms/telegram/settings/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/forms/telegram/submissions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/forms/telegram/([^/]+?)/submissions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/forms/telegram/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/forms/telegram/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/keep-alive/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/skills/new/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/skills/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/skills/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/supabase/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/tools/url-expander/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/forms/submissions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/forms/([^/]+?)/submissions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/forms/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/forms/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/keep-alive/test-table/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/skills/([^/]+?)/test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/skills/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/skills/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/stats/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/submissions/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/tables/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/admin/tables/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/expand-url/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/telegram-form/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/tenant-request/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/validate-city/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/validate-poi/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/map/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/telegram-app/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/tenant-app/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/test-tenant-form/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/test-validation/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		}
+	]
+}

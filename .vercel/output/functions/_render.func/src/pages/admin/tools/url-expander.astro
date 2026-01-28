@@ -1,0 +1,21 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import AdminLayout from '../../../components/admin/AdminLayout';
+import URLExpander from '../../../components/admin/URLExpander';
+
+// TODO: Add admin auth check here
+// const session = await getSession(Astro.request);
+// if (!session || session.role !== 'admin') {
+//   return Astro.redirect('/?error=unauthorized');
+// }
+---
+
+<Layout title="URL Expander - Admin Tools">
+  <AdminLayout 
+    client:load
+    title="URL Expander Tool"
+    subtitle="Expand short URLs and manage Telegram integrations"
+  >
+    <URLExpander client:load />
+  </AdminLayout>
+</Layout>

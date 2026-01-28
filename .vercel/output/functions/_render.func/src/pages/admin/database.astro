@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdminLayout from '../../components/admin/AdminLayout';
+import DatabaseTables from '../../components/admin/DatabaseTables';
+
+// TODO: Add admin auth check here
+// const session = await getSession(Astro.request);
+// if (!session || session.role !== 'admin') {
+//   return Astro.redirect('/?error=unauthorized');
+// }
+---
+
+<Layout title="Database Tables - Admin Panel">
+  <AdminLayout client:load>
+    <DatabaseTables client:load />
+  </AdminLayout>
+</Layout>
