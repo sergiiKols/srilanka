@@ -1,6 +1,6 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate, m as maybeRenderHead, l as renderScript } from '../../../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
-import { $ as $$Layout } from '../../../../chunks/Layout_ClCQ2Wja.mjs';
+import { $ as $$Layout } from '../../../../chunks/Layout_lp9ZR76Z.mjs';
 import { A as AdminLayout } from '../../../../chunks/AdminLayout_DTgBj3su.mjs';
 import { E as ErrorBoundary } from '../../../../chunks/ErrorBoundary_Kxi8QkMt.mjs';
 import { r as requireAdminPage } from '../../../../chunks/auth_DRVvN-zp.mjs';

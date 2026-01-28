@@ -1,6 +1,6 @@
 import { e as createComponent, f as createAstro, k as renderComponent, r as renderTemplate } from '../../../chunks/astro/server_CZKHqJbe.mjs';
 import 'piccolore';
-import { $ as $$Layout } from '../../../chunks/Layout_ClCQ2Wja.mjs';
+import { $ as $$Layout } from '../../../chunks/Layout_lp9ZR76Z.mjs';
 import { A as AdminLayout } from '../../../chunks/AdminLayout_DTgBj3su.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState } from 'react';
