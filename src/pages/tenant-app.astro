@@ -184,52 +184,34 @@ const pageTitle = 'Find Accommodation in Sri Lanka';
   </div>
   
   <script>
-    // Wait for Telegram WebApp script to load
-    function initTelegramApp() {
-      console.log('Checking Telegram availability...');
-      console.log('Telegram object:', window.Telegram);
-      console.log('WebApp object:', window.Telegram?.WebApp);
-      
-      // Initialize Telegram WebApp
-      if (window.Telegram && window.Telegram.WebApp) {
-        const tg = window.Telegram.WebApp;
-        
-        console.log('✅ Telegram WebApp initialized:', tg);
-        console.log('InitData:', tg.initData);
-        console.log('User:', tg.initDataUnsafe?.user);
-        
-        // Initialize
-        tg.ready();
-        tg.expand();
-        
-        // Apply theme
-        if (tg.themeParams.bg_color) {
-          document.body.style.backgroundColor = tg.themeParams.bg_color;
-        }
-        
-        // Show app when React loads
-        setTimeout(() => {
-          document.getElementById('app-loading').style.display = 'none';
-          document.getElementById('app').style.display = 'block';
-        }, 100);
-        
-      } else {
-        // Not in Telegram - but show form anyway for testing
-        console.log('⚠️ Telegram WebApp not available, showing form anyway');
-        
-        // Show app anyway
-        setTimeout(() => {
-          document.getElementById('app-loading').style.display = 'none';
-          document.getElementById('app').style.display = 'block';
-        }, 100);
+    // SIMPLIFIED VERSION - Just show the form immediately
+    console.log('🚀 Loading tenant form v2.1...');
+    
+    // Initialize Telegram if available
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
+      console.log('✅ Telegram WebApp found');
+      tg.ready();
+      tg.expand();
+      if (tg.themeParams.bg_color) {
+        document.body.style.backgroundColor = tg.themeParams.bg_color;
       }
+    } else {
+      console.log('⚠️ No Telegram WebApp - using polyfill');
     }
     
-    // Always initialize - Telegram SDK is now inline
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTelegramApp);
-    } else {
-      initTelegramApp();
+    // ALWAYS show the form - no checks!
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('✅ DOM loaded - showing form NOW!');
+      document.getElementById('app-loading').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+    });
+    
+    // Fallback if DOMContentLoaded already fired
+    if (document.readyState !== 'loading') {
+      console.log('✅ DOM already loaded - showing form NOW!');
+      document.getElementById('app-loading').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
     }
   </script>
 </body>
