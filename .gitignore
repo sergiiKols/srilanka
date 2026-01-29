@@ -12,3 +12,4 @@ dist/
 
 # macOS-specific files
 .DS_Store
+.vercel

@@ -13,12 +13,12 @@ export function generateMapToken(): string {
   // Исключаем похожие символы для удобства ввода вручную
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
   let token = '';
-  
+
   for (let i = 0; i < 6; i++) {
     const randomIndex = Math.floor(Math.random() * chars.length);
     token += chars[randomIndex];
   }
-  
+
   return token;
 }
 
@@ -30,10 +30,10 @@ export function generateMapToken(): string {
  * @returns {string} Полный URL карты
  */
 export function buildPersonalMapUrl(userId: number, token: string): string {
-  const baseUrl = import.meta.env.PUBLIC_SITE_URL || 
-                  import.meta.env.SITE_URL || 
-                  'http://localhost:4321';
-  
+  const baseUrl = import.meta.env.PUBLIC_SITE_URL ||
+    import.meta.env.SITE_URL ||
+    'https://srilanka-37u2.vercel.app';
+
   return `${baseUrl}/map/personal/${userId}/${token}`;
 }
 
@@ -54,14 +54,14 @@ export function extractGoogleMapsUrl(text: string): string | null {
     /https?:\/\/goo\.gl\/maps\/[a-zA-Z0-9]+/,
     /https?:\/\/maps\.google\.com\/[^\s]+/
   ];
-  
+
   for (const pattern of patterns) {
     const match = text.match(pattern);
     if (match) {
       return match[0];
     }
   }
-  
+
   return null;
 }
 
@@ -82,15 +82,15 @@ export function extractLocation(text: string): string | null {
     'Мирисса', 'Тангалле', 'Элла', 'Нувара Элия', 'Аругам Бей',
     'Унаватуна', 'Велигама', 'Матара', 'Тринкомали', 'Джафна'
   ];
-  
+
   const lowerText = text.toLowerCase();
-  
+
   for (const location of locations) {
     if (lowerText.includes(location.toLowerCase())) {
       return location;
     }
   }
-  
+
   return null;
 }
 
@@ -110,15 +110,14 @@ export function formatSuccessMessage(
   const title = property.title || 'Property';
   const price = property.price ? `$${property.price}` : '';
   const location = property.address || 'Location unknown';
-  
+
   return `✅ Объект сохранён! (всего: ${totalCount})
 
 🏠 ${title}${price ? ', ' + price + '/месяц' : ''}
 📍 ${location}
 ${property.photos?.length ? `📸 ${property.photos.length} ${property.photos.length === 1 ? 'фотография' : property.photos.length < 5 ? 'фотографии' : 'фотографий'}` : ''}
 
-🗺️ Твоя карта:
-${mapUrl}
+🗺️ <a href="${mapUrl}">Открыть мою карту</a>
 
 💡 Пересылай сюда объявления - они автоматически добавятся на карту!`;
 }
@@ -135,23 +134,23 @@ export function formatWarningMessage(missing: {
   description?: boolean;
 }): string {
   const warnings: string[] = [];
-  
+
   if (missing.photos) {
     warnings.push('📸 Нет фотографий - добавь для лучшего отображения');
   }
-  
+
   if (missing.location) {
     warnings.push('📍 Местоположение не указано - использую примерное');
   }
-  
+
   if (missing.description) {
     warnings.push('💬 Описание отсутствует - добавь детали');
   }
-  
+
   if (warnings.length === 0) {
     return '';
   }
-  
+
   return '\n\n⚠️ Обрати внимание:\n' + warnings.join('\n');
 }
 
@@ -221,7 +220,7 @@ export function calculateDistance(
   const a =
     Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
     Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-  
+
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   return R * c; // Расстояние в метрах
@@ -236,9 +235,9 @@ export function calculateDistance(
  */
 export function formatPrice(price: number, currency: string = 'USD'): string {
   if (!price) return '';
-  
+
   const formatted = new Intl.NumberFormat('en-US').format(price);
-  
+
   switch (currency.toUpperCase()) {
     case 'USD':
       return `$${formatted}`;
