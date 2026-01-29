@@ -7,6 +7,9 @@
         "X-Robots-Tag": "noindex"
       },
       "continue": true
+    },
+    {
+      "handle": "filesystem"
     }
   ]
 }
