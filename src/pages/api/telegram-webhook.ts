@@ -470,8 +470,12 @@ async function handleCommand(message: any) {
 
   switch (command) {
     case '/start':
+      console.log('🔵 /start command - getting tenant for user:', userId);
       const tenant = await getOrCreateTenant(userId);
-      await sendTelegramMessage({
+      console.log('🔵 Tenant received:', { id: tenant.id, map_url: tenant.personal_map_url });
+      
+      console.log('🔵 Sending welcome message...');
+      const result = await sendTelegramMessage({
         botToken,
         chatId: chatId.toString(),
         text: `👋 Привет! Я твоя личная записная книжка для объектов недвижимости!\n\n📝 Как работает:\n1. Нашёл объявление? Переслай мне!\n2. Я автоматически сохраню на карте\n3. Все объекты в одном месте\n\n🗺️ Твоя карта:\n${tenant.personal_map_url}`,
@@ -484,6 +488,7 @@ async function handleCommand(message: any) {
           ]
         }
       });
+      console.log('🔵 Message send result:', result);
       break;
 
     case '/help':
