@@ -1,0 +1,11 @@
+---
+export const prerender = false;
+const time = new Date().toISOString();
+---
+
+<html>
+    <body>
+        <h1>Dynamic SSR Test</h1>
+        <p>Current Time (Server): {time}</p>
+    </body>
+</html>
