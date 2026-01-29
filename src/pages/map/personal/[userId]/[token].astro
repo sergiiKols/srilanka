@@ -1,0 +1,44 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Header from '../../../../components/Header.astro';
+import Map from '../../../../components/map/Map';
+
+export const prerender = false;
+
+const { userId, token } = Astro.params;
+
+// TODO: Verify token and load user's properties from database
+// For now, just show the map
+---
+
+<Layout title="Личная карта | H-Ome Finder">
+	<Header />
+	<main class="main">
+		<div class="map-container">
+			<Map 
+				client:only="react" 
+				userId={userId}
+				token={token}
+			/>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.map-container {
+		flex: 1;
+		background-color: #e5e7eb;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+</style>
