@@ -4,6 +4,9 @@
  */
 
 import type { APIRoute } from 'astro';
+
+export const prerender = false;
+
 import { sendTelegramMessage } from '@/lib/telegram';
 import { getOrCreateTenant, saveProperty, checkDuplicate } from '@/lib/tenant-bot-db';
 import { parseForwardMetadata } from '@/lib/telegram-forward-parser';
@@ -320,8 +323,8 @@ async function handleStepByStepInput(message: any) {
         const googleMapsUrl = extractGoogleMapsUrl(hasText);
         if (googleMapsUrl) {
           session.tempData.googleMapsUrl = googleMapsUrl;
-          session.tempData.description = session.tempData.description 
-            ? session.tempData.description + '\n' + hasText 
+          session.tempData.description = session.tempData.description
+            ? session.tempData.description + '\n' + hasText
             : hasText;
           session.state = 'awaiting_description';
 
@@ -342,7 +345,7 @@ async function handleStepByStepInput(message: any) {
         const bestPhoto = getBestQualityPhoto(message.photo);
         session.tempData.photoFileIds = session.tempData.photoFileIds || [];
         session.tempData.photoFileIds.push(bestPhoto.file_id);
-        
+
         await sendTelegramMessage({
           botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
           chatId: chatId.toString(),
@@ -357,7 +360,7 @@ async function handleStepByStepInput(message: any) {
     case 'awaiting_description':
       if (hasText) {
         session.tempData.description = hasText;
-        
+
         await sendTelegramMessage({
           botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
           chatId: chatId.toString(),
@@ -438,9 +441,9 @@ async function saveFromSession(userId: number, chatId: number) {
   try {
     // TODO: Implement full save from session
     console.log('💾 Saving from session:', session.tempData);
-    
+
     userSessions.delete(userId);
-    
+
     await sendTelegramMessage({
       botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
       chatId: chatId.toString(),

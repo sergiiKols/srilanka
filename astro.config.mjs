@@ -9,7 +9,8 @@ export default defineConfig({
   output: 'server',
   adapter: vercel({
     webAnalytics: { enabled: false },
-    speedInsights: { enabled: false }
+    speedInsights: { enabled: false },
+    functionPerRoute: true,
   }),
   integrations: [react()],
 
