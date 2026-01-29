@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import fs from 'fs/promises';
+export const prerender = false;
 import path from 'path';
 
 const SKILLS_DIR = path.join(process.cwd(), '.agent', 'skills');
@@ -8,7 +9,7 @@ const SKILLS_DIR = path.join(process.cwd(), '.agent', 'skills');
 export const GET: APIRoute = async ({ params }) => {
   try {
     const { id } = params;
-    
+
     if (!id) {
       return new Response(JSON.stringify({ error: 'Skill ID required' }), {
         status: 400,
@@ -21,7 +22,7 @@ export const GET: APIRoute = async ({ params }) => {
 
     try {
       const content = await fs.readFile(skillMdPath, 'utf-8');
-      
+
       // Парсим метаданные
       const nameMatch = content.match(/##\s*Name:\s*(.+)/);
       const descMatch = content.match(/##\s*Description:\s*(.+)/);
@@ -37,7 +38,7 @@ export const GET: APIRoute = async ({ params }) => {
         headers: { 'Content-Type': 'application/json' }
       });
     } catch (error) {
-      return new Response(JSON.stringify({ 
+      return new Response(JSON.stringify({
         error: 'Skill not found',
         message: error instanceof Error ? error.message : 'Unknown error'
       }), {
@@ -47,7 +48,7 @@ export const GET: APIRoute = async ({ params }) => {
     }
   } catch (error) {
     console.error('Error getting skill:', error);
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       error: 'Failed to get skill',
       message: error instanceof Error ? error.message : 'Unknown error'
     }), {
@@ -61,7 +62,7 @@ export const GET: APIRoute = async ({ params }) => {
 export const PUT: APIRoute = async ({ params, request }) => {
   try {
     const { id } = params;
-    
+
     if (!id) {
       return new Response(JSON.stringify({ error: 'Skill ID required' }), {
         status: 400,
@@ -73,8 +74,8 @@ export const PUT: APIRoute = async ({ params, request }) => {
     const { name, description, content } = body;
 
     if (!content) {
-      return new Response(JSON.stringify({ 
-        error: 'Content is required' 
+      return new Response(JSON.stringify({
+        error: 'Content is required'
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
@@ -88,8 +89,8 @@ export const PUT: APIRoute = async ({ params, request }) => {
     try {
       await fs.access(skillPath);
     } catch {
-      return new Response(JSON.stringify({ 
-        error: 'Skill not found' 
+      return new Response(JSON.stringify({
+        error: 'Skill not found'
       }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' }
@@ -108,7 +109,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
     // Сохраняем новый контент
     await fs.writeFile(skillMdPath, content, 'utf-8');
 
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       success: true,
       skill: { id, name, description }
     }), {
@@ -117,7 +118,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
     });
   } catch (error) {
     console.error('Error updating skill:', error);
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       error: 'Failed to update skill',
       message: error instanceof Error ? error.message : 'Unknown error'
     }), {
@@ -131,7 +132,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
 export const DELETE: APIRoute = async ({ params }) => {
   try {
     const { id } = params;
-    
+
     if (!id) {
       return new Response(JSON.stringify({ error: 'Skill ID required' }), {
         status: 400,
@@ -145,8 +146,8 @@ export const DELETE: APIRoute = async ({ params }) => {
     try {
       await fs.access(skillPath);
     } catch {
-      return new Response(JSON.stringify({ 
-        error: 'Skill not found' 
+      return new Response(JSON.stringify({
+        error: 'Skill not found'
       }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' }
@@ -156,7 +157,7 @@ export const DELETE: APIRoute = async ({ params }) => {
     // Удаляем директорию со всем содержимым
     await fs.rm(skillPath, { recursive: true, force: true });
 
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       success: true,
       message: 'Skill deleted successfully'
     }), {
@@ -165,7 +166,7 @@ export const DELETE: APIRoute = async ({ params }) => {
     });
   } catch (error) {
     console.error('Error deleting skill:', error);
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       error: 'Failed to delete skill',
       message: error instanceof Error ? error.message : 'Unknown error'
     }), {

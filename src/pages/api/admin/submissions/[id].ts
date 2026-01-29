@@ -3,6 +3,8 @@
  * DELETE /api/admin/submissions/[id] - удалить заявку (soft delete)
  */
 
+export const prerender = false;
+
 import type { APIRoute } from 'astro';
 import { requireAdmin } from '../../../../lib/auth';
 import { deleteSubmission, createLog } from '../../../../lib/db';
@@ -10,10 +12,10 @@ import { deleteSubmission, createLog } from '../../../../lib/db';
 export const DELETE: APIRoute = async (context) => {
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const { id } = context.params;
-    
+
     if (!id) {
       return new Response(
         JSON.stringify({
@@ -23,10 +25,10 @@ export const DELETE: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Удаляем (soft delete)
     const { data, error } = await deleteSubmission(id);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -36,7 +38,7 @@ export const DELETE: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Логируем удаление
     if (data) {
       await createLog({
@@ -46,7 +48,7 @@ export const DELETE: APIRoute = async (context) => {
         metadata: { action: 'soft_delete' },
       });
     }
-    
+
     return new Response(
       JSON.stringify({
         success: true,

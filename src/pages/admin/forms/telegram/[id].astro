@@ -1,14 +1,16 @@
 ---
 /**
  * Админ страница: Редактирование Telegram формы
- * /admin/forms/telegram/[id]
+ * URL: /admin/forms/telegram/[id]
  */
 
-import AdminLayout from '../../../../components/admin/AdminLayout.tsx';
-import FormBuilder from '../../../../components/admin/FormBuilder.tsx';
-import FormPreview from '../../../../components/admin/FormPreview.tsx';
-import ErrorBoundary from '../../../../components/ErrorBoundary.tsx';
-import { requireAdminPage } from '../../../../lib/auth';
+export const prerender = false;
+
+import AdminLayout from "../../../../components/admin/AdminLayout.tsx";
+import FormBuilder from "../../../../components/admin/FormBuilder.tsx";
+import FormPreview from "../../../../components/admin/FormPreview.tsx";
+import ErrorBoundary from "../../../../components/ErrorBoundary.tsx";
+import { requireAdminPage } from "../../../../lib/auth";
 
 // Проверка прав админа
 const authResult = await requireAdminPage(Astro);
@@ -17,8 +19,8 @@ if (authResult.redirect) return authResult.redirect;
 const user = authResult.user;
 const formId = Astro.params.id;
 
-if (!formId || formId === 'new') {
-  return Astro.redirect('/admin/forms/telegram/new');
+if (!formId || formId === "new") {
+  return Astro.redirect("/admin/forms/telegram/new");
 }
 ---
 
@@ -34,7 +36,7 @@ if (!formId || formId === 'new') {
     <!-- Основная информация формы -->
     <div class="bg-white rounded-lg border border-gray-200 p-6">
       <h1 class="text-2xl font-bold mb-6">Настройки формы</h1>
-      
+
       <form id="form-settings" class="space-y-4">
         <div>
           <label class="block text-sm font-medium mb-1">Название формы *</label>
@@ -55,12 +57,13 @@ if (!formId || formId === 'new') {
             name="description"
             rows="3"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Краткое описание формы"
-          ></textarea>
+            placeholder="Краткое описание формы"></textarea>
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">Текст кнопки отправки</label>
+          <label class="block text-sm font-medium mb-1"
+            >Текст кнопки отправки</label
+          >
           <input
             type="text"
             id="form-submit-text"
@@ -79,11 +82,15 @@ if (!formId || formId === 'new') {
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Например: -1001234567890"
           />
-          <p class="text-xs text-gray-500 mt-1">ID чата или канала, куда будут отправляться уведомления</p>
+          <p class="text-xs text-gray-500 mt-1">
+            ID чата или канала, куда будут отправляться уведомления
+          </p>
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">Шаблон сообщения *</label>
+          <label class="block text-sm font-medium mb-1"
+            >Шаблон сообщения *</label
+          >
           <textarea
             id="form-message-template"
             name="message_template"
@@ -98,7 +105,9 @@ Email: {email}
 ID пользователя: {userId}"
           ></textarea>
           <p class="text-xs text-gray-500 mt-1">
-            Доступные плейсхолдеры: {firstName}, {lastName}, {username}, {userId}, а также ID любых полей формы
+            Доступные плейсхолдеры: {firstName}, {lastName}, {username}, {
+              userId
+            }, а также ID любых полей формы
           </p>
         </div>
 
@@ -178,65 +187,72 @@ ID пользователя: {userId}"
       try {
         const response = await fetch(`/api/admin/forms/${formId}`);
         const result = await response.json();
-        
+
         if (result.success && result.data) {
           currentForm = result.data;
-          
+
           // Заполняем поля
-          document.getElementById('form-title').value = currentForm.title || '';
-          document.getElementById('form-description').value = currentForm.description || '';
-          document.getElementById('form-submit-text').value = currentForm.submit_text || 'Отправить';
-          document.getElementById('form-chat-id').value = currentForm.chat_id || '';
-          document.getElementById('form-message-template').value = currentForm.message_template || '';
-          document.getElementById('form-is-active').checked = currentForm.is_active || false;
-          
+          document.getElementById("form-title").value = currentForm.title || "";
+          document.getElementById("form-description").value =
+            currentForm.description || "";
+          document.getElementById("form-submit-text").value =
+            currentForm.submit_text || "Отправить";
+          document.getElementById("form-chat-id").value =
+            currentForm.chat_id || "";
+          document.getElementById("form-message-template").value =
+            currentForm.message_template || "";
+          document.getElementById("form-is-active").checked =
+            currentForm.is_active || false;
+
           // Показываем URL
           const formUrl = `${window.location.origin}/telegram-app?form_id=${formId}`;
-          document.getElementById('form-url').textContent = formUrl;
+          document.getElementById("form-url").textContent = formUrl;
         } else {
-          alert('Форма не найдена');
-          window.location.href = '/admin/forms/telegram';
+          alert("Форма не найдена");
+          window.location.href = "/admin/forms/telegram";
         }
       } catch (error) {
-        console.error('Load form error:', error);
-        alert('Ошибка загрузки формы');
+        console.error("Load form error:", error);
+        alert("Ошибка загрузки формы");
       }
     }
 
     // Сохранение настроек
-    document.getElementById('form-settings').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(e.target);
-      const data = {
-        title: formData.get('title'),
-        description: formData.get('description'),
-        submit_text: formData.get('submit_text'),
-        chat_id: formData.get('chat_id'),
-        message_template: formData.get('message_template'),
-        is_active: formData.get('is_active') === 'on',
-      };
+    document
+      .getElementById("form-settings")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      try {
-        const response = await fetch(`/api/admin/forms/${formId}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
+        const formData = new FormData(e.target);
+        const data = {
+          title: formData.get("title"),
+          description: formData.get("description"),
+          submit_text: formData.get("submit_text"),
+          chat_id: formData.get("chat_id"),
+          message_template: formData.get("message_template"),
+          is_active: formData.get("is_active") === "on",
+        };
 
-        const result = await response.json();
+        try {
+          const response = await fetch(`/api/admin/forms/${formId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
 
-        if (result.success) {
-          alert('✅ Настройки сохранены');
-          loadForm();
-        } else {
-          alert('❌ Ошибка: ' + (result.error?.message || 'Unknown error'));
+          const result = await response.json();
+
+          if (result.success) {
+            alert("✅ Настройки сохранены");
+            loadForm();
+          } else {
+            alert("❌ Ошибка: " + (result.error?.message || "Unknown error"));
+          }
+        } catch (error) {
+          console.error("Save error:", error);
+          alert("❌ Ошибка сохранения");
         }
-      } catch (error) {
-        console.error('Save error:', error);
-        alert('❌ Ошибка сохранения');
-      }
-    });
+      });
 
     // Загружаем форму при загрузке страницы
     loadForm();

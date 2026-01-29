@@ -6,6 +6,8 @@
 
 import type { APIRoute } from 'astro';
 import { requireAdmin, getCurrentUser } from '../../../lib/auth';
+
+export const prerender = false;
 import { getAllForms, createForm } from '../../../lib/db';
 import { FormConfigCreateSchema } from '../../../types/telegram.types';
 import { createLog } from '../../../lib/db';
@@ -15,13 +17,13 @@ export const GET: APIRoute = async (context) => {
   // Проверка прав админа
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const url = new URL(context.request.url);
     const activeOnly = url.searchParams.get('active') === 'true';
-    
+
     const { data, error } = await getAllForms(activeOnly);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -34,7 +36,7 @@ export const GET: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     return new Response(
       JSON.stringify({
         success: true,
@@ -62,7 +64,7 @@ export const POST: APIRoute = async (context) => {
   // Проверка прав админа
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const user = await getCurrentUser(context);
     if (!user) {
@@ -74,9 +76,9 @@ export const POST: APIRoute = async (context) => {
         { status: 401, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     const body = await context.request.json();
-    
+
     // Валидация данных
     const validation = FormConfigCreateSchema.safeParse(body);
     if (!validation.success) {
@@ -92,10 +94,10 @@ export const POST: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Создаем форму
     const { data, error } = await createForm(validation.data, user.id);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -108,14 +110,14 @@ export const POST: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Логируем создание
     await createLog({
       form_id: data.id,
       event_type: 'form_created',
       metadata: { created_by: user.id },
     });
-    
+
     return new Response(
       JSON.stringify({
         success: true,

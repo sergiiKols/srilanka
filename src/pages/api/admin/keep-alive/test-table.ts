@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 
+export const prerender = false;
+
 const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL || 'https://mcmzdscpuoxwneuzsanu.supabase.co';
 const SUPABASE_SERVICE_KEY = import.meta.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -13,9 +15,9 @@ export const POST: APIRoute = async ({ request }) => {
     const { tableName } = await request.json();
 
     if (!tableName) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: 'Table name is required' 
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Table name is required'
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
@@ -38,11 +40,11 @@ export const POST: APIRoute = async ({ request }) => {
     if (config && !configError) {
       // Используем keep_alive_test_records_v2 для одной таблицы
       const { data, error } = await supabase.rpc('keep_alive_test_records_v2');
-      
+
       if (!error && data) {
         // Находим результат для нашей таблицы
         const tableResult = data.find((r: any) => r.table_name === tableName);
-        
+
         if (tableResult) {
           result = {
             success: tableResult.status === 'SUCCESS',
@@ -82,7 +84,7 @@ export const POST: APIRoute = async ({ request }) => {
         if (sample) {
           Object.keys(sample).forEach(key => {
             if (key === 'id') return; // Пропускаем id
-            
+
             const value = sample[key];
             if (value === null) return;
 
@@ -144,8 +146,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   } catch (error) {
     console.error('Error in test-table:', error);
-    
-    return new Response(JSON.stringify({ 
+
+    return new Response(JSON.stringify({
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error'
     }), {

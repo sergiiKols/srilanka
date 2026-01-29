@@ -4,6 +4,8 @@
  * GET /api/admin/forms/[id]/submissions?export=csv - экспорт в CSV
  */
 
+export const prerender = false;
+
 import type { APIRoute } from 'astro';
 import { requireAdmin } from '../../../../../lib/auth';
 import { getSubmissions, getFormStats } from '../../../../../lib/db';
@@ -13,11 +15,11 @@ import type { SubmissionFilters } from '../../../../../types/telegram.types';
 export const GET: APIRoute = async (context) => {
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const { id } = context.params;
     const url = new URL(context.request.url);
-    
+
     if (!id) {
       return new Response(
         JSON.stringify({
@@ -27,10 +29,10 @@ export const GET: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Проверка на экспорт
     const exportFormat = url.searchParams.get('export');
-    
+
     // Фильтры
     const filters: SubmissionFilters = {
       form_id: id,
@@ -43,7 +45,7 @@ export const GET: APIRoute = async (context) => {
       sort: url.searchParams.get('sort') as any || 'created_at',
       order: url.searchParams.get('order') as any || 'desc',
     };
-    
+
     // Если запрос на экспорт
     if (exportFormat === 'csv') {
       // Получаем все заявки без лимита
@@ -52,7 +54,7 @@ export const GET: APIRoute = async (context) => {
         limit: 10000, // максимум для экспорта
         offset: 0,
       });
-      
+
       if (error || !data) {
         return new Response(
           JSON.stringify({
@@ -62,10 +64,10 @@ export const GET: APIRoute = async (context) => {
           { status: 500, headers: { 'Content-Type': 'application/json' } }
         );
       }
-      
+
       const csv = convertSubmissionsToCSV(data);
       const filename = `submissions_${id}_${new Date().toISOString().split('T')[0]}.csv`;
-      
+
       return new Response(csv, {
         status: 200,
         headers: {
@@ -74,10 +76,10 @@ export const GET: APIRoute = async (context) => {
         },
       });
     }
-    
+
     // Обычный запрос с пагинацией
     const { data, error, count } = await getSubmissions(filters);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -87,10 +89,10 @@ export const GET: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Получаем статистику
     const statsResult = await getFormStats(id);
-    
+
     return new Response(
       JSON.stringify({
         success: true,

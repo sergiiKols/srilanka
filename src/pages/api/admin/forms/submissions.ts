@@ -3,6 +3,8 @@
  * GET /api/admin/forms/submissions - список заявок с фильтрацией
  */
 
+export const prerender = false;
+
 import type { APIRoute } from 'astro';
 import { requireAdmin } from '../../../../lib/auth';
 import { supabase } from '../../../../lib/supabase';

@@ -1,3 +1,4 @@
+export const prerender = false;
 import type { APIRoute } from 'astro';
 import fs from 'fs/promises';
 import path from 'path';
@@ -11,7 +12,7 @@ const SKILLS_DIR = path.join(process.cwd(), '.agent', 'skills');
 export const POST: APIRoute = async ({ params }) => {
   try {
     const { id } = params;
-    
+
     if (!id) {
       return new Response(JSON.stringify({ error: 'Skill ID required' }), {
         status: 400,
@@ -26,8 +27,8 @@ export const POST: APIRoute = async ({ params }) => {
     try {
       await fs.access(skillPath);
     } catch {
-      return new Response(JSON.stringify({ 
-        error: 'Skill not found' 
+      return new Response(JSON.stringify({
+        error: 'Skill not found'
       }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' }
@@ -45,25 +46,25 @@ export const POST: APIRoute = async ({ params }) => {
     try {
       await fs.access(path.join(skillPath, 'SKILL.md'));
       checks.skillMdExists = true;
-    } catch {}
+    } catch { }
 
     try {
       const stats = await fs.stat(scriptsPath);
       checks.scriptsFolderExists = stats.isDirectory();
-      
+
       if (checks.scriptsFolderExists) {
         const files = await fs.readdir(scriptsPath);
         checks.scripts = files.filter(f => !f.startsWith('.'));
         checks.hasScripts = checks.scripts.length > 0;
       }
-    } catch {}
+    } catch { }
 
     // Если есть скрипты, пытаемся запустить первый
     let executionResult = null;
     if (checks.hasScripts && checks.scripts.length > 0) {
       const scriptFile = checks.scripts[0];
       const scriptPath = path.join(scriptsPath, scriptFile);
-      
+
       try {
         // Определяем как запускать скрипт
         let command = '';
@@ -116,7 +117,7 @@ export const POST: APIRoute = async ({ params }) => {
     });
   } catch (error) {
     console.error('Error testing skill:', error);
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       error: 'Failed to test skill',
       message: error instanceof Error ? error.message : 'Unknown error'
     }), {

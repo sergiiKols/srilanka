@@ -4,9 +4,11 @@
  * /admin/forms/telegram
  */
 
-import AdminLayout from '../../../components/admin/AdminLayout.tsx';
-import TelegramFormsList from '../../../components/admin/TelegramFormsList.tsx';
-import { requireAdminPage } from '../../../lib/auth';
+export const prerender = false;
+
+import AdminLayout from "../../../components/admin/AdminLayout.tsx";
+import TelegramFormsList from "../../../components/admin/TelegramFormsList.tsx";
+import { requireAdminPage } from "../../../lib/auth";
 
 // Проверка прав админа
 const authResult = await requireAdminPage(Astro);
@@ -21,14 +23,25 @@ const user = authResult.user;
     <div class="flex justify-between items-center">
       <div>
         <h1 class="text-3xl font-bold text-gray-900">Telegram Формы</h1>
-        <p class="text-gray-600 mt-1">Управление формами для Telegram Web App</p>
+        <p class="text-gray-600 mt-1">
+          Управление формами для Telegram Web App
+        </p>
       </div>
       <a
         href="/admin/forms/telegram/new"
         class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v16m8-8H4"></path>
         </svg>
         Создать форму
       </a>

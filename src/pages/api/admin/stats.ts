@@ -5,15 +5,17 @@
 
 import type { APIRoute } from 'astro';
 import { requireAdmin } from '../../../lib/auth';
+
+export const prerender = false;
 import { getFormsStats } from '../../../lib/db';
 
 export const GET: APIRoute = async (context) => {
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const { data, error } = await getFormsStats();
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -23,7 +25,7 @@ export const GET: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     return new Response(
       JSON.stringify({
         success: true,

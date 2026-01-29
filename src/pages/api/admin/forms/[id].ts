@@ -7,6 +7,8 @@
 
 import type { APIRoute } from 'astro';
 import { requireAdmin } from '../../../../lib/auth';
+
+export const prerender = false;
 import { getFormById, updateForm, deleteForm } from '../../../../lib/db';
 import { FormConfigUpdateSchema } from '../../../../types/telegram.types';
 import { createLog } from '../../../../lib/db';
@@ -15,10 +17,10 @@ import { createLog } from '../../../../lib/db';
 export const GET: APIRoute = async (context) => {
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const { id } = context.params;
-    
+
     if (!id) {
       return new Response(
         JSON.stringify({
@@ -28,9 +30,9 @@ export const GET: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     const { data, error } = await getFormById(id);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -40,7 +42,7 @@ export const GET: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     if (!data) {
       return new Response(
         JSON.stringify({
@@ -50,7 +52,7 @@ export const GET: APIRoute = async (context) => {
         { status: 404, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     return new Response(
       JSON.stringify({ success: true, data }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
@@ -71,10 +73,10 @@ export const GET: APIRoute = async (context) => {
 export const PUT: APIRoute = async (context) => {
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const { id } = context.params;
-    
+
     if (!id) {
       return new Response(
         JSON.stringify({
@@ -84,9 +86,9 @@ export const PUT: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     const body = await context.request.json();
-    
+
     // Валидация
     const validation = FormConfigUpdateSchema.safeParse(body);
     if (!validation.success) {
@@ -102,10 +104,10 @@ export const PUT: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Обновляем
     const { data, error } = await updateForm(id, validation.data);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -115,14 +117,14 @@ export const PUT: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Логируем
     await createLog({
       form_id: id,
       event_type: 'form_updated',
       metadata: { updated_fields: Object.keys(validation.data) },
     });
-    
+
     return new Response(
       JSON.stringify({ success: true, data }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
@@ -143,10 +145,10 @@ export const PUT: APIRoute = async (context) => {
 export const DELETE: APIRoute = async (context) => {
   const authError = await requireAdmin(context);
   if (authError) return authError;
-  
+
   try {
     const { id } = context.params;
-    
+
     if (!id) {
       return new Response(
         JSON.stringify({
@@ -156,15 +158,15 @@ export const DELETE: APIRoute = async (context) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     // Логируем перед удалением
     await createLog({
       form_id: id,
       event_type: 'form_deleted',
     });
-    
+
     const { error } = await deleteForm(id);
-    
+
     if (error) {
       return new Response(
         JSON.stringify({
@@ -174,7 +176,7 @@ export const DELETE: APIRoute = async (context) => {
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
-    
+
     return new Response(
       JSON.stringify({ success: true }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }

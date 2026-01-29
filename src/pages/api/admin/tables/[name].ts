@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 
+export const prerender = false;
+
 const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL || 'https://mcmzdscpuoxwneuzsanu.supabase.co';
 const SUPABASE_SERVICE_KEY = import.meta.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -25,7 +27,7 @@ export const GET: APIRoute = async ({ params }) => {
 
     // 1. Получаем структуру таблицы (колонки)
     let columns: any[] = [];
-    
+
     // Простой подход: получаем первую запись и извлекаем структуру
     const { data: sampleRecord, error: sampleError } = await supabase
       .from(tableName)
@@ -40,7 +42,7 @@ export const GET: APIRoute = async ({ params }) => {
       columns = Object.keys(sampleRecord).map(key => {
         const value = sampleRecord[key];
         let dataType = typeof value;
-        
+
         // Более точное определение типа
         if (value === null) {
           dataType = 'null';
@@ -51,7 +53,7 @@ export const GET: APIRoute = async ({ params }) => {
         } else if (typeof value === 'number') {
           dataType = Number.isInteger(value) ? 'integer' : 'numeric';
         }
-        
+
         return {
           column_name: key,
           data_type: dataType,
@@ -59,7 +61,7 @@ export const GET: APIRoute = async ({ params }) => {
           column_default: null,
         };
       });
-      
+
       console.log(`[API] Extracted ${columns.length} columns from ${tableName}`);
     } else {
       console.warn(`[API] Could not get sample record for ${tableName}:`, sampleError?.message);
@@ -81,8 +83,8 @@ export const GET: APIRoute = async ({ params }) => {
     // 4. Получаем размер таблицы (если возможно)
     let tableSize = 'Unknown';
     try {
-      const { data: sizeData } = await supabase.rpc('get_table_size', { 
-        table_name: tableName 
+      const { data: sizeData } = await supabase.rpc('get_table_size', {
+        table_name: tableName
       });
       if (sizeData) {
         tableSize = sizeData;
@@ -93,7 +95,7 @@ export const GET: APIRoute = async ({ params }) => {
 
     // 5. Получаем статистику по категориям/группам (если применимо)
     let statistics = null;
-    
+
     // Для poi_locations - специфичная статистика
     if (tableName === 'poi_locations') {
       // Статистика по категориям
@@ -108,7 +110,7 @@ export const GET: APIRoute = async ({ params }) => {
           const cat = row.category || 'Unknown';
           categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
         });
-        
+
         statistics = {
           byCategory: Object.entries(categoryCounts)
             .map(([name, count]) => ({ name, count }))
@@ -129,7 +131,7 @@ export const GET: APIRoute = async ({ params }) => {
           const loc = row.location || 'Unknown';
           locationCounts[loc] = (locationCounts[loc] || 0) + 1;
         });
-        
+
         statistics.byLocation = Object.entries(locationCounts)
           .map(([name, count]) => ({ name, count }))
           .sort((a, b) => b.count - a.count)
@@ -173,8 +175,8 @@ export const GET: APIRoute = async ({ params }) => {
 
   } catch (error) {
     console.error(`Error fetching table ${tableName}:`, error);
-    
-    return new Response(JSON.stringify({ 
+
+    return new Response(JSON.stringify({
       error: 'Failed to fetch table details',
       tableName,
       message: error instanceof Error ? error.message : 'Unknown error'

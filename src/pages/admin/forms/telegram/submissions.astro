@@ -4,17 +4,19 @@
  * URL: /admin/forms/telegram/submissions
  */
 
-import Layout from '../../../../layouts/Layout.astro';
-import AdminLayout from '../../../../components/admin/AdminLayout';
-import ErrorBoundary from '../../../../components/ErrorBoundary';
-import { requireAdminPage } from '../../../../lib/auth';
+export const prerender = false;
+
+import Layout from "../../../../layouts/Layout.astro";
+import AdminLayout from "../../../../components/admin/AdminLayout";
+import ErrorBoundary from "../../../../components/ErrorBoundary";
+import { requireAdminPage } from "../../../../lib/auth";
 
 const authError = await requireAdminPage(Astro);
 if (authError) return authError;
 ---
 
 <Layout title="Все заявки - Telegram Forms">
-  <AdminLayout 
+  <AdminLayout
     client:load
     title="Все заявки"
     subtitle="История заявок со всех Telegram форм"
@@ -29,7 +31,7 @@ if (authError) return authError;
             <!-- Динамически загружается через JS -->
           </select>
         </div>
-        
+
         <div class="filter-group">
           <label for="status-filter">Статус:</label>
           <select id="status-filter" class="filter-select">
@@ -40,17 +42,17 @@ if (authError) return authError;
             <option value="error">Ошибка</option>
           </select>
         </div>
-        
+
         <div class="filter-group">
           <label for="date-from">Дата от:</label>
           <input type="date" id="date-from" class="filter-input" />
         </div>
-        
+
         <div class="filter-group">
           <label for="date-to">Дата до:</label>
           <input type="date" id="date-to" class="filter-input" />
         </div>
-        
+
         <button id="apply-filters" class="btn-primary">Применить</button>
         <button id="reset-filters" class="btn-secondary">Сбросить</button>
         <button id="export-csv" class="btn-success">📥 Экспорт CSV</button>
@@ -83,11 +85,13 @@ if (authError) return authError;
         const params = new URLSearchParams({
           page: currentPage,
           limit: 50,
-          ...currentFilters
+          ...currentFilters,
         });
 
         try {
-          const response = await fetch(`/api/admin/forms/submissions?${params}`);
+          const response = await fetch(
+            `/api/admin/forms/submissions?${params}`,
+          );
           const result = await response.json();
 
           if (result.success) {
@@ -97,14 +101,14 @@ if (authError) return authError;
             showError(result.error.message);
           }
         } catch (error) {
-          showError('Ошибка загрузки данных');
+          showError("Ошибка загрузки данных");
           console.error(error);
         }
       }
 
       function renderTable(submissions) {
-        const container = document.getElementById('submissions-table');
-        
+        const container = document.getElementById("submissions-table");
+
         if (submissions.length === 0) {
           container.innerHTML = '<div class="empty">Заявок не найдено</div>';
           return;
@@ -124,10 +128,12 @@ if (authError) return authError;
               </tr>
             </thead>
             <tbody>
-              ${submissions.map(s => `
+              ${submissions
+                .map(
+                  (s) => `
                 <tr>
-                  <td><strong>${s.form_configs?.title || 'N/A'}</strong></td>
-                  <td>${s.first_name || ''} ${s.last_name || ''}</td>
+                  <td><strong>${s.form_configs?.title || "N/A"}</strong></td>
+                  <td>${s.first_name || ""} ${s.last_name || ""}</td>
                   <td>@${s.username || s.user_id}</td>
                   <td>
                     <button class="btn-sm" onclick="viewData('${s.id}')">
@@ -139,80 +145,88 @@ if (authError) return authError;
                       ${getStatusLabel(s.status)}
                     </span>
                   </td>
-                  <td>${new Date(s.created_at).toLocaleString('ru-RU')}</td>
+                  <td>${new Date(s.created_at).toLocaleString("ru-RU")}</td>
                   <td>
                     <button class="btn-icon" onclick="deleteSubmission('${s.id}')" title="Удалить">
                       🗑️
                     </button>
                   </td>
                 </tr>
-              `).join('')}
+              `,
+                )
+                .join("")}
             </tbody>
           </table>
         `;
-        
+
         container.innerHTML = table;
       }
 
       function getStatusLabel(status) {
         const labels = {
-          received: 'Получена',
-          processing: 'В обработке',
-          sent: 'Отправлена',
-          error: 'Ошибка'
+          received: "Получена",
+          processing: "В обработке",
+          sent: "Отправлена",
+          error: "Ошибка",
         };
         return labels[status] || status;
       }
 
       function updatePagination(pagination) {
         totalPages = pagination.pages;
-        document.getElementById('page-info').textContent = 
+        document.getElementById("page-info").textContent =
           `Страница ${currentPage} из ${totalPages} (Всего: ${pagination.total})`;
-        
-        document.getElementById('prev-page').disabled = currentPage === 1;
-        document.getElementById('next-page').disabled = currentPage === totalPages;
+
+        document.getElementById("prev-page").disabled = currentPage === 1;
+        document.getElementById("next-page").disabled =
+          currentPage === totalPages;
       }
 
       function showError(message) {
-        const container = document.getElementById('submissions-table');
+        const container = document.getElementById("submissions-table");
         container.innerHTML = `<div class="error">${message}</div>`;
       }
 
       // Обработчики событий
-      document.getElementById('apply-filters').addEventListener('click', () => {
+      document.getElementById("apply-filters").addEventListener("click", () => {
         currentFilters = {
-          form_id: document.getElementById('form-filter').value,
-          status: document.getElementById('status-filter').value,
-          date_from: document.getElementById('date-from').value,
-          date_to: document.getElementById('date-to').value,
+          form_id: document.getElementById("form-filter").value,
+          status: document.getElementById("status-filter").value,
+          date_from: document.getElementById("date-from").value,
+          date_to: document.getElementById("date-to").value,
         };
         currentPage = 1;
         loadSubmissions();
       });
 
-      document.getElementById('reset-filters').addEventListener('click', () => {
+      document.getElementById("reset-filters").addEventListener("click", () => {
         currentFilters = {};
-        document.getElementById('form-filter').value = '';
-        document.getElementById('status-filter').value = '';
-        document.getElementById('date-from').value = '';
-        document.getElementById('date-to').value = '';
+        document.getElementById("form-filter").value = "";
+        document.getElementById("status-filter").value = "";
+        document.getElementById("date-from").value = "";
+        document.getElementById("date-to").value = "";
         currentPage = 1;
         loadSubmissions();
       });
 
-      document.getElementById('export-csv').addEventListener('click', async () => {
-        const params = new URLSearchParams({ ...currentFilters, export: 'csv' });
-        window.location.href = `/api/admin/forms/submissions?${params}`;
-      });
+      document
+        .getElementById("export-csv")
+        .addEventListener("click", async () => {
+          const params = new URLSearchParams({
+            ...currentFilters,
+            export: "csv",
+          });
+          window.location.href = `/api/admin/forms/submissions?${params}`;
+        });
 
-      document.getElementById('prev-page').addEventListener('click', () => {
+      document.getElementById("prev-page").addEventListener("click", () => {
         if (currentPage > 1) {
           currentPage--;
           loadSubmissions();
         }
       });
 
-      document.getElementById('next-page').addEventListener('click', () => {
+      document.getElementById("next-page").addEventListener("click", () => {
         if (currentPage < totalPages) {
           currentPage++;
           loadSubmissions();
@@ -222,25 +236,25 @@ if (authError) return authError;
       // Модальное окно для просмотра данных
       window.viewData = (id) => {
         // TODO: Реализовать модальное окно с полными данными
-        alert('Просмотр данных заявки: ' + id);
+        alert("Просмотр данных заявки: " + id);
       };
 
       window.deleteSubmission = async (id) => {
-        if (!confirm('Удалить эту заявку?')) return;
-        
+        if (!confirm("Удалить эту заявку?")) return;
+
         try {
           const response = await fetch(`/api/admin/submissions/${id}`, {
-            method: 'DELETE'
+            method: "DELETE",
           });
           const result = await response.json();
-          
+
           if (result.success) {
             loadSubmissions();
           } else {
-            alert('Ошибка удаления: ' + result.error.message);
+            alert("Ошибка удаления: " + result.error.message);
           }
         } catch (error) {
-          alert('Ошибка удаления');
+          alert("Ошибка удаления");
           console.error(error);
         }
       };
@@ -248,20 +262,20 @@ if (authError) return authError;
       // Загрузка списка форм для фильтра
       async function loadForms() {
         try {
-          const response = await fetch('/api/admin/forms');
+          const response = await fetch("/api/admin/forms");
           const result = await response.json();
-          
+
           if (result.success) {
-            const select = document.getElementById('form-filter');
-            result.data.forEach(form => {
-              const option = document.createElement('option');
+            const select = document.getElementById("form-filter");
+            result.data.forEach((form) => {
+              const option = document.createElement("option");
               option.value = form.id;
               option.textContent = form.title;
               select.appendChild(option);
             });
           }
         } catch (error) {
-          console.error('Ошибка загрузки форм:', error);
+          console.error("Ошибка загрузки форм:", error);
         }
       }
 
