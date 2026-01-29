@@ -42,6 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const update = await request.json();
     console.log('📨 Received Telegram update:', update.update_id);
+    console.log('📨 Full update:', JSON.stringify(update, null, 2));
 
     // Обработка callback query (кнопки)
     if (update.callback_query) {
