@@ -1,0 +1,352 @@
+/**
+ * ADMIN MASTER MAP
+ * Показывает все объекты: POI + saved_properties от всех клиентов
+ */
+
+import { useState, useEffect, useRef } from 'react';
+import Map from '../map/Map';
+import PropertyDrawer from '../property/PropertyDrawer';
+import { createClient } from '@supabase/supabase-js';
+
+// Supabase клиент
+const supabase = createClient(
+    'https://mcmzdscpuoxwneuzsanu.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jbXpkc2NwdW94d25ldXpzYW51Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkzNDAxMjEsImV4cCI6MjA4NDkxNjEyMX0.FINUETJbgsos3tJdrJp_cyAPVOPxqpT_XjWIeFywPzw'
+);
+
+// Слои карты
+const LAYERS = [
+    { id: 'pois', label: '🔵 POI (Places)', color: '#3b82f6' },
+    { id: 'client_properties', label: '🔴 Client Properties', color: '#ef4444' }
+];
+
+export default function AdminMasterMap() {
+    const mapRef = useRef<any>(null);
+    const [mapInstance, setMapInstance] = useState<any>(null);
+    const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(null);
+    const [selectedPropertyPos, setSelectedPropertyPos] = useState<[number, number] | null>(null);
+    
+    // Слои
+    const [activeLayers, setActiveLayers] = useState<string[]>(['pois', 'client_properties']);
+    
+    // Данные
+    const [poisData, setPoisData] = useState<any[]>([]);
+    const [clientProperties, setClientProperties] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+    
+    // Фильтры
+    const [heatmapMode, setHeatmapMode] = useState<'none' | 'time' | 'user' | 'price'>('none');
+    const [selectedUser, setSelectedUser] = useState<string>('all');
+    const [dateFilter, setDateFilter] = useState<string>('all');
+    
+    // Статистика
+    const [stats, setStats] = useState({
+        totalPOIs: 0,
+        totalClients: 0,
+        totalProperties: 0,
+        uniqueUsers: 0
+    });
+
+    // Загрузка POI данных
+    useEffect(() => {
+        loadPOIsData();
+    }, []);
+
+    // Загрузка клиентских объектов
+    useEffect(() => {
+        loadClientProperties();
+        
+        // Подписка на изменения в реальном времени
+        const subscription = supabase
+            .channel('saved_properties_changes')
+            .on('postgres_changes', {
+                event: '*',
+                schema: 'public',
+                table: 'saved_properties'
+            }, (payload) => {
+                console.log('🔄 Изменение в saved_properties:', payload);
+                loadClientProperties();
+            })
+            .subscribe();
+
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, [dateFilter, selectedUser]);
+
+    // Загрузка POI из Supabase
+    const loadPOIsData = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('pois')
+                .select('*')
+                .limit(1000);
+
+            if (error) {
+                console.error('Ошибка загрузки POI:', error);
+                return;
+            }
+
+            const mappedPOIs = (data || []).map((poi: any) => ({
+                id: `poi-${poi.id}`,
+                title: poi.name || 'Unknown POI',
+                lat: poi.latitude,
+                lng: poi.longitude,
+                category: poi.category || 'other',
+                type: 'poi',
+                source: 'database'
+            }));
+
+            setPoisData(mappedPOIs);
+            setStats(prev => ({ ...prev, totalPOIs: mappedPOIs.length }));
+            console.log(`✅ Загружено ${mappedPOIs.length} POI`);
+        } catch (err) {
+            console.error('Ошибка при загрузке POI:', err);
+        }
+    };
+
+    // Загрузка клиентских объектов
+    const loadClientProperties = async () => {
+        try {
+            setLoading(true);
+
+            let query = supabase
+                .from('saved_properties')
+                .select(`
+                    *,
+                    tenants!inner (
+                        telegram_user_id,
+                        saved_properties_count,
+                        created_at
+                    )
+                `);
+
+            // Фильтр по дате
+            if (dateFilter !== 'all') {
+                const now = new Date();
+                let startDate;
+
+                switch (dateFilter) {
+                    case 'today':
+                        startDate = new Date(now.setHours(0, 0, 0, 0));
+                        break;
+                    case 'week':
+                        startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                        break;
+                    case 'month':
+                        startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+                        break;
+                }
+
+                if (startDate) {
+                    query = query.gte('created_at', startDate.toISOString());
+                }
+            }
+
+            // Фильтр по пользователю
+            if (selectedUser !== 'all') {
+                query = query.eq('telegram_user_id', parseInt(selectedUser));
+            }
+
+            const { data, error } = await supabase
+                .from('saved_properties')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error('Ошибка загрузки клиентских объектов:', error);
+                return;
+            }
+
+            const mappedProperties = (data || []).map((prop: any) => ({
+                id: `client-${prop.id}`,
+                title: prop.title || prop.property_type || 'Property',
+                lat: prop.latitude,
+                lng: prop.longitude,
+                price: prop.price,
+                currency: prop.currency || 'USD',
+                type: 'client_property',
+                property_type: prop.property_type,
+                bedrooms: prop.bedrooms,
+                bathrooms: prop.bathrooms,
+                photos: prop.photos || [],
+                source_type: prop.source_type,
+                forward_from: prop.forward_from_chat_title || prop.forward_from_username,
+                telegram_user_id: prop.telegram_user_id,
+                created_at: prop.created_at,
+                description: prop.description,
+                contact_phone: prop.contact_phone,
+                amenities: prop.amenities
+            }));
+
+            setClientProperties(mappedProperties);
+
+            // Статистика
+            const uniqueUsers = new Set(mappedProperties.map(p => p.telegram_user_id)).size;
+            setStats(prev => ({
+                ...prev,
+                totalProperties: mappedProperties.length,
+                uniqueUsers
+            }));
+
+            console.log(`✅ Загружено ${mappedProperties.length} клиентских объектов от ${uniqueUsers} пользователей`);
+        } catch (err) {
+            console.error('Ошибка при загрузке клиентских объектов:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Получить цвет маркера для тепловой карты
+    const getHeatmapColor = (property: any) => {
+        if (heatmapMode === 'none') {
+            return property.type === 'poi' ? '#3b82f6' : '#ef4444';
+        }
+
+        if (property.type === 'poi') {
+            return '#3b82f6'; // POI всегда синие
+        }
+
+        switch (heatmapMode) {
+            case 'time':
+                const hoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
+                if (hoursAgo < 24) return '#ef4444'; // Красный - свежие
+                if (hoursAgo < 168) return '#f97316'; // Оранжевый - неделя
+                if (hoursAgo < 720) return '#eab308'; // Жёлтый - месяц
+                return '#22c55e'; // Зелёный - старые
+
+            case 'user':
+                // По активности пользователя (будет реализовано)
+                return '#a855f7'; // Фиолетовый
+
+            case 'price':
+                const price = property.price || 0;
+                if (price > 1000) return '#ef4444'; // Дорогие
+                if (price > 500) return '#f97316'; // Средние
+                if (price > 200) return '#eab308'; // Доступные
+                return '#22c55e'; // Бюджет
+
+            default:
+                return '#ef4444';
+        }
+    };
+
+    // Фильтрация всех объектов
+    const allMarkers = [
+        ...((activeLayers.includes('pois')) ? poisData : []),
+        ...(activeLayers.includes('client_properties') ? clientProperties.map(p => ({
+            ...p,
+            markerColor: getHeatmapColor(p)
+        })) : [])
+    ];
+
+    return (
+        <div className="relative w-full h-full">
+            {/* Карта */}
+            <Map
+                ref={mapRef}
+                properties={allMarkers}
+                selectedPropertyId={selectedPropertyId}
+                onPropertySelect={(id, pos) => {
+                    setSelectedPropertyId(id);
+                    setSelectedPropertyPos(pos);
+                }}
+                onMapInit={setMapInstance}
+            />
+
+            {/* Панель управления */}
+            <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-sm z-[1000]">
+                <h2 className="text-lg font-bold mb-3">🎛️ Admin Master Map</h2>
+
+                {/* Статистика */}
+                <div className="mb-4 p-3 bg-slate-50 rounded">
+                    <div className="text-sm space-y-1">
+                        <div>🔵 POI: {stats.totalPOIs}</div>
+                        <div>🔴 Properties: {stats.totalProperties}</div>
+                        <div>👤 Users: {stats.uniqueUsers}</div>
+                    </div>
+                </div>
+
+                {/* Слои */}
+                <div className="mb-4">
+                    <h3 className="font-semibold mb-2">Layers:</h3>
+                    {LAYERS.map(layer => (
+                        <label key={layer.id} className="flex items-center mb-1 cursor-pointer">
+                            <input
+                                type="checkbox"
+                                checked={activeLayers.includes(layer.id)}
+                                onChange={() => {
+                                    setActiveLayers(prev =>
+                                        prev.includes(layer.id)
+                                            ? prev.filter(l => l !== layer.id)
+                                            : [...prev, layer.id]
+                                    );
+                                }}
+                                className="mr-2"
+                            />
+                            <span>{layer.label}</span>
+                        </label>
+                    ))}
+                </div>
+
+                {/* Тепловая карта */}
+                <div className="mb-4">
+                    <h3 className="font-semibold mb-2">Heatmap:</h3>
+                    <select
+                        value={heatmapMode}
+                        onChange={(e) => setHeatmapMode(e.target.value as any)}
+                        className="w-full p-2 border rounded"
+                    >
+                        <option value="none">Off</option>
+                        <option value="time">By Time</option>
+                        <option value="price">By Price</option>
+                        <option value="user">By User Activity</option>
+                    </select>
+
+                    {heatmapMode === 'time' && (
+                        <div className="mt-2 text-xs">
+                            <div>🔴 &lt;24h</div>
+                            <div>🟠 1-7 days</div>
+                            <div>🟡 7-30 days</div>
+                            <div>🟢 &gt;30 days</div>
+                        </div>
+                    )}
+                </div>
+
+                {/* Фильтры */}
+                <div className="mb-4">
+                    <h3 className="font-semibold mb-2">Filters:</h3>
+                    
+                    <select
+                        value={dateFilter}
+                        onChange={(e) => setDateFilter(e.target.value)}
+                        className="w-full p-2 border rounded mb-2"
+                    >
+                        <option value="all">All time</option>
+                        <option value="today">Today</option>
+                        <option value="week">Last 7 days</option>
+                        <option value="month">Last 30 days</option>
+                    </select>
+                </div>
+
+                {loading && (
+                    <div className="text-center text-sm text-slate-500">
+                        Loading...
+                    </div>
+                )}
+            </div>
+
+            {/* Property Drawer */}
+            {selectedPropertyId && selectedPropertyPos && (
+                <PropertyDrawer
+                    property={allMarkers.find(p => p.id === selectedPropertyId)}
+                    position={selectedPropertyPos}
+                    onClose={() => {
+                        setSelectedPropertyId(null);
+                        setSelectedPropertyPos(null);
+                    }}
+                />
+            )}
+        </div>
+    );
+}

@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="H-Ome Finder | Admin Master Map">
+	<Header />
+	<main class="main">
+		<div class="map-container">
+			<!-- Будет загружен компонент AdminMasterMap -->
+			<div id="admin-master-map-root"></div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	// Динамический импорт React компонента
+	import('../../components/admin/AdminMasterMap').then(async (module) => {
+		const AdminMasterMap = module.default;
+		const React = await import('react');
+		const ReactDOM = await import('react-dom/client');
+		
+		const root = document.getElementById('admin-master-map-root');
+		if (root) {
+			ReactDOM.createRoot(root).render(
+				React.createElement(AdminMasterMap)
+			);
+		}
+	});
+</script>
+
+<style>
+	.main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.map-container {
+		flex: 1;
+		background-color: #e5e7eb;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+	
+	#admin-master-map-root {
+		width: 100%;
+		height: 100%;
+	}
+</style>
