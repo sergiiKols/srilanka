@@ -64,6 +64,10 @@ export const POST: APIRoute = async ({ request }) => {
   }
 };
 
+export const GET: APIRoute = async () => {
+  return new Response("Telegram Webhook is Active (GET request received)", { status: 200 });
+};
+
 /**
  * Обработка сообщений
  */
