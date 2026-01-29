@@ -73,6 +73,9 @@ export const GET: APIRoute = async () => {
       
       // Возвращаем заранее известные таблицы
       const knownTables = [
+        { name: 'tenants', size: '48 kB', columns: 7, description: 'Арендаторы - пользователи которые ищут жильё', category: 'tenant_system' },
+        { name: 'saved_properties', size: '96 kB', columns: 40, description: 'Сохранённые объекты недвижимости арендаторов', category: 'tenant_system' },
+        { name: 'access_attempts', size: '24 kB', columns: 5, description: 'Логи попыток доступа (Rate Limiting)', category: 'tenant_system' },
         { name: 'analytics_events', size: '48 kB', columns: 22, description: 'Analytics and tracking events', category: 'superbase_crm' },
         { name: 'client_maps', size: '48 kB', columns: 15, description: 'Personal maps for clients to view offers', category: 'superbase_crm' },
         { name: 'landlord_responses', size: '128 kB', columns: 30, description: 'Landlord responses to listings', category: 'telegram_listing' },

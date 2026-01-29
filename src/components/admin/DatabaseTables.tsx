@@ -26,6 +26,11 @@ export default function DatabaseTables() {
 
   // Fallback данные (если API не доступен)
   const fallbackTablesData: TableInfo[] = [
+    // TENANT SYSTEM (новая система для арендаторов)
+    { name: 'tenants', size: '48 kB', columns: 7, description: 'Арендаторы - пользователи которые ищут жильё', category: 'tenant_system' },
+    { name: 'saved_properties', size: '96 kB', columns: 40, description: 'Сохранённые объекты недвижимости арендаторов', category: 'tenant_system' },
+    { name: 'access_attempts', size: '24 kB', columns: 5, description: 'Логи попыток доступа (Rate Limiting)', category: 'tenant_system' },
+    
     // TELEGRAM LISTING SYSTEM (6 таблиц)
     { name: 'telegram_accounts', size: '80 kB', columns: 14, description: 'Telegram accounts for publishing', category: 'telegram_listing' },
     { name: 'telegram_groups', size: '112 kB', columns: 17, description: 'Telegram groups/channels', category: 'telegram_listing' },

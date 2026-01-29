@@ -16,7 +16,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     ssr: {
-      noExternal: ['react', 'react-dom']
+      noExternal: ['react-leaflet', 'react-hot-toast', '@dnd-kit/core', '@dnd-kit/sortable', '@dnd-kit/utilities', 'leaflet'],
+      external: ['react', 'react-dom']
+    },
+    resolve: {
+      conditions: ['browser', 'module', 'import']
     }
   }
 });

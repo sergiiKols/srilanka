@@ -1,1 +1,0 @@
-import{default as e}from"./AdminLayout.DuoZYV21.js";import"./jsx-runtime.D_zvdyIk.js";import"./index.JXKNaeUN.js";import"./LanguageSwitcher.DNO4dlch.js";import"./translations.BI5rNvUj.js";export{e as default};
