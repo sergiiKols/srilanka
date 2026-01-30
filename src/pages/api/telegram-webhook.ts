@@ -406,7 +406,31 @@ async function collectMessageToSession(message: any) {
       const bestPhoto = getBestQualityPhoto(message.photo);
       session.tempData.photoObjects = session.tempData.photoObjects || [];
       session.tempData.photoObjects.push(bestPhoto);
-      console.log(`📸 Added photo to session, total: ${session.tempData.photoObjects.length}`);
+      
+      const photoCount = session.tempData.photoObjects.length;
+      console.log(`📸 Added photo to session, total: ${photoCount}`);
+      
+      // Отправляем уведомление о фото
+      try {
+        await sendTelegramMessage({
+          botToken,
+          chatId: chatId.toString(),
+          text: `📸 ${photoCount} фото`
+        });
+        console.log(`✅ Photo notification sent: ${photoCount} photos`);
+      } catch (err) {
+        console.error('❌ Error sending photo notification:', err);
+      }
+      
+      // Проверяем - может уже есть геолокация? Тогда показываем превью!
+      const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
+      if (hasLocation) {
+        try {
+          await showSessionPreview(chatId, session);
+        } catch (err) {
+          console.error('❌ Error showing preview after photo:', err);
+        }
+      }
     }
     
     // Обрабатываем локацию
