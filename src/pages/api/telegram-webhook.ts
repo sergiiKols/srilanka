@@ -416,12 +416,16 @@ async function collectMessageToSession(message: any) {
       session.tempData.forwardMetadata = forwardMeta;
     }
     
-    // Показываем превью и кнопки
-    await showSessionPreview(chatId, session);
+    // Показываем превью и кнопки (НЕ ЖДЁМ - отправляем асинхронно)
+    showSessionPreview(chatId, session).catch(err => {
+      console.error('❌ Error showing preview:', err);
+    });
+    
+    console.log(`✅ Message collected, preview message queued`);
     
   } catch (error) {
     console.error('❌ Error collecting message to session:', error);
-    await sendErrorMessage(chatId, 'Ошибка обработки сообщения');
+    // НЕ отправляем сообщение об ошибке - это тоже async
   }
 }
 
@@ -1021,9 +1025,9 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   
   let preview = `✅ ${photoCount} фото получено\n\nМожете добавить ещё данные`;
   
-  // Одна кнопка - На карту
+  // Одна кнопка - Сохранить объект
   const buttons = [[
-    { text: '🗺️ На карту', callback_data: 'session_save' }
+    { text: '✅ Сохранить объект', callback_data: 'session_save' }
   ]];
   
   console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
