@@ -114,12 +114,17 @@ async function handleMediaGroup(message: any) {
     const photoCount = session.tempData.photoObjects.length;
     console.log(`📎 Photo ${photoCount} added to session`);
     
-    // Отправляем быстрое уведомление (НЕ ЖДЁМ ответа)
-    sendTelegramMessage({
-      botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
-      chatId: chatId.toString(),
-      text: `📸 ${photoCount} фото`
-    }).catch(err => console.error('Error sending notification:', err));
+    // Отправляем быстрое уведомление (С ОЖИДАНИЕМ)
+    try {
+      await sendTelegramMessage({
+        botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+        chatId: chatId.toString(),
+        text: `📸 ${photoCount} фото`
+      });
+      console.log(`✅ Photo notification sent: ${photoCount} photos`);
+    } catch (err) {
+      console.error('❌ Error sending notification:', err);
+    }
     
     // Проверяем - может уже есть всё (гео + описание)? Тогда показываем превью!
     const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
@@ -1149,32 +1154,36 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   
   console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
   
-  // Отправляем БЕЗ ожидания - просто fire and forget
-  sendTelegramMessage({
-    botToken,
-    chatId: chatId.toString(),
-    text: preview,
-    replyMarkup: {
-      inline_keyboard: buttons
-    }
-  })
-  .then(() => {
-    console.log(`✅ Preview message sent successfully`);
-  })
-  .catch((error) => {
-    console.error(`❌ Error sending preview:`, error);
-    // Пробуем минимальное сообщение
-    const fallbackText = (hasLocation && photoCount > 0) 
-      ? `${photoCount} фото + локация` 
-      : `${photoCount} фото`;
-    
-    sendTelegramMessage({
+  // Отправляем С ОЖИДАНИЕМ результата
+  try {
+    await sendTelegramMessage({
       botToken,
       chatId: chatId.toString(),
-      text: fallbackText,
-      replyMarkup: buttons.length > 0 ? { inline_keyboard: buttons } : undefined
-    }).catch(err => console.error(`❌ Fallback failed:`, err));
-  });
+      text: preview,
+      replyMarkup: {
+        inline_keyboard: buttons
+      }
+    });
+    console.log(`✅ Preview message sent successfully`);
+  } catch (error) {
+    console.error(`❌ Error sending preview:`, error);
+    // Пробуем минимальное сообщение
+    try {
+      const fallbackText = (hasLocation && photoCount > 0) 
+        ? `${photoCount} фото + локация` 
+        : `${photoCount} фото`;
+      
+      await sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: fallbackText,
+        replyMarkup: buttons.length > 0 ? { inline_keyboard: buttons } : undefined
+      });
+      console.log(`✅ Fallback message sent`);
+    } catch (fallbackError) {
+      console.error(`❌ Fallback also failed:`, fallbackError);
+    }
+  }
 }
 
 /**
