@@ -1012,8 +1012,8 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
   const data = session.tempData;
   
-  // Формируем превью
-  let preview = '📦 **Собранные данные:**\n\n';
+  // Формируем превью (БЕЗ markdown для надёжности)
+  let preview = '📦 Собранные данные:\n\n';
   
   // Фото
   const photoCount = data.photoObjects?.length || 0;
@@ -1032,25 +1032,24 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     preview += `📍 Локация: нет\n`;
   }
   
-  // Описание
+  // Описание (сократим до 80 символов)
   if (data.description) {
-    const shortDesc = data.description.length > 100 
-      ? data.description.substring(0, 100) + '...' 
+    const shortDesc = data.description.length > 80 
+      ? data.description.substring(0, 80) + '...' 
       : data.description;
     preview += `💬 Описание: ${shortDesc}\n`;
   }
   
   preview += '\n━━━━━━━━━━━━━━━━━━━━\n\n';
   
-  // Инструкция
-  preview += '💡 **Что дальше:**\n\n';
-  preview += '🔹 Нажмите кнопку ниже чтобы **сохранить объект**\n';
-  preview += '🔹 Или продолжайте отправлять данные:\n';
-  preview += '   • Ещё фото\n';
-  preview += '   • Геолокацию (📎 → Location)\n';
-  preview += '   • Google Maps ссылку\n';
-  preview += '   • Описание текстом\n\n';
-  preview += 'Новые данные автоматически добавятся к этому объекту.';
+  // Инструкция (упрощённая)
+  preview += '💡 Что дальше:\n\n';
+  preview += '🔹 Нажмите кнопку чтобы сохранить\n';
+  preview += '🔹 Или добавьте ещё:\n';
+  preview += '   • Фото\n';
+  preview += '   • Локацию\n';
+  preview += '   • Описание\n\n';
+  preview += 'Новые данные добавятся автоматически.';
   
   // Одна кнопка - Сохранить
   const buttons = [[
