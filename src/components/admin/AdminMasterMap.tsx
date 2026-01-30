@@ -41,6 +41,7 @@ export default function AdminMasterMap() {
     const [selectedUser, setSelectedUser] = useState<string>('all');
     const [dateFilter, setDateFilter] = useState<string>('all');
     const [showDeleted, setShowDeleted] = useState(false); // ✅ Показать удалённые объекты
+    const [isImporterOpen, setIsImporterOpen] = useState(false); // ✅ Для Import модала
     
     // Статистика
     const [stats, setStats] = useState({
@@ -78,35 +79,17 @@ export default function AdminMasterMap() {
         };
     }, [dateFilter, selectedUser, showDeleted]); // ✅ Добавили зависимость от showDeleted
 
-    // Загрузка POI из Supabase
+    // Загрузка POI из Supabase (ОТКЛЮЧЕНО - таблица pois не существует)
     const loadPOIsData = async () => {
-        try {
-            const { data, error } = await supabase
-                .from('pois')
-                .select('*')
-                .limit(1000);
-
-            if (error) {
-                console.error('Ошибка загрузки POI:', error);
-                return;
-            }
-
-            const mappedPOIs = (data || []).map((poi: any) => ({
-                id: `poi-${poi.id}`,
-                title: poi.name || 'Unknown POI',
-                lat: poi.latitude,
-                lng: poi.longitude,
-                category: poi.category || 'other',
-                type: 'poi',
-                source: 'database'
-            }));
-
-            setPoisData(mappedPOIs);
-            setStats(prev => ({ ...prev, totalPOIs: mappedPOIs.length }));
-            console.log(`✅ Загружено ${mappedPOIs.length} POI`);
-        } catch (err) {
-            console.error('Ошибка при загрузке POI:', err);
-        }
+        console.log('ℹ️ POI loading disabled - table does not exist');
+        setPoisData([]);
+        setStats(prev => ({ ...prev, totalPOIs: 0 }));
+        
+        // TODO: Создать таблицу pois или использовать другой источник данных
+        // Возможные варианты:
+        // 1. Создать таблицу poi_locations в Supabase
+        // 2. Загружать из JSON файлов (как раньше)
+        // 3. Интеграция с Google Places API
     };
 
     // Загрузка клиентских объектов
@@ -266,6 +249,22 @@ export default function AdminMasterMap() {
 
     return (
         <div className="relative w-full h-full">
+            {/* GEO Button - справа вверху */}
+            <GeoPickerButton map={mapInstance} />
+            
+            {/* Import Button - справа вверху */}
+            <div className="absolute top-6 right-6 z-[1000] flex gap-3">
+                <button
+                    onClick={() => setIsImporterOpen(true)}
+                    className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:from-indigo-700 hover:to-purple-700 transition-all active:scale-95"
+                    style={{ minWidth: '120px' }}
+                    title="AI импорт объектов"
+                >
+                    <span className="text-lg md:text-xl">🤖</span>
+                    <span>Import</span>
+                </button>
+            </div>
+
             {/* Карта */}
             <Map
                 ref={mapRef}
@@ -392,6 +391,17 @@ export default function AdminMasterMap() {
                         setSelectedPropertyId(null);
                         setSelectedPropertyPos(null);
                     }}
+                />
+            )}
+
+            {/* Property Importer Modal */}
+            {isImporterOpen && (
+                <PropertyImporterAI
+                    onImport={(newProperty) => {
+                        setIsImporterOpen(false);
+                        loadClientProperties(); // Перезагружаем данные
+                    }}
+                    onClose={() => setIsImporterOpen(false)}
                 />
             )}
         </div>
