@@ -195,12 +195,13 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
             <ZoomSlider onZoomChange={setZoom} />
             <ZoomControl position="bottomright" zoomInText="+" zoomOutText="-" className="zoom-control-custom" />
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                 maxZoom={18}
                 keepBuffer={4}
                 updateWhenIdle={true}
                 updateWhenZooming={false}
+                subdomains="abcd"
             />
             {markers.map((marker) => {
                 // Для недвижимости (stay) используем кастомную иконку с цветом
