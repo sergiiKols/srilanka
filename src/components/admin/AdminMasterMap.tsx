@@ -46,6 +46,8 @@ export default function AdminMasterMap() {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isObjectsOpen, setIsObjectsOpen] = useState(false); // POI фильтры
     const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
+    const [isUserListOpen, setIsUserListOpen] = useState(false); // ✅ Состояние для выпадающего списка пользователей
+    const [allUsers, setAllUsers] = useState<number[]>([]); // ✅ Список всех User ID
     
     // Advanced Filters State (расширенные)
     const [priceRange, setPriceRange] = useState<string>('all');
@@ -232,10 +234,14 @@ export default function AdminMasterMap() {
 
             setClientProperties(mappedProperties);
 
-            // Статистика
-            const uniqueUsers = new Set(mappedProperties.map(p => p.telegram_user_id)).size;
+            // Статистика и список пользователей
+            const uniqueUsersSet = new Set(mappedProperties.map(p => p.telegram_user_id).filter(id => id));
+            const uniqueUsers = uniqueUsersSet.size;
             const activeCount = mappedProperties.filter(p => !p.isDeleted).length;
             const deletedCount = mappedProperties.filter(p => p.isDeleted).length;
+            
+            // ✅ Сохраняем список всех User ID
+            setAllUsers(Array.from(uniqueUsersSet).sort((a, b) => a - b));
             
             setStats(prev => ({
                 ...prev,
@@ -949,6 +955,56 @@ export default function AdminMasterMap() {
                         <div>🔴 Properties: {stats.totalProperties}</div>
                         <div>👤 Users: {stats.uniqueUsers}</div>
                     </div>
+                </div>
+
+                {/* Выпадающий список User ID */}
+                <div className="mb-4">
+                    <button
+                        onClick={() => setIsUserListOpen(!isUserListOpen)}
+                        className="w-full flex justify-between items-center p-3 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors"
+                    >
+                        <span className="font-semibold text-slate-800">👤 All User IDs ({allUsers.length})</span>
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                            className={`transform transition-transform ${isUserListOpen ? 'rotate-180' : ''}`}
+                        >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    
+                    {isUserListOpen && (
+                        <div className="mt-2 p-3 bg-slate-50 rounded-lg border border-slate-200 max-h-64 overflow-y-auto">
+                            {allUsers.length === 0 ? (
+                                <p className="text-sm text-slate-500 text-center py-2">No users found</p>
+                            ) : (
+                                <div className="space-y-1">
+                                    {allUsers.map((userId) => (
+                                        <div 
+                                            key={userId}
+                                            className="text-sm text-slate-700 p-2 hover:bg-white rounded cursor-pointer transition-colors"
+                                            onClick={() => {
+                                                setSelectedUser(userId.toString());
+                                                setIsUserListOpen(false);
+                                            }}
+                                        >
+                                            <span className="font-mono">{userId}</span>
+                                            {selectedUser === userId.toString() && (
+                                                <span className="ml-2 text-indigo-600">✓</span>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 {/* Слои */}
