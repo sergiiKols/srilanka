@@ -114,7 +114,18 @@ async function handleMediaGroup(message: any) {
     const photoCount = session.tempData.photoObjects.length;
     console.log(`📎 Photo ${photoCount} added to session`);
     
-    // УБРАЛИ уведомление про каждое фото - это замедляло работу
+    // Ставим реакцию ✅ на сообщение (быстро, не блокирует webhook)
+    const messageId = message.message_id;
+    fetch(`https://api.telegram.org/bot${import.meta.env.TELEGRAM_BOT_TOKEN}/setMessageReaction`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        message_id: messageId,
+        reaction: [{ type: 'emoji', emoji: '✅' }]
+      })
+    }).catch(err => console.error('Error setting reaction:', err));
+    
     // Проверяем - может уже есть всё (гео + описание)? Тогда показываем превью!
     const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
     const hasDescription = !!(session.tempData.description && session.tempData.description.trim());
