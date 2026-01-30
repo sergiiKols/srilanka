@@ -161,7 +161,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
 
         // Преобразуем в формат PropertyDrawer
         const drawerProperty = {
-          id: selectedProp.id,
+          id: selectedProp.id, // UUID без префикса
           title: selectedProp.title || selectedProp.property_type || 'Property',
           price: selectedProp.price ? `${selectedProp.currency || 'USD'} ${selectedProp.price}` : 'Price on request',
           description: selectedProp.description || 'No description',
@@ -183,10 +183,12 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
             isCustomProperty={true}
             userId={userId}
             onDelete={(propertyId) => {
-              // Удаляем из локального state
-              setProperties(prev => prev.filter(p => `prop-${p.id}` !== propertyId));
+              console.log('🗑️ Deleting property:', propertyId);
+              // Удаляем из локального state (propertyId - это UUID без префикса)
+              setProperties(prev => prev.filter(p => p.id !== propertyId));
               setSelectedPropertyId(null);
               setSelectedPropertyPos(null);
+              console.log('✅ Property removed from state');
             }}
             onClose={() => {
               setSelectedPropertyId(null);
