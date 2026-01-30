@@ -264,6 +264,7 @@ export default function AdminMasterMap() {
     const getHeatmapColor = (property: any) => {
         // ✅ Удалённые объекты всегда красные
         if (property.isDeleted) {
+            console.log(`🔴 Deleted property: ${property.title}, type: ${property.type}, isDeleted: ${property.isDeleted}`);
             return '#dc2626'; // Тёмно-красный для удалённых
         }
 
@@ -302,10 +303,16 @@ export default function AdminMasterMap() {
     // Фильтрация всех объектов
     const allMarkers = [
         ...((activeLayers.includes('pois')) ? poisData : []),
-        ...(activeLayers.includes('client_properties') ? clientProperties.map(p => ({
-            ...p,
-            markerColor: getHeatmapColor(p)
-        })) : [])
+        ...(activeLayers.includes('client_properties') ? clientProperties.map(p => {
+            const color = getHeatmapColor(p);
+            if (p.isDeleted) {
+                console.log(`🎨 Mapping deleted property: ${p.title}, color: ${color}, isDeleted: ${p.isDeleted}`);
+            }
+            return {
+                ...p,
+                markerColor: color
+            };
+        }) : [])
     ];
 
     return (
