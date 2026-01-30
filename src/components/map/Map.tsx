@@ -74,13 +74,14 @@ interface MapProps {
         price_level?: string;
         hours?: string;
         info?: string;
+        markerColor?: string; // ✅ Поддержка кастомного цвета
     }>;
     onMarkerClick?: (markerId: string) => void;
     selectedPropertyPos?: LatLngTuple | null;
 }
 
 // Custom icons using Emoji
-const createIcon = (type: string, size: number = 34, showShadow: boolean = false, options?: { waves?: string, is247?: boolean }) => {
+const createIcon = (type: string, size: number = 34, showShadow: boolean = false, options?: { waves?: string, is247?: boolean, color?: string }) => {
     const emojis: Record<string, string> = {
         stay: '🏠',
         // hotel: '🏨', // ❌ УДАЛЕНО - отели не нужны
@@ -123,9 +124,12 @@ const createIcon = (type: string, size: number = 34, showShadow: boolean = false
     // Тень только если showShadow = true
     const shadow = showShadow ? '0 4px 10px rgba(0,0,0,0.15)' : 'none';
 
+    // ✅ Поддержка кастомного цвета для недвижимости
+    const bgColor = options?.color || 'white';
+
     return L.divIcon({
         className: 'custom-marker',
-        html: `<div style="background: white; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: ${shadow}; font-size: ${fontSize}px; border: ${borderColor !== 'transparent' ? `3px solid ${borderColor}` : 'none'}; transition: all 0.2s ease;">${emojis[type] || '📍'}</div>`,
+        html: `<div style="background: ${bgColor}; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: ${shadow}; font-size: ${fontSize}px; border: ${borderColor !== 'transparent' ? `3px solid ${borderColor}` : 'none'}; transition: all 0.2s ease;">${emojis[type] || '📍'}</div>`,
         iconSize: [size, size],
         iconAnchor: [half, size],
         popupAnchor: [0, -size]
@@ -188,13 +192,13 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {markers.map((marker) => {
-                // Для недвижимости (stay) используем стандартный размер и оригинальную иконку
+                // Для недвижимости (stay) используем кастомную иконку с цветом
                 if (marker.type === 'stay') {
                     return (
                         <Marker
                             key={marker.id}
                             position={marker.position}
-                            icon={DefaultIcon}
+                            icon={createIcon('stay', 34, true, { color: marker.markerColor || '#ef4444' })}
                             eventHandlers={{
                                 click: () => onMarkerClick?.(marker.id),
                             }}
