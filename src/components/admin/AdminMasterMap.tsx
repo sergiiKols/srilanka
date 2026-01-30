@@ -44,6 +44,7 @@ export default function AdminMasterMap() {
     const [isImporterOpen, setIsImporterOpen] = useState(false); // ✅ Для Import модала
     // Filter Drawer state (скопировано из Explorer)
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isObjectsOpen, setIsObjectsOpen] = useState(false); // POI фильтры
     const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
     
     // Advanced Filters State (расширенные)
@@ -85,6 +86,13 @@ export default function AdminMasterMap() {
         amenities: true,
         extra: true
     });
+    
+    // POI Filters State
+    const [selectedPOICategories, setSelectedPOICategories] = useState<string[]>([]);
+    const [poiSearchQuery, setPoiSearchQuery] = useState('');
+    const [poiDistance, setPoiDistance] = useState<string>('all');
+    const [minRating, setMinRating] = useState<number>(0);
+    const [showOpenOnly, setShowOpenOnly] = useState(false);
     
     // Статистика
     const [stats, setStats] = useState({
@@ -294,14 +302,25 @@ export default function AdminMasterMap() {
         <div className="relative w-full h-full">
             {/* Left Buttons */}
             <div className="absolute top-6 left-6 z-[1000] flex gap-3">
-                {/* Filters Button (из Explorer) */}
+                {/* Filters Button - Property Filters */}
                 <button
                     onClick={() => setIsFilterOpen(true)}
                     className="bg-white text-slate-800 px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:bg-slate-50 transition-all active:scale-95"
                     style={{ minWidth: '120px' }}
+                    title="Property Filters"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
                     <span>Filters</span>
+                </button>
+
+                {/* Objects Button - POI Filters */}
+                <button
+                    onClick={() => setIsObjectsOpen(true)}
+                    className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:from-emerald-600 hover:to-teal-700 transition-all active:scale-95"
+                    title="POI & Objects Filters"
+                >
+                    <span>🗺️</span>
+                    <span>Objects</span>
                 </button>
 
                 {/* Admin Panel Button */}
@@ -709,6 +728,178 @@ export default function AdminMasterMap() {
                             </label>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Objects Drawer - POI Filters */}
+            <div
+                className={`absolute top-0 left-0 h-full w-full md:w-96 bg-white shadow-[8px_0_32px_-8px_rgba(0,0,0,0.3)] transform transition-transform duration-300 ease-in-out flex flex-col ${isObjectsOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                style={{ zIndex: 2000, pointerEvents: 'auto' }}
+            >
+                {/* Header */}
+                <div className="p-5 border-b bg-gradient-to-r from-emerald-500 to-teal-600 sticky top-0 z-10">
+                    <div className="flex justify-between items-center mb-3">
+                        <div>
+                            <h2 className="text-lg font-bold text-white">🗺️ Objects & POI</h2>
+                            <p className="text-xs text-emerald-100">Places, shops, restaurants...</p>
+                        </div>
+                        <button
+                            onClick={() => setIsObjectsOpen(false)}
+                            className="p-2 hover:bg-white/20 rounded-full transition-colors text-white"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                    
+                    {/* Search */}
+                    <input
+                        type="text"
+                        placeholder="Search places..."
+                        value={poiSearchQuery}
+                        onChange={(e) => setPoiSearchQuery(e.target.value)}
+                        className="w-full px-4 py-2 rounded-lg text-slate-800 placeholder:text-slate-400"
+                    />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 overflow-y-auto p-5 space-y-4">
+                    {/* Main Categories */}
+                    <div className="space-y-3">
+                        <h3 className="font-semibold text-slate-800 text-sm uppercase tracking-wide">Main Categories</h3>
+                        
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('food')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'food']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'food'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">🍽️ Food & Dining</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('shopping')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'shopping']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'shopping'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">🏪 Shopping</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('health')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'health']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'health'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">🏥 Health</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('transport')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'transport']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'transport'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">🚌 Transport</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('entertainment')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'entertainment']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'entertainment'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">🎭 Entertainment</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('tourism')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'tourism']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'tourism'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">🏖️ Tourism</span>
+                        </label>
+
+                        <label className="flex items-center space-x-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                            <input
+                                type="checkbox"
+                                checked={selectedPOICategories.includes('wellness')}
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        setSelectedPOICategories(prev => [...prev, 'wellness']);
+                                    } else {
+                                        setSelectedPOICategories(prev => prev.filter(c => c !== 'wellness'));
+                                    }
+                                }}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm text-slate-700">💆 Wellness</span>
+                        </label>
+                    </div>
+
+                    {/* Additional Options */}
+                    <div className="pt-4 border-t space-y-3">
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="checkbox"
+                                checked={showOpenOnly}
+                                onChange={(e) => setShowOpenOnly(e.target.checked)}
+                                className="text-emerald-600 rounded"
+                            />
+                            <span className="text-sm font-medium text-emerald-600">🕒 Open now only</span>
+                        </label>
+                    </div>
+
+                    {/* Apply Button */}
+                    <button
+                        onClick={() => setIsObjectsOpen(false)}
+                        className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-3 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all shadow-lg mt-4"
+                    >
+                        Show {selectedPOICategories.length > 0 ? selectedPOICategories.length + ' categories' : 'All POI'}
+                    </button>
                 </div>
             </div>
 
