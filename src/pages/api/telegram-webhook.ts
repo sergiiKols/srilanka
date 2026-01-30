@@ -1056,14 +1056,45 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     { text: '✅ Сохранить объект', callback_data: 'session_save' }
   ]];
   
-  await sendTelegramMessage({
-    botToken,
-    chatId: chatId.toString(),
-    text: preview,
-    replyMarkup: {
-      inline_keyboard: buttons
+  console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
+  
+  // Создаём промис с таймаутом
+  const sendWithTimeout = (timeoutMs: number) => {
+    return Promise.race([
+      sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: preview,
+        replyMarkup: {
+          inline_keyboard: buttons
+        }
+      }),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout')), timeoutMs)
+      )
+    ]);
+  };
+  
+  try {
+    await sendWithTimeout(5000); // 5 секунд таймаут
+    console.log(`✅ Preview message sent successfully`);
+  } catch (error) {
+    console.error(`❌ Error sending preview (${error.message}), trying simple message...`);
+    // Отправляем максимально простое сообщение
+    try {
+      await sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: `Данные собраны: ${photoCount} фото\n\nНажмите кнопку чтобы сохранить`,
+        replyMarkup: {
+          inline_keyboard: buttons
+        }
+      });
+      console.log(`✅ Fallback message sent`);
+    } catch (fallbackError) {
+      console.error(`❌ Fallback also failed:`, fallbackError);
     }
-  });
+  }
 }
 
 /**
