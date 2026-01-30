@@ -152,33 +152,59 @@ async function expandShortUrl(shortUrl: string): Promise<string | null> {
 }
 
 /**
- * Декодирует Plus Code (Open Location Code) в координаты
- * Plus Code формат: WFX7+22W или WFX7+22W, City
- * 
- * Упрощенная реализация для Sri Lanka
+ * Извлекает координаты из развернутого Google Maps URL
+ * Поддерживает форматы:
+ * 1. ?q=lat,lng
+ * 2. @lat,lng,zoom
  */
-function decodePlusCode(plusCode: string): ParsedCoordinates | null {
+function extractCoordsFromExpandedUrl(url: string): ParsedCoordinates | null {
   try {
-    // Очищаем от пробелов и города
-    const cleaned = plusCode.split(',')[0].trim().replace(/\s+/g, '');
+    console.log(`🔍 Парсим развернутый URL для координат...`);
     
-    // Plus Code должен содержать + и быть 8+ символов
-    if (!cleaned.includes('+') || cleaned.length < 8) {
-      return null;
+    // 1) Формат: ?q=lat,lng
+    const urlObj = new URL(url);
+    const q = urlObj.searchParams.get('q');
+    if (q) {
+      // Проверяем что это не Plus Code (содержит +)
+      if (!q.includes('+')) {
+        const parts = q.split(',');
+        if (parts.length >= 2) {
+          const lat = parseFloat(parts[0]);
+          const lng = parseFloat(parts[1]);
+          if (!isNaN(lat) && !isNaN(lng)) {
+            console.log(`✅ Координаты из ?q: ${lat}, ${lng}`);
+            return { lat, lng, placeName: null };
+          }
+        }
+      } else {
+        console.log(`⚠️ Обнаружен Plus Code в ?q: ${q}`);
+        console.log(`💡 Plus Code не поддерживается, нужны координаты`);
+      }
     }
-    
-    // Упрощенное декодирование (работает для Sri Lanka)
-    // Полный алгоритм сложнее, но для наших целей можем использовать Google Maps Geocoding
-    console.log(`🔢 Обнаружен Plus Code: ${cleaned}`);
-    console.log(`💡 Для точного декодирования используем Google Maps`);
-    
-    // Базовое декодирование для примера WFX7+22W (Mirissa area)
-    // Первые символы WF = ~5.9°N, X7 = ~80.4°E (очень грубо)
-    // Точное декодирование требует алгоритма OLC или Google API
-    
-    return null; // Вернем null чтобы использовать Google Geocoding API
+
+    // 2) Формат: @lat,lng,zoom
+    const atIndex = url.indexOf('@');
+    if (atIndex !== -1) {
+      // Берем подстроку после @ до первого /
+      const sub = url.substring(atIndex + 1);
+      const endIndex = sub.indexOf('/');
+      const coordStr = endIndex === -1 ? sub : sub.substring(0, endIndex);
+      const parts = coordStr.split(',');
+      
+      if (parts.length >= 2) {
+        const lat = parseFloat(parts[0]);
+        const lng = parseFloat(parts[1]);
+        if (!isNaN(lat) && !isNaN(lng)) {
+          console.log(`✅ Координаты из @: ${lat}, ${lng}`);
+          return { lat, lng, placeName: null };
+        }
+      }
+    }
+
+    console.log(`⚠️ Координаты не найдены в URL`);
+    return null;
   } catch (error) {
-    console.error('Ошибка декодирования Plus Code:', error);
+    console.error('Ошибка парсинга координат из URL:', error);
     return null;
   }
 }
@@ -238,32 +264,10 @@ export async function parseGoogleMapsURL(input: string): Promise<ParsedCoordinat
       };
     }
 
-    // Формат 5: Plus Code в URL (WFX7+22W)
-    const plusCodeMatch = trimmed.match(/\?q=([A-Z0-9]{4}\+[A-Z0-9]{2,3})/);
-    if (plusCodeMatch) {
-      console.log('🔢 Обнаружен Plus Code в URL:', plusCodeMatch[1]);
-      
-      try {
-        // Импортируем функцию геокодирования
-        const { geocode } = await import('../services/googleGeocoding');
-        const result = await geocode(plusCodeMatch[1]);
-        
-        if (result) {
-          console.log(`✅ Plus Code декодирован: ${result.lat}, ${result.lng}`);
-          console.log(`📍 Адрес: ${result.formattedAddress}`);
-          return {
-            lat: result.lat,
-            lng: result.lng,
-            placeName: result.formattedAddress
-          };
-        } else {
-          console.error('❌ Не удалось декодировать Plus Code');
-          return null;
-        }
-      } catch (error) {
-        console.error('❌ Ошибка декодирования Plus Code:', error);
-        return null;
-      }
+    // Пробуем извлечь координаты напрямую из URL (если это уже развернутая ссылка)
+    const urlCoords = extractCoordsFromExpandedUrl(trimmed);
+    if (urlCoords) {
+      return urlCoords;
     }
     
     // Формат 6: Короткие ссылки goo.gl или maps.app.goo.gl
@@ -275,36 +279,13 @@ export async function parseGoogleMapsURL(input: string): Promise<ParsedCoordinat
       if (expandedUrl) {
         console.log('✅ Развернутый URL:', expandedUrl);
         
-        // Проверяем есть ли Plus Code в развернутом URL
-        const plusCodeInExpanded = expandedUrl.match(/\?q=([A-Z0-9]{4}\+[A-Z0-9]{2,3})/);
-        if (plusCodeInExpanded) {
-          console.log('🔢 Plus Code найден в развернутом URL:', plusCodeInExpanded[1]);
-          
-          try {
-            // Декодируем Plus Code через Google Geocoding
-            const { geocode } = await import('../services/googleGeocoding');
-            const result = await geocode(plusCodeInExpanded[1]);
-            
-            if (result) {
-              console.log(`✅ Plus Code декодирован: ${result.lat}, ${result.lng}`);
-              console.log(`📍 Адрес: ${result.formattedAddress}`);
-              return {
-                lat: result.lat,
-                lng: result.lng,
-                placeName: result.formattedAddress
-              };
-            } else {
-              console.error('❌ Не удалось декодировать Plus Code');
-              console.log('💡 Попробуйте отправить полную ссылку или координаты');
-              return null;
-            }
-          } catch (error) {
-            console.error('❌ Ошибка декодирования Plus Code:', error);
-            return null;
-          }
+        // Пробуем извлечь координаты из развернутого URL
+        const coords = extractCoordsFromExpandedUrl(expandedUrl);
+        if (coords) {
+          return coords;
         }
         
-        // Рекурсивно парсим развернутый URL
+        // Если координаты не найдены, пробуем парсить рекурсивно
         return parseGoogleMapsURL(expandedUrl);
       } else {
         console.error('❌ Не удалось автоматически развернуть короткую ссылку (все методы не сработали)');
