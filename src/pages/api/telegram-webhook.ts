@@ -84,44 +84,54 @@ export const GET: APIRoute = async () => {
 };
 
 /**
- * Обработка media group (множественные фото)
+ * Обработка media group (множественные фото) - БЕЗ ТАЙМЕРА!
  */
 async function handleMediaGroup(message: any) {
   const groupId = message.media_group_id;
   const userId = message.from.id;
+  const chatId = message.chat.id;
   
-  console.log(`📸 Media group message received: ${groupId}`);
+  console.log(`📸 Media group photo received: ${groupId}`);
   
-  // Получаем или создаём группу
-  let group = mediaGroups.get(groupId);
-  
-  if (!group) {
-    // Создаём новую группу
-    group = {
-      messages: [],
-      timeout: null as any
+  // Добавляем фото СРАЗУ в сессию (без ожидания остальных)
+  let session = userSessions.get(userId);
+  if (!session) {
+    session = {
+      userId,
+      state: 'collecting',
+      tempData: { photoObjects: [] },
+      lastActivity: new Date()
     };
-    mediaGroups.set(groupId, group);
-  } else {
-    // Если группа уже существует - отменяем старый таймер
-    if (group.timeout) {
-      clearTimeout(group.timeout);
+    userSessions.set(userId, session);
+  }
+  
+  // Добавляем фото
+  if (message.photo && message.photo.length > 0) {
+    const bestPhoto = getBestQualityPhoto(message.photo);
+    session.tempData.photoObjects = session.tempData.photoObjects || [];
+    session.tempData.photoObjects.push(bestPhoto);
+    
+    const photoCount = session.tempData.photoObjects.length;
+    console.log(`📎 Photo ${photoCount} added to session`);
+    
+    // Отправляем БЫСТРОЕ уведомление (НЕ ЖДЁМ ответа)
+    sendTelegramMessage({
+      botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+      chatId: chatId.toString(),
+      text: `📸 ${photoCount} фото`
+    }).catch(err => console.error('Error sending photo notification:', err));
+  }
+  
+  // Парсим caption из первого фото группы
+  if (message.caption) {
+    session.tempData.description = message.caption;
+    const googleMapsUrl = extractGoogleMapsUrl(message.caption);
+    if (googleMapsUrl) {
+      session.tempData.googleMapsUrl = googleMapsUrl;
     }
   }
   
-  // Добавляем сообщение в группу
-  group.messages.push(message);
-  console.log(`📎 Added photo to group ${groupId}, total: ${group.messages.length}`);
-  
-  // Устанавливаем новый таймер (сбрасывается при каждом новом фото)
-  group.timeout = setTimeout(() => {
-    const completeGroup = mediaGroups.get(groupId);
-    if (completeGroup) {
-      console.log(`⏰ Processing media group ${groupId} with ${completeGroup.messages.length} photos`);
-      collectMediaGroupToSession(completeGroup.messages);
-      mediaGroups.delete(groupId);
-    }
-  }, 200); // 200ms - быстрее, но достаточно для сбора фото
+  session.lastActivity = new Date();
 }
 
 /**
