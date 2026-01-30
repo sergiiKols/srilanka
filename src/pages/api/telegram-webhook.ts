@@ -15,21 +15,24 @@ import { uploadTelegramPhotos, getBestQualityPhoto } from '@/lib/telegram-photo-
 import { extractGoogleMapsUrl, formatSuccessMessage, generateUUID } from '@/lib/tenant-bot-utils';
 
 /**
- * Session state для пошагового ввода
+ * Session state для сбора данных перед сохранением
  */
 interface UserSession {
   userId: number;
-  state: 'idle' | 'awaiting_location' | 'awaiting_photos' | 'awaiting_description';
+  state: 'collecting' | 'ready_to_save';
   tempData: {
     photos?: string[];
     photoFileIds?: string[];
+    photoObjects?: any[]; // Telegram photo objects для загрузки
     latitude?: number;
     longitude?: number;
     description?: string;
     googleMapsUrl?: string;
     forwardMetadata?: any;
+    mediaGroupId?: string; // Для отслеживания media groups
   };
   lastActivity: Date;
+  lastMessageTime?: Date; // Для определения завершения ввода
 }
 
 // Храним сессии в памяти (в production использовать Redis)
@@ -85,6 +88,7 @@ export const GET: APIRoute = async () => {
  */
 async function handleMediaGroup(message: any) {
   const groupId = message.media_group_id;
+  const userId = message.from.id;
   
   console.log(`📸 Media group message received: ${groupId}`);
   
@@ -96,14 +100,14 @@ async function handleMediaGroup(message: any) {
     group = {
       messages: [],
       timeout: setTimeout(() => {
-        // Через 300ms обрабатываем все собранные фото
+        // Через 500ms обрабатываем все собранные фото
         const completeGroup = mediaGroups.get(groupId);
         if (completeGroup) {
           console.log(`⏰ Processing media group ${groupId} with ${completeGroup.messages.length} photos`);
-          processCompleteMediaGroup(completeGroup.messages);
+          collectMediaGroupToSession(completeGroup.messages);
           mediaGroups.delete(groupId);
         }
-      }, 300) // 300ms достаточно для получения всех фото
+      }, 500) // 500ms для получения всех фото
     };
     mediaGroups.set(groupId, group);
   }
@@ -114,7 +118,76 @@ async function handleMediaGroup(message: any) {
 }
 
 /**
- * Обработка полной media group
+ * Собрать media group в сессию (не сохранять сразу)
+ */
+async function collectMediaGroupToSession(messages: any[]) {
+  if (messages.length === 0) return;
+  
+  const firstMessage = messages[0];
+  const userId = firstMessage.from.id;
+  const chatId = firstMessage.chat.id;
+  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  
+  try {
+    console.log(`📸 Collecting ${messages.length} photos to session...`);
+    
+    // Получаем или создаём сессию
+    let session = userSessions.get(userId);
+    if (!session) {
+      session = {
+        userId,
+        state: 'collecting',
+        tempData: {},
+        lastActivity: new Date()
+      };
+      userSessions.set(userId, session);
+    }
+    
+    session.lastActivity = new Date();
+    session.lastMessageTime = new Date();
+    
+    // Собираем фото объекты
+    const photoObjects: any[] = [];
+    for (const msg of messages) {
+      if (msg.photo && msg.photo.length > 0) {
+        const bestPhoto = getBestQualityPhoto(msg.photo);
+        photoObjects.push(bestPhoto);
+      }
+    }
+    
+    // Добавляем к существующим или создаём новые
+    session.tempData.photoObjects = [
+      ...(session.tempData.photoObjects || []),
+      ...photoObjects
+    ];
+    
+    // Извлекаем текст из caption (только первое фото)
+    const caption = firstMessage.caption || '';
+    if (caption) {
+      session.tempData.description = caption;
+      
+      // Проверяем на Google Maps URL
+      const googleMapsUrl = extractGoogleMapsUrl(caption);
+      if (googleMapsUrl) {
+        session.tempData.googleMapsUrl = googleMapsUrl;
+      }
+    }
+    
+    // Парсим forward метаданные
+    const forwardMeta = parseForwardMetadata(firstMessage);
+    session.tempData.forwardMetadata = forwardMeta;
+    
+    // Показываем превью и кнопки
+    await showSessionPreview(chatId, session);
+    
+  } catch (error) {
+    console.error('❌ Error collecting media group:', error);
+    await sendErrorMessage(chatId, 'Ошибка обработки фото');
+  }
+}
+
+/**
+ * Обработка полной media group (старая функция - оставляем для совместимости)
  */
 async function processCompleteMediaGroup(messages: any[]) {
   if (messages.length === 0) return;
@@ -265,19 +338,84 @@ async function handleMessage(message: any) {
     return;
   }
 
-  // РЕЖИМ 1: Полное сообщение (forward с фото + текст + локация)
-  // Это оптимальный путь - обрабатываем сразу
-  if ((hasPhotos || hasLocation || hasGoogleMapsUrl) && hasText) {
-    await handleCompleteMessage(message);
-    return;
-  }
-
-  // РЕЖИМ 2: Пошаговый ввод
-  await handleStepByStepInput(message);
+  // НОВАЯ ЛОГИКА: Всегда собираем в сессию, не сохраняем сразу
+  await collectMessageToSession(message);
 }
 
 /**
- * РЕЖИМ 1: Обработка полного сообщения (forward)
+ * Собрать обычное сообщение в сессию
+ */
+async function collectMessageToSession(message: any) {
+  const userId = message.from.id;
+  const chatId = message.chat.id;
+  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  
+  try {
+    // Получаем или создаём сессию
+    let session = userSessions.get(userId);
+    if (!session) {
+      session = {
+        userId,
+        state: 'collecting',
+        tempData: {},
+        lastActivity: new Date()
+      };
+      userSessions.set(userId, session);
+    }
+    
+    session.lastActivity = new Date();
+    session.lastMessageTime = new Date();
+    
+    // Обрабатываем фото
+    if (message.photo && message.photo.length > 0) {
+      const bestPhoto = getBestQualityPhoto(message.photo);
+      session.tempData.photoObjects = session.tempData.photoObjects || [];
+      session.tempData.photoObjects.push(bestPhoto);
+      console.log(`📸 Added photo to session, total: ${session.tempData.photoObjects.length}`);
+    }
+    
+    // Обрабатываем локацию
+    if (message.location) {
+      session.tempData.latitude = message.location.latitude;
+      session.tempData.longitude = message.location.longitude;
+      console.log(`📍 Added location to session: ${message.location.latitude}, ${message.location.longitude}`);
+    }
+    
+    // Обрабатываем текст
+    const text = message.caption || message.text || '';
+    if (text) {
+      // Добавляем к существующему описанию или создаём новое
+      if (session.tempData.description) {
+        session.tempData.description += '\n' + text;
+      } else {
+        session.tempData.description = text;
+      }
+      
+      // Проверяем на Google Maps URL
+      const googleMapsUrl = extractGoogleMapsUrl(text);
+      if (googleMapsUrl) {
+        session.tempData.googleMapsUrl = googleMapsUrl;
+        console.log(`🔗 Added Google Maps URL to session`);
+      }
+    }
+    
+    // Парсим forward метаданные
+    if (!session.tempData.forwardMetadata) {
+      const forwardMeta = parseForwardMetadata(message);
+      session.tempData.forwardMetadata = forwardMeta;
+    }
+    
+    // Показываем превью и кнопки
+    await showSessionPreview(chatId, session);
+    
+  } catch (error) {
+    console.error('❌ Error collecting message to session:', error);
+    await sendErrorMessage(chatId, 'Ошибка обработки сообщения');
+  }
+}
+
+/**
+ * РЕЖИМ 1: Обработка полного сообщения (forward) - СТАРАЯ ФУНКЦИЯ
  */
 async function handleCompleteMessage(message: any) {
   const userId = message.from.id;
@@ -570,7 +708,32 @@ async function handleCallbackQuery(callbackQuery: any) {
   });
 
   // Обработка по типу callback
-  if (data === 'cancel') {
+  if (data === 'session_save') {
+    // Сохранить объект из сессии
+    await saveFromSession(userId, chatId);
+  } else if (data === 'session_cancel') {
+    // Отменить и очистить сессию
+    userSessions.delete(userId);
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: '❌ Отменено. Данные удалены.\n\nМожете начать заново - просто отправьте фото или локацию.'
+    });
+  } else if (data === 'session_add_photo') {
+    // Ждём добавления фото
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: '📸 Отправьте фото объекта\n\nМожете отправить несколько фото сразу (как альбом)'
+    });
+  } else if (data === 'session_add_location') {
+    // Ждём добавления локации
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: '📍 Отправьте:\n• Геолокацию (📎 → Location)\n• Или Google Maps ссылку\n• Или текст с адресом'
+    });
+  } else if (data === 'cancel') {
     userSessions.delete(userId);
     await sendTelegramMessage({
       botToken,
@@ -605,29 +768,140 @@ async function handleCallbackQuery(callbackQuery: any) {
 }
 
 /**
- * Сохранение из сессии (пошаговый режим)
+ * Сохранение из сессии
  */
 async function saveFromSession(userId: number, chatId: number) {
   const session = userSessions.get(userId);
   if (!session || !session.tempData) {
-    await sendErrorMessage(chatId, 'Сессия истекла. Начни заново.');
+    await sendErrorMessage(chatId, 'Сессия истекла. Начните заново.');
     return;
   }
 
+  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const data = session.tempData;
+
   try {
-    // TODO: Implement full save from session
-    console.log('💾 Saving from session:', session.tempData);
-
-    userSessions.delete(userId);
-
-    await sendTelegramMessage({
-      botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
-      chatId: chatId.toString(),
-      text: '✅ Объект сохранён!'
+    console.log('💾 Saving from session:', {
+      photos: data.photoObjects?.length || 0,
+      hasLocation: !!(data.latitude || data.googleMapsUrl),
+      hasDescription: !!data.description
     });
+
+    // 1. Получить/создать tenant
+    const tenant = await getOrCreateTenant(userId);
+    
+    // 2. AI анализ (если есть текст или Google Maps)
+    let aiResult: any = null;
+    if (data.description || data.googleMapsUrl) {
+      console.log('🤖 Starting AI analysis...');
+      aiResult = await analyzeWithFallback(
+        data.description || '', 
+        data.googleMapsUrl
+      );
+      logAIResult(aiResult);
+    }
+    
+    // 3. Определяем координаты
+    let latitude = data.latitude;
+    let longitude = data.longitude;
+    
+    if (!latitude && aiResult?.coordinates) {
+      latitude = aiResult.coordinates.lat;
+      longitude = aiResult.coordinates.lng;
+    }
+    
+    // Если координат всё ещё нет - ошибка
+    if (!latitude || !longitude) {
+      await sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: '⚠️ Не удалось определить местоположение.\n\nОтправьте геолокацию или Google Maps ссылку.'
+      });
+      return;
+    }
+    
+    // 4. Проверка дубликатов
+    const duplicate = await checkDuplicate(
+      userId,
+      latitude,
+      longitude,
+      aiResult?.price
+    );
+    
+    if (duplicate) {
+      console.log('⚠️ Duplicate found');
+      await sendDuplicateWarning(chatId, duplicate);
+      return;
+    }
+    
+    // 5. Загрузка фото
+    let photoUrls: string[] = [];
+    const propertyId = generateUUID();
+    
+    if (data.photoObjects && data.photoObjects.length > 0) {
+      console.log(`📸 Uploading ${data.photoObjects.length} photos...`);
+      photoUrls = await uploadTelegramPhotos(
+        botToken,
+        data.photoObjects,
+        userId,
+        propertyId,
+        data.photoObjects.length
+      );
+      console.log(`✅ Uploaded ${photoUrls.length} photos`);
+    }
+    
+    // 6. Подготовка данных
+    const propertyData = {
+      ...formatForDatabase(aiResult || {}),
+      telegram_user_id: userId,
+      latitude,
+      longitude,
+      photos: photoUrls,
+      description: data.description || aiResult?.description,
+      raw_text: data.description,
+      google_maps_url: data.googleMapsUrl,
+      ...data.forwardMetadata
+    };
+    
+    // 7. Сохранение в БД
+    console.log('💾 Saving to database...');
+    const property = await saveProperty(propertyData);
+    console.log(`✅ Property saved: ${property.id}`);
+    
+    // 8. Очищаем сессию
+    userSessions.delete(userId);
+    
+    // 9. Отправка успешного ответа
+    const newCount = tenant.saved_properties_count + 1;
+    const successMessage = formatSuccessMessage(
+      property,
+      newCount,
+      tenant.personal_map_url
+    );
+    
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: successMessage + `\n\n📸 Загружено фото: ${photoUrls.length}`,
+      replyMarkup: {
+        inline_keyboard: [
+          [
+            { text: '🗺️ Открыть карту', url: tenant.personal_map_url },
+            { text: '⭐ В избранное', callback_data: `favorite_${property.id}` }
+          ],
+          [
+            { text: '✏️ Добавить заметку', callback_data: `add_note_${property.id}` },
+            { text: '🗑️ Удалить', callback_data: `delete_${property.id}` }
+          ]
+        ]
+      }
+    });
+    
+    console.log('✅ Saved successfully from session');
+    
   } catch (error) {
-    console.error('Error saving from session:', error);
-    await sendErrorMessage(chatId, 'Ошибка сохранения');
+    console.error('❌ Error saving from session:', error);
+    await sendErrorMessage(chatId, 'Не удалось сохранить объект. Попробуйте ещё раз.');
   }
 }
 
@@ -708,6 +982,96 @@ async function sendDuplicateWarning(chatId: number, duplicate: any) {
         ],
         [{ text: '❌ Не сохранять', callback_data: 'cancel' }]
       ]
+    }
+  });
+}
+
+/**
+ * Показать превью сессии с кнопками подтверждения
+ */
+async function showSessionPreview(chatId: number, session: UserSession) {
+  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const data = session.tempData;
+  
+  // Формируем превью
+  let preview = '📦 **Собранные данные:**\n\n';
+  
+  // Фото
+  const photoCount = data.photoObjects?.length || 0;
+  if (photoCount > 0) {
+    preview += `📸 Фото: ${photoCount} шт.\n`;
+  }
+  
+  // Локация
+  if (data.latitude && data.longitude) {
+    preview += `📍 Координаты: ${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}\n`;
+  } else if (data.googleMapsUrl) {
+    preview += `🔗 Google Maps: есть\n`;
+  } else {
+    preview += `⚠️ Локация: не указана\n`;
+  }
+  
+  // Описание
+  if (data.description) {
+    const shortDesc = data.description.length > 100 
+      ? data.description.substring(0, 100) + '...' 
+      : data.description;
+    preview += `💬 Описание: ${shortDesc}\n`;
+  }
+  
+  // Источник
+  if (data.forwardMetadata?.source_type) {
+    preview += `📨 Источник: ${data.forwardMetadata.source_type}\n`;
+  }
+  
+  preview += '\n';
+  
+  // Проверяем готовность
+  const hasPhotos = photoCount > 0;
+  const hasLocation = !!(data.latitude || data.googleMapsUrl);
+  
+  if (hasPhotos && hasLocation) {
+    preview += '✅ **Готово к сохранению!**\n';
+    session.state = 'ready_to_save';
+  } else {
+    preview += '⚠️ **Рекомендуем добавить:**\n';
+    if (!hasPhotos) preview += '• Фото объекта\n';
+    if (!hasLocation) preview += '• Геолокацию или Google Maps\n';
+  }
+  
+  preview += '\n💡 Выберите действие:';
+  
+  // Кнопки
+  const buttons = [];
+  
+  // Первая строка - основные действия
+  const row1 = [];
+  if (hasPhotos && hasLocation) {
+    row1.push({ text: '✅ Сохранить объект', callback_data: 'session_save' });
+  } else {
+    row1.push({ text: '💾 Сохранить как есть', callback_data: 'session_save' });
+  }
+  row1.push({ text: '❌ Отменить', callback_data: 'session_cancel' });
+  buttons.push(row1);
+  
+  // Вторая строка - добавить данные
+  const row2 = [];
+  if (!hasPhotos || photoCount < 10) {
+    row2.push({ text: '📸 Добавить фото', callback_data: 'session_add_photo' });
+  }
+  if (!hasLocation) {
+    row2.push({ text: '📍 Добавить локацию', callback_data: 'session_add_location' });
+  }
+  if (row2.length > 0) {
+    buttons.push(row2);
+  }
+  
+  await sendTelegramMessage({
+    botToken,
+    chatId: chatId.toString(),
+    text: preview,
+    replyMarkup: {
+      inline_keyboard: buttons
     }
   });
 }
