@@ -42,8 +42,36 @@ export default function AdminMasterMap() {
     const [dateFilter, setDateFilter] = useState<string>('all');
     const [showDeleted, setShowDeleted] = useState(false); // ✅ Показать удалённые объекты
     const [isImporterOpen, setIsImporterOpen] = useState(false); // ✅ Для Import модала
-    const [isFilterOpen, setIsFilterOpen] = useState(false); // ✅ Drawer с фильтрами (как в Explorer)
-    const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false); // ✅ Админская панель управления
+    // Filter Drawer state (скопировано из Explorer)
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
+    
+    // Advanced Filters State (из Explorer)
+    const [priceRange, setPriceRange] = useState<string>('all');
+    const [minRooms, setMinRooms] = useState<number>(1);
+    const [minBathrooms, setMinBathrooms] = useState<number>(1);
+    const [selectedArea, setSelectedArea] = useState<string>('all');
+    const [selectedBeachDist, setSelectedBeachDist] = useState<string>('all');
+    const [selectedPropType, setSelectedPropType] = useState<string>('all');
+    const [selectedWifiSpeed, setSelectedWifiSpeed] = useState<string>('all');
+    const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
+    
+    // Must-haves checkboxes
+    const [mustHaves, setMustHaves] = useState({
+        pool: false,
+        parking: false,
+        breakfast: false,
+        pets: false,
+        security: false
+    });
+    
+    // Collapsible sections
+    const [openSections, setOpenSections] = useState<Record<string, boolean>>({
+        main: true,
+        important: true,
+        amenities: true,
+        extra: true
+    });
     
     // Статистика
     const [stats, setStats] = useState({
@@ -251,14 +279,27 @@ export default function AdminMasterMap() {
 
     return (
         <div className="relative w-full h-full">
-            {/* Admin Panel Button - слева вверху */}
-            <button
-                onClick={() => setIsAdminPanelOpen(true)}
-                className="absolute top-6 left-6 z-[1000] bg-slate-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:bg-slate-800 transition-all active:scale-95"
-            >
-                <span>⚙️</span>
-                <span>Admin</span>
-            </button>
+            {/* Left Buttons */}
+            <div className="absolute top-6 left-6 z-[1000] flex gap-3">
+                {/* Filters Button (из Explorer) */}
+                <button
+                    onClick={() => setIsFilterOpen(true)}
+                    className="bg-white text-slate-800 px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:bg-slate-50 transition-all active:scale-95"
+                    style={{ minWidth: '120px' }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                    <span>Filters</span>
+                </button>
+
+                {/* Admin Panel Button */}
+                <button
+                    onClick={() => setIsAdminPanelOpen(true)}
+                    className="bg-slate-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:bg-slate-800 transition-all active:scale-95"
+                >
+                    <span>⚙️</span>
+                    <span>Admin</span>
+                </button>
+            </div>
 
             {/* Floating Buttons - справа вверху */}
             <div className="absolute top-6 right-6 z-[1000] flex flex-col gap-3">
@@ -304,11 +345,13 @@ export default function AdminMasterMap() {
                 onMapReady={setMapInstance}
             />
 
-            {/* Filter Drawer (как в Explorer) */}
+
+            {/* Filter Drawer (полная копия из Explorer) */}
             <div
                 className={`absolute top-0 left-0 h-full w-full md:w-96 bg-white shadow-[8px_0_32px_-8px_rgba(0,0,0,0.3)] transform transition-transform duration-300 ease-in-out flex flex-col ${isFilterOpen ? 'translate-x-0' : '-translate-x-full'}`}
                 style={{ zIndex: 2000, pointerEvents: 'auto' }}
             >
+                {/* Header */}
                 <div className="p-5 border-b bg-white sticky top-0 z-10">
                     <div className="flex justify-between items-center mb-3">
                         <div>
@@ -322,11 +365,156 @@ export default function AdminMasterMap() {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                         </button>
                     </div>
+                    
+                    {/* Show Results Button */}
+                    <button
+                        onClick={() => setIsFilterOpen(false)}
+                        className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg"
+                    >
+                        Show {clientProperties.filter(p => !p.isDeleted).length} properties
+                    </button>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-4 space-y-6">
-                    {/* TODO: Добавить фильтры из Explorer */}
-                    <p className="text-sm text-slate-500">Filters coming soon...</p>
+                {/* Filter Content */}
+                <div className="flex-1 overflow-y-auto">
+                    <div className="p-5 space-y-6">
+                        {/* Price Range Section */}
+                        <div>
+                            <button
+                                onClick={() => setOpenSections(prev => ({ ...prev, main: !prev.main }))}
+                                className="w-full flex justify-between items-center mb-3"
+                            >
+                                <h3 className="font-semibold text-slate-800">💰 Price Range</h3>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="20" 
+                                    height="20" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                    className={`transform transition-transform ${openSections.main ? 'rotate-180' : ''}`}
+                                >
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            
+                            {openSections.main && (
+                                <div className="space-y-2">
+                                    {['all', '0-500', '500-1000', '1000-2000', '2000+'].map(range => (
+                                        <label key={range} className="flex items-center space-x-2 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="price"
+                                                checked={priceRange === range}
+                                                onChange={() => setPriceRange(range)}
+                                                className="text-indigo-600"
+                                            />
+                                            <span className="text-sm text-slate-700">
+                                                {range === 'all' ? 'Any price' : `$${range.replace('-', ' - $').replace('+', '+')}`}
+                                            </span>
+                                        </label>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Property Type */}
+                        <div>
+                            <button
+                                onClick={() => setOpenSections(prev => ({ ...prev, important: !prev.important }))}
+                                className="w-full flex justify-between items-center mb-3"
+                            >
+                                <h3 className="font-semibold text-slate-800">🏠 Property Type</h3>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="20" 
+                                    height="20" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                    className={`transform transition-transform ${openSections.important ? 'rotate-180' : ''}`}
+                                >
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            
+                            {openSections.important && (
+                                <div className="space-y-2">
+                                    {['all', 'house', 'apartment', 'villa', 'room'].map(type => (
+                                        <label key={type} className="flex items-center space-x-2 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="propType"
+                                                checked={selectedPropType === type}
+                                                onChange={() => setSelectedPropType(type)}
+                                                className="text-indigo-600"
+                                            />
+                                            <span className="text-sm text-slate-700 capitalize">{type === 'all' ? 'Any type' : type}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Must-Haves */}
+                        <div>
+                            <button
+                                onClick={() => setOpenSections(prev => ({ ...prev, amenities: !prev.amenities }))}
+                                className="w-full flex justify-between items-center mb-3"
+                            >
+                                <h3 className="font-semibold text-slate-800">✨ Must-Haves</h3>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="20" 
+                                    height="20" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                    className={`transform transition-transform ${openSections.amenities ? 'rotate-180' : ''}`}
+                                >
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            
+                            {openSections.amenities && (
+                                <div className="space-y-2">
+                                    {Object.entries(mustHaves).map(([key, value]) => (
+                                        <label key={key} className="flex items-center space-x-2 cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                checked={value}
+                                                onChange={(e) => setMustHaves(prev => ({ ...prev, [key]: e.target.checked }))}
+                                                className="text-indigo-600 rounded"
+                                            />
+                                            <span className="text-sm text-slate-700 capitalize">{key}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Show Deleted */}
+                        <div className="pt-4 border-t">
+                            <label className="flex items-center space-x-2 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={showDeleted}
+                                    onChange={(e) => setShowDeleted(e.target.checked)}
+                                    className="text-red-600 rounded"
+                                />
+                                <span className="text-sm font-medium text-red-600">🔴 Show deleted objects</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
