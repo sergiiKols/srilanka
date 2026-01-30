@@ -322,15 +322,6 @@ export default function AdminMasterMap() {
                     <span>🗺️</span>
                     <span>Objects</span>
                 </button>
-
-                {/* Admin Panel Button */}
-                <button
-                    onClick={() => setIsAdminPanelOpen(true)}
-                    className="bg-slate-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:bg-slate-800 transition-all active:scale-95"
-                >
-                    <span>⚙️</span>
-                    <span>Admin</span>
-                </button>
             </div>
 
             {/* Floating Buttons - справа вверху */}
