@@ -929,6 +929,15 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
     
     // 7. Сохранение в БД
     console.log('💾 Step 7: Saving to database...');
+    console.log('📊 Property data being saved:', JSON.stringify({
+      title: propertyData.title,
+      latitude: propertyData.latitude,
+      longitude: propertyData.longitude,
+      photos: propertyData.photos?.length,
+      telegram_user_id: propertyData.telegram_user_id,
+      property_type: propertyData.property_type
+    }));
+    
     const property = await saveProperty(propertyData);
     console.log(`✅ Property saved with ID: ${property.id}`);
     

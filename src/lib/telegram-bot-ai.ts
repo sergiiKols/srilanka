@@ -295,20 +295,20 @@ export function validateAIResult(result: AIAnalysisResult): boolean {
 export function formatForDatabase(result: AIAnalysisResult) {
   return {
     title: result.title || result.type || 'Property',
-    description: result.description,
+    description: result.description || null,
     latitude: result.coordinates.lat,
     longitude: result.coordinates.lng,
-    address: result.address,
-    property_type: result.type,
-    price: result.price,
+    address: result.address || null,
+    property_type: result.type || null,
+    price: result.price || null,
     currency: result.currency || 'USD',
     price_period: 'month',
-    bedrooms: result.bedrooms,
-    bathrooms: result.bathrooms,
-    area_sqm: result.area,
-    amenities: result.amenities ? JSON.stringify(result.amenities) : null,
-    contact_phone: result.contact?.phone,
-    contact_name: result.contact?.name
+    bedrooms: result.bedrooms || null,
+    bathrooms: result.bathrooms || null,
+    area_sqm: result.area || null,  // ✅ Явно null вместо undefined
+    amenities: result.amenities && Array.isArray(result.amenities) ? JSON.stringify(result.amenities) : null,  // ✅ Проверяем что это массив
+    contact_phone: result.contact?.phone || null,
+    contact_name: result.contact?.name || null
   };
 }
 
