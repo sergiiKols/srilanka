@@ -1,21 +1,20 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import Header from '../../../../components/Header.astro';
-import Map from '../../../../components/map/Map';
+import PersonalMap from '../../../../components/map/PersonalMap';
 
 export const prerender = false;
 
 const { userId, token } = Astro.params;
 
-// TODO: Verify token and load user's properties from database
-// For now, just show the map
+// TODO: Verify token for security
 ---
 
 <Layout title="Личная карта | H-Ome Finder">
 	<Header />
 	<main class="main">
 		<div class="map-container">
-			<Map 
+			<PersonalMap 
 				client:only="react" 
 				userId={userId}
 				token={token}

@@ -245,13 +245,24 @@ export default function AdminMasterMap() {
             {/* Карта */}
             <Map
                 ref={mapRef}
-                properties={allMarkers}
-                selectedPropertyId={selectedPropertyId}
-                onPropertySelect={(id, pos) => {
+                markers={allMarkers.map(m => ({
+                    id: m.id,
+                    position: [m.lat, m.lng] as [number, number],
+                    title: m.title,
+                    type: 'stay',
+                    price: m.price ? `${m.currency || 'USD'} ${m.price}` : undefined,
+                    images: m.photos || [],
+                    description: m.description,
+                    address: m.forward_from || 'Forwarded property'
+                }))}
+                onMarkerClick={(id) => {
                     setSelectedPropertyId(id);
-                    setSelectedPropertyPos(pos);
+                    const marker = allMarkers.find(m => m.id === id);
+                    if (marker) {
+                        setSelectedPropertyPos([marker.lat, marker.lng]);
+                    }
                 }}
-                onMapInit={setMapInstance}
+                onMapReady={setMapInstance}
             />
 
             {/* Панель управления */}
