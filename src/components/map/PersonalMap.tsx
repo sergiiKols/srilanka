@@ -50,17 +50,28 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
   };
 
   // Преобразование данных в формат маркеров
-  const markers = properties.map(prop => ({
-    id: `prop-${prop.id}`,
-    position: [prop.latitude, prop.longitude] as [number, number],
-    title: prop.title || prop.property_type || 'Property',
-    type: 'stay' as const,
-    price: prop.price ? `${prop.currency || 'USD'} ${prop.price}` : undefined,
-    images: prop.photos || [],
-    description: prop.description,
-    address: prop.address || prop.forward_from_chat_title || 'Location',
-    phone: prop.contact_phone,
-  }));
+  const markers = properties.map(prop => {
+    // Обработка photos - может быть массивом, строкой или null
+    let images: string[] = [];
+    if (Array.isArray(prop.photos)) {
+      images = prop.photos;
+    } else if (typeof prop.photos === 'string' && prop.photos) {
+      // Если строка - разбиваем по пробелам или запятым
+      images = prop.photos.split(/[\s,]+/).filter(url => url.trim());
+    }
+
+    return {
+      id: `prop-${prop.id}`,
+      position: [prop.latitude, prop.longitude] as [number, number],
+      title: prop.title || prop.property_type || 'Property',
+      type: 'stay' as const,
+      price: prop.price ? `${prop.currency || 'USD'} ${prop.price}` : undefined,
+      images: images,
+      description: prop.description,
+      address: prop.address || prop.forward_from_chat_title || 'Location',
+      phone: prop.contact_phone,
+    };
+  });
 
   if (loading) {
     return (
@@ -136,16 +147,46 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
       </div>
 
       {/* Property Drawer */}
-      {selectedPropertyId && selectedPropertyPos && (
-        <PropertyDrawer
-          property={properties.find(p => `prop-${p.id}` === selectedPropertyId)}
-          position={selectedPropertyPos}
-          onClose={() => {
-            setSelectedPropertyId(null);
-            setSelectedPropertyPos(null);
-          }}
-        />
-      )}
+      {selectedPropertyId && selectedPropertyPos && (() => {
+        const selectedProp = properties.find(p => `prop-${p.id}` === selectedPropertyId);
+        if (!selectedProp) return null;
+
+        // Обработка photos для PropertyDrawer
+        let images: string[] = [];
+        if (Array.isArray(selectedProp.photos)) {
+          images = selectedProp.photos;
+        } else if (typeof selectedProp.photos === 'string' && selectedProp.photos) {
+          images = selectedProp.photos.split(/[\s,]+/).filter(url => url.trim());
+        }
+
+        // Преобразуем в формат PropertyDrawer
+        const drawerProperty = {
+          id: selectedProp.id,
+          title: selectedProp.title || selectedProp.property_type || 'Property',
+          price: selectedProp.price ? `${selectedProp.currency || 'USD'} ${selectedProp.price}` : 'Price on request',
+          description: selectedProp.description || 'No description',
+          images: images,
+          amenities: selectedProp.amenities ? 
+            (Array.isArray(selectedProp.amenities) ? selectedProp.amenities : []) : [],
+          bathrooms: selectedProp.bathrooms || 0,
+          beachDistance: 0,
+          wifiSpeed: 0,
+          area: selectedProp.address || 'Location',
+          propertyType: selectedProp.property_type || 'Property',
+        };
+
+        return (
+          <PropertyDrawer
+            isOpen={true}
+            property={drawerProperty}
+            exchangeRate={400}
+            onClose={() => {
+              setSelectedPropertyId(null);
+              setSelectedPropertyPos(null);
+            }}
+          />
+        );
+      })()}
     </div>
   );
 }

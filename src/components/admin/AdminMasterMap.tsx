@@ -158,26 +158,36 @@ export default function AdminMasterMap() {
                 return;
             }
 
-            const mappedProperties = (data || []).map((prop: any) => ({
-                id: `client-${prop.id}`,
-                title: prop.title || prop.property_type || 'Property',
-                lat: prop.latitude,
-                lng: prop.longitude,
-                price: prop.price,
-                currency: prop.currency || 'USD',
-                type: 'client_property',
-                property_type: prop.property_type,
-                bedrooms: prop.bedrooms,
-                bathrooms: prop.bathrooms,
-                photos: prop.photos || [],
-                source_type: prop.source_type,
-                forward_from: prop.forward_from_chat_title || prop.forward_from_username,
-                telegram_user_id: prop.telegram_user_id,
-                created_at: prop.created_at,
-                description: prop.description,
-                contact_phone: prop.contact_phone,
-                amenities: prop.amenities
-            }));
+            const mappedProperties = (data || []).map((prop: any) => {
+                // Обработка photos - может быть массивом, строкой или null
+                let photos: string[] = [];
+                if (Array.isArray(prop.photos)) {
+                    photos = prop.photos;
+                } else if (typeof prop.photos === 'string' && prop.photos) {
+                    photos = prop.photos.split(/[\s,]+/).filter((url: string) => url.trim());
+                }
+
+                return {
+                    id: `client-${prop.id}`,
+                    title: prop.title || prop.property_type || 'Property',
+                    lat: prop.latitude,
+                    lng: prop.longitude,
+                    price: prop.price,
+                    currency: prop.currency || 'USD',
+                    type: 'client_property',
+                    property_type: prop.property_type,
+                    bedrooms: prop.bedrooms,
+                    bathrooms: prop.bathrooms,
+                    photos: photos,
+                    source_type: prop.source_type,
+                    forward_from: prop.forward_from_chat_title || prop.forward_from_username,
+                    telegram_user_id: prop.telegram_user_id,
+                    created_at: prop.created_at,
+                    description: prop.description,
+                    contact_phone: prop.contact_phone,
+                    amenities: prop.amenities
+                };
+            });
 
             setClientProperties(mappedProperties);
 
@@ -348,16 +358,38 @@ export default function AdminMasterMap() {
             </div>
 
             {/* Property Drawer */}
-            {selectedPropertyId && selectedPropertyPos && (
-                <PropertyDrawer
-                    property={allMarkers.find(p => p.id === selectedPropertyId)}
-                    position={selectedPropertyPos}
-                    onClose={() => {
-                        setSelectedPropertyId(null);
-                        setSelectedPropertyPos(null);
-                    }}
-                />
-            )}
+            {selectedPropertyId && selectedPropertyPos && (() => {
+                const selectedProp = allMarkers.find(p => p.id === selectedPropertyId);
+                if (!selectedProp) return null;
+
+                // Преобразуем в формат, который ожидает PropertyDrawer
+                const drawerProperty = {
+                    id: selectedProp.id,
+                    title: selectedProp.title || 'Property',
+                    price: selectedProp.price ? `${selectedProp.currency} ${selectedProp.price}` : 'Price on request',
+                    description: selectedProp.description || 'No description',
+                    images: Array.isArray(selectedProp.photos) ? selectedProp.photos : [],
+                    amenities: selectedProp.amenities ? 
+                        (Array.isArray(selectedProp.amenities) ? selectedProp.amenities : []) : [],
+                    bathrooms: selectedProp.bathrooms || 0,
+                    beachDistance: 0,
+                    wifiSpeed: 0,
+                    area: selectedProp.property_type || 'Unknown',
+                    propertyType: selectedProp.property_type || 'Property',
+                };
+
+                return (
+                    <PropertyDrawer
+                        isOpen={true}
+                        property={drawerProperty}
+                        exchangeRate={400}
+                        onClose={() => {
+                            setSelectedPropertyId(null);
+                            setSelectedPropertyPos(null);
+                        }}
+                    />
+                );
+            })()}
         </div>
     );
 }
