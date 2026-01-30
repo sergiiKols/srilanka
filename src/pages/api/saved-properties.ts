@@ -17,24 +17,41 @@ export const GET: APIRoute = async ({ request, url }) => {
     const userId = url.searchParams.get('userId');
     const token = url.searchParams.get('token');
 
+    console.log('📥 API Request:', { userId, token });
+
     // Если указан userId - возвращаем только его объекты (персональная карта)
     if (userId) {
       // TODO: Проверить token для безопасности
       // Пока что возвращаем данные без проверки токена
       
+      // Преобразуем userId в число для BIGINT
+      const userIdNum = parseInt(userId, 10);
+      
+      if (isNaN(userIdNum)) {
+        console.error('❌ Invalid userId:', userId);
+        return new Response(JSON.stringify({ error: 'Invalid userId format' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+
+      console.log('🔍 Querying saved_properties for user:', userIdNum);
+      
       const { data, error } = await supabase
         .from('saved_properties')
         .select('*')
-        .eq('telegram_user_id', userId)
+        .eq('telegram_user_id', userIdNum)
         .order('created_at', { ascending: false });
 
       if (error) {
-        console.error('Error loading user properties:', error);
-        return new Response(JSON.stringify({ error: error.message }), {
+        console.error('❌ Error loading user properties:', error);
+        return new Response(JSON.stringify({ error: error.message, details: error }), {
           status: 500,
           headers: { 'Content-Type': 'application/json' }
         });
       }
+
+      console.log(`✅ Found ${data?.length || 0} properties for user ${userIdNum}`);
 
       return new Response(JSON.stringify({ data: data || [] }), {
         status: 200,
@@ -43,6 +60,8 @@ export const GET: APIRoute = async ({ request, url }) => {
     }
 
     // Иначе возвращаем все объекты (для админа)
+    console.log('🔍 Querying all saved_properties...');
+    
     const { data, error } = await supabase
       .from('saved_properties')
       .select('*')
@@ -50,21 +69,27 @@ export const GET: APIRoute = async ({ request, url }) => {
       .limit(1000);
 
     if (error) {
-      console.error('Error loading all properties:', error);
-      return new Response(JSON.stringify({ error: error.message }), {
+      console.error('❌ Error loading all properties:', error);
+      return new Response(JSON.stringify({ error: error.message, details: error }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
+
+    console.log(`✅ Found ${data?.length || 0} total properties`);
 
     return new Response(JSON.stringify({ data: data || [] }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
 
-  } catch (err) {
-    console.error('API error:', err);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+  } catch (err: any) {
+    console.error('❌ API error:', err);
+    return new Response(JSON.stringify({ 
+      error: 'Internal server error',
+      message: err?.message || 'Unknown error',
+      stack: err?.stack
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
