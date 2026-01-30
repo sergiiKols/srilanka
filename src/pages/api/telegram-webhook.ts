@@ -184,12 +184,16 @@ async function collectMediaGroupToSession(messages: any[]) {
     const forwardMeta = parseForwardMetadata(firstMessage);
     session.tempData.forwardMetadata = forwardMeta;
     
-    // Показываем превью и кнопки
-    await showSessionPreview(chatId, session);
+    // Показываем превью и кнопки (НЕ ЖДЁМ - отправляем асинхронно)
+    showSessionPreview(chatId, session).catch(err => {
+      console.error('❌ Error showing preview:', err);
+    });
+    
+    console.log(`✅ Session updated, preview message queued`);
     
   } catch (error) {
     console.error('❌ Error collecting media group:', error);
-    await sendErrorMessage(chatId, 'Ошибка обработки фото');
+    // НЕ отправляем сообщение об ошибке - это тоже async
   }
 }
 
@@ -1045,13 +1049,13 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     await sendWithTimeout(5000); // 5 секунд таймаут
     console.log(`✅ Preview message sent successfully`);
   } catch (error) {
-    console.error(`❌ Error sending preview (${error.message}), trying simple message...`);
-    // Отправляем максимально простое сообщение
+    console.error(`❌ Error sending preview (${error.message}), trying minimal message...`);
+    // Отправляем минимальное сообщение
     try {
       await sendTelegramMessage({
         botToken,
         chatId: chatId.toString(),
-        text: `Данные собраны: ${photoCount} фото\n\nНажмите кнопку чтобы сохранить`,
+        text: `${photoCount} фото`,
         replyMarkup: {
           inline_keyboard: buttons
         }
