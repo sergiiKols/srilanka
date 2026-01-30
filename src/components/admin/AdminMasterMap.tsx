@@ -262,11 +262,12 @@ export default function AdminMasterMap() {
                     <span>Import</span>
                 </button>
 
-                {/* GeoPickerButton */}
-                <div className="flex justify-end">
-                    <GeoPickerButton map={mapInstance} />
-                </div>
+                {/* GeoPickerButton container */}
+                <div id="floating-buttons-container" className="flex justify-end"></div>
             </div>
+            
+            {/* GeoPickerButton (uses portal) */}
+            <GeoPickerButton map={mapInstance} />
 
             {/* Карта */}
             <Map
