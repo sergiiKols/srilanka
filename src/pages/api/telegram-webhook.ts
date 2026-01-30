@@ -184,12 +184,8 @@ async function collectMediaGroupToSession(messages: any[]) {
     const forwardMeta = parseForwardMetadata(firstMessage);
     session.tempData.forwardMetadata = forwardMeta;
     
-    // Показываем превью и кнопки (НЕ ЖДЁМ - отправляем асинхронно)
-    showSessionPreview(chatId, session).catch(err => {
-      console.error('❌ Error showing preview:', err);
-    });
-    
-    console.log(`✅ Session updated, preview message queued`);
+    // НЕ показываем превью после фото - только собираем
+    console.log(`✅ Session updated (${session.tempData.photoObjects?.length || 0} photos collected)`);
     
   } catch (error) {
     console.error('❌ Error collecting media group:', error);
@@ -416,12 +412,17 @@ async function collectMessageToSession(message: any) {
       session.tempData.forwardMetadata = forwardMeta;
     }
     
-    // Показываем превью и кнопки (НЕ ЖДЁМ - отправляем асинхронно)
-    showSessionPreview(chatId, session).catch(err => {
-      console.error('❌ Error showing preview:', err);
-    });
+    // Показываем превью ТОЛЬКО если есть фото + локация
+    const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
+    const hasPhotos = (session.tempData.photoObjects?.length || 0) > 0;
     
-    console.log(`✅ Message collected, preview message queued`);
+    if (hasLocation && hasPhotos) {
+      showSessionPreview(chatId, session).catch(err => {
+        console.error('❌ Error showing preview:', err);
+      });
+    }
+    
+    console.log(`✅ Message collected: photos=${hasPhotos}, location=${hasLocation}`);
     
   } catch (error) {
     console.error('❌ Error collecting message to session:', error);
@@ -1072,13 +1073,15 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     console.error(`❌ Error sending preview (${error.message}), trying minimal message...`);
     // Отправляем минимальное сообщение
     try {
+      const fallbackText = (hasLocation && photoCount > 0) 
+        ? `${photoCount} фото + локация` 
+        : `${photoCount} фото`;
+      
       await sendTelegramMessage({
         botToken,
         chatId: chatId.toString(),
-        text: `${photoCount} фото`,
-        replyMarkup: {
-          inline_keyboard: buttons
-        }
+        text: fallbackText,
+        replyMarkup: buttons.length > 0 ? { inline_keyboard: buttons } : undefined
       });
       console.log(`✅ Fallback message sent`);
     } catch (fallbackError) {
