@@ -378,7 +378,7 @@ export default function AdminMasterMap() {
                     title: m.title,
                     type: 'stay',
                     price: m.price ? `${m.currency || 'USD'} ${m.price}` : undefined,
-                    images: m.photos || [],
+                    images: m.photos && m.photos.length > 0 ? [m.photos[0]] : [], // Только первое фото для попапа
                     description: m.description,
                     address: m.forward_from || 'Forwarded property',
                     markerColor: m.markerColor || '#ef4444' // ✅ Цвет уже установлен в getHeatmapColor
