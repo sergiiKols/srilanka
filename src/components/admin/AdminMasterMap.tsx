@@ -6,9 +6,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Map from '../map/Map';
 import PropertyDrawer from '../property/PropertyDrawer';
-import PropertyImporter from '../PropertyImporter';
-import POIValidator from '../POIValidator';
-import GeoPickerButton from '../GeoPickerButton';
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase клиент
@@ -267,43 +264,6 @@ export default function AdminMasterMap() {
 
     return (
         <div className="relative w-full h-full">
-            {/* Floating Buttons (справа) */}
-            <div className="absolute top-20 right-4 z-[1000] flex flex-col gap-2">
-                <GeoPickerButton map={mapInstance} />
-                
-                <a
-                    href="/"
-                    className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center transition-all hover:bg-white hover:shadow-xl active:scale-95 border-2 border-slate-200"
-                    title="На главную"
-                >
-                    <span className="text-xl">🏠</span>
-                </a>
-
-                <button
-                    onClick={() => setShowImporter(true)}
-                    className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-xl shadow-lg flex items-center justify-center transition-all hover:from-indigo-700 hover:to-purple-700 active:scale-95"
-                    title="Import Property"
-                >
-                    <span className="text-xl">📥</span>
-                </button>
-
-                <button
-                    onClick={() => setShowValidator(true)}
-                    className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-xl shadow-lg flex items-center justify-center transition-all hover:from-green-700 hover:to-emerald-700 active:scale-95"
-                    title="Validate POI"
-                >
-                    <span className="text-xl">✅</span>
-                </button>
-
-                <button
-                    onClick={() => loadClientProperties()}
-                    className="w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all hover:from-slate-700 hover:to-slate-800 active:scale-95"
-                    title="Refresh Data"
-                >
-                    <span className="text-xl">🔄</span>
-                </button>
-            </div>
-
             {/* Карта */}
             <Map
                 ref={mapRef}
@@ -419,82 +379,17 @@ export default function AdminMasterMap() {
                         Loading...
                     </div>
                 )}
-
-                {/* Действия */}
-                <div className="mt-4 pt-4 border-t space-y-2">
-                    <h3 className="font-semibold mb-2">Actions:</h3>
-                    
-                    <button
-                        onClick={() => setShowImporter(true)}
-                        className="w-full py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
-                    >
-                        📥 Import Property
-                    </button>
-
-                    <button
-                        onClick={() => setShowValidator(true)}
-                        className="w-full py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
-                    >
-                        ✅ Validate POI
-                    </button>
-
-                    <button
-                        onClick={() => loadClientProperties()}
-                        className="w-full py-2 px-4 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
-                    >
-                        🔄 Refresh Data
-                    </button>
-                </div>
             </div>
 
             {/* Property Drawer */}
-            {selectedPropertyId && selectedPropertyPos && (() => {
-                const selectedProp = allMarkers.find(p => p.id === selectedPropertyId);
-                if (!selectedProp) return null;
-
-                // Преобразуем в формат, который ожидает PropertyDrawer
-                const drawerProperty = {
-                    id: selectedProp.id,
-                    title: selectedProp.title || 'Property',
-                    price: selectedProp.price ? `${selectedProp.currency} ${selectedProp.price}` : 'Price on request',
-                    description: selectedProp.description || 'No description',
-                    images: Array.isArray(selectedProp.photos) ? selectedProp.photos : [],
-                    amenities: selectedProp.amenities ? 
-                        (Array.isArray(selectedProp.amenities) ? selectedProp.amenities : []) : [],
-                    bathrooms: selectedProp.bathrooms || 0,
-                    beachDistance: 0,
-                    wifiSpeed: 0,
-                    area: selectedProp.property_type || 'Unknown',
-                    propertyType: selectedProp.property_type || 'Property',
-                };
-
-                return (
-                    <PropertyDrawer
-                        isOpen={true}
-                        property={drawerProperty}
-                        exchangeRate={400}
-                        onClose={() => {
-                            setSelectedPropertyId(null);
-                            setSelectedPropertyPos(null);
-                        }}
-                    />
-                );
-            })()}
-
-            {/* Property Importer Modal */}
-            {showImporter && (
-                <PropertyImporter
+            {selectedPropertyId && selectedPropertyPos && (
+                <PropertyDrawer
+                    property={allMarkers.find(p => p.id === selectedPropertyId)}
+                    position={selectedPropertyPos}
                     onClose={() => {
-                        setShowImporter(false);
-                        loadClientProperties();
+                        setSelectedPropertyId(null);
+                        setSelectedPropertyPos(null);
                     }}
-                />
-            )}
-
-            {/* POI Validator Modal */}
-            {showValidator && (
-                <POIValidator
-                    onClose={() => setShowValidator(false)}
                 />
             )}
         </div>
