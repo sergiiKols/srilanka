@@ -210,7 +210,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                 <h3 className="text-lg font-bold mb-2 text-slate-800">Description</h3>
                                 <p className="text-slate-600 leading-relaxed text-sm mb-8 whitespace-pre-line">{formatOpeningHours(property.description)}</p>
 
-                                {property.amenities && (
+                                {property.amenities && Array.isArray(property.amenities) && property.amenities.length > 0 && (
                                     <div className="mt-8">
                                         <h3 className="text-lg font-bold mb-3 text-slate-800">Amenities</h3>
                                         <div className="flex gap-2 flex-wrap">
