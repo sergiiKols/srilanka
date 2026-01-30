@@ -96,25 +96,32 @@ async function handleMediaGroup(message: any) {
   let group = mediaGroups.get(groupId);
   
   if (!group) {
-    // Создаём новую группу с таймаутом
+    // Создаём новую группу
     group = {
       messages: [],
-      timeout: setTimeout(() => {
-        // Через 500ms обрабатываем все собранные фото
-        const completeGroup = mediaGroups.get(groupId);
-        if (completeGroup) {
-          console.log(`⏰ Processing media group ${groupId} with ${completeGroup.messages.length} photos`);
-          collectMediaGroupToSession(completeGroup.messages);
-          mediaGroups.delete(groupId);
-        }
-      }, 500) // 500ms для получения всех фото
+      timeout: null as any
     };
     mediaGroups.set(groupId, group);
+  } else {
+    // Если группа уже существует - отменяем старый таймер
+    if (group.timeout) {
+      clearTimeout(group.timeout);
+    }
   }
   
   // Добавляем сообщение в группу
   group.messages.push(message);
   console.log(`📎 Added photo to group ${groupId}, total: ${group.messages.length}`);
+  
+  // Устанавливаем новый таймер (сбрасывается при каждом новом фото)
+  group.timeout = setTimeout(() => {
+    const completeGroup = mediaGroups.get(groupId);
+    if (completeGroup) {
+      console.log(`⏰ Processing media group ${groupId} with ${completeGroup.messages.length} photos`);
+      collectMediaGroupToSession(completeGroup.messages);
+      mediaGroups.delete(groupId);
+    }
+  }, 1000); // 1 секунда - ждём пока все фото придут
 }
 
 /**
