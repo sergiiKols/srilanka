@@ -86,3 +86,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* 5. Leaflet Map Customization */
+/* Скрыть атрибуцию Leaflet и OpenStreetMap */
+.leaflet-control-attribution {
+  display: none !important;
+}
