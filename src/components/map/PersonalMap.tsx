@@ -180,6 +180,14 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
             isOpen={true}
             property={drawerProperty}
             exchangeRate={400}
+            isCustomProperty={true}
+            userId={userId}
+            onDelete={(propertyId) => {
+              // Удаляем из локального state
+              setProperties(prev => prev.filter(p => `prop-${p.id}` !== propertyId));
+              setSelectedPropertyId(null);
+              setSelectedPropertyPos(null);
+            }}
             onClose={() => {
               setSelectedPropertyId(null);
               setSelectedPropertyPos(null);

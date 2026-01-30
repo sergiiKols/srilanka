@@ -27,10 +27,13 @@ interface PropertyDrawerProps {
     exchangeRate: number;
     onDelete?: (propertyId: string) => void;
     isCustomProperty?: boolean;
+    userId?: string; // Telegram user ID для проверки владельца
 }
 
-export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate, onDelete, isCustomProperty }: PropertyDrawerProps) {
+export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate, onDelete, isCustomProperty, userId }: PropertyDrawerProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     // Prevent body scroll when drawer is open
     useEffect(() => {
@@ -221,10 +224,84 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                         </div>
 
                         {/* Footer Action */}
-                        <div className="p-4 border-t bg-slate-50">
-                            <button className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
-                                Book Now
-                            </button>
+                        <div className="p-4 border-t bg-slate-50 space-y-3">
+                            {isCustomProperty && userId ? (
+                                showDeleteConfirm ? (
+                                    // Confirmation state
+                                    <div className="space-y-2">
+                                        <p className="text-sm text-center text-slate-600 font-medium">
+                                            Удалить этот объект?
+                                        </p>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <button 
+                                                onClick={() => setShowDeleteConfirm(false)}
+                                                className="py-2.5 rounded-xl font-semibold text-sm transition-all duration-300
+                                                    bg-slate-100 text-slate-700 hover:bg-slate-200
+                                                    border border-slate-200"
+                                                disabled={isDeleting}
+                                            >
+                                                Отмена
+                                            </button>
+                                            <button 
+                                                onClick={async () => {
+                                                    if (!property) return;
+                                                    setIsDeleting(true);
+                                                    try {
+                                                        const response = await fetch(`/api/saved-properties/${property.id}?userId=${userId}`, {
+                                                            method: 'DELETE'
+                                                        });
+                                                        
+                                                        if (response.ok) {
+                                                            if (onDelete) {
+                                                                onDelete(property.id);
+                                                            }
+                                                            onClose();
+                                                        } else {
+                                                            const error = await response.json();
+                                                            alert(`Ошибка: ${error.error}`);
+                                                        }
+                                                    } catch (err) {
+                                                        console.error('Delete error:', err);
+                                                        alert('Ошибка при удалении');
+                                                    } finally {
+                                                        setIsDeleting(false);
+                                                        setShowDeleteConfirm(false);
+                                                    }
+                                                }}
+                                                className="py-2.5 rounded-xl font-semibold text-sm transition-all duration-300
+                                                    bg-gradient-to-br from-red-500 to-red-600 text-white
+                                                    hover:from-red-600 hover:to-red-700
+                                                    shadow-[0_12px_24px_-8px_rgba(239,68,68,0.4)]
+                                                    active:scale-95
+                                                    disabled:opacity-50 disabled:cursor-not-allowed"
+                                                disabled={isDeleting}
+                                            >
+                                                {isDeleting ? '⏳ Удаление...' : '🗑️ Удалить'}
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    // Default state
+                                    <button 
+                                        onClick={() => setShowDeleteConfirm(true)}
+                                        className="w-full py-3 rounded-xl font-semibold text-sm transition-all duration-300
+                                            bg-gradient-to-br from-red-50 to-red-100 text-red-600
+                                            hover:from-red-100 hover:to-red-200
+                                            border border-red-200
+                                            shadow-[0_12px_24px_-8px_rgba(239,68,68,0.15)]
+                                            hover:shadow-[0_16px_32px_-8px_rgba(239,68,68,0.25)]
+                                            active:scale-98
+                                            flex items-center justify-center gap-2"
+                                    >
+                                        <span>🗑️</span>
+                                        <span>Удалить объект</span>
+                                    </button>
+                                )
+                            ) : (
+                                <button className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                                    Book Now
+                                </button>
+                            )}
                         </div>
                     </div>
                 ) : (
