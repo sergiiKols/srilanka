@@ -38,6 +38,7 @@ export default function AdminMasterMap() {
     const [heatmapMode, setHeatmapMode] = useState<'none' | 'time' | 'user' | 'price'>('none');
     const [selectedUser, setSelectedUser] = useState<string>('all');
     const [dateFilter, setDateFilter] = useState<string>('all');
+    const [showDeleted, setShowDeleted] = useState(false); // ✅ Показать удалённые объекты
     
     // Статистика
     const [stats, setStats] = useState({
@@ -72,7 +73,7 @@ export default function AdminMasterMap() {
         return () => {
             subscription.unsubscribe();
         };
-    }, [dateFilter, selectedUser]);
+    }, [dateFilter, selectedUser, showDeleted]); // ✅ Добавили зависимость от showDeleted
 
     // Загрузка POI из Supabase
     const loadPOIsData = async () => {
@@ -142,6 +143,11 @@ export default function AdminMasterMap() {
                 query = query.eq('telegram_user_id', parseInt(selectedUser));
             }
 
+            // ✅ Фильтр по удалённым (по умолчанию показываем только активные)
+            if (!showDeleted) {
+                query = query.is('deleted_at', null);
+            }
+
             const { data, error } = await query;
 
             if (error) {
@@ -176,7 +182,9 @@ export default function AdminMasterMap() {
                     created_at: prop.created_at,
                     description: prop.description,
                     contact_phone: prop.contact_phone,
-                    amenities: prop.amenities
+                    amenities: prop.amenities,
+                    deleted_at: prop.deleted_at, // ✅ Метка удаления
+                    isDeleted: !!prop.deleted_at // ✅ Флаг для отображения
                 };
             });
 
@@ -200,6 +208,11 @@ export default function AdminMasterMap() {
 
     // Получить цвет маркера для тепловой карты
     const getHeatmapColor = (property: any) => {
+        // ✅ Удалённые объекты всегда красные
+        if (property.isDeleted) {
+            return '#dc2626'; // Тёмно-красный для удалённых
+        }
+
         if (heatmapMode === 'none') {
             return property.type === 'poi' ? '#3b82f6' : '#ef4444';
         }

@@ -59,24 +59,21 @@ export const DELETE: APIRoute = async ({ params, request }) => {
       });
     }
 
-    // Удаляем фото из Storage (опционально)
-    // TODO: Implement photo deletion from storage if needed
-
-    // Удаляем объект из БД
+    // Soft delete - помечаем как удалённый (для статистики и аналитики)
     const { error: deleteError } = await supabase
       .from('saved_properties')
-      .delete()
+      .update({ deleted_at: new Date().toISOString() })
       .eq('id', id);
 
     if (deleteError) {
-      console.error('❌ Error deleting property:', deleteError);
+      console.error('❌ Error soft-deleting property:', deleteError);
       return new Response(JSON.stringify({ error: deleteError.message }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    console.log(`✅ Property deleted: ${id}`);
+    console.log(`✅ Property soft-deleted: ${id}`);
 
     return new Response(JSON.stringify({ 
       success: true,
