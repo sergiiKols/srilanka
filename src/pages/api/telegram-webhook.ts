@@ -120,6 +120,14 @@ async function handleMediaGroup(message: any) {
       chatId: chatId.toString(),
       text: `📸 ${photoCount} фото`
     }).catch(err => console.error('Error sending photo notification:', err));
+    
+    // Проверяем - может уже есть локация? Тогда показываем превью!
+    const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
+    if (hasLocation && photoCount > 0) {
+      showSessionPreview(chatId, session).catch(err => {
+        console.error('❌ Error showing preview after photo:', err);
+      });
+    }
   }
   
   // Парсим caption из первого фото группы
@@ -1051,29 +1059,70 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
   const data = session.tempData;
   
-  // Формируем минималистичное превью
+  // Формируем превью со статусом всех 3 компонентов
   const photoCount = data.photoObjects?.length || 0;
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
+  const hasDescription = !!(data.description && data.description.trim());
   
-  // Текст зависит от наличия данных
-  let preview = '';
+  // Формируем статус
+  let preview = '📦 Статус данных:\n\n';
+  
+  // Гео (обязательно)
+  if (hasLocation) {
+    preview += '✅ Геолокация: есть\n';
+  } else {
+    preview += '❌ Геолокация: НЕТ (обязательно!)\n';
+  }
+  
+  // Фото (желательно)
+  if (photoCount > 0) {
+    preview += `✅ Фото: ${photoCount} шт.\n`;
+  } else {
+    preview += '⚠️ Фото: нет (рекомендуется добавить)\n';
+  }
+  
+  // Описание (желательно)
+  if (hasDescription) {
+    const shortDesc = data.description.length > 50 
+      ? data.description.substring(0, 50) + '...' 
+      : data.description;
+    preview += `✅ Описание: ${shortDesc}\n`;
+  } else {
+    preview += '⚠️ Описание: нет (рекомендуется добавить)\n';
+  }
+  
+  preview += '\n';
+  
+  // Кнопка ТОЛЬКО если есть ГЕО + ФОТО + ОПИСАНИЕ
   let buttons: any[][] = [];
   
-  if (hasLocation && photoCount > 0) {
+  if (hasLocation && photoCount > 0 && hasDescription) {
     // ✅ Всё есть - можно сохранять
-    preview = `✅ Данные полные: ${photoCount} фото + локация\n\nСохранить объект?`;
+    preview += '✅ Все данные собраны!\n\nСохранить объект?';
     buttons = [
       [
         { text: 'Да', callback_data: 'session_save' },
         { text: 'Нет', callback_data: 'session_cancel' }
       ],
       [
-        { text: 'Продолжить добавление', callback_data: 'session_continue' }
+        { text: 'Добавить ещё', callback_data: 'session_continue' }
+      ]
+    ];
+  } else if (hasLocation) {
+    // Есть гео, но не хватает фото или описания
+    preview += '⚠️ Можно сохранить, но рекомендуется добавить недостающее';
+    buttons = [
+      [
+        { text: 'Сохранить как есть', callback_data: 'session_save' }
+      ],
+      [
+        { text: 'Добавить данные', callback_data: 'session_continue' }
       ]
     ];
   } else {
-    // Без полных данных кнопки не показываем
-    return;
+    // Нет гео - сохранение невозможно
+    preview += '❌ Сохранение невозможно без геолокации\n\nДобавьте:\n• Геолокацию (📎 → Location)\n• Или Google Maps ссылку';
+    // Кнопок нет
   }
   
   console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
