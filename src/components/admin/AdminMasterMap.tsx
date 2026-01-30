@@ -6,6 +6,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Map from '../map/Map';
 import PropertyDrawer from '../property/PropertyDrawer';
+import PropertyImporterAI from '../PropertyImporterAI';
+import GeoPickerButton from '../GeoPickerButton';
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase клиент
