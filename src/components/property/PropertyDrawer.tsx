@@ -3,18 +3,10 @@ import { formatOpeningHours } from '../../utils/formatOpeningHours';
 
 /**
  * Оптимизация URL изображения для быстрой загрузки
- * Использует Supabase Image Transformation API
+ * ОТКЛЮЧЕНО: Supabase Image Transformation может замедлять загрузку
  */
 function optimizeImageUrl(url: string, width: number = 800, height: number = 600): string {
-    if (!url) return url;
-    
-    // Проверяем что это Supabase Storage URL
-    if (url.includes('supabase.co/storage/v1/object/public/')) {
-        // Добавляем параметры трансформации
-        const separator = url.includes('?') ? '&' : '?';
-        return `${url}${separator}width=${width}&height=${height}&resize=cover&quality=80`;
-    }
-    
+    // Возвращаем оригинальный URL без трансформации
     return url;
 }
 
