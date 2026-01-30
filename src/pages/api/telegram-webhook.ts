@@ -121,7 +121,7 @@ async function handleMediaGroup(message: any) {
       collectMediaGroupToSession(completeGroup.messages);
       mediaGroups.delete(groupId);
     }
-  }, 1000); // 1 секунда - ждём пока все фото придут
+  }, 200); // 200ms - быстрее, но достаточно для сбора фото
 }
 
 /**
