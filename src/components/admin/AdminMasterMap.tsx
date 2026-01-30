@@ -8,6 +8,7 @@ import Map from '../map/Map';
 import PropertyDrawer from '../property/PropertyDrawer';
 import PropertyImporter from '../PropertyImporter';
 import POIValidator from '../POIValidator';
+import GeoPickerButton from '../GeoPickerButton';
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase клиент
@@ -262,6 +263,43 @@ export default function AdminMasterMap() {
 
     return (
         <div className="relative w-full h-full">
+            {/* Floating Buttons (справа) */}
+            <div className="absolute top-20 right-4 z-[1000] flex flex-col gap-2">
+                <GeoPickerButton map={mapInstance} />
+                
+                <a
+                    href="/"
+                    className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center transition-all hover:bg-white hover:shadow-xl active:scale-95 border-2 border-slate-200"
+                    title="На главную"
+                >
+                    <span className="text-xl">🏠</span>
+                </a>
+
+                <button
+                    onClick={() => setShowImporter(true)}
+                    className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-xl shadow-lg flex items-center justify-center transition-all hover:from-indigo-700 hover:to-purple-700 active:scale-95"
+                    title="Import Property"
+                >
+                    <span className="text-xl">📥</span>
+                </button>
+
+                <button
+                    onClick={() => setShowValidator(true)}
+                    className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-xl shadow-lg flex items-center justify-center transition-all hover:from-green-700 hover:to-emerald-700 active:scale-95"
+                    title="Validate POI"
+                >
+                    <span className="text-xl">✅</span>
+                </button>
+
+                <button
+                    onClick={() => loadClientProperties()}
+                    className="w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all hover:from-slate-700 hover:to-slate-800 active:scale-95"
+                    title="Refresh Data"
+                >
+                    <span className="text-xl">🔄</span>
+                </button>
+            </div>
+
             {/* Карта */}
             <Map
                 ref={mapRef}
@@ -273,7 +311,8 @@ export default function AdminMasterMap() {
                     price: m.price ? `${m.currency || 'USD'} ${m.price}` : undefined,
                     images: m.photos || [],
                     description: m.description,
-                    address: m.forward_from || 'Forwarded property'
+                    address: m.forward_from || 'Forwarded property',
+                    markerColor: m.isDeleted ? '#dc2626' : (m.markerColor || '#ef4444') // ✅ Красный цвет для удалённых
                 }))}
                 onMarkerClick={(id) => {
                     setSelectedPropertyId(id);
