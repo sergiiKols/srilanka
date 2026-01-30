@@ -280,7 +280,7 @@ export default function AdminMasterMap() {
             />
 
             {/* Панель управления */}
-            <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-sm z-[1000]">
+            <div className="absolute top-1/2 -translate-y-1/2 left-4 bg-white rounded-lg shadow-lg p-4 max-w-sm z-[1000] max-h-[80vh] overflow-y-auto">
                 <h2 className="text-lg font-bold mb-3">🎛️ Admin Master Map</h2>
 
                 {/* Статистика */}
@@ -352,6 +352,17 @@ export default function AdminMasterMap() {
                         <option value="week">Last 7 days</option>
                         <option value="month">Last 30 days</option>
                     </select>
+
+                    {/* ✅ Чекбокс для показа удалённых */}
+                    <label className="flex items-center mt-2 cursor-pointer p-2 hover:bg-slate-50 rounded">
+                        <input
+                            type="checkbox"
+                            checked={showDeleted}
+                            onChange={(e) => setShowDeleted(e.target.checked)}
+                            className="mr-2"
+                        />
+                        <span className="text-sm">🔴 Show deleted objects</span>
+                    </label>
                 </div>
 
                 {loading && (
