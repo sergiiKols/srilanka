@@ -112,14 +112,8 @@ export default function AdminMasterMap() {
 
             let query = supabase
                 .from('saved_properties')
-                .select(`
-                    *,
-                    tenants!inner (
-                        telegram_user_id,
-                        saved_properties_count,
-                        created_at
-                    )
-                `);
+                .select('*')
+                .order('created_at', { ascending: false });
 
             // Фильтр по дате
             if (dateFilter !== 'all') {
@@ -148,10 +142,7 @@ export default function AdminMasterMap() {
                 query = query.eq('telegram_user_id', parseInt(selectedUser));
             }
 
-            const { data, error } = await supabase
-                .from('saved_properties')
-                .select('*')
-                .order('created_at', { ascending: false });
+            const { data, error } = await query;
 
             if (error) {
                 console.error('Ошибка загрузки клиентских объектов:', error);
