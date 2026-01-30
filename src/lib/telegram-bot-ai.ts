@@ -292,6 +292,13 @@ export function validateAIResult(result: AIAnalysisResult): boolean {
  * @param {AIAnalysisResult} result - Результат AI
  * @returns {object} Данные для сохранения
  */
+// Безопасное преобразование в число
+function safeNumber(value: any): number | null {
+  if (value === null || value === undefined) return null;
+  const num = typeof value === 'string' ? parseFloat(value) : Number(value);
+  return isNaN(num) ? null : num;
+}
+
 export function formatForDatabase(result: AIAnalysisResult) {
   return {
     title: result.title || result.type || 'Property',
@@ -300,13 +307,13 @@ export function formatForDatabase(result: AIAnalysisResult) {
     longitude: result.coordinates.lng,
     address: result.address || null,
     property_type: result.type || null,
-    price: result.price || null,
+    price: safeNumber(result.price),  // ✅ Безопасное преобразование
     currency: result.currency || 'USD',
     price_period: 'month',
-    bedrooms: result.bedrooms || null,
-    bathrooms: result.bathrooms || null,
-    area_sqm: result.area || null,  // ✅ Явно null вместо undefined
-    amenities: result.amenities && Array.isArray(result.amenities) ? JSON.stringify(result.amenities) : null,  // ✅ Проверяем что это массив
+    bedrooms: safeNumber(result.bedrooms),  // ✅ Проверка на число
+    bathrooms: safeNumber(result.bathrooms),  // ✅ Проверка на число
+    area_sqm: safeNumber(result.area),  // ✅ Проверка на число
+    amenities: result.amenities && Array.isArray(result.amenities) ? JSON.stringify(result.amenities) : null,
     contact_phone: result.contact?.phone || null,
     contact_name: result.contact?.name || null
   };
