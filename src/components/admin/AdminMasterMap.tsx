@@ -40,7 +40,6 @@ export default function AdminMasterMap() {
     const [heatmapMode, setHeatmapMode] = useState<'none' | 'time' | 'user' | 'price'>('none');
     const [selectedUser, setSelectedUser] = useState<string>('all');
     const [dateFilter, setDateFilter] = useState<string>('all');
-    const [showDeleted, setShowDeleted] = useState(false); // ✅ Показать удалённые объекты
     const [isImporterOpen, setIsImporterOpen] = useState(false); // ✅ Для Import модала
     // Filter Drawer state (скопировано из Explorer)
     const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -112,7 +111,6 @@ export default function AdminMasterMap() {
 
     // Загрузка клиентских объектов
     useEffect(() => {
-        console.log(`🔄 useEffect triggered - showDeleted: ${showDeleted}`);
         loadClientProperties();
         
         // Подписка на изменения в реальном времени
@@ -131,7 +129,7 @@ export default function AdminMasterMap() {
         return () => {
             subscription.unsubscribe();
         };
-    }, [dateFilter, selectedUser, showDeleted]); // ✅ Добавили зависимость от showDeleted
+    }, [dateFilter, selectedUser]);
 
     // Загрузка POI из Supabase (ОТКЛЮЧЕНО - таблица pois не существует)
     const loadPOIsData = async () => {
@@ -183,14 +181,9 @@ export default function AdminMasterMap() {
                 query = query.eq('telegram_user_id', parseInt(selectedUser));
             }
 
-            // ✅ Фильтр по удалённым (по умолчанию показываем только активные)
-            if (!showDeleted) {
-                query = query.is('deleted_at', null);
-                console.log('🔍 Фильтруем: только активные объекты (deleted_at IS NULL)');
-            } else {
-                console.log('🔍 Показываем ВСЕ объекты (включая удалённые)');
-                console.log(`   showDeleted = ${showDeleted}`);
-            }
+            // saved_properties содержит только активные объекты
+            // Удалённые объекты перемещаются в archived_properties
+            console.log('🔍 Загружаем активные объекты из saved_properties');
 
             const { data, error } = await query;
 
@@ -234,8 +227,7 @@ export default function AdminMasterMap() {
                     description: prop.description,
                     contact_phone: prop.contact_phone,
                     amenities: prop.amenities,
-                    deleted_at: prop.deleted_at, // ✅ Метка удаления
-                    isDeleted: !!prop.deleted_at // ✅ Флаг для отображения
+                    isDeleted: false // Все объекты в saved_properties активные
                 };
             });
 
@@ -256,16 +248,7 @@ export default function AdminMasterMap() {
                 uniqueUsers
             }));
 
-            console.log(`✅ Загружено ${mappedProperties.length} клиентских объектов от ${uniqueUsers} пользователей`);
-            console.log(`   📊 Активных: ${activeCount}, Удалённых: ${deletedCount}`);
-            
-            // Debug: список всех объектов с их статусом
-            if (deletedCount > 0) {
-                console.log('   🗑️ Удалённые объекты:');
-                mappedProperties.filter(p => p.isDeleted).forEach(p => {
-                    console.log(`      - ID: ${p.id}, Title: ${p.title}, Deleted: ${p.deleted_at}`);
-                });
-            }
+            console.log(`✅ Загружено ${mappedProperties.length} активных объектов от ${uniqueUsers} пользователей`);
         } catch (err) {
             console.error('Ошибка при загрузке клиентских объектов:', err);
         } finally {
@@ -748,18 +731,6 @@ export default function AdminMasterMap() {
                             )}
                         </div>
 
-                        {/* Show Deleted */}
-                        <div className="pt-4 border-t">
-                            <label className="flex items-center space-x-2 cursor-pointer">
-                                <input
-                                    type="checkbox"
-                                    checked={showDeleted}
-                                    onChange={(e) => setShowDeleted(e.target.checked)}
-                                    className="text-red-600 rounded"
-                                />
-                                <span className="text-sm font-medium text-red-600">🔴 Show deleted objects</span>
-                            </label>
-                        </div>
                     </div>
                 </div>
             </div>

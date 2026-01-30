@@ -233,7 +233,6 @@ export interface PropertyListing {
   updated_at: string;
   published_at: string | null;
   expires_at: string | null;
-  deleted_at: string | null;
   
   // Grok AI
   grok_optimization_attempted: boolean;
@@ -298,7 +297,6 @@ export interface PropertyListingUpdate {
   temperature_color?: string;
   published_at?: string | null;
   expires_at?: string | null;
-  deleted_at?: string | null;
   grok_optimization_attempted?: boolean;
   grok_optimization_success?: boolean;
   grok_optimization_at?: string | null;
@@ -327,7 +325,6 @@ export interface ListingPublication {
   
   // Статус
   is_active: boolean;
-  deleted_at: string | null;
   
   // Статистика
   views_count: number;
@@ -350,7 +347,6 @@ export interface ListingPublicationInsert {
 
 export interface ListingPublicationUpdate {
   is_active?: boolean;
-  deleted_at?: string | null;
   views_count?: number;
   responses_count?: number;
 }
