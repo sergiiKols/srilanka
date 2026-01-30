@@ -718,28 +718,6 @@ async function handleCallbackQuery(callbackQuery: any) {
       console.error(`❌ saveFromSession error for user ${userId}:`, error);
       await sendErrorMessage(chatId, `Ошибка: ${error.message}`);
     }
-  } else if (data === 'session_cancel') {
-    // Отменить и очистить сессию
-    userSessions.delete(userId);
-    await sendTelegramMessage({
-      botToken,
-      chatId: chatId.toString(),
-      text: '❌ Отменено. Данные удалены.\n\nМожете начать заново - просто отправьте фото или локацию.'
-    });
-  } else if (data === 'session_add_photo') {
-    // Ждём добавления фото
-    await sendTelegramMessage({
-      botToken,
-      chatId: chatId.toString(),
-      text: '📸 Отправьте фото объекта\n\nМожете отправить несколько фото сразу (как альбом)'
-    });
-  } else if (data === 'session_add_location') {
-    // Ждём добавления локации
-    await sendTelegramMessage({
-      botToken,
-      chatId: chatId.toString(),
-      text: '📍 Отправьте:\n• Геолокацию (📎 → Location)\n• Или Google Maps ссылку\n• Или текст с адресом'
-    });
   } else if (data === 'cancel') {
     userSessions.delete(userId);
     await sendTelegramMessage({
@@ -1021,7 +999,7 @@ async function sendDuplicateWarning(chatId: number, duplicate: any) {
 }
 
 /**
- * Показать превью сессии с кнопками подтверждения
+ * Показать превью сессии с простой кнопкой сохранения
  */
 async function showSessionPreview(chatId: number, session: UserSession) {
   const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
@@ -1034,6 +1012,8 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   const photoCount = data.photoObjects?.length || 0;
   if (photoCount > 0) {
     preview += `📸 Фото: ${photoCount} шт.\n`;
+  } else {
+    preview += `📸 Фото: нет\n`;
   }
   
   // Локация
@@ -1042,7 +1022,7 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   } else if (data.googleMapsUrl) {
     preview += `🔗 Google Maps: есть\n`;
   } else {
-    preview += `⚠️ Локация: не указана\n`;
+    preview += `📍 Локация: нет\n`;
   }
   
   // Описание
@@ -1053,52 +1033,22 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     preview += `💬 Описание: ${shortDesc}\n`;
   }
   
-  // Источник
-  if (data.forwardMetadata?.source_type) {
-    preview += `📨 Источник: ${data.forwardMetadata.source_type}\n`;
-  }
+  preview += '\n━━━━━━━━━━━━━━━━━━━━\n\n';
   
-  preview += '\n';
+  // Инструкция
+  preview += '💡 **Что дальше:**\n\n';
+  preview += '🔹 Нажмите кнопку ниже чтобы **сохранить объект**\n';
+  preview += '🔹 Или продолжайте отправлять данные:\n';
+  preview += '   • Ещё фото\n';
+  preview += '   • Геолокацию (📎 → Location)\n';
+  preview += '   • Google Maps ссылку\n';
+  preview += '   • Описание текстом\n\n';
+  preview += 'Новые данные автоматически добавятся к этому объекту.';
   
-  // Проверяем готовность
-  const hasPhotos = photoCount > 0;
-  const hasLocation = !!(data.latitude || data.googleMapsUrl);
-  
-  if (hasPhotos && hasLocation) {
-    preview += '✅ **Готово к сохранению!**\n';
-    session.state = 'ready_to_save';
-  } else {
-    preview += '⚠️ **Рекомендуем добавить:**\n';
-    if (!hasPhotos) preview += '• Фото объекта\n';
-    if (!hasLocation) preview += '• Геолокацию или Google Maps\n';
-  }
-  
-  preview += '\n💡 Выберите действие:';
-  
-  // Кнопки
-  const buttons = [];
-  
-  // Первая строка - основные действия
-  const row1 = [];
-  if (hasPhotos && hasLocation) {
-    row1.push({ text: '✅ Сохранить объект', callback_data: 'session_save' });
-  } else {
-    row1.push({ text: '💾 Сохранить как есть', callback_data: 'session_save' });
-  }
-  row1.push({ text: '❌ Отменить', callback_data: 'session_cancel' });
-  buttons.push(row1);
-  
-  // Вторая строка - добавить данные
-  const row2 = [];
-  if (!hasPhotos || photoCount < 10) {
-    row2.push({ text: '📸 Добавить фото', callback_data: 'session_add_photo' });
-  }
-  if (!hasLocation) {
-    row2.push({ text: '📍 Добавить локацию', callback_data: 'session_add_location' });
-  }
-  if (row2.length > 0) {
-    buttons.push(row2);
-  }
+  // Одна кнопка - Сохранить
+  const buttons = [[
+    { text: '✅ Сохранить объект', callback_data: 'session_save' }
+  ]];
   
   await sendTelegramMessage({
     botToken,
