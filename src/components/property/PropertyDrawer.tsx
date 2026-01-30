@@ -1,6 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
 import { formatOpeningHours } from '../../utils/formatOpeningHours';
 
+/**
+ * Оптимизация URL изображения для быстрой загрузки
+ * Использует Supabase Image Transformation API
+ */
+function optimizeImageUrl(url: string, width: number = 800, height: number = 600): string {
+    if (!url) return url;
+    
+    // Проверяем что это Supabase Storage URL
+    if (url.includes('supabase.co/storage/v1/object/public/')) {
+        // Добавляем параметры трансформации
+        const separator = url.includes('?') ? '&' : '?';
+        return `${url}${separator}width=${width}&height=${height}&resize=cover&quality=80`;
+    }
+    
+    return url;
+}
+
 interface Property {
     id: string;
     title: string;
@@ -140,7 +157,13 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                 >
                                     {(property.images || []).map((img, index) => (
                                         <div key={index} className="flex-shrink-0 w-full h-full snap-center relative">
-                                            <img src={img} alt={`${property.title} ${index + 1}`} className="object-cover w-full h-full" />
+                                            <img 
+                                                src={optimizeImageUrl(img, 800, 600)} 
+                                                alt={`${property.title} ${index + 1}`} 
+                                                className="object-cover w-full h-full"
+                                                loading={index === 0 ? "eager" : "lazy"}
+                                                decoding="async"
+                                            />
                                             {index === 0 && (
                                                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-xl border border-white flex flex-col gap-2 min-w-[140px]">
                                                     <div>

@@ -171,10 +171,29 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
     // Показывать ли тень (только при zoom >= 18)
     const shouldShowShadow = (currentZoom: number) => currentZoom >= 18;
 
+    /**
+     * Оптимизация изображений для быстрой загрузки
+     */
+    const optimizeImageUrl = (url: string, width: number = 400, height: number = 300): string => {
+        if (!url) return url;
+        
+        // Проверяем что это Supabase Storage URL
+        if (url.includes('supabase.co/storage/v1/object/public/')) {
+            // Добавляем параметры трансформации для thumbnail
+            const separator = url.includes('?') ? '&' : '?';
+            return `${url}${separator}width=${width}&height=${height}&resize=cover&quality=75`;
+        }
+        
+        return url;
+    };
+
     const getThumbnail = (marker: any) => {
-        if (marker.image) return marker.image; // POI specific
-        if (marker.images && marker.images.length > 0) return marker.images[0]; // Property
-        return null;
+        let imageUrl = null;
+        if (marker.image) imageUrl = marker.image; // POI specific
+        if (marker.images && marker.images.length > 0) imageUrl = marker.images[0]; // Property
+        
+        // Оптимизируем URL для быстрой загрузки
+        return imageUrl ? optimizeImageUrl(imageUrl, 400, 300) : null;
     };
 
     return (
