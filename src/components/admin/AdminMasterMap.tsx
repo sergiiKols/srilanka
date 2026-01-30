@@ -208,6 +208,13 @@ export default function AdminMasterMap() {
                     photos = prop.photos.split(/[\s,]+/).filter((url: string) => url.trim());
                 }
 
+                // 🐞 DEBUG: Логирование фото для каждого объекта
+                if (photos.length > 0) {
+                    console.log(`📸 Property ${prop.id} (${prop.title}): ${photos.length} photos`, photos);
+                } else {
+                    console.log(`❌ Property ${prop.id} (${prop.title}): NO PHOTOS (raw:`, prop.photos, ')');
+                }
+
                 return {
                     id: `client-${prop.id}`,
                     title: prop.title || prop.property_type || 'Property',

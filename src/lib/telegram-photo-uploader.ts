@@ -157,6 +157,9 @@ async function uploadSinglePhoto(
     console.log(`⬆️ Uploading photo ${index + 1} to Storage...`);
     
     // 4. Загружаем в Supabase Storage
+    console.log(`🔍 Storage path: ${storagePath}`);
+    console.log(`🔍 Blob size: ${Math.round(photoBlob.size / 1024)}KB`);
+    
     const { data, error } = await supabase.storage
       .from('tenant-photos')
       .upload(storagePath, photoBlob, {
@@ -166,8 +169,11 @@ async function uploadSinglePhoto(
       });
     
     if (error) {
+      console.error(`❌ Storage upload failed:`, error);
       throw new Error(`Storage upload error: ${error.message}`);
     }
+    
+    console.log(`✅ Storage upload successful:`, data);
     
     // 5. Получаем публичный URL
     const { data: urlData } = supabase.storage
