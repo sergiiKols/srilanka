@@ -249,11 +249,9 @@ export default function AdminMasterMap() {
 
     return (
         <div className="relative w-full h-full">
-            {/* GEO Button - справа вверху */}
-            <GeoPickerButton map={mapInstance} />
-            
-            {/* Import Button - справа вверху */}
-            <div className="absolute top-6 right-6 z-[1000] flex gap-3">
+            {/* Floating Buttons - справа вверху */}
+            <div className="absolute top-6 right-6 z-[1000] flex flex-col gap-3">
+                {/* Import Button */}
                 <button
                     onClick={() => setIsImporterOpen(true)}
                     className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 md:px-8 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 hover:from-indigo-700 hover:to-purple-700 transition-all active:scale-95"
@@ -263,6 +261,11 @@ export default function AdminMasterMap() {
                     <span className="text-lg md:text-xl">🤖</span>
                     <span>Import</span>
                 </button>
+
+                {/* GeoPickerButton */}
+                <div className="flex justify-end">
+                    <GeoPickerButton map={mapInstance} />
+                </div>
             </div>
 
             {/* Карта */}
