@@ -310,6 +310,13 @@ export default function AdminMasterMap() {
             };
         }) : [])
     ];
+    
+    // ⚡ ОПТИМИЗАЦИЯ: Ограничиваем количество маркеров для производительности
+    // На низком zoom показываем меньше маркеров
+    const MAX_MARKERS = 100; // Максимум маркеров на карте
+    const visibleMarkers = allMarkers.length > MAX_MARKERS 
+        ? allMarkers.slice(0, MAX_MARKERS) 
+        : allMarkers;
 
     return (
         <div className="relative w-full h-full">
@@ -372,7 +379,7 @@ export default function AdminMasterMap() {
             {/* Карта */}
             <Map
                 ref={mapRef}
-                markers={allMarkers.map(m => ({
+                markers={visibleMarkers.map(m => ({
                     id: m.id,
                     position: [m.lat, m.lng] as [number, number],
                     title: m.title,
@@ -385,7 +392,7 @@ export default function AdminMasterMap() {
                 }))}
                 onMarkerClick={(id) => {
                     setSelectedPropertyId(id);
-                    const marker = allMarkers.find(m => m.id === id);
+                    const marker = visibleMarkers.find(m => m.id === id);
                     if (marker) {
                         setSelectedPropertyPos([marker.lat, marker.lng]);
                     }
