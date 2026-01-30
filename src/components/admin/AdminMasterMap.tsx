@@ -51,9 +51,6 @@ export default function AdminMasterMap() {
         uniqueUsers: 0
     });
 
-    // UI состояния
-    const [showImporter, setShowImporter] = useState(false);
-    const [showValidator, setShowValidator] = useState(false);
 
     // Загрузка POI данных
     useEffect(() => {
@@ -153,6 +150,9 @@ export default function AdminMasterMap() {
             // ✅ Фильтр по удалённым (по умолчанию показываем только активные)
             if (!showDeleted) {
                 query = query.is('deleted_at', null);
+                console.log('🔍 Фильтруем: только активные объекты (deleted_at IS NULL)');
+            } else {
+                console.log('🔍 Показываем ВСЕ объекты (включая удалённые)');
             }
 
             const { data, error } = await query;
@@ -199,6 +199,9 @@ export default function AdminMasterMap() {
 
             // Статистика
             const uniqueUsers = new Set(mappedProperties.map(p => p.telegram_user_id)).size;
+            const activeCount = mappedProperties.filter(p => !p.isDeleted).length;
+            const deletedCount = mappedProperties.filter(p => p.isDeleted).length;
+            
             setStats(prev => ({
                 ...prev,
                 totalProperties: mappedProperties.length,
@@ -206,6 +209,7 @@ export default function AdminMasterMap() {
             }));
 
             console.log(`✅ Загружено ${mappedProperties.length} клиентских объектов от ${uniqueUsers} пользователей`);
+            console.log(`   📊 Активных: ${activeCount}, Удалённых: ${deletedCount}`);
         } catch (err) {
             console.error('Ошибка при загрузке клиентских объектов:', err);
         } finally {
