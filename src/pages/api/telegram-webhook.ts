@@ -114,16 +114,13 @@ async function handleMediaGroup(message: any) {
     const photoCount = session.tempData.photoObjects.length;
     console.log(`📎 Photo ${photoCount} added to session`);
     
-    // Отправляем БЫСТРОЕ уведомление (НЕ ЖДЁМ ответа)
-    sendTelegramMessage({
-      botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
-      chatId: chatId.toString(),
-      text: `📸 ${photoCount} фото`
-    }).catch(err => console.error('Error sending photo notification:', err));
-    
-    // Проверяем - может уже есть локация? Тогда показываем превью!
+    // УБРАЛИ уведомление про каждое фото - это замедляло работу
+    // Проверяем - может уже есть всё (гео + описание)? Тогда показываем превью!
     const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
-    if (hasLocation && photoCount > 0) {
+    const hasDescription = !!(session.tempData.description && session.tempData.description.trim());
+    
+    // Показываем превью только если есть хотя бы гео (основное условие)
+    if (hasLocation) {
       showSessionPreview(chatId, session).catch(err => {
         console.error('❌ Error showing preview after photo:', err);
       });
