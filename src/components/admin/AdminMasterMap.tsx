@@ -378,7 +378,7 @@ export default function AdminMasterMap() {
                     images: m.photos || [],
                     description: m.description,
                     address: m.forward_from || 'Forwarded property',
-                    markerColor: m.isDeleted ? '#dc2626' : (m.markerColor || '#ef4444') // ✅ Красный цвет для удалённых
+                    markerColor: m.markerColor || '#ef4444' // ✅ Цвет уже установлен в getHeatmapColor
                 }))}
                 onMarkerClick={(id) => {
                     setSelectedPropertyId(id);
