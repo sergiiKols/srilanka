@@ -1022,13 +1022,29 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   
   // Формируем минималистичное превью
   const photoCount = data.photoObjects?.length || 0;
+  const hasLocation = !!(data.latitude || data.googleMapsUrl);
   
-  let preview = `✅ ${photoCount} фото получено\n\nМожете добавить ещё данные`;
+  // Текст зависит от наличия данных
+  let preview = '';
+  let buttons: any[][] = [];
   
-  // Одна кнопка - Сохранить объект
-  const buttons = [[
-    { text: '✅ Сохранить объект', callback_data: 'session_save' }
-  ]];
+  if (hasLocation && photoCount > 0) {
+    // ✅ Всё есть - можно сохранять
+    preview = `✅ ${photoCount} фото + локация\n\nГотово к сохранению`;
+    buttons = [[
+      { text: '✅ Сохранить объект', callback_data: 'session_save' }
+    ]];
+  } else {
+    // ⚠️ Чего-то не хватает
+    if (photoCount > 0 && !hasLocation) {
+      preview = `📸 ${photoCount} фото получено\n\n⚠️ Добавьте геолокацию или Google Maps`;
+    } else if (hasLocation && photoCount === 0) {
+      preview = `📍 Локация получена\n\n⚠️ Добавьте фото`;
+    } else {
+      preview = `⚠️ Отправьте фото и локацию`;
+    }
+    // Кнопки НЕ показываем
+  }
   
   console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
   
