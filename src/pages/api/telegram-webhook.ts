@@ -132,9 +132,11 @@ async function handleMediaGroup(message: any) {
     
     // Показываем превью только если есть хотя бы гео (основное условие)
     if (hasLocation) {
-      showSessionPreview(chatId, session).catch(err => {
+      try {
+        await showSessionPreview(chatId, session);
+      } catch (err) {
         console.error('❌ Error showing preview after photo:', err);
-      });
+      }
     }
   }
   
@@ -444,9 +446,11 @@ async function collectMessageToSession(message: any) {
     const justAddedLocation = !!(message.location || extractGoogleMapsUrl(message.text || message.caption || ''));
     
     if (hasLocation && hasPhotos && justAddedLocation) {
-      showSessionPreview(chatId, session).catch(err => {
+      try {
+        await showSessionPreview(chatId, session);
+      } catch (err) {
         console.error('❌ Error showing preview:', err);
-      });
+      }
     }
     
     console.log(`✅ Message collected: photos=${hasPhotos}, location=${hasLocation}, justAddedLocation=${justAddedLocation}`);
