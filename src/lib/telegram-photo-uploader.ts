@@ -174,15 +174,17 @@ async function uploadSinglePhoto(
       .from('tenant-photos')
       .getPublicUrl(storagePath);
     
-    if (!urlData || !urlData.publicUrl) {
+    const publicUrl = urlData?.publicUrl;
+    
+    if (!publicUrl) {
       throw new Error('Failed to get public URL');
     }
     
-    console.log(`✅ Photo ${index + 1} uploaded successfully`);
+    console.log(`✅ Photo ${index + 1} uploaded successfully: ${publicUrl}`);
     
     return {
       success: true,
-      url: urlData.publicUrl,
+      url: publicUrl,
       originalFileId: fileId
     };
     
