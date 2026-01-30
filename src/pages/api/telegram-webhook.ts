@@ -35,6 +35,12 @@ interface UserSession {
 // Храним сессии в памяти (в production использовать Redis)
 const userSessions = new Map<number, UserSession>();
 
+// Храним media groups для сбора множественных фото
+const mediaGroups = new Map<string, {
+  messages: any[];
+  timeout: NodeJS.Timeout;
+}>();
+
 /**
  * Основной POST endpoint
  */
@@ -52,7 +58,12 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Обработка обычного сообщения
     if (update.message) {
-      await handleMessage(update.message);
+      // Проверяем media group (множественные фото)
+      if (update.message.media_group_id) {
+        await handleMediaGroup(update.message);
+      } else {
+        await handleMessage(update.message);
+      }
       return new Response('OK', { status: 200 });
     }
 
@@ -68,6 +79,164 @@ export const POST: APIRoute = async ({ request }) => {
 export const GET: APIRoute = async () => {
   return new Response("Telegram Webhook is Active v2", { status: 200 });
 };
+
+/**
+ * Обработка media group (множественные фото)
+ */
+async function handleMediaGroup(message: any) {
+  const groupId = message.media_group_id;
+  
+  console.log(`📸 Media group message received: ${groupId}`);
+  
+  // Получаем или создаём группу
+  let group = mediaGroups.get(groupId);
+  
+  if (!group) {
+    // Создаём новую группу с таймаутом
+    group = {
+      messages: [],
+      timeout: setTimeout(() => {
+        // Через 300ms обрабатываем все собранные фото
+        const completeGroup = mediaGroups.get(groupId);
+        if (completeGroup) {
+          console.log(`⏰ Processing media group ${groupId} with ${completeGroup.messages.length} photos`);
+          processCompleteMediaGroup(completeGroup.messages);
+          mediaGroups.delete(groupId);
+        }
+      }, 300) // 300ms достаточно для получения всех фото
+    };
+    mediaGroups.set(groupId, group);
+  }
+  
+  // Добавляем сообщение в группу
+  group.messages.push(message);
+  console.log(`📎 Added photo to group ${groupId}, total: ${group.messages.length}`);
+}
+
+/**
+ * Обработка полной media group
+ */
+async function processCompleteMediaGroup(messages: any[]) {
+  if (messages.length === 0) return;
+  
+  // Берём первое сообщение для метаданных (caption только на первом)
+  const firstMessage = messages[0];
+  const userId = firstMessage.from.id;
+  const chatId = firstMessage.chat.id;
+  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  
+  try {
+    console.log(`⚡ Processing media group with ${messages.length} photos`);
+    
+    // 1. Получить/создать tenant
+    const tenant = await getOrCreateTenant(userId);
+    console.log(`✅ Tenant: ${tenant.telegram_user_id}`);
+    
+    // 2. Парсинг forward метаданных (из первого сообщения)
+    const forwardMeta = parseForwardMetadata(firstMessage);
+    console.log(`📨 Source: ${forwardMeta.source_type}`);
+    
+    // 3. Извлечь текст (caption только на первом фото)
+    const text = firstMessage.caption || firstMessage.text || '';
+    const googleMapsUrl = extractGoogleMapsUrl(text);
+    
+    // 4. AI анализ
+    console.log('🤖 Starting AI analysis...');
+    const aiResult = await analyzeWithFallback(text, googleMapsUrl || undefined);
+    logAIResult(aiResult);
+    
+    // 5. Проверка дубликатов
+    if (aiResult.coordinates) {
+      const duplicate = await checkDuplicate(
+        userId,
+        aiResult.coordinates.lat,
+        aiResult.coordinates.lng,
+        aiResult.price
+      );
+      
+      if (duplicate) {
+        console.log('⚠️ Duplicate found');
+        await sendDuplicateWarning(chatId, duplicate);
+        return;
+      }
+    }
+    
+    // 6. Загрузка ВСЕХ фото из группы
+    let photoUrls: string[] = [];
+    const propertyId = generateUUID();
+    
+    console.log(`📸 Uploading ${messages.length} photos from media group...`);
+    
+    // Собираем все фото из всех сообщений
+    const allPhotos: any[] = [];
+    for (const msg of messages) {
+      if (msg.photo && msg.photo.length > 0) {
+        const bestPhoto = getBestQualityPhoto(msg.photo);
+        allPhotos.push(bestPhoto);
+      }
+    }
+    
+    // Загружаем все фото
+    if (allPhotos.length > 0) {
+      photoUrls = await uploadTelegramPhotos(
+        botToken,
+        allPhotos,
+        userId,
+        propertyId,
+        allPhotos.length
+      );
+      console.log(`✅ Uploaded ${photoUrls.length} photos from ${messages.length} messages`);
+    }
+    
+    // 7. Подготовка данных
+    const propertyData = {
+      ...formatForDatabase(aiResult),
+      telegram_user_id: userId,
+      photos: photoUrls,
+      description: text || aiResult.description,  // ✅ Сохраняем исходный текст
+      raw_text: text,  // ✅ Full backup
+      google_maps_url: googleMapsUrl || undefined,
+      ...forwardMeta
+    };
+    
+    // 8. Сохранение в БД
+    console.log('💾 Saving to database...');
+    const property = await saveProperty(propertyData);
+    console.log(`✅ Property saved: ${property.id} with ${photoUrls.length} photos`);
+    
+    // 9. Отправка ответа
+    const newCount = tenant.saved_properties_count + 1;
+    const successMessage = formatSuccessMessage(
+      property,
+      newCount,
+      tenant.personal_map_url
+    );
+    
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: successMessage + `\n\n📸 Загружено фото: ${photoUrls.length}`,
+      replyMarkup: {
+        inline_keyboard: [
+          [
+            { text: '🗺️ Открыть карту', url: tenant.personal_map_url },
+            { text: '⭐ В избранное', callback_data: `favorite_${property.id}` }
+          ],
+          [
+            { text: '✏️ Добавить заметку', callback_data: `add_note_${property.id}` },
+            { text: '🗑️ Удалить', callback_data: `delete_${property.id}` }
+          ]
+        ]
+      }
+    });
+    
+    console.log('✅ Media group processed successfully');
+    
+  } catch (error) {
+    console.error('❌ Error processing media group:', error);
+    await sendErrorMessage(chatId, 'Не удалось сохранить объект. Попробуй ещё раз.');
+  }
+}
 
 /**
  * Обработка сообщений
@@ -156,16 +325,16 @@ async function handleCompleteMessage(message: any) {
     const propertyId = generateUUID();
 
     if (message.photo && message.photo.length > 0) {
-      console.log('📸 Uploading photos...');
+      console.log('📸 Uploading photo...');
       const bestPhoto = getBestQualityPhoto(message.photo);
       photoUrls = await uploadTelegramPhotos(
         botToken,
         [bestPhoto],
         userId,
         propertyId,
-        10
+        1
       );
-      console.log(`✅ Uploaded ${photoUrls.length} photos`);
+      console.log(`✅ Uploaded ${photoUrls.length} photo(s)`);
     }
 
     // 7. Подготовка данных для сохранения
@@ -173,6 +342,8 @@ async function handleCompleteMessage(message: any) {
       ...formatForDatabase(aiResult),
       telegram_user_id: userId,
       photos: photoUrls,
+      description: text || aiResult.description,  // ✅ Сохраняем исходный текст
+      raw_text: text,  // ✅ Full backup
       google_maps_url: googleMapsUrl || undefined,
       ...forwardMeta
     };
