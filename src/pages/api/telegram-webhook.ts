@@ -710,7 +710,14 @@ async function handleCallbackQuery(callbackQuery: any) {
   // Обработка по типу callback
   if (data === 'session_save') {
     // Сохранить объект из сессии
-    await saveFromSession(userId, chatId);
+    console.log(`🔘 Callback session_save triggered for user ${userId}`);
+    try {
+      await saveFromSession(userId, chatId);
+      console.log(`✅ saveFromSession completed for user ${userId}`);
+    } catch (error) {
+      console.error(`❌ saveFromSession error for user ${userId}:`, error);
+      await sendErrorMessage(chatId, `Ошибка: ${error.message}`);
+    }
   } else if (data === 'session_cancel') {
     // Отменить и очистить сессию
     userSessions.delete(userId);
@@ -771,8 +778,11 @@ async function handleCallbackQuery(callbackQuery: any) {
  * Сохранение из сессии
  */
 async function saveFromSession(userId: number, chatId: number) {
+  console.log(`💾 saveFromSession called for user ${userId}`);
+  
   const session = userSessions.get(userId);
   if (!session || !session.tempData) {
+    console.log(`❌ No session found for user ${userId}`);
     await sendErrorMessage(chatId, 'Сессия истекла. Начните заново.');
     return;
   }
@@ -781,37 +791,48 @@ async function saveFromSession(userId: number, chatId: number) {
   const data = session.tempData;
 
   try {
-    console.log('💾 Saving from session:', {
+    console.log('💾 Session data:', {
       photos: data.photoObjects?.length || 0,
       hasLocation: !!(data.latitude || data.googleMapsUrl),
-      hasDescription: !!data.description
+      hasDescription: !!data.description,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      googleMapsUrl: data.googleMapsUrl
     });
 
     // 1. Получить/создать tenant
+    console.log('📝 Step 1: Getting/creating tenant...');
     const tenant = await getOrCreateTenant(userId);
+    console.log(`✅ Tenant: ${tenant.telegram_user_id}`);
     
     // 2. AI анализ (если есть текст или Google Maps)
     let aiResult: any = null;
     if (data.description || data.googleMapsUrl) {
-      console.log('🤖 Starting AI analysis...');
+      console.log('🤖 Step 2: Starting AI analysis...');
       aiResult = await analyzeWithFallback(
         data.description || '', 
         data.googleMapsUrl
       );
       logAIResult(aiResult);
+      console.log('✅ AI analysis completed');
+    } else {
+      console.log('⏭️ Step 2: Skipping AI analysis (no data)');
     }
     
     // 3. Определяем координаты
+    console.log('📍 Step 3: Determining coordinates...');
     let latitude = data.latitude;
     let longitude = data.longitude;
     
     if (!latitude && aiResult?.coordinates) {
       latitude = aiResult.coordinates.lat;
       longitude = aiResult.coordinates.lng;
+      console.log(`✅ Got coordinates from AI: ${latitude}, ${longitude}`);
     }
     
     // Если координат всё ещё нет - ошибка
     if (!latitude || !longitude) {
+      console.log('❌ No coordinates available');
       await sendTelegramMessage({
         botToken,
         chatId: chatId.toString(),
@@ -820,7 +841,10 @@ async function saveFromSession(userId: number, chatId: number) {
       return;
     }
     
+    console.log(`✅ Final coordinates: ${latitude}, ${longitude}`);
+    
     // 4. Проверка дубликатов
+    console.log('🔍 Step 4: Checking duplicates...');
     const duplicate = await checkDuplicate(
       userId,
       latitude,
@@ -829,17 +853,19 @@ async function saveFromSession(userId: number, chatId: number) {
     );
     
     if (duplicate) {
-      console.log('⚠️ Duplicate found');
+      console.log('⚠️ Duplicate found:', duplicate.id);
       await sendDuplicateWarning(chatId, duplicate);
       return;
     }
+    console.log('✅ No duplicates found');
     
     // 5. Загрузка фото
+    console.log('📸 Step 5: Uploading photos...');
     let photoUrls: string[] = [];
     const propertyId = generateUUID();
     
     if (data.photoObjects && data.photoObjects.length > 0) {
-      console.log(`📸 Uploading ${data.photoObjects.length} photos...`);
+      console.log(`📸 Uploading ${data.photoObjects.length} photos to Storage...`);
       photoUrls = await uploadTelegramPhotos(
         botToken,
         data.photoObjects,
@@ -847,10 +873,13 @@ async function saveFromSession(userId: number, chatId: number) {
         propertyId,
         data.photoObjects.length
       );
-      console.log(`✅ Uploaded ${photoUrls.length} photos`);
+      console.log(`✅ Uploaded ${photoUrls.length} photos successfully`);
+    } else {
+      console.log('⏭️ No photos to upload');
     }
     
     // 6. Подготовка данных
+    console.log('📦 Step 6: Preparing property data...');
     const propertyData = {
       ...formatForDatabase(aiResult || {}),
       telegram_user_id: userId,
@@ -862,11 +891,16 @@ async function saveFromSession(userId: number, chatId: number) {
       google_maps_url: data.googleMapsUrl,
       ...data.forwardMetadata
     };
+    console.log('✅ Property data prepared:', {
+      title: propertyData.title,
+      photos: photoUrls.length,
+      hasLocation: !!(latitude && longitude)
+    });
     
     // 7. Сохранение в БД
-    console.log('💾 Saving to database...');
+    console.log('💾 Step 7: Saving to database...');
     const property = await saveProperty(propertyData);
-    console.log(`✅ Property saved: ${property.id}`);
+    console.log(`✅ Property saved with ID: ${property.id}`);
     
     // 8. Очищаем сессию
     userSessions.delete(userId);
