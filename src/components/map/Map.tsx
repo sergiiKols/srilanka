@@ -187,6 +187,9 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
             zoom={DEFAULT_ZOOM}
             style={{ height: '100%', width: '100%' }}
             zoomControl={false}
+            preferCanvas={true}
+            maxZoom={18}
+            minZoom={7}
         >
             <ZoomListener onZoomChange={setZoom} mapRef={mapInstanceRef} onMapReady={onMapReady} />
             <ZoomSlider onZoomChange={setZoom} />
@@ -194,6 +197,10 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                maxZoom={18}
+                keepBuffer={4}
+                updateWhenIdle={true}
+                updateWhenZooming={false}
             />
             {markers.map((marker) => {
                 // Для недвижимости (stay) используем кастомную иконку с цветом
