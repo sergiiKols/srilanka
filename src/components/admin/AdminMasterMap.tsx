@@ -42,6 +42,7 @@ export default function AdminMasterMap() {
     const [dateFilter, setDateFilter] = useState<string>('all');
     const [showDeleted, setShowDeleted] = useState(false); // ✅ Показать удалённые объекты
     const [isImporterOpen, setIsImporterOpen] = useState(false); // ✅ Для Import модала
+    const [isControlPanelOpen, setIsControlPanelOpen] = useState(true); // ✅ Показать/скрыть панель управления
     
     // Статистика
     const [stats, setStats] = useState({
