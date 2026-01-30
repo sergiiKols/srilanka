@@ -744,6 +744,21 @@ async function handleCallbackQuery(callbackQuery: any) {
       console.error(`❌ saveFromSession error for user ${userId}:`, error);
       await sendErrorMessage(chatId, `Ошибка: ${error.message}`);
     }
+  } else if (data === 'session_cancel') {
+    // Отменить - очистить сессию
+    userSessions.delete(userId);
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: '❌ Отменено. Данные удалены.'
+    });
+  } else if (data === 'session_continue') {
+    // Продолжить добавление данных
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: '➕ Продолжайте отправлять данные:\n• Фото\n• Геолокацию\n• Описание'
+    });
   } else if (data === 'cancel') {
     userSessions.delete(userId);
     await sendTelegramMessage({
@@ -1041,20 +1056,19 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   
   if (hasLocation && photoCount > 0) {
     // ✅ Всё есть - можно сохранять
-    preview = `✅ ${photoCount} фото + локация\n\nГотово к сохранению`;
-    buttons = [[
-      { text: '✅ Сохранить объект', callback_data: 'session_save' }
-    ]];
+    preview = `✅ Данные полные: ${photoCount} фото + локация\n\nСохранить объект?`;
+    buttons = [
+      [
+        { text: 'Да', callback_data: 'session_save' },
+        { text: 'Нет', callback_data: 'session_cancel' }
+      ],
+      [
+        { text: 'Продолжить добавление', callback_data: 'session_continue' }
+      ]
+    ];
   } else {
-    // ⚠️ Чего-то не хватает
-    if (photoCount > 0 && !hasLocation) {
-      preview = `📸 ${photoCount} фото получено\n\n⚠️ Добавьте геолокацию или Google Maps`;
-    } else if (hasLocation && photoCount === 0) {
-      preview = `📍 Локация получена\n\n⚠️ Добавьте фото`;
-    } else {
-      preview = `⚠️ Отправьте фото и локацию`;
-    }
-    // Кнопки НЕ показываем
+    // Без полных данных кнопки не показываем
+    return;
   }
   
   console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
