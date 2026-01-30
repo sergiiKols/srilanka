@@ -138,7 +138,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                     className="flex gap-0 overflow-x-auto snap-x snap-mandatory pb-0 bg-slate-100 rounded-xl overflow-hidden"
                                     style={{ scrollbarWidth: 'none', height: '300px' }}
                                 >
-                                    {property.images.map((img, index) => (
+                                    {property.images && Array.isArray(property.images) && property.images.length > 0 ? property.images.map((img, index) => (
                                         <div key={index} className="flex-shrink-0 w-full h-full snap-center relative">
                                             <img src={img} alt={`${property.title} ${index + 1}`} className="object-cover w-full h-full" />
                                             {index === 0 && (
