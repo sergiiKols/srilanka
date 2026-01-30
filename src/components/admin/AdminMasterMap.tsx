@@ -46,15 +46,28 @@ export default function AdminMasterMap() {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
     
-    // Advanced Filters State (из Explorer)
+    // Advanced Filters State (расширенные)
     const [priceRange, setPriceRange] = useState<string>('all');
-    const [minRooms, setMinRooms] = useState<number>(1);
+    const [minBedrooms, setMinBedrooms] = useState<number>(1);
     const [minBathrooms, setMinBathrooms] = useState<number>(1);
     const [selectedArea, setSelectedArea] = useState<string>('all');
-    const [selectedBeachDist, setSelectedBeachDist] = useState<string>('all');
+    const [beachDistance, setBeachDistance] = useState<string>('all');
     const [selectedPropType, setSelectedPropType] = useState<string>('all');
-    const [selectedWifiSpeed, setSelectedWifiSpeed] = useState<string>('all');
+    const [wifiSpeed, setWifiSpeed] = useState<string>('all');
+    const [guestCapacity, setGuestCapacity] = useState<number>(1);
     const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
+    
+    // Additional amenities checkboxes
+    const [amenities, setAmenities] = useState({
+        airConditioning: false,
+        kitchen: false,
+        washingMachine: false,
+        workFriendly: false,
+        gym: false,
+        yoga: false,
+        bbq: false,
+        garden: false
+    });
     
     // Must-haves checkboxes
     const [mustHaves, setMustHaves] = useState({
@@ -446,7 +459,7 @@ export default function AdminMasterMap() {
                             
                             {openSections.important && (
                                 <div className="space-y-2">
-                                    {['all', 'house', 'apartment', 'villa', 'room'].map(type => (
+                                    {['all', 'house', 'apartment', 'villa', 'room', 'studio'].map(type => (
                                         <label key={type} className="flex items-center space-x-2 cursor-pointer">
                                             <input
                                                 type="radio"
@@ -462,13 +475,93 @@ export default function AdminMasterMap() {
                             )}
                         </div>
 
+                        {/* Bedrooms & Bathrooms */}
+                        <div>
+                            <h3 className="font-semibold text-slate-800 mb-3">🛏️ Bedrooms & Bathrooms</h3>
+                            <div className="space-y-3">
+                                <div>
+                                    <label className="text-sm text-slate-600 mb-1 block">Min Bedrooms: {minBedrooms}</label>
+                                    <input
+                                        type="range"
+                                        min="1"
+                                        max="10"
+                                        value={minBedrooms}
+                                        onChange={(e) => setMinBedrooms(parseInt(e.target.value))}
+                                        className="w-full"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="text-sm text-slate-600 mb-1 block">Min Bathrooms: {minBathrooms}</label>
+                                    <input
+                                        type="range"
+                                        min="1"
+                                        max="5"
+                                        value={minBathrooms}
+                                        onChange={(e) => setMinBathrooms(parseInt(e.target.value))}
+                                        className="w-full"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Beach Distance */}
+                        <div>
+                            <h3 className="font-semibold text-slate-800 mb-3">🏖️ Beach Distance</h3>
+                            <div className="space-y-2">
+                                {[
+                                    { value: 'all', label: 'Any distance' },
+                                    { value: '0-100', label: '0-100m (Beachfront)' },
+                                    { value: '100-300', label: '100-300m (Very close)' },
+                                    { value: '300-500', label: '300-500m (Close)' },
+                                    { value: '500-1000', label: '500m-1km (Walking)' },
+                                    { value: '1000+', label: '1km+ (Not important)' }
+                                ].map(option => (
+                                    <label key={option.value} className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="radio"
+                                            name="beachDist"
+                                            checked={beachDistance === option.value}
+                                            onChange={() => setBeachDistance(option.value)}
+                                            className="text-indigo-600"
+                                        />
+                                        <span className="text-sm text-slate-700">{option.label}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* WiFi Speed */}
+                        <div>
+                            <h3 className="font-semibold text-slate-800 mb-3">📶 WiFi Speed</h3>
+                            <div className="space-y-2">
+                                {[
+                                    { value: 'all', label: 'Any speed' },
+                                    { value: 'basic', label: 'Basic (up to 10 Mbps)' },
+                                    { value: 'good', label: 'Good (10-50 Mbps)' },
+                                    { value: 'fast', label: 'Fast (50-100 Mbps)' },
+                                    { value: 'ultra', label: 'Ultra Fast (100+ Mbps)' }
+                                ].map(option => (
+                                    <label key={option.value} className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="radio"
+                                            name="wifi"
+                                            checked={wifiSpeed === option.value}
+                                            onChange={() => setWifiSpeed(option.value)}
+                                            className="text-indigo-600"
+                                        />
+                                        <span className="text-sm text-slate-700">{option.label}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+
                         {/* Must-Haves */}
                         <div>
                             <button
                                 onClick={() => setOpenSections(prev => ({ ...prev, amenities: !prev.amenities }))}
                                 className="w-full flex justify-between items-center mb-3"
                             >
-                                <h3 className="font-semibold text-slate-800">✨ Must-Haves</h3>
+                                <h3 className="font-semibold text-slate-800">✨ Must-Haves (Basic)</h3>
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     width="20" 
@@ -498,6 +591,107 @@ export default function AdminMasterMap() {
                                             <span className="text-sm text-slate-700 capitalize">{key}</span>
                                         </label>
                                     ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Additional Amenities */}
+                        <div>
+                            <button
+                                onClick={() => setOpenSections(prev => ({ ...prev, extra: !prev.extra }))}
+                                className="w-full flex justify-between items-center mb-3"
+                            >
+                                <h3 className="font-semibold text-slate-800">🎨 Additional Amenities</h3>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="20" 
+                                    height="20" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                    className={`transform transition-transform ${openSections.extra ? 'rotate-180' : ''}`}
+                                >
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            
+                            {openSections.extra && (
+                                <div className="space-y-2">
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.airConditioning}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, airConditioning: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">❄️ Air Conditioning</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.kitchen}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, kitchen: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">🍽️ Kitchen</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.washingMachine}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, washingMachine: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">🧺 Washing Machine</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.workFriendly}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, workFriendly: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">💼 Work-Friendly</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.gym}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, gym: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">🏋️ Gym</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.yoga}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, yoga: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">🧘 Yoga Space</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.bbq}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, bbq: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">🔥 BBQ</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={amenities.garden}
+                                            onChange={(e) => setAmenities(prev => ({ ...prev, garden: e.target.checked }))}
+                                            className="text-indigo-600 rounded"
+                                        />
+                                        <span className="text-sm text-slate-700">🌳 Garden</span>
+                                    </label>
                                 </div>
                             )}
                         </div>
