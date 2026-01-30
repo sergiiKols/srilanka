@@ -422,17 +422,18 @@ async function collectMessageToSession(message: any) {
       session.tempData.forwardMetadata = forwardMeta;
     }
     
-    // Показываем превью ТОЛЬКО если есть фото + локация
+    // Показываем превью ТОЛЬКО если добавили локацию И есть фото
     const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
     const hasPhotos = (session.tempData.photoObjects?.length || 0) > 0;
+    const justAddedLocation = !!(message.location || extractGoogleMapsUrl(message.text || message.caption || ''));
     
-    if (hasLocation && hasPhotos) {
+    if (hasLocation && hasPhotos && justAddedLocation) {
       showSessionPreview(chatId, session).catch(err => {
         console.error('❌ Error showing preview:', err);
       });
     }
     
-    console.log(`✅ Message collected: photos=${hasPhotos}, location=${hasLocation}`);
+    console.log(`✅ Message collected: photos=${hasPhotos}, location=${hasLocation}, justAddedLocation=${justAddedLocation}`);
     
   } catch (error) {
     console.error('❌ Error collecting message to session:', error);
