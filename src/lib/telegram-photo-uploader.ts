@@ -137,7 +137,19 @@ async function uploadSinglePhoto(
       throw new Error(`Failed to download photo: ${photoResponse.status}`);
     }
     
-    const photoBlob = await photoResponse.blob();
+    // Получаем blob и определяем MIME type
+    const photoArrayBuffer = await photoResponse.arrayBuffer();
+    
+    // Определяем тип файла из расширения или используем image/jpeg по умолчанию
+    let mimeType = 'image/jpeg';
+    if (filePath.toLowerCase().endsWith('.png')) {
+      mimeType = 'image/png';
+    } else if (filePath.toLowerCase().endsWith('.webp')) {
+      mimeType = 'image/webp';
+    }
+    
+    const photoBlob = new Blob([photoArrayBuffer], { type: mimeType });
+    console.log(`📦 Photo type: ${mimeType}, size: ${Math.round(photoBlob.size / 1024)}KB`);
     
     // Проверяем размер файла (лимит 5MB)
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB
@@ -159,11 +171,12 @@ async function uploadSinglePhoto(
     // 4. Загружаем в Supabase Storage
     console.log(`🔍 Storage path: ${storagePath}`);
     console.log(`🔍 Blob size: ${Math.round(photoBlob.size / 1024)}KB`);
+    console.log(`🔍 Content-Type: ${mimeType}`);
     
     const { data, error } = await supabase.storage
       .from('tenant-photos')
       .upload(storagePath, photoBlob, {
-        contentType: 'image/jpeg',
+        contentType: mimeType, // ✅ Используем определённый MIME type
         upsert: false,
         cacheControl: '3600' // Кэширование на 1 час
       });
