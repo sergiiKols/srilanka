@@ -6,6 +6,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Map from '../map/Map';
 import PropertyDrawer from '../property/PropertyDrawer';
+import PropertyImporter from '../PropertyImporter';
+import POIValidator from '../POIValidator';
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase клиент
@@ -47,6 +49,10 @@ export default function AdminMasterMap() {
         totalProperties: 0,
         uniqueUsers: 0
     });
+
+    // UI состояния
+    const [showImporter, setShowImporter] = useState(false);
+    const [showValidator, setShowValidator] = useState(false);
 
     // Загрузка POI данных
     useEffect(() => {
@@ -370,6 +376,32 @@ export default function AdminMasterMap() {
                         Loading...
                     </div>
                 )}
+
+                {/* Действия */}
+                <div className="mt-4 pt-4 border-t space-y-2">
+                    <h3 className="font-semibold mb-2">Actions:</h3>
+                    
+                    <button
+                        onClick={() => setShowImporter(true)}
+                        className="w-full py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+                    >
+                        📥 Import Property
+                    </button>
+
+                    <button
+                        onClick={() => setShowValidator(true)}
+                        className="w-full py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                    >
+                        ✅ Validate POI
+                    </button>
+
+                    <button
+                        onClick={() => loadClientProperties()}
+                        className="w-full py-2 px-4 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
+                    >
+                        🔄 Refresh Data
+                    </button>
+                </div>
             </div>
 
             {/* Property Drawer */}
@@ -405,6 +437,23 @@ export default function AdminMasterMap() {
                     />
                 );
             })()}
+
+            {/* Property Importer Modal */}
+            {showImporter && (
+                <PropertyImporter
+                    onClose={() => {
+                        setShowImporter(false);
+                        loadClientProperties();
+                    }}
+                />
+            )}
+
+            {/* POI Validator Modal */}
+            {showValidator && (
+                <POIValidator
+                    onClose={() => setShowValidator(false)}
+                />
+            )}
         </div>
     );
 }
