@@ -300,8 +300,8 @@ export default function AdminMasterMap() {
 
     return (
         <div className="relative w-full h-full">
-            {/* Left Button - только Filters */}
-            <div className="absolute top-6 left-6 z-[1000]">
+            {/* Left Buttons - Filters и Admin */}
+            <div className="absolute top-6 left-6 z-[1000] flex flex-col gap-3">
                 {/* Filters Button - Property Filters */}
                 <button
                     onClick={() => setIsFilterOpen(true)}
@@ -311,6 +311,17 @@ export default function AdminMasterMap() {
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
                     <span>Filters</span>
+                </button>
+
+                {/* Admin Panel Button */}
+                <button
+                    onClick={() => setIsAdminPanelOpen(true)}
+                    className="bg-slate-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:bg-slate-800 transition-all active:scale-95"
+                    style={{ minWidth: '120px' }}
+                    title="Admin Panel"
+                >
+                    <span>⚙️</span>
+                    <span>Admin</span>
                 </button>
             </div>
 
@@ -327,15 +338,15 @@ export default function AdminMasterMap() {
                     <span>Import</span>
                 </button>
 
-                {/* Admin Panel Button */}
+                {/* Objects Button - POI Filters */}
                 <button
-                    onClick={() => setIsAdminPanelOpen(true)}
-                    className="bg-slate-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:bg-slate-800 transition-all active:scale-95"
+                    onClick={() => setIsObjectsOpen(true)}
+                    className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl shadow-lg font-bold text-sm md:text-lg flex items-center justify-center gap-2 hover:from-emerald-600 hover:to-teal-700 transition-all active:scale-95"
                     style={{ minWidth: '120px' }}
-                    title="Admin Panel"
+                    title="POI & Objects Filters"
                 >
-                    <span>⚙️</span>
-                    <span>Admin</span>
+                    <span>🗺️</span>
+                    <span>Objects</span>
                 </button>
 
                 {/* GeoPickerButton container */}
