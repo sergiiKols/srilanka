@@ -138,7 +138,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                     className="flex gap-0 overflow-x-auto snap-x snap-mandatory pb-0 bg-slate-100 rounded-xl overflow-hidden"
                                     style={{ scrollbarWidth: 'none', height: '300px' }}
                                 >
-                                    {property.images.map((img, index) => (
+                                    {(property.images || []).map((img, index) => (
                                         <div key={index} className="flex-shrink-0 w-full h-full snap-center relative">
                                             <img src={img} alt={`${property.title} ${index + 1}`} className="object-cover w-full h-full" />
                                             {index === 0 && (
@@ -161,13 +161,13 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                                 </div>
                                             )}
                                             <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs backdrop-blur-sm">
-                                                {index + 1} / {property.images.length}
+                                                {index + 1} / {(property.images || []).length}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
 
-                                {property.images.length > 1 && (
+                                {(property.images || []).length > 1 && (
                                     <>
                                         <button
                                             onClick={() => scroll('left')}
