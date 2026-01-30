@@ -738,8 +738,19 @@ async function handleCallbackQuery(callbackQuery: any) {
   if (data === 'session_save') {
     // Сохранить объект из сессии
     console.log(`🔘 Callback session_save triggered for user ${userId}`);
+    
+    // ВАЖНО: Копируем сессию и СРАЗУ удаляем из памяти чтобы избежать зацикливания
+    const session = userSessions.get(userId);
+    if (!session) {
+      await sendErrorMessage(chatId, 'Сессия истекла');
+      return;
+    }
+    
+    const sessionCopy = { ...session, tempData: { ...session.tempData } };
+    userSessions.delete(userId); // Удаляем СРАЗУ!
+    
     try {
-      await saveFromSession(userId, chatId);
+      await saveFromSessionData(sessionCopy, chatId);
       console.log(`✅ saveFromSession completed for user ${userId}`);
     } catch (error) {
       console.error(`❌ saveFromSession error for user ${userId}:`, error);
@@ -795,20 +806,14 @@ async function handleCallbackQuery(callbackQuery: any) {
 }
 
 /**
- * Сохранение из сессии
+ * Сохранение из сессии (работает с копией данных)
  */
-async function saveFromSession(userId: number, chatId: number) {
-  console.log(`💾 saveFromSession called for user ${userId}`);
-  
-  const session = userSessions.get(userId);
-  if (!session || !session.tempData) {
-    console.log(`❌ No session found for user ${userId}`);
-    await sendErrorMessage(chatId, 'Сессия истекла. Начните заново.');
-    return;
-  }
+async function saveFromSessionData(session: UserSession, chatId: number) {
+  console.log(`💾 saveFromSessionData called for user ${session.userId}`);
 
   const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
   const data = session.tempData;
+  const userId = session.userId;
 
   try {
     console.log('💾 Session data:', {
@@ -922,8 +927,7 @@ async function saveFromSession(userId: number, chatId: number) {
     const property = await saveProperty(propertyData);
     console.log(`✅ Property saved with ID: ${property.id}`);
     
-    // 8. Очищаем сессию
-    userSessions.delete(userId);
+    // 8. Сессия уже очищена ранее
     
     // 9. Отправка успешного ответа
     const newCount = tenant.saved_properties_count + 1;
