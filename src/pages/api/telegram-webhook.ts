@@ -790,7 +790,17 @@ async function handleCallbackQuery(callbackQuery: any) {
       text: '❌ Добавление отменено'
     });
   } else if (data === 'save_complete') {
-    await saveFromSession(userId, chatId);
+    // ИСПРАВЛЕНО: используем правильную функцию
+    const session = userSessions.get(userId);
+    if (!session) {
+      await sendErrorMessage(chatId, 'Сессия истекла');
+      return;
+    }
+    
+    const sessionCopy = { ...session, tempData: { ...session.tempData } };
+    userSessions.delete(userId); // Удаляем СРАЗУ!
+    
+    await saveFromSessionData(sessionCopy, chatId);
   } else if (data.startsWith('favorite_')) {
     // TODO: Implement favorite toggle
     await sendTelegramMessage({
@@ -1139,45 +1149,32 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   
   console.log(`📤 Sending preview message (${preview.length} chars) to chat ${chatId}...`);
   
-  // Создаём промис с таймаутом
-  const sendWithTimeout = (timeoutMs: number) => {
-    return Promise.race([
-      sendTelegramMessage({
-        botToken,
-        chatId: chatId.toString(),
-        text: preview,
-        replyMarkup: {
-          inline_keyboard: buttons
-        }
-      }),
-      new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Timeout')), timeoutMs)
-      )
-    ]);
-  };
-  
-  try {
-    await sendWithTimeout(5000); // 5 секунд таймаут
-    console.log(`✅ Preview message sent successfully`);
-  } catch (error) {
-    console.error(`❌ Error sending preview (${error.message}), trying minimal message...`);
-    // Отправляем минимальное сообщение
-    try {
-      const fallbackText = (hasLocation && photoCount > 0) 
-        ? `${photoCount} фото + локация` 
-        : `${photoCount} фото`;
-      
-      await sendTelegramMessage({
-        botToken,
-        chatId: chatId.toString(),
-        text: fallbackText,
-        replyMarkup: buttons.length > 0 ? { inline_keyboard: buttons } : undefined
-      });
-      console.log(`✅ Fallback message sent`);
-    } catch (fallbackError) {
-      console.error(`❌ Fallback also failed:`, fallbackError);
+  // Отправляем БЕЗ ожидания - просто fire and forget
+  sendTelegramMessage({
+    botToken,
+    chatId: chatId.toString(),
+    text: preview,
+    replyMarkup: {
+      inline_keyboard: buttons
     }
-  }
+  })
+  .then(() => {
+    console.log(`✅ Preview message sent successfully`);
+  })
+  .catch((error) => {
+    console.error(`❌ Error sending preview:`, error);
+    // Пробуем минимальное сообщение
+    const fallbackText = (hasLocation && photoCount > 0) 
+      ? `${photoCount} фото + локация` 
+      : `${photoCount} фото`;
+    
+    sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: fallbackText,
+      replyMarkup: buttons.length > 0 ? { inline_keyboard: buttons } : undefined
+    }).catch(err => console.error(`❌ Fallback failed:`, err));
+  });
 }
 
 /**
