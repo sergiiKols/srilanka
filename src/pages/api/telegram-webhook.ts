@@ -126,18 +126,8 @@ async function handleMediaGroup(message: any) {
       console.error('❌ Error sending notification:', err);
     }
     
-    // Проверяем - может уже есть всё (гео + описание)? Тогда показываем превью!
-    const hasLocation = !!(session.tempData.latitude || session.tempData.googleMapsUrl);
-    const hasDescription = !!(session.tempData.description && session.tempData.description.trim());
-    
-    // Показываем превью только если есть хотя бы гео (основное условие)
-    if (hasLocation) {
-      try {
-        await showSessionPreview(chatId, session);
-      } catch (err) {
-        console.error('❌ Error showing preview after photo:', err);
-      }
-    }
+    // Не показываем превью после каждого фото в media group
+    // Валидация покажется в collectMessageToSession
   }
   
   // Парсим caption из первого фото группы
@@ -406,20 +396,14 @@ async function collectMessageToSession(message: any) {
       const bestPhoto = getBestQualityPhoto(message.photo);
       session.tempData.photoObjects = session.tempData.photoObjects || [];
       session.tempData.photoObjects.push(bestPhoto);
-      console.log(`📸 Added photo to session`);
-      
-      // ✅ Отправляем статус СРАЗУ
-      await sendStatusUpdate(chatId, session, botToken, 'photo');
+      console.log(`📸 Added photo to session (${session.tempData.photoObjects.length} total)`);
     }
     
     // Обрабатываем локацию
     if (message.location) {
       session.tempData.latitude = message.location.latitude;
       session.tempData.longitude = message.location.longitude;
-      console.log(`📍 Added location to session`);
-      
-      // ✅ Отправляем статус СРАЗУ
-      await sendStatusUpdate(chatId, session, botToken, 'location');
+      console.log(`📍 Added location to session: ${message.location.latitude}, ${message.location.longitude}`);
     }
     
     // Обрабатываем текст
@@ -435,15 +419,9 @@ async function collectMessageToSession(message: any) {
       const googleMapsUrl = extractGoogleMapsUrl(text);
       if (googleMapsUrl) {
         session.tempData.googleMapsUrl = googleMapsUrl;
-        console.log(`🔗 Added Google Maps URL`);
-        
-        // ✅ Отправляем статус СРАЗУ
-        await sendStatusUpdate(chatId, session, botToken, 'location');
+        console.log(`🔗 Added Google Maps URL: ${googleMapsUrl}`);
       } else if (text.length > 5) {
-        console.log(`💬 Added description`);
-        
-        // ✅ Отправляем статус СРАЗУ
-        await sendStatusUpdate(chatId, session, botToken, 'description');
+        console.log(`💬 Added description (${text.length} chars)`);
       }
     }
     
@@ -451,6 +429,18 @@ async function collectMessageToSession(message: any) {
     if (!session.tempData.forwardMetadata) {
       const forwardMeta = parseForwardMetadata(message);
       session.tempData.forwardMetadata = forwardMeta;
+    }
+    
+    // ✅ ВАЖНО: После сбора данных всегда показываем статус
+    // Проверяем что есть хотя бы что-то для показа
+    const hasAnything = session.tempData.photoObjects?.length > 0 
+      || session.tempData.latitude 
+      || session.tempData.googleMapsUrl
+      || session.tempData.description;
+    
+    if (hasAnything) {
+      console.log('📊 Showing validation status...');
+      await showValidationStatus(chatId, session, botToken);
     }
     
   } catch (error) {
@@ -1248,6 +1238,60 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     } catch (fallbackError) {
       console.error(`❌ Fallback also failed:`, fallbackError);
     }
+  }
+}
+
+/**
+ * ✅ НОВАЯ ФУНКЦИЯ: Простая валидация и статус
+ */
+async function showValidationStatus(chatId: number, session: UserSession, botToken: string) {
+  const data = session.tempData;
+  
+  // Считаем что есть
+  const photoCount = data.photoObjects?.length || 0;
+  const hasLocation = !!(data.latitude || data.googleMapsUrl);
+  const hasDescription = !!(data.description && data.description.trim());
+  
+  // Проверка: всё ли готово?
+  const isReady = hasLocation && photoCount > 0 && hasDescription;
+  
+  // Формируем сообщение
+  let message = '📦 Статус объекта:\n\n';
+  message += hasLocation ? '✅ Геолокация\n' : '❌ Геолокация (обязательно!)\n';
+  message += photoCount > 0 ? `✅ Фото: ${photoCount} шт.\n` : '❌ Фото\n';
+  message += hasDescription ? '✅ Описание\n' : '❌ Описание\n';
+  message += '\n';
+  
+  if (isReady) {
+    message += '🎉 Всё готово! Можно размещать!';
+  } else {
+    message += '📝 Чего не хватает:\n';
+    if (!hasLocation) message += '• Отправь геолокацию или Google Maps ссылку\n';
+    if (photoCount === 0) message += '• Отправь фото объекта\n';
+    if (!hasDescription) message += '• Добавь описание\n';
+  }
+  
+  // Кнопки
+  const buttons: any[][] = [];
+  if (isReady) {
+    buttons.push([
+      { text: '💾 Разместить', callback_data: 'session_save' },
+      { text: '❌ Отмена', callback_data: 'session_cancel' }
+    ]);
+  } else {
+    buttons.push([{ text: '❌ Отмена', callback_data: 'session_cancel' }]);
+  }
+  
+  try {
+    await sendTelegramMessage({
+      botToken,
+      chatId: chatId.toString(),
+      text: message,
+      replyMarkup: { inline_keyboard: buttons }
+    });
+    console.log('✅ Validation status sent');
+  } catch (err) {
+    console.error('❌ Error sending validation status:', err);
   }
 }
 
