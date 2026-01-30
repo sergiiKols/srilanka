@@ -102,19 +102,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
     );
   }
 
-  if (properties.length === 0) {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-slate-50">
-        <div className="text-center max-w-md p-6">
-          <div className="text-slate-400 text-6xl mb-4">📍</div>
-          <h2 className="text-xl font-bold text-slate-900 mb-2">No Properties Yet</h2>
-          <p className="text-slate-600">
-            Forward property listings to the bot to see them on your personal map!
-          </p>
-        </div>
-      </div>
-    );
-  }
+  // Всегда показываем карту, даже если нет объектов
 
   return (
     <div className="relative w-full h-full">
@@ -145,6 +133,25 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
           </button>
         </div>
       </div>
+
+      {/* Empty state overlay - показываем если нет объектов */}
+      {properties.length === 0 && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[999]">
+          <div className="text-center max-w-md p-6 bg-white rounded-2xl shadow-xl pointer-events-auto">
+            <div className="text-slate-400 text-6xl mb-4">📍</div>
+            <h2 className="text-xl font-bold text-slate-900 mb-2">No Properties Yet</h2>
+            <p className="text-slate-600 mb-4">
+              Forward property listings to the bot to see them on your personal map!
+            </p>
+            <button
+              onClick={loadUserProperties}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            >
+              🔄 Refresh
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Property Drawer */}
       {selectedPropertyId && selectedPropertyPos && (() => {
