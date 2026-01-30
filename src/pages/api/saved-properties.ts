@@ -38,12 +38,11 @@ export const GET: APIRoute = async ({ request, url }) => {
 
       console.log('🔍 Querying saved_properties for user:', userIdNum);
       
-      // Для персональной карты показываем только НЕ удалённые объекты
+      // Для персональной карты - все объекты активные (deleted_at больше нет)
       const { data, error } = await supabase
         .from('saved_properties')
         .select('*')
         .eq('telegram_user_id', userIdNum)
-        .is('deleted_at', null)  // ✅ Только активные объекты
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -63,23 +62,14 @@ export const GET: APIRoute = async ({ request, url }) => {
     }
 
     // Иначе возвращаем все объекты (для админа)
-    // Проверяем параметр showDeleted для отображения удалённых
-    const showDeleted = url.searchParams.get('showDeleted') === 'true';
+    // saved_properties содержит ТОЛЬКО активные (deleted_at удалена)
+    console.log(`🔍 Querying all saved_properties (active only)...`);
     
-    console.log(`🔍 Querying all saved_properties (showDeleted: ${showDeleted})...`);
-    
-    let query = supabase
+    const { data, error } = await supabase
       .from('saved_properties')
       .select('*')
       .order('created_at', { ascending: false })
       .limit(1000);
-    
-    // По умолчанию показываем только активные
-    if (!showDeleted) {
-      query = query.is('deleted_at', null);
-    }
-
-    const { data, error } = await query;
 
     if (error) {
       console.error('❌ Error loading all properties:', error);
@@ -88,15 +78,12 @@ export const GET: APIRoute = async ({ request, url }) => {
         headers: { 'Content-Type': 'application/json' }
       });
     }
-
-    const activeCount = data?.filter(p => !p.deleted_at).length || 0;
-    const deletedCount = data?.filter(p => p.deleted_at).length || 0;
     
-    console.log(`✅ Found ${data?.length || 0} total properties (${activeCount} active, ${deletedCount} deleted)`);
+    console.log(`✅ Found ${data?.length || 0} active properties`);
 
     return new Response(JSON.stringify({ 
       data: data || [],
-      stats: { active: activeCount, deleted: deletedCount, total: data?.length || 0 }
+      stats: { total: data?.length || 0 }
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
