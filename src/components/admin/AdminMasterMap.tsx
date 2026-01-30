@@ -110,6 +110,7 @@ export default function AdminMasterMap() {
 
     // Загрузка клиентских объектов
     useEffect(() => {
+        console.log(`🔄 useEffect triggered - showDeleted: ${showDeleted}`);
         loadClientProperties();
         
         // Подписка на изменения в реальном времени
@@ -186,6 +187,7 @@ export default function AdminMasterMap() {
                 console.log('🔍 Фильтруем: только активные объекты (deleted_at IS NULL)');
             } else {
                 console.log('🔍 Показываем ВСЕ объекты (включая удалённые)');
+                console.log(`   showDeleted = ${showDeleted}`);
             }
 
             const { data, error } = await query;
@@ -243,6 +245,14 @@ export default function AdminMasterMap() {
 
             console.log(`✅ Загружено ${mappedProperties.length} клиентских объектов от ${uniqueUsers} пользователей`);
             console.log(`   📊 Активных: ${activeCount}, Удалённых: ${deletedCount}`);
+            
+            // Debug: список всех объектов с их статусом
+            if (deletedCount > 0) {
+                console.log('   🗑️ Удалённые объекты:');
+                mappedProperties.filter(p => p.isDeleted).forEach(p => {
+                    console.log(`      - ID: ${p.id}, Title: ${p.title}, Deleted: ${p.deleted_at}`);
+                });
+            }
         } catch (err) {
             console.error('Ошибка при загрузке клиентских объектов:', err);
         } finally {
