@@ -60,11 +60,42 @@ export const DELETE: APIRoute = async ({ params, request }) => {
     }
 
     // Используем функцию soft_delete_property() для архивирования
+    // Параметры: property_id (UUID), user_id (BIGINT), reason (TEXT)
     const { error: deleteError } = await supabase
-      .rpc('soft_delete_property', { property_id: parseInt(id) });
+      .rpc('soft_delete_property', { 
+        property_id: id,  // UUID как строка
+        user_id: parseInt(userId),  // BIGINT
+        reason: 'user_deleted'  // TEXT
+      });
 
     if (deleteError) {
       console.error('❌ Error archiving property:', deleteError);
+      
+      // Если функция не существует - делаем обычное удаление
+      if (deleteError.message?.includes('function') || deleteError.code === '42883') {
+        console.log('⚠️ Function not found, using direct DELETE');
+        const { error: directDeleteError } = await supabase
+          .from('saved_properties')
+          .delete()
+          .eq('id', id);
+          
+        if (directDeleteError) {
+          return new Response(JSON.stringify({ error: directDeleteError.message }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        
+        console.log(`✅ Property deleted directly: ${id}`);
+        return new Response(JSON.stringify({ 
+          success: true,
+          message: 'Property deleted successfully (direct)' 
+        }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      
       return new Response(JSON.stringify({ error: deleteError.message }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
