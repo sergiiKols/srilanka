@@ -247,7 +247,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                             </div>
 
                             {/* Quick Info Badges */}
-                            <div className="grid grid-cols-3 gap-3 mb-8">
+                            <div className="grid grid-cols-3 gap-3 mb-8 px-6">
                                 <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 flex flex-col items-center">
                                     <span className="text-xl mb-1">🏖️</span>
                                     <span className="text-[10px] font-bold text-slate-800">{property.beachDistance}m</span>
@@ -265,7 +265,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                 </div>
                             </div>
 
-                            <div className="space-y-6">
+                            <div className="space-y-6" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                                 <div>
                                     <h3 className="text-lg font-bold mb-2 text-slate-800">Description</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm whitespace-pre-line">{formatOpeningHours(property.description)}</p>
