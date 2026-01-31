@@ -15,6 +15,7 @@ export interface PropertyAnalysisResult {
   rooms: number;
   bathrooms: number;
   price: number | null;
+  pricePeriod?: 'night' | 'day' | 'week' | 'month'; // ✅ Добавлено поле для периода цены
   beachDistance: number;
   wifiSpeed: number;
   amenities: string[];

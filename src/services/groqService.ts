@@ -38,8 +38,8 @@ Return ONLY a valid JSON object (no markdown, no explanation) with this exact st
   "propertyType": "villa|apartment|house|room|hostel|hotel",
   "rooms": number (bedrooms count, 1 if studio),
   "bathrooms": number,
-  "price": number (USD per night, null if not mentioned),
-  "pricePeriod": "night|week|month" (determine from description, default "night"),
+  "price": number (USD only, convert if needed, null if not mentioned),
+  "pricePeriod": "night|day|week|month" (CRITICAL: determine from text - look for "per night", "per day", "в день", "в месяц", "monthly", etc.),
   "beachDistance": number (meters to nearest beach, estimate if not exact),
   "wifiSpeed": number (Mbps, 50 if not mentioned but wifi available, 0 if no wifi),
   "amenities": ["Pool", "Parking", "Wifi", "Air Conditioning", "Kitchen", "Garden", "Breakfast", "Hot Water"],
@@ -59,7 +59,15 @@ Return ONLY a valid JSON object (no markdown, no explanation) with this exact st
   "confidence": 0.95 (your confidence in the extracted data, 0-1)
 }
 
-RULES:
+🔴 CRITICAL RULES FOR PRICE PERIOD:
+- "350$ в месяц" or "monthly" or "per month" → "month"
+- "50$ в день" or "daily" or "per day" or "per night" → "night" 
+- "200$ в неделю" or "weekly" or "per week" → "week"
+- PAY CLOSE ATTENTION to Russian and English period indicators
+- If MONTH is mentioned, return "month" NOT "night"!
+- Default to "night" ONLY if no period is mentioned
+
+OTHER RULES:
 - Be precise with numbers
 - If information is missing, use reasonable defaults for Sri Lanka vacation rentals
 - For area, use coordinates to determine closest: Unawatuna (6.0°N), Hikkaduwa (6.1°N), Mirissa (5.9°N), Weligama (5.97°N)
@@ -79,6 +87,26 @@ function parseGroqResponse(content: string): PropertyAnalysisResult {
     
     const parsed = JSON.parse(jsonMatch[0]);
     
+    // ✅ Валидация и нормализация pricePeriod
+    let pricePeriod: 'night' | 'day' | 'week' | 'month' = 'night';
+    if (parsed.pricePeriod) {
+      const period = parsed.pricePeriod.toLowerCase();
+      if (period === 'month' || period === 'monthly') {
+        pricePeriod = 'month';
+      } else if (period === 'week' || period === 'weekly') {
+        pricePeriod = 'week';
+      } else if (period === 'day' || period === 'daily') {
+        pricePeriod = 'night'; // В системе используем 'night' для дневной аренды
+      } else if (period === 'night' || period === 'nightly') {
+        pricePeriod = 'night';
+      }
+    }
+    
+    // 🔍 Логируем цену и период для отладки
+    if (parsed.price) {
+      console.log(`💰 AI detected price: ${parsed.price} USD per ${pricePeriod} (raw: "${parsed.pricePeriod}")`);
+    }
+    
     // Validate and cast types
     return {
       title: parsed.title || 'Untitled Property',
@@ -86,6 +114,7 @@ function parseGroqResponse(content: string): PropertyAnalysisResult {
       rooms: Number(parsed.rooms) || 1,
       bathrooms: Number(parsed.bathrooms) || 1,
       price: parsed.price ? Number(parsed.price) : null,
+      pricePeriod: pricePeriod, // ✅ Используем валидированный период
       beachDistance: Number(parsed.beachDistance) || 100,
       wifiSpeed: Number(parsed.wifiSpeed) || 50,
       amenities: Array.isArray(parsed.amenities) ? parsed.amenities : [],
