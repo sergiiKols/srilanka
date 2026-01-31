@@ -86,21 +86,47 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
         }).format(lkr).replace('LKR', 'Rs');
     };
 
-    const formatPriceWeekly = (usdStr: string, currency: 'USD' | 'LKR') => {
+    // Универсальный пересчёт цены
+    const calculatePrices = (usdStr: string, period: 'night' | 'day' | 'week' | 'month' = 'night') => {
         const usdValue = parseInt(usdStr.replace(/[^0-9]/g, ''));
-        if (isNaN(usdValue)) return '';
-        const weeklyUsd = usdValue * 7;
+        if (isNaN(usdValue)) return { daily: 0, weekly: 0, monthly: 0 };
 
-        if (currency === 'USD') {
-            return `$${weeklyUsd}`;
+        let dailyUsd = 0;
+        let weeklyUsd = 0;
+        let monthlyUsd = 0;
+
+        // Определяем базовую цену в зависимости от периода
+        if (period === 'month') {
+            // Цена за месяц → пересчитываем день и неделю
+            monthlyUsd = usdValue;
+            dailyUsd = Math.round(usdValue / 30);
+            weeklyUsd = Math.round(usdValue / 4);
+        } else if (period === 'week') {
+            // Цена за неделю → пересчитываем день и месяц
+            weeklyUsd = usdValue;
+            dailyUsd = Math.round(usdValue / 7);
+            monthlyUsd = Math.round(usdValue * 4);
+        } else {
+            // Цена за день/ночь → пересчитываем неделю и месяц
+            dailyUsd = usdValue;
+            weeklyUsd = usdValue * 7;
+            monthlyUsd = usdValue * 30;
         }
 
-        const weeklyLkr = weeklyUsd * exchangeRate;
+        return { daily: dailyUsd, weekly: weeklyUsd, monthly: monthlyUsd };
+    };
+
+    const formatPrice = (amount: number, currency: 'USD' | 'LKR') => {
+        if (currency === 'USD') {
+            return `$${amount}`;
+        }
+
+        const lkr = amount * exchangeRate;
         return new Intl.NumberFormat('en-LK', {
             style: 'currency',
             currency: 'LKR',
             maximumFractionDigits: 0
-        }).format(weeklyLkr).replace('LKR', 'Rs');
+        }).format(lkr).replace('LKR', 'Rs');
     };
 
     const scroll = (direction: 'left' | 'right') => {
@@ -201,34 +227,65 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                                 loading={index === 0 ? "eager" : "lazy"}
                                                 decoding="async"
                                             />
-                                            {index === 0 && (
-                                                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-xl border border-white flex flex-col gap-2 min-w-[140px]">
-                                                    <div>
-                                                        <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-0.5">
-                                                            {property.pricePeriod === 'month' ? 'Monthly' : 
-                                                             property.pricePeriod === 'week' ? 'Weekly' : 
-                                                             property.pricePeriod === 'day' ? 'Daily' : 
-                                                             'Nightly'}
+                                            {index === 0 && (() => {
+                                                const prices = calculatePrices(property.price, property.pricePeriod);
+                                                const isMonthly = property.pricePeriod === 'month';
+                                                
+                                                return (
+                                                    <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-2.5 rounded-2xl shadow-xl border border-white flex flex-col gap-1.5 min-w-[140px]">
+                                                        {/* За день */}
+                                                        <div>
+                                                            <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-0.5 flex items-center gap-1">
+                                                                Daily
+                                                                {!isMonthly && <span className="text-[8px] text-green-600">●</span>}
+                                                            </div>
+                                                            <div className="flex items-baseline gap-1.5">
+                                                                <span className={`${!isMonthly ? 'text-xl' : 'text-base'} font-black text-slate-900 leading-none`}>
+                                                                    ${prices.daily}
+                                                                </span>
+                                                                <span className="text-[9px] font-bold text-slate-500">
+                                                                    {formatPrice(prices.daily, 'LKR')}
+                                                                </span>
+                                                            </div>
                                                         </div>
-                                                        <div className="flex items-baseline gap-1.5">
-                                                            <span className="text-xl font-black text-slate-900 leading-none">{property.price}</span>
-                                                            <span className="text-[10px] font-bold text-slate-500">{formatPriceLKR(property.price)}</span>
+                                                        
+                                                        <div className="h-[1px] bg-slate-100 w-full"></div>
+                                                        
+                                                        {/* За неделю */}
+                                                        <div>
+                                                            <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-0.5">
+                                                                Weekly
+                                                            </div>
+                                                            <div className="flex items-baseline gap-1.5">
+                                                                <span className="text-sm font-black text-slate-800 leading-none">
+                                                                    ${prices.weekly}
+                                                                </span>
+                                                                <span className="text-[9px] font-bold text-slate-500">
+                                                                    {formatPrice(prices.weekly, 'LKR')}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div className="h-[1px] bg-slate-100 w-full"></div>
+                                                        
+                                                        {/* За месяц */}
+                                                        <div>
+                                                            <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-0.5 flex items-center gap-1">
+                                                                Monthly
+                                                                {isMonthly && <span className="text-[8px] text-green-600">●</span>}
+                                                            </div>
+                                                            <div className="flex items-baseline gap-1.5">
+                                                                <span className={`${isMonthly ? 'text-xl' : 'text-sm'} font-black ${isMonthly ? 'text-slate-900' : 'text-slate-800'} leading-none`}>
+                                                                    ${prices.monthly}
+                                                                </span>
+                                                                <span className="text-[9px] font-bold text-slate-500">
+                                                                    {formatPrice(prices.monthly, 'LKR')}
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    {property.pricePeriod !== 'week' && property.pricePeriod !== 'month' && (
-                                                        <>
-                                                            <div className="h-[1px] bg-slate-100 w-full"></div>
-                                                            <div>
-                                                                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-0.5">Weekly</div>
-                                                                <div className="flex items-baseline gap-1.5">
-                                                                    <span className="text-sm font-black text-slate-800 leading-none">{formatPriceWeekly(property.price, 'USD')}</span>
-                                                                    <span className="text-[10px] font-bold text-slate-500">{formatPriceWeekly(property.price, 'LKR')}</span>
-                                                                </div>
-                                                            </div>
-                                                        </>
-                                                    )}
-                                                </div>
-                                            )}
+                                                );
+                                            })()}
                                             <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs backdrop-blur-sm">
                                                 {index + 1} / {(property.images || []).length}
                                             </div>
