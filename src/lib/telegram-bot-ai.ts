@@ -8,6 +8,7 @@ import { expandShortUrlWithAI } from '@/services/perplexityService';
 import { parseGoogleMapsURL } from '@/utils/googleMapsParser';
 import { parsePropertyDescription } from './property-parser';
 import { extractGoogleMapsUrl, DEFAULT_COORDINATES } from './tenant-bot-utils';
+import { convertToUSD } from '@/utils/currencyConverter';
 import type { Coordinates } from '@/types/ai.types';
 
 /**
@@ -328,6 +329,15 @@ function safeNumber(value: any): number | null {
 export function formatForDatabase(result: AIAnalysisResult) {
   console.log('🔍 DEBUG - formatForDatabase input:', JSON.stringify(result, null, 2));
   
+  // 💱 Конвертируем цену в USD для унификации
+  const priceOriginal = safeNumber(result.price);
+  const currency = result.currency || 'USD';
+  const priceUSD = priceOriginal && currency !== 'USD' 
+    ? convertToUSD(priceOriginal, currency)
+    : priceOriginal;
+  
+  console.log(`💱 Price conversion: ${priceOriginal} ${currency} → $${priceUSD} USD`);
+  
   const formatted = {
     title: result.title || result.type || 'Property',
     description: result.cleanDescription || result.description || null,
@@ -335,8 +345,9 @@ export function formatForDatabase(result: AIAnalysisResult) {
     longitude: result.coordinates.lng,
     address: result.address || null,
     property_type: result.type || null,
-    price: safeNumber(result.price),
-    currency: result.currency || 'USD',
+    price: priceOriginal, // Оригинальная цена
+    currency: currency, // Оригинальная валюта
+    price_usd: priceUSD, // ✅ Добавлено: цена в USD для фильтров
     price_period: result.pricePeriod || 'night',
     bedrooms: safeNumber(result.bedrooms),
     bathrooms: safeNumber(result.bathrooms),
@@ -384,7 +395,7 @@ export function logAIResult(result: AIAnalysisResult): void {
   console.log('  Confidence:', result.confidence);
   console.log('  Provider:', result.aiProvider || 'N/A');
   console.log('  Type:', result.type);
-  console.log('  Price:', result.price, result.currency);
+  console.log('  Price:', result.price, result.currency, `per ${result.pricePeriod || 'night'}`); // ✅ Добавлен период
   console.log('  Location:', result.address);
   console.log('  Coordinates:', result.coordinates);
   console.log('  Bedrooms:', result.bedrooms);
