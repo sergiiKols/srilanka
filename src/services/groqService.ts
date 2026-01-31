@@ -60,12 +60,13 @@ Return ONLY a valid JSON object (no markdown, no explanation) with this exact st
 }
 
 🔴 CRITICAL RULES FOR PRICE PERIOD:
-- "350$ в месяц" or "monthly" or "per month" → "month"
-- "50$ в день" or "daily" or "per day" or "per night" → "night" 
-- "200$ в неделю" or "weekly" or "per week" → "week"
-- PAY CLOSE ATTENTION to Russian and English period indicators
-- If MONTH is mentioned, return "month" NOT "night"!
-- Default to "night" ONLY if no period is mentioned
+- "350$ в месяц" or "350$/месяц" or "350 USD в месяц" or "monthly" or "per month" or "/month" → "month"
+- "50$ в день" or "50$/день" or "daily" or "per day" or "per night" or "/day" → "night" 
+- "200$ в неделю" or "200$/неделю" or "weekly" or "per week" or "/week" → "week"
+- PAY CLOSE ATTENTION to Russian words: "месяц"=month, "день"=day, "неделя"=week
+- If you see "месяц" or "month" ANYWHERE in description → ALWAYS return "month"!
+- If price > 300 USD and period unclear → most likely "month"
+- Default to "night" ONLY if no period is mentioned AND price < 300
 
 OTHER RULES:
 - Be precise with numbers
@@ -102,9 +103,30 @@ function parseGroqResponse(content: string): PropertyAnalysisResult {
       }
     }
     
-    // 🔍 Логируем цену и период для отладки
+    // 🔄 FALLBACK: проверяем текст описания на наличие ключевых слов
+    const descLower = description.toLowerCase();
+    const hasMonth = /месяц|month|monthly|\/month/i.test(descLower);
+    const hasWeek = /неделю|неделя|week|weekly|\/week/i.test(descLower);
+    const hasDay = /день|\/день|day|daily|\/day/i.test(descLower);
+    
+    // Если AI ошибся, но в тексте явно указан период - исправляем
+    if (hasMonth && pricePeriod !== 'month') {
+      console.log(`🔄 OVERRIDE: Found "месяц/month" in text, changing ${pricePeriod} → month`);
+      pricePeriod = 'month';
+    } else if (hasWeek && !hasMonth && pricePeriod === 'night') {
+      console.log(`🔄 OVERRIDE: Found "неделя/week" in text, changing night → week`);
+      pricePeriod = 'week';
+    }
+    
+    // Эвристика: если цена > 300 USD и период = night, скорее всего это месяц
+    if (parsed.price && parsed.price > 300 && pricePeriod === 'night' && !hasDay) {
+      console.log(`🔄 SMART OVERRIDE: Price ${parsed.price} > 300 USD and no "день/day" → month`);
+      pricePeriod = 'month';
+    }
+    
+    // 🔍 Логируем финальную цену и период
     if (parsed.price) {
-      console.log(`💰 AI detected price: ${parsed.price} USD per ${pricePeriod} (raw: "${parsed.pricePeriod}")`);
+      console.log(`💰 FINAL: ${parsed.price} USD per ${pricePeriod} (AI raw: "${parsed.pricePeriod}")`);
     }
     
     // Validate and cast types
