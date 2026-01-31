@@ -347,7 +347,7 @@ export function formatForDatabase(result: AIAnalysisResult) {
     property_type: result.type || null,
     price: priceOriginal, // Оригинальная цена
     currency: currency, // Оригинальная валюта
-    price_usd: priceUSD, // ✅ Добавлено: цена в USD для фильтров
+    price_usd: priceUSD, // ✅ Цена в USD для фильтров
     price_period: result.pricePeriod || 'night',
     bedrooms: safeNumber(result.bedrooms),
     bathrooms: safeNumber(result.bathrooms),
