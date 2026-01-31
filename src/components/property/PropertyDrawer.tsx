@@ -185,7 +185,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                         {/* Content */}
                         <div className="flex-1 overflow-y-auto py-4">
                             {/* Gallery Carousel */}
-                            <div className="relative group mb-6 px-6">
+                            <div className="relative group mb-6" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                                 <div
                                     ref={scrollRef}
                                     className="flex gap-0 overflow-x-auto snap-x snap-mandatory pb-0 bg-slate-100 rounded-xl overflow-hidden"
@@ -247,7 +247,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                             </div>
 
                             {/* Quick Info Badges */}
-                            <div className="grid grid-cols-3 gap-3 mb-8 px-6">
+                            <div className="grid grid-cols-3 gap-3 mb-8" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
                                 <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 flex flex-col items-center">
                                     <span className="text-xl mb-1">🏖️</span>
                                     <span className="text-[10px] font-bold text-slate-800">{property.beachDistance}m</span>
