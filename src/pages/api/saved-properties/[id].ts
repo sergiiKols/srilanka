@@ -35,34 +35,10 @@ export const DELETE: APIRoute = async ({ params, request }) => {
       });
     }
 
-    // Проверяем что объект принадлежит пользователю
-    const { data: property, error: fetchError } = await supabase
-      .from('saved_properties')
-      .select('telegram_user_id, photos')
-      .eq('id', id)
-      .single();
-
-    if (fetchError || !property) {
-      console.error('❌ Property not found:', fetchError);
-      return new Response(JSON.stringify({ error: 'Property not found' }), {
-        status: 404,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
-    // Проверка владельца
-    if (property.telegram_user_id.toString() !== userId) {
-      console.error('❌ Unauthorized: User does not own this property');
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-        status: 403,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
     // Archive logic in TypeScript (no SQL function needed)
     console.log('📦 Archiving property in TypeScript...');
     
-    // Get full property data
+    // Get full property data with owner check
     const { data: fullProperty, error: fullFetchError } = await supabase
       .from('saved_properties')
       .select('*')
@@ -71,8 +47,13 @@ export const DELETE: APIRoute = async ({ params, request }) => {
       .single();
 
     if (fullFetchError || !fullProperty) {
-      console.error('❌ Failed to fetch full property:', fullFetchError);
-      return new Response(JSON.stringify({ error: 'Property not found' }), {
+      console.error('❌ Property not found or unauthorized:', fullFetchError);
+      return new Response(JSON.stringify({ 
+        error: 'Property not found',
+        code: 'PGRST116',
+        details: 'The result contains 0 rows',
+        message: 'Cannot coerce the result to a single JSON object'
+      }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' }
       });

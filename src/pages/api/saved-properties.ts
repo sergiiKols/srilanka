@@ -39,10 +39,12 @@ export const GET: APIRoute = async ({ request, url }) => {
       console.log('🔍 Querying saved_properties for user:', userIdNum);
       
       // Для персональной карты - все объекты активные (deleted_at больше нет)
+      // ⚠️ На всякий случай фильтруем legacy объекты с deleted_at
       const { data, error } = await supabase
         .from('saved_properties')
         .select('*')
         .eq('telegram_user_id', userIdNum)
+        .is('deleted_at', null)
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -63,11 +65,13 @@ export const GET: APIRoute = async ({ request, url }) => {
 
     // Иначе возвращаем все объекты (для админа)
     // saved_properties содержит ТОЛЬКО активные (deleted_at удалена)
+    // ⚠️ На всякий случай фильтруем legacy объекты с deleted_at
     console.log(`🔍 Querying all saved_properties (active only)...`);
     
     const { data, error } = await supabase
       .from('saved_properties')
       .select('*')
+      .is('deleted_at', null)
       .order('created_at', { ascending: false })
       .limit(1000);
 
