@@ -126,6 +126,7 @@ export async function analyzeTelegramMessage(
     );
     
     console.log('✅ Groq AI analysis complete');
+    console.log('🔍 DEBUG - aiResult from Groq:', JSON.stringify(aiResult, null, 2));
     
     // Преобразуем результат AI в наш формат
     return {
@@ -324,7 +325,9 @@ function safeNumber(value: any): number | null {
 }
 
 export function formatForDatabase(result: AIAnalysisResult) {
-  return {
+  console.log('🔍 DEBUG - formatForDatabase input:', JSON.stringify(result, null, 2));
+  
+  const formatted = {
     title: result.title || result.type || 'Property',
     description: result.cleanDescription || result.description || null,
     latitude: result.coordinates.lat,
@@ -366,6 +369,9 @@ export function formatForDatabase(result: AIAnalysisResult) {
     confidence: result.confidence || 'medium',
     ai_provider: result.aiProvider || 'groq'
   };
+  
+  console.log('🔍 DEBUG - formatForDatabase output:', JSON.stringify(formatted, null, 2));
+  return formatted;
 }
 
 /**
