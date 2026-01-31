@@ -79,6 +79,7 @@ export const DELETE: APIRoute = async ({ params, request }) => {
     }
 
     // Convert amenities from jsonb to text[]
+    console.log('🔄 Converting amenities:', typeof fullProperty.amenities);
     let amenitiesArray = null;
     if (fullProperty.amenities) {
       if (Array.isArray(fullProperty.amenities)) {
@@ -87,13 +88,16 @@ export const DELETE: APIRoute = async ({ params, request }) => {
         amenitiesArray = Object.values(fullProperty.amenities);
       }
     }
+    console.log('✅ Amenities converted:', amenitiesArray);
 
     // Calculate days active
     const daysActive = Math.floor(
       (Date.now() - new Date(fullProperty.created_at).getTime()) / (1000 * 60 * 60 * 24)
     );
+    console.log('📅 Days active calculated:', daysActive);
 
     // Insert into archived_properties
+    console.log('📦 Inserting into archived_properties...');
     const { error: archiveError } = await supabase
       .from('archived_properties')
       .insert({
@@ -160,16 +164,19 @@ export const DELETE: APIRoute = async ({ params, request }) => {
       });
     }
 
-    // Update tenant counter (best effort)
+    // Update tenant counter (best effort) - using RPC call
     try {
-      await supabase
-        .from('tenants')
-        .update({ 
-          saved_properties_count: supabase.raw('GREATEST(saved_properties_count - 1, 0)') 
-        })
-        .eq('telegram_user_id', parseInt(userId));
+      const { error: counterError } = await supabase.rpc('decrement_properties_count', {
+        user_id: parseInt(userId)
+      });
+      
+      if (counterError) {
+        console.warn('⚠️ Counter update failed:', counterError);
+      } else {
+        console.log('✅ Counter decremented successfully');
+      }
     } catch (counterError) {
-      console.warn('⚠️ Counter update failed:', counterError);
+      console.warn('⚠️ Counter update exception:', counterError);
     }
 
     console.log(`✅ Property archived successfully: ${id}`);
