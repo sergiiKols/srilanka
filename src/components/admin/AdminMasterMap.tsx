@@ -1065,16 +1065,48 @@ export default function AdminMasterMap() {
             </div>
 
             {/* Property Drawer */}
-            {selectedPropertyId && selectedPropertyPos && (
-                <PropertyDrawer
-                    property={allMarkers.find(p => p.id === selectedPropertyId)}
-                    position={selectedPropertyPos}
-                    onClose={() => {
-                        setSelectedPropertyId(null);
-                        setSelectedPropertyPos(null);
-                    }}
-                />
-            )}
+            {selectedPropertyId && selectedPropertyPos && (() => {
+                const selectedProp = clientProperties.find(p => p.id === selectedPropertyId);
+                if (!selectedProp) return null;
+
+                // Преобразуем в формат PropertyDrawer
+                const drawerProperty = {
+                    id: selectedProp.id.replace('client-', ''), // Убираем префикс
+                    title: selectedProp.title || selectedProp.property_type || 'Property',
+                    price: selectedProp.price ? `${selectedProp.currency || 'USD'} ${selectedProp.price}` : 'Price on request',
+                    description: selectedProp.description || 'No description',
+                    images: selectedProp.photos || [],
+                    amenities: selectedProp.amenities ? 
+                        (Array.isArray(selectedProp.amenities) ? selectedProp.amenities : []) : [],
+                    bathrooms: selectedProp.bathrooms || 0,
+                    beachDistance: 0,
+                    wifiSpeed: 0,
+                    area: selectedProp.forward_from || 'Location',
+                    propertyType: selectedProp.property_type || 'Property',
+                };
+
+                return (
+                    <PropertyDrawer
+                        isOpen={true}
+                        property={drawerProperty}
+                        exchangeRate={400}
+                        isCustomProperty={true}
+                        userId={selectedProp.telegram_user_id?.toString()}
+                        onDelete={(propertyId) => {
+                            console.log('🗑️ Deleting property:', propertyId);
+                            // Перезагружаем список после удаления
+                            loadClientProperties();
+                            setSelectedPropertyId(null);
+                            setSelectedPropertyPos(null);
+                            console.log('✅ Property deleted and list reloaded');
+                        }}
+                        onClose={() => {
+                            setSelectedPropertyId(null);
+                            setSelectedPropertyPos(null);
+                        }}
+                    />
+                );
+            })()}
 
             {/* Property Importer Modal */}
             {isImporterOpen && (
