@@ -1158,6 +1158,19 @@ export default function AdminMasterMap() {
                         <option value="month">Last 30 days</option>
                     </select>
 
+                    {/* Show Archived Toggle */}
+                    <label className="flex items-center space-x-2 cursor-pointer p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors mt-2">
+                        <input
+                            type="checkbox"
+                            checked={showArchived}
+                            onChange={(e) => setShowArchived(e.target.checked)}
+                            className="w-4 h-4 text-indigo-600 rounded"
+                        />
+                        <span className="text-sm font-medium text-slate-700">
+                            📦 Show Archived ({archivedProperties.length})
+                        </span>
+                    </label>
+
                     {/* Удалённые объекты перемещаются в archived_properties */}
                 </div>
 
