@@ -177,6 +177,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
           id: selectedProp.id, // UUID без префикса
           title: selectedProp.title || selectedProp.property_type || 'Property',
           price: selectedProp.price ? `${selectedProp.currency || 'USD'} ${selectedProp.price}` : 'Price on request',
+          pricePeriod: selectedProp.price_period, // ✅ Передаём период цены в drawer
           description: selectedProp.description || 'No description',
           images: images,
           amenities: selectedProp.amenities ? 

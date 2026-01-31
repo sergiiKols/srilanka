@@ -56,7 +56,40 @@ export const GET: APIRoute = async ({ request, url }) => {
 
       console.log(`✅ Found ${data?.length || 0} active properties for user ${userIdNum}`);
 
-      return new Response(JSON.stringify({ data: data || [] }), {
+      // 🔄 POST-PROCESSING: Применяем fallback логику для price_period
+      const processedData = (data || []).map(prop => {
+        let pricePeriod = prop.price_period;
+        
+        // Если есть описание - проверяем ключевые слова
+        if (prop.description || prop.raw_text) {
+          const text = (prop.description || prop.raw_text || '').toLowerCase();
+          const hasMonth = /месяц|month|monthly|\/month/i.test(text);
+          const hasWeek = /неделю|неделя|week|weekly|\/week/i.test(text);
+          const hasDay = /день|\/день|day|daily|\/day/i.test(text);
+          
+          // Override если нашли явный период в тексте
+          if (hasMonth && pricePeriod !== 'month') {
+            console.log(`🔄 API OVERRIDE [${prop.id}]: Found "месяц" in text, ${pricePeriod} → month`);
+            pricePeriod = 'month';
+          } else if (hasWeek && !hasMonth && pricePeriod === 'night') {
+            console.log(`🔄 API OVERRIDE [${prop.id}]: Found "неделя" in text, night → week`);
+            pricePeriod = 'week';
+          }
+          
+          // Эвристика: цена > 300 USD без упоминания "день"
+          if (prop.price && prop.price > 300 && pricePeriod === 'night' && !hasDay) {
+            console.log(`🔄 API SMART OVERRIDE [${prop.id}]: Price ${prop.price} > 300 and no "день" → month`);
+            pricePeriod = 'month';
+          }
+        }
+        
+        return {
+          ...prop,
+          price_period: pricePeriod
+        };
+      });
+
+      return new Response(JSON.stringify({ data: processedData }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       });
