@@ -14,6 +14,7 @@ interface Property {
     id: string;
     title: string;
     price: string;
+    pricePeriod?: 'night' | 'day' | 'week' | 'month'; // ✅ Добавлено
     description: string;
     images: string[];
     amenities?: string[];
@@ -203,20 +204,29 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                             {index === 0 && (
                                                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-xl border border-white flex flex-col gap-2 min-w-[140px]">
                                                     <div>
-                                                        <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-0.5">Daily</div>
+                                                        <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-0.5">
+                                                            {property.pricePeriod === 'month' ? 'Monthly' : 
+                                                             property.pricePeriod === 'week' ? 'Weekly' : 
+                                                             property.pricePeriod === 'day' ? 'Daily' : 
+                                                             'Nightly'}
+                                                        </div>
                                                         <div className="flex items-baseline gap-1.5">
                                                             <span className="text-xl font-black text-slate-900 leading-none">{property.price}</span>
                                                             <span className="text-[10px] font-bold text-slate-500">{formatPriceLKR(property.price)}</span>
                                                         </div>
                                                     </div>
-                                                    <div className="h-[1px] bg-slate-100 w-full"></div>
-                                                    <div>
-                                                        <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-0.5">Weekly</div>
-                                                        <div className="flex items-baseline gap-1.5">
-                                                            <span className="text-sm font-black text-slate-800 leading-none">{formatPriceWeekly(property.price, 'USD')}</span>
-                                                            <span className="text-[10px] font-bold text-slate-500">{formatPriceWeekly(property.price, 'LKR')}</span>
-                                                        </div>
-                                                    </div>
+                                                    {property.pricePeriod !== 'week' && property.pricePeriod !== 'month' && (
+                                                        <>
+                                                            <div className="h-[1px] bg-slate-100 w-full"></div>
+                                                            <div>
+                                                                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-0.5">Weekly</div>
+                                                                <div className="flex items-baseline gap-1.5">
+                                                                    <span className="text-sm font-black text-slate-800 leading-none">{formatPriceWeekly(property.price, 'USD')}</span>
+                                                                    <span className="text-[10px] font-bold text-slate-500">{formatPriceWeekly(property.price, 'LKR')}</span>
+                                                                </div>
+                                                            </div>
+                                                        </>
+                                                    )}
                                                 </div>
                                             )}
                                             <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs backdrop-blur-sm">

@@ -68,6 +68,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
       title: prop.title || prop.property_type || 'Property',
       type: 'stay' as const,
       price: prop.price ? `${prop.currency || 'USD'} ${prop.price}` : undefined,
+      pricePeriod: prop.price_period, // ✅ Передаём период цены
       images: images,
       description: prop.description,
       address: prop.address || prop.forward_from_chat_title || 'Location',
