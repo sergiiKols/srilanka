@@ -308,8 +308,38 @@ export async function analyzePropertyWithGroqCached(
   
   // Check cache
   if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
-    console.log('📦 Using cached AI result');
-    return cached.result;
+    console.log('📦 Using cached AI result (applying fresh fallback logic)');
+    
+    // ✅ ВАЖНО: Применяем fallback логику даже к кэшу!
+    const result = { ...cached.result };
+    
+    // Проверяем текст на наличие периодов
+    const descLower = description.toLowerCase();
+    const hasMonth = /месяц|month|monthly|\/month/i.test(descLower);
+    const hasWeek = /неделю|неделя|week|weekly|\/week/i.test(descLower);
+    const hasDay = /день|\/день|day|daily|\/day/i.test(descLower);
+    
+    let pricePeriod = result.pricePeriod;
+    
+    // Override если нашли явный период в тексте
+    if (hasMonth && pricePeriod !== 'month') {
+      console.log(`🔄 CACHE OVERRIDE: Found "месяц/month" in text, ${pricePeriod} → month`);
+      pricePeriod = 'month';
+    } else if (hasWeek && !hasMonth && pricePeriod === 'night') {
+      console.log(`🔄 CACHE OVERRIDE: Found "неделя/week" in text, night → week`);
+      pricePeriod = 'week';
+    }
+    
+    // Эвристика для цен > 300
+    if (result.price && result.price > 300 && pricePeriod === 'night' && !hasDay) {
+      console.log(`🔄 CACHE SMART OVERRIDE: Price ${result.price} > 300 and no "день" → month`);
+      pricePeriod = 'month';
+    }
+    
+    result.pricePeriod = pricePeriod;
+    console.log(`💰 CACHED: ${result.price} USD per ${pricePeriod}`);
+    
+    return result;
   }
   
   // Quick preview if callback provided
