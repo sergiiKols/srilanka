@@ -3,12 +3,18 @@
  * Поддерживает различные форматы Google Maps URL и координат
  */
 
+import { OpenLocationCode } from 'open-location-code';
+import { findCity, getRegionFallback, sriLankaRegions } from '../config/sriLankaCities';
+
 export interface ParsedCoordinates {
   lat: number;
   lng: number;
   placeId?: string;
   placeName?: string;
 }
+
+// Инициализируем Plus Code декодер
+const olc = new OpenLocationCode();
 
 /**
  * Разворачивает короткие ссылки через серверный API
@@ -187,37 +193,217 @@ function extractCoordsFromEncodedData(url: string): ParsedCoordinates | null {
 }
 
 /**
- * Получает координаты из Plus Code через Google Geocoding API
- * Fallback: извлекаем из ftid параметра
+ * Извлекает название города из URL
+ * Формат: ?q=WFX7+22W+Russian+Guesthouse,+Mirissa
+ */
+function extractCityFromUrl(url: string): string | null {
+  try {
+    const urlObj = new URL(url);
+    const q = urlObj.searchParams.get('q');
+    
+    if (!q) return null;
+    
+    // Декодируем URL
+    const decoded = decodeURIComponent(q);
+    console.log(`🔍 Параметр ?q: ${decoded}`);
+    
+    // Разделяем по запятым и плюсам
+    const parts = decoded.split(/[,+]/);
+    
+    for (const part of parts) {
+      const trimmed = part.trim();
+      
+      // Пропускаем Plus Code и короткие слова
+      if (trimmed.length <= 3) continue;
+      if (trimmed.match(/^[23456789CFGHJMPQRVWX]{4,8}$/i)) continue; // Plus Code часть
+      if (trimmed.match(/^\d+$/)) continue; // Только цифры
+      
+      // Проверяем в базе городов
+      const city = findCity(trimmed);
+      if (city) {
+        console.log(`✅ Найден город в базе: ${trimmed}`);
+        return trimmed;
+      }
+    }
+    
+    // Если не нашли точное совпадение, возвращаем последнюю часть (обычно это город)
+    const lastPart = parts[parts.length - 1]?.trim();
+    if (lastPart && lastPart.length > 3 && !lastPart.match(/^\d+$/)) {
+      console.log(`⚠️ Город не найден в базе, используем: ${lastPart}`);
+      return lastPart;
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Ошибка извлечения города из URL:', error);
+    return null;
+  }
+}
+
+/**
+ * Geocoding города через Nominatim (OpenStreetMap)
+ * Бесплатный API, не требует ключа
+ */
+async function geocodeCity(cityName: string): Promise<{lat: number, lng: number} | null> {
+  try {
+    console.log(`🌍 Geocoding города через Nominatim: ${cityName}`);
+    
+    const url = `https://nominatim.openstreetmap.org/search?` +
+                `q=${encodeURIComponent(cityName)},Sri+Lanka&format=json&limit=1`;
+    
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Sri-Lanka-Rentals/1.0'
+      }
+    });
+    
+    if (!response.ok) {
+      console.warn(`⚠️ Nominatim вернул ошибку: ${response.status}`);
+      return null;
+    }
+    
+    const data = await response.json();
+    
+    if (data && data.length > 0) {
+      const result = {
+        lat: parseFloat(data[0].lat),
+        lng: parseFloat(data[0].lon)
+      };
+      console.log(`✅ Nominatim нашел координаты: ${result.lat}, ${result.lng}`);
+      return result;
+    }
+    
+    console.warn(`⚠️ Nominatim не нашел город: ${cityName}`);
+    return null;
+  } catch (error) {
+    console.error('Ошибка Nominatim geocoding:', error);
+    return null;
+  }
+}
+
+/**
+ * Декодирует Plus Code в координаты
+ * Использует базу городов Шри-Ланки для reference координат
+ */
+async function decodePlusCode(
+  plusCode: string,
+  cityName: string | null
+): Promise<ParsedCoordinates | null> {
+  try {
+    console.log(`🔍 Декодирование Plus Code: ${plusCode}`);
+    console.log(`📍 Город из URL: ${cityName || 'не найден'}`);
+    
+    // Проверка валидности
+    if (!olc.isValid(plusCode)) {
+      console.error(`❌ Невалидный Plus Code: ${plusCode}`);
+      return null;
+    }
+    
+    // Если это полный код - декодируем напрямую
+    if (olc.isFull(plusCode)) {
+      console.log(`✅ Полный Plus Code, декодируем напрямую`);
+      const decoded = olc.decode(plusCode);
+      return {
+        lat: decoded.latitudeCenter,
+        lng: decoded.longitudeCenter
+      };
+    }
+    
+    // Короткий код - нужны reference координаты
+    console.log(`⚠️ Короткий Plus Code, нужны reference координаты`);
+    
+    let refLat: number;
+    let refLng: number;
+    let method: string;
+    
+    // Стратегия 1: Из базы городов
+    if (cityName) {
+      const city = findCity(cityName);
+      
+      if (city) {
+        refLat = city.lat;
+        refLng = city.lng;
+        method = `база городов (${cityName})`;
+        console.log(`✅ Используем координаты из базы: ${refLat}, ${refLng}`);
+      } 
+      // Стратегия 2: Geocoding через Nominatim
+      else {
+        console.log(`⚠️ Город ${cityName} не найден в базе, пробуем Nominatim...`);
+        const geocoded = await geocodeCity(cityName);
+        
+        if (geocoded) {
+          refLat = geocoded.lat;
+          refLng = geocoded.lng;
+          method = `Nominatim (${cityName})`;
+          console.log(`✅ Nominatim вернул координаты: ${refLat}, ${refLng}`);
+        } else {
+          // Стратегия 3: Региональный fallback (Юг Шри-Ланки)
+          console.warn(`⚠️ Nominatim не нашел город, используем региональный fallback`);
+          const region = sriLankaRegions['South'];
+          refLat = region.lat;
+          refLng = region.lng;
+          method = 'региональный fallback (South)';
+          console.log(`⚠️ Используем центр южного региона: ${refLat}, ${refLng}`);
+        }
+      }
+    }
+    // Стратегия 3: Если город вообще не найден - используем South region
+    else {
+      console.warn(`⚠️ Город не указан, используем региональный fallback`);
+      const region = sriLankaRegions['South'];
+      refLat = region.lat;
+      refLng = region.lng;
+      method = 'региональный fallback (South)';
+      console.log(`⚠️ Используем центр южного региона: ${refLat}, ${refLng}`);
+    }
+    
+    // Восстанавливаем полный код
+    const fullCode = olc.recoverNearest(plusCode, refLat, refLng);
+    console.log(`🔧 Восстановленный полный код: ${fullCode}`);
+    console.log(`📍 Метод: ${method}`);
+    
+    // Декодируем
+    const decoded = olc.decode(fullCode);
+    const result = {
+      lat: decoded.latitudeCenter,
+      lng: decoded.longitudeCenter
+    };
+    
+    console.log(`✅ Plus Code декодирован: ${result.lat}, ${result.lng}`);
+    
+    return result;
+  } catch (error) {
+    console.error('Ошибка декодирования Plus Code:', error);
+    return null;
+  }
+}
+
+/**
+ * Получает координаты из Plus Code
+ * Использует декодирование с базой городов
  */
 async function extractCoordsFromPlusCode(url: string, plusCode: string): Promise<ParsedCoordinates | null> {
   try {
     console.log(`🔍 Обнаружен Plus Code: ${plusCode}`);
     
-    // Пытаемся извлечь координаты из ftid (формат: 0x{hex}:{hex})
-    const urlObj = new URL(url);
-    const ftid = urlObj.searchParams.get('ftid');
+    // Извлекаем название города из URL
+    const cityName = extractCityFromUrl(url);
     
-    if (ftid) {
-      console.log(`🔍 Найден ftid: ${ftid}`);
-      
-      // ftid содержит hex-encoded place_id, но не координаты напрямую
-      // Нужно сделать запрос к Google Places или Geocoding API
-      // НО это требует API ключ, поэтому пока пропускаем
+    // Декодируем Plus Code
+    const coords = await decodePlusCode(plusCode, cityName);
+    
+    if (coords) {
+      return coords;
     }
     
-    // Извлекаем координаты из закодированных данных если есть
+    // Fallback: пробуем извлечь из закодированных данных
+    console.log(`⚠️ Не удалось декодировать Plus Code, пробуем извлечь из закодированных данных...`);
     const encodedCoords = extractCoordsFromEncodedData(url);
     if (encodedCoords) {
       return encodedCoords;
     }
     
-    console.warn(`⚠️ Plus Code "${plusCode}" не может быть декодирован без Google API`);
-    console.log(`💡 Возможные решения:`);
-    console.log(`   1. Добавить Google Geocoding API ключ`);
-    console.log(`   2. Использовать другой формат ссылки (с координатами)`);
-    console.log(`   3. Открыть ссылку вручную и скопировать URL с @lat,lng`);
-    
+    console.error(`❌ Не удалось получить координаты из Plus Code`);
     return null;
   } catch (error) {
     console.error('Ошибка обработки Plus Code:', error);
