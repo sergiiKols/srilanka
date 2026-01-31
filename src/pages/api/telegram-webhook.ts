@@ -44,6 +44,9 @@ const mediaGroups = new Map<string, {
   timeout: NodeJS.Timeout;
 }>();
 
+// Храним таймеры для debounce уведомлений о media group
+const mediaGroupTimers = new Map<string, NodeJS.Timeout>();
+
 /**
  * Основной POST endpoint
  */
@@ -86,6 +89,9 @@ export const GET: APIRoute = async () => {
 /**
  * Обработка media group (множественные фото) - БЕЗ ТАЙМЕРА!
  */
+// Константа: максимальное количество фото
+const MAX_PHOTOS = 10;
+
 async function handleMediaGroup(message: any) {
   const groupId = message.media_group_id;
   const userId = message.from.id;
@@ -99,7 +105,7 @@ async function handleMediaGroup(message: any) {
     session = {
       userId,
       state: 'collecting',
-      tempData: { photoObjects: [] },
+      tempData: { photoObjects: [], mediaGroupId: groupId },
       lastActivity: new Date()
     };
     userSessions.set(userId, session);
@@ -109,25 +115,35 @@ async function handleMediaGroup(message: any) {
   if (message.photo && message.photo.length > 0) {
     const bestPhoto = getBestQualityPhoto(message.photo);
     session.tempData.photoObjects = session.tempData.photoObjects || [];
+    
+    // Проверяем лимит фото
+    if (session.tempData.photoObjects.length >= MAX_PHOTOS) {
+      console.log(`⚠️ Photo limit reached (${MAX_PHOTOS}), ignoring extra photos`);
+      
+      // Отправляем предупреждение ОДИН РАЗ
+      if (!session.tempData.limitWarningShown) {
+        session.tempData.limitWarningShown = true;
+        try {
+          await sendTelegramMessage({
+            botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+            chatId: chatId.toString(),
+            text: `⚠️ Максимум ${MAX_PHOTOS} фото. Остальные проигнорированы.`
+          });
+        } catch (err) {
+          console.error('❌ Error sending limit warning:', err);
+        }
+      }
+      return; // Не добавляем больше фото
+    }
+    
     session.tempData.photoObjects.push(bestPhoto);
     
     const photoCount = session.tempData.photoObjects.length;
-    console.log(`📎 Photo ${photoCount} added to session`);
+    console.log(`📎 Photo ${photoCount}/${MAX_PHOTOS} added to session`);
     
-    // Отправляем быстрое уведомление (С ОЖИДАНИЕМ)
-    try {
-      await sendTelegramMessage({
-        botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
-        chatId: chatId.toString(),
-        text: `📸 ${photoCount} фото`
-      });
-      console.log(`✅ Photo notification sent: ${photoCount} photos`);
-    } catch (err) {
-      console.error('❌ Error sending notification:', err);
-    }
-    
-    // Не показываем превью после каждого фото в media group
-    // Валидация покажется в collectMessageToSession
+    // ❌ НЕ отправляем уведомление после каждого фото
+    // Это вызывает зависание при большом количестве фото
+    // Уведомление отправится в showValidationStatus
   }
   
   // Парсим caption из первого фото группы
@@ -140,6 +156,33 @@ async function handleMediaGroup(message: any) {
   }
   
   session.lastActivity = new Date();
+  session.tempData.mediaGroupId = groupId;
+  
+  // Debounce: показываем статус через 2 секунды после последнего фото
+  const timerKey = `${userId}_${groupId}`;
+  
+  // Очищаем предыдущий таймер если есть
+  if (mediaGroupTimers.has(timerKey)) {
+    clearTimeout(mediaGroupTimers.get(timerKey)!);
+  }
+  
+  // Устанавливаем новый таймер
+  const timer = setTimeout(async () => {
+    console.log(`⏰ Media group complete for user ${userId}, showing status...`);
+    mediaGroupTimers.delete(timerKey);
+    
+    // Показываем итоговый статус
+    const currentSession = userSessions.get(userId);
+    if (currentSession) {
+      try {
+        await showValidationStatus(chatId, currentSession, import.meta.env.TELEGRAM_BOT_TOKEN);
+      } catch (err) {
+        console.error('❌ Error showing validation status:', err);
+      }
+    }
+  }, 2000); // 2 секунды после последнего фото
+  
+  mediaGroupTimers.set(timerKey, timer);
 }
 
 /**
