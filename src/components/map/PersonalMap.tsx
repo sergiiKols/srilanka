@@ -72,6 +72,8 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
       description: prop.description,
       address: prop.address || prop.forward_from_chat_title || 'Location',
       phone: prop.contact_phone,
+      // ❌ УБРАЛИ markerColor - теперь все маркеры белые (по умолчанию)
+      // markerColor: '#ef4444' - красная подсветка ОТКЛЮЧЕНА
     };
   });
 
@@ -110,6 +112,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
     <div className="relative w-full h-full">
       {/* Карта */}
       <Map
+        key={`map-${properties.length}`}
         ref={mapRef}
         markers={markers}
         onMarkerClick={(id) => {
@@ -203,22 +206,29 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
                 if (!response.ok) {
                   const error = await response.json();
                   console.error('❌ Failed to delete property:', error);
-                  alert('Failed to delete property. Please try again.');
+                  alert('Ошибка при удалении. Попробуйте ещё раз.');
                   return;
                 }
 
                 const result = await response.json();
                 console.log('✅ Property deleted from database:', result);
                 
-                // Удаляем из локального state
-                setProperties(prev => prev.filter(p => p.id !== propertyId));
+                // Закрываем drawer СРАЗУ
                 setSelectedPropertyId(null);
                 setSelectedPropertyPos(null);
                 
-                console.log('✅ Property removed from map');
+                // Удаляем из локального state с небольшой задержкой для анимации
+                setTimeout(() => {
+                  setProperties(prev => {
+                    const filtered = prev.filter(p => p.id !== propertyId);
+                    console.log(`✅ Property removed from map. Remaining: ${filtered.length}`);
+                    return filtered;
+                  });
+                }, 100);
+                
               } catch (error) {
                 console.error('❌ Error deleting property:', error);
-                alert('Failed to delete property. Please try again.');
+                alert('Ошибка при удалении. Попробуйте ещё раз.');
               }
             }}
             onClose={() => {

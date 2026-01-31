@@ -313,18 +313,25 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                                         });
                                                         
                                                         if (response.ok) {
-                                                            if (onDelete) {
-                                                                onDelete(property.id);
-                                                            }
+                                                            // Закрываем drawer сразу для лучшего UX
                                                             onClose();
+                                                            
+                                                            // Вызываем callback для обновления списка
+                                                            if (onDelete) {
+                                                                // Небольшая задержка чтобы drawer успел закрыться
+                                                                setTimeout(() => {
+                                                                    onDelete(property.id);
+                                                                }, 150);
+                                                            }
                                                         } else {
                                                             const error = await response.json();
-                                                            alert(`Ошибка: ${error.error}`);
+                                                            alert(`Ошибка: ${error.error || 'Не удалось удалить объект'}`);
+                                                            setIsDeleting(false);
+                                                            setShowDeleteConfirm(false);
                                                         }
                                                     } catch (err) {
                                                         console.error('Delete error:', err);
-                                                        alert('Ошибка при удалении');
-                                                    } finally {
+                                                        alert('Ошибка при удалении. Проверьте подключение к интернету.');
                                                         setIsDeleting(false);
                                                         setShowDeleteConfirm(false);
                                                     }

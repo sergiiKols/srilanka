@@ -150,12 +150,63 @@ export interface CreatePropertyInput {
 
 /**
  * Сохранить объект недвижимости
+ * Если объект был ранее удалён (в архиве), удаляет старую запись из архива
+ * и создаёт НОВЫЙ объект с пересчитанными данными
  * 
- * @param {CreatePropertyInput} data - Данные объекта
+ * @param {CreatePropertyInput} data - Данные объекта (уже обработанные AI)
  * @returns {Promise<SavedProperty>} Сохранённый объект
  */
 export async function saveProperty(data: CreatePropertyInput): Promise<SavedProperty> {
   try {
+    // 1. Проверяем, нет ли дубликата в активных объектах
+    const duplicate = await checkDuplicate(
+      data.telegram_user_id,
+      data.latitude,
+      data.longitude,
+      data.price
+    );
+    
+    if (duplicate) {
+      console.log('⚠️ Property already exists in saved_properties:', duplicate.id);
+      // Возвращаем существующий объект
+      return duplicate;
+    }
+    
+    // 2. Проверяем, не был ли объект ранее удалён (в архиве)
+    const { data: archivedProperties, error: archiveCheckError } = await supabase
+      .from('archived_properties')
+      .select('id, title, archived_at')
+      .eq('telegram_user_id', data.telegram_user_id)
+      .gte('latitude', data.latitude - 0.001)
+      .lte('latitude', data.latitude + 0.001)
+      .gte('longitude', data.longitude - 0.001)
+      .lte('longitude', data.longitude + 0.001)
+      .eq('can_restore', true)
+      .limit(1);
+    
+    if (!archiveCheckError && archivedProperties && archivedProperties.length > 0) {
+      const archived = archivedProperties[0];
+      console.log('📦 Found archived property at same location:', {
+        id: archived.id,
+        title: archived.title,
+        archived_at: archived.archived_at
+      });
+      
+      // 3. Удаляем старую запись из архива (не восстанавливаем!)
+      const { error: deleteError } = await supabase
+        .from('archived_properties')
+        .delete()
+        .eq('id', archived.id);
+      
+      if (deleteError) {
+        console.error('❌ Error deleting from archive:', deleteError);
+        // Продолжаем создание нового объекта даже если удаление не удалось
+      } else {
+        console.log('🗑️ Deleted old archived version, creating NEW with fresh data');
+      }
+    }
+    
+    // 4. Создаём НОВЫЙ объект с пересчитанными данными (новый UUID, свежий AI анализ)
     const { data: property, error } = await supabase
       .from('saved_properties')
       .insert(data)
@@ -167,6 +218,7 @@ export async function saveProperty(data: CreatePropertyInput): Promise<SavedProp
       throw error;
     }
 
+    console.log('✅ Created new property with ID:', property.id);
     return property as SavedProperty;
     
   } catch (error) {

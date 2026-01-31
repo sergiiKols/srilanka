@@ -210,7 +210,7 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
                         <Marker
                             key={marker.id}
                             position={marker.position}
-                            icon={createIcon('stay', 34, true, { color: marker.markerColor || '#ef4444' })}
+                            icon={createIcon('stay', 34, true, { color: marker.markerColor || 'white' })}
                             eventHandlers={{
                                 click: () => onMarkerClick?.(marker.id),
                             }}
