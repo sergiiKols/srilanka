@@ -37,12 +37,33 @@ interface PropertyDrawerProps {
     onDelete?: (propertyId: string) => void;
     isCustomProperty?: boolean;
     userId?: string; // Telegram user ID для проверки владельца
+    markerColor?: string; // Текущий цвет маркера
+    onMarkerColorChange?: (color: string) => void; // Callback для изменения цвета
 }
 
-export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate, onDelete, isCustomProperty, userId }: PropertyDrawerProps) {
+export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate, onDelete, isCustomProperty, userId, markerColor = '#ef4444', onMarkerColorChange }: PropertyDrawerProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isDeleting, setIsDeleting] = useState(false);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [isHighlighted, setIsHighlighted] = useState(false);
+
+    // Цвета для переключения
+    const highlightColor = '#22c55e'; // зеленый для подсветки
+    const defaultColor = '#ef4444'; // красный по умолчанию
+
+    // Синхронизируем состояние с текущим цветом
+    useEffect(() => {
+        setIsHighlighted(markerColor === highlightColor);
+    }, [markerColor]);
+
+    // Переключение подсветки
+    const toggleHighlight = () => {
+        const newColor = isHighlighted ? defaultColor : highlightColor;
+        setIsHighlighted(!isHighlighted);
+        if (onMarkerColorChange) {
+            onMarkerColorChange(newColor);
+        }
+    };
 
     // Prevent body scroll when drawer is open
     useEffect(() => {
@@ -123,6 +144,32 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                 <p className="text-xs text-slate-500">{property.area} • {property.propertyType}</p>
                             </div>
                             <div className="flex gap-2">
+                                {/* Highlight Button */}
+                                <button 
+                                    onClick={toggleHighlight}
+                                    className="w-10 h-10 rounded-full transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg active:scale-95"
+                                    style={{ 
+                                        backgroundColor: isHighlighted ? highlightColor : defaultColor,
+                                    }}
+                                    title={isHighlighted ? "Снять подсветку" : "Подсветить на карте"}
+                                >
+                                    <svg 
+                                        xmlns="http://www.w3.org/2000/svg" 
+                                        width="20" 
+                                        height="20" 
+                                        viewBox="0 0 24 24" 
+                                        fill="none" 
+                                        stroke="white" 
+                                        strokeWidth="2.5" 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round"
+                                        className="transition-transform duration-300"
+                                        style={{ transform: isHighlighted ? 'scale(1.1)' : 'scale(1)' }}
+                                    >
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </button>
                                 {isCustomProperty && onDelete && (
                                     <button 
                                         onClick={() => onDelete(property.id)}

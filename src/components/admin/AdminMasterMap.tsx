@@ -27,6 +27,7 @@ export default function AdminMasterMap() {
     const [mapInstance, setMapInstance] = useState<any>(null);
     const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(null);
     const [selectedPropertyPos, setSelectedPropertyPos] = useState<[number, number] | null>(null);
+    const [selectedMarkerColor, setSelectedMarkerColor] = useState<string>('#ef4444');
     
     // Слои
     const [activeLayers, setActiveLayers] = useState<string[]>(['pois', 'client_properties']);
@@ -392,6 +393,7 @@ export default function AdminMasterMap() {
                 }))}
                 onMarkerClick={(id) => {
                     setSelectedPropertyId(id);
+                    setSelectedMarkerColor('#ef4444'); // Сброс цвета при выборе
                     const marker = visibleMarkers.find(m => m.id === id);
                     if (marker) {
                         setSelectedPropertyPos([marker.lat, marker.lng]);
@@ -1092,17 +1094,21 @@ export default function AdminMasterMap() {
                         exchangeRate={400}
                         isCustomProperty={true}
                         userId={selectedProp.telegram_user_id?.toString()}
+                        markerColor={selectedMarkerColor}
+                        onMarkerColorChange={(color) => setSelectedMarkerColor(color)}
                         onDelete={(propertyId) => {
                             console.log('🗑️ Deleting property:', propertyId);
                             // Перезагружаем список после удаления
                             loadClientProperties();
                             setSelectedPropertyId(null);
                             setSelectedPropertyPos(null);
+                            setSelectedMarkerColor('#ef4444');
                             console.log('✅ Property deleted and list reloaded');
                         }}
                         onClose={() => {
                             setSelectedPropertyId(null);
                             setSelectedPropertyPos(null);
+                            setSelectedMarkerColor('#ef4444');
                         }}
                     />
                 );
