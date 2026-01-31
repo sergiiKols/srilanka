@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import AdminLayout from '../../components/admin/AdminLayout.tsx';
 import KeepAliveToggle from '../../components/admin/KeepAliveToggle.tsx';
 import CoolDownToggle from '../../components/admin/CoolDownToggle.tsx';
+import ExchangeRatesManager from '../../components/admin/ExchangeRatesManager.tsx';
 ---
 
 <Layout title="Cron Jobs - Управление">
@@ -31,6 +32,11 @@ import CoolDownToggle from '../../components/admin/CoolDownToggle.tsx';
       <!-- Cron Job 2: Keep-Alive -->
       <div class="lumina-bento-item">
         <KeepAliveToggle client:load />
+      </div>
+
+      <!-- Cron Job 3: Exchange Rates Auto-Update -->
+      <div class="lumina-bento-item">
+        <ExchangeRatesManager client:load />
       </div>
     </div>
 
