@@ -34,6 +34,8 @@ export default function AdminMasterMap() {
     // Данные
     const [poisData, setPoisData] = useState<any[]>([]);
     const [clientProperties, setClientProperties] = useState<any[]>([]);
+    const [archivedProperties, setArchivedProperties] = useState<any[]>([]);
+    const [showArchived, setShowArchived] = useState(false);
     const [loading, setLoading] = useState(true);
     
     // Фильтры
@@ -112,6 +114,9 @@ export default function AdminMasterMap() {
     // Загрузка клиентских объектов
     useEffect(() => {
         loadClientProperties();
+        if (showArchived) {
+            loadArchivedProperties();
+        }
         
         // Подписка на изменения в реальном времени
         const subscription = supabase
@@ -129,7 +134,7 @@ export default function AdminMasterMap() {
         return () => {
             subscription.unsubscribe();
         };
-    }, [dateFilter, selectedUser]);
+    }, [dateFilter, selectedUser, showArchived]);
 
     // Загрузка POI из Supabase (ОТКЛЮЧЕНО - таблица pois не существует)
     const loadPOIsData = async () => {
@@ -142,6 +147,93 @@ export default function AdminMasterMap() {
         // 1. Создать таблицу poi_locations в Supabase
         // 2. Загружать из JSON файлов (как раньше)
         // 3. Интеграция с Google Places API
+    };
+
+    // Загрузка архивных объектов
+    const loadArchivedProperties = async () => {
+        try {
+            console.log('📦 Загружаем архивные объекты из archived_properties');
+
+            let query = supabase
+                .from('archived_properties')
+                .select('*')
+                .eq('can_restore', true) // Только не восстановленные
+                .order('archived_at', { ascending: false });
+
+            // Фильтр по дате архивации
+            if (dateFilter !== 'all') {
+                const now = new Date();
+                let startDate;
+
+                switch (dateFilter) {
+                    case 'today':
+                        startDate = new Date(now.setHours(0, 0, 0, 0));
+                        break;
+                    case 'week':
+                        startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                        break;
+                    case 'month':
+                        startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+                        break;
+                }
+
+                if (startDate) {
+                    query = query.gte('archived_at', startDate.toISOString());
+                }
+            }
+
+            // Фильтр по пользователю
+            if (selectedUser !== 'all') {
+                query = query.eq('telegram_user_id', parseInt(selectedUser));
+            }
+
+            const { data, error } = await query;
+
+            if (error) {
+                console.error('❌ Ошибка загрузки архивных объектов:', error);
+                return;
+            }
+
+            const mappedArchived = (data || []).map((prop: any) => {
+                let photos: string[] = [];
+                if (Array.isArray(prop.photos)) {
+                    photos = prop.photos;
+                } else if (typeof prop.photos === 'string' && prop.photos) {
+                    photos = prop.photos.split(/[\s,]+/).filter((url: string) => url.trim());
+                }
+
+                return {
+                    id: `archived-${prop.id}`, // ✅ Уникальный префикс для предотвращения конфликтов
+                    originalId: prop.id, // Сохраняем оригинальный ID
+                    title: `[ARCHIVED] ${prop.title || prop.property_type || 'Property'}`,
+                    lat: prop.latitude,
+                    lng: prop.longitude,
+                    price: prop.price,
+                    currency: prop.currency || 'USD',
+                    type: 'archived_property',
+                    property_type: prop.property_type,
+                    bedrooms: prop.bedrooms,
+                    bathrooms: prop.bathrooms,
+                    photos: photos,
+                    source_type: prop.source_type,
+                    forward_from: prop.forward_from_chat_title || prop.forward_from_username,
+                    telegram_user_id: prop.telegram_user_id,
+                    created_at: prop.original_created_at,
+                    archived_at: prop.archived_at,
+                    archive_reason: prop.archive_reason,
+                    days_active: prop.days_active,
+                    description: prop.description,
+                    contact_phone: prop.contact_phone,
+                    amenities: prop.amenities,
+                    isArchived: true // ✅ Маркер архивного объекта
+                };
+            });
+
+            setArchivedProperties(mappedArchived);
+            console.log(`✅ Загружено ${mappedArchived.length} архивных объектов`);
+        } catch (err) {
+            console.error('❌ Ошибка при загрузке архивных объектов:', err);
+        }
     };
 
     // Загрузка клиентских объектов
@@ -258,7 +350,13 @@ export default function AdminMasterMap() {
 
     // Получить цвет маркера для тепловой карты
     const getHeatmapColor = (property: any) => {
-        // ✅ Удалённые объекты всегда красные
+        // ✅ Архивные объекты - серый/прозрачный
+        if (property.isArchived) {
+            console.log(`📦 Archived property: ${property.title}, type: ${property.type}, isArchived: ${property.isArchived}`);
+            return '#9ca3af'; // Серый для архивных
+        }
+        
+        // ✅ Удалённые объекты всегда красные (legacy, не используется)
         if (property.isDeleted) {
             console.log(`🔴 Deleted property: ${property.title}, type: ${property.type}, isDeleted: ${property.isDeleted}`);
             return '#dc2626'; // Тёмно-красный для удалённых
@@ -301,12 +399,19 @@ export default function AdminMasterMap() {
         ...((activeLayers.includes('pois')) ? poisData : []),
         ...(activeLayers.includes('client_properties') ? clientProperties.map(p => {
             const color = getHeatmapColor(p);
-            if (p.isDeleted) {
-                console.log(`🎨 Mapping deleted property: ${p.title}, color: ${color}, isDeleted: ${p.isDeleted}`);
-            }
             return {
                 ...p,
                 markerColor: color
+            };
+        }) : []),
+        // ✅ Добавляем архивные объекты если showArchived = true
+        ...(showArchived ? archivedProperties.map(p => {
+            const color = getHeatmapColor(p);
+            console.log(`🎨 Mapping archived property: ${p.title}, color: ${color}`);
+            return {
+                ...p,
+                markerColor: color,
+                opacity: 0.5 // ✅ Полупрозрачные маркеры для архивных
             };
         }) : [])
     ];
