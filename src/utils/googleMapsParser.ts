@@ -152,12 +152,89 @@ async function expandShortUrl(shortUrl: string): Promise<string | null> {
 }
 
 /**
+ * Извлекает координаты из закодированных данных Google Maps (формат /data=)
+ * Формат: /data=!3d{lat}!4d{lng} или !3m1!4b1!4m6!3m5!1s{place_id}!8m2!3d{lat}!4d{lng}
+ */
+function extractCoordsFromEncodedData(url: string): ParsedCoordinates | null {
+  try {
+    // Ищем паттерн !3d{lat}!4d{lng} (стандартный формат Google)
+    const coordMatch = url.match(/!3d(-?\d+\.?\d*)!4d(-?\d+\.?\d*)/);
+    if (coordMatch) {
+      const lat = parseFloat(coordMatch[1]);
+      const lng = parseFloat(coordMatch[2]);
+      if (!isNaN(lat) && !isNaN(lng)) {
+        console.log(`✅ Координаты из закодированных данных (!3d/!4d): ${lat}, ${lng}`);
+        return { lat, lng };
+      }
+    }
+    
+    // Альтернативный формат: !8m2!3d{lat}!4d{lng}
+    const altMatch = url.match(/!8m2!3d(-?\d+\.?\d*)!4d(-?\d+\.?\d*)/);
+    if (altMatch) {
+      const lat = parseFloat(altMatch[1]);
+      const lng = parseFloat(altMatch[2]);
+      if (!isNaN(lat) && !isNaN(lng)) {
+        console.log(`✅ Координаты из закодированных данных (!8m2): ${lat}, ${lng}`);
+        return { lat, lng };
+      }
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Ошибка парсинга закодированных данных:', error);
+    return null;
+  }
+}
+
+/**
+ * Получает координаты из Plus Code через Google Geocoding API
+ * Fallback: извлекаем из ftid параметра
+ */
+async function extractCoordsFromPlusCode(url: string, plusCode: string): Promise<ParsedCoordinates | null> {
+  try {
+    console.log(`🔍 Обнаружен Plus Code: ${plusCode}`);
+    
+    // Пытаемся извлечь координаты из ftid (формат: 0x{hex}:{hex})
+    const urlObj = new URL(url);
+    const ftid = urlObj.searchParams.get('ftid');
+    
+    if (ftid) {
+      console.log(`🔍 Найден ftid: ${ftid}`);
+      
+      // ftid содержит hex-encoded place_id, но не координаты напрямую
+      // Нужно сделать запрос к Google Places или Geocoding API
+      // НО это требует API ключ, поэтому пока пропускаем
+    }
+    
+    // Извлекаем координаты из закодированных данных если есть
+    const encodedCoords = extractCoordsFromEncodedData(url);
+    if (encodedCoords) {
+      return encodedCoords;
+    }
+    
+    console.warn(`⚠️ Plus Code "${plusCode}" не может быть декодирован без Google API`);
+    console.log(`💡 Возможные решения:`);
+    console.log(`   1. Добавить Google Geocoding API ключ`);
+    console.log(`   2. Использовать другой формат ссылки (с координатами)`);
+    console.log(`   3. Открыть ссылку вручную и скопировать URL с @lat,lng`);
+    
+    return null;
+  } catch (error) {
+    console.error('Ошибка обработки Plus Code:', error);
+    return null;
+  }
+}
+
+/**
  * Извлекает координаты из развернутого Google Maps URL
  * Поддерживает форматы:
  * 1. ?q=lat,lng
  * 2. @lat,lng,zoom
+ * 3. Plus Code (?q=WFX7+22W)
+ * 4. Закодированные данные (/data=!3d!4d)
+ * 5. Адреса (требует geocoding)
  */
-function extractCoordsFromExpandedUrl(url: string): ParsedCoordinates | null {
+async function extractCoordsFromExpandedUrl(url: string): Promise<ParsedCoordinates | null> {
   try {
     console.log(`🔍 Парсим развернутый URL для координат...`);
     
@@ -177,8 +254,12 @@ function extractCoordsFromExpandedUrl(url: string): ParsedCoordinates | null {
           }
         }
       } else {
+        // Это Plus Code
         console.log(`⚠️ Обнаружен Plus Code в ?q: ${q}`);
-        console.log(`💡 Plus Code не поддерживается, нужны координаты`);
+        const plusCodeResult = await extractCoordsFromPlusCode(url, q);
+        if (plusCodeResult) {
+          return plusCodeResult;
+        }
       }
     }
 
@@ -200,8 +281,30 @@ function extractCoordsFromExpandedUrl(url: string): ParsedCoordinates | null {
         }
       }
     }
+    
+    // 3) Формат: Закодированные данные (/data=!3d!4d)
+    if (url.includes('/data=') || url.includes('!3d') || url.includes('!4d')) {
+      console.log(`🔍 Обнаружены закодированные данные, пробуем извлечь координаты...`);
+      const encodedCoords = extractCoordsFromEncodedData(url);
+      if (encodedCoords) {
+        return encodedCoords;
+      }
+    }
+    
+    // 4) Формат: Адрес в ?q (требует geocoding)
+    if (q && !q.includes('+')) {
+      console.log(`⚠️ URL содержит адрес вместо координат: "${q}"`);
+      console.log(`💡 Для конвертации адреса в координаты нужен Google Geocoding API`);
+      
+      // Пробуем извлечь из закодированных данных
+      const encodedCoords = extractCoordsFromEncodedData(url);
+      if (encodedCoords) {
+        return encodedCoords;
+      }
+    }
 
     console.log(`⚠️ Координаты не найдены в URL`);
+    console.log(`💡 URL: ${url.substring(0, 150)}...`);
     return null;
   } catch (error) {
     console.error('Ошибка парсинга координат из URL:', error);
@@ -265,7 +368,7 @@ export async function parseGoogleMapsURL(input: string): Promise<ParsedCoordinat
     }
 
     // Пробуем извлечь координаты напрямую из URL (если это уже развернутая ссылка)
-    const urlCoords = extractCoordsFromExpandedUrl(trimmed);
+    const urlCoords = await extractCoordsFromExpandedUrl(trimmed);
     if (urlCoords) {
       return urlCoords;
     }
@@ -280,7 +383,7 @@ export async function parseGoogleMapsURL(input: string): Promise<ParsedCoordinat
         console.log('✅ Развернутый URL:', expandedUrl);
         
         // Пробуем извлечь координаты из развернутого URL
-        const coords = extractCoordsFromExpandedUrl(expandedUrl);
+        const coords = await extractCoordsFromExpandedUrl(expandedUrl);
         if (coords) {
           return coords;
         }
