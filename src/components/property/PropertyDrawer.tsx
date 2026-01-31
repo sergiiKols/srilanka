@@ -56,13 +56,10 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
         setIsHighlighted(markerColor === highlightColor);
     }, [markerColor]);
 
-    // Переключение подсветки
+    // Переключение подсветки (только визуальное состояние кнопки, без изменения цвета маркера)
     const toggleHighlight = () => {
-        const newColor = isHighlighted ? defaultColor : highlightColor;
         setIsHighlighted(!isHighlighted);
-        if (onMarkerColorChange) {
-            onMarkerColorChange(newColor);
-        }
+        // НЕ вызываем onMarkerColorChange - кнопка только для визуального эффекта
     };
 
     // Prevent body scroll when drawer is open
@@ -268,12 +265,14 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                 </div>
                             </div>
 
-                            <div className="prose max-w-none">
-                                <h3 className="text-lg font-bold mb-2 text-slate-800">Description</h3>
-                                <p className="text-slate-600 leading-relaxed text-sm mb-8 whitespace-pre-line">{formatOpeningHours(property.description)}</p>
+                            <div className="space-y-6">
+                                <div>
+                                    <h3 className="text-lg font-bold mb-2 text-slate-800">Description</h3>
+                                    <p className="text-slate-600 leading-relaxed text-sm whitespace-pre-line">{formatOpeningHours(property.description)}</p>
+                                </div>
 
                                 {property.amenities && Array.isArray(property.amenities) && property.amenities.length > 0 && (
-                                    <div className="mt-8">
+                                    <div>
                                         <h3 className="text-lg font-bold mb-3 text-slate-800">Amenities</h3>
                                         <div className="flex gap-2 flex-wrap">
                                             {property.amenities.map(item => (

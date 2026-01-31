@@ -124,7 +124,6 @@ export default function Explorer() {
     const [mapInstance, setMapInstance] = useState<any>(null);
     const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(null);
     const [selectedPropertyPos, setSelectedPropertyPos] = useState<[number, number] | null>(null);
-    const [selectedMarkerColor, setSelectedMarkerColor] = useState<string>('#ef4444'); // Цвет выбранного маркера
     const [activeLayers, setActiveLayers] = useState<string[]>(['stay']); // Show only properties by default - user can enable other POIs via filters
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isImporterOpen, setIsImporterOpen] = useState(false);
@@ -412,7 +411,6 @@ export default function Explorer() {
         if (property) {
             setSelectedPropertyId(id);
             setSelectedPropertyPos(property.position);
-            setSelectedMarkerColor('#ef4444'); // Сброс цвета при выборе нового объекта
         } else {
             // If it's a POI, clear the radius circle
             setSelectedPropertyPos(null);
@@ -422,11 +420,6 @@ export default function Explorer() {
     const handleClose = () => {
         setSelectedPropertyId(null);
         setSelectedPropertyPos(null);
-        setSelectedMarkerColor('#ef4444'); // Сброс цвета при закрытии
-    };
-
-    const handleMarkerColorChange = (color: string) => {
-        setSelectedMarkerColor(color);
     };
 
     const toggleLayer = (layer: string) => {
@@ -580,8 +573,8 @@ export default function Explorer() {
         ...(activeLayers.includes('stay') ? filteredProperties.map(p => ({
             ...p,
             type: 'stay',
-            priceLKR: formatPriceLKR(p.rawPrice),
-            markerColor: p.id === selectedPropertyId ? selectedMarkerColor : '#ef4444' // Применяем цвет к выбранному маркеру
+            priceLKR: formatPriceLKR(p.rawPrice)
+            // markerColor удален - всегда используется стандартный цвет
         })) : []),
         ...filteredPOIs
     ];
@@ -941,8 +934,6 @@ export default function Explorer() {
                 exchangeRate={exchangeRate}
                 onDelete={handleDeleteProperty}
                 isCustomProperty={customProperties.some(p => p.id === selectedPropertyId)}
-                markerColor={selectedMarkerColor}
-                onMarkerColorChange={handleMarkerColorChange}
             />
 
             {/* Property Importer Modal */}

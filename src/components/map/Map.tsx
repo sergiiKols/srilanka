@@ -83,7 +83,7 @@ interface MapProps {
 // Custom icons using Emoji
 const createIcon = (type: string, size: number = 34, showShadow: boolean = false, options?: { waves?: string, is247?: boolean, color?: string }) => {
     const emojis: Record<string, string> = {
-        stay: '🏠',
+        stay: '📍',
         // hotel: '🏨', // ❌ УДАЛЕНО - отели не нужны
         attraction: '⭐', // Включает культуру, храмы, музеи
         beach: '🏖️',

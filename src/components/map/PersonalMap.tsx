@@ -20,7 +20,6 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
   const [error, setError] = useState<string | null>(null);
   const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(null);
   const [selectedPropertyPos, setSelectedPropertyPos] = useState<[number, number] | null>(null);
-  const [selectedMarkerColor, setSelectedMarkerColor] = useState<string>('#ef4444');
 
   // Загрузка данных пользователя
   useEffect(() => {
@@ -71,7 +70,6 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
       description: prop.description,
       address: prop.address || prop.forward_from_chat_title || 'Location',
       phone: prop.contact_phone,
-      markerColor: `prop-${prop.id}` === selectedPropertyId ? selectedMarkerColor : '#ef4444',
     };
   });
 
@@ -114,7 +112,6 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
         markers={markers}
         onMarkerClick={(id) => {
           setSelectedPropertyId(id);
-          setSelectedMarkerColor('#ef4444'); // Сброс цвета при выборе
           const marker = markers.find(m => m.id === id);
           if (marker) {
             setSelectedPropertyPos(marker.position);
@@ -203,10 +200,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
             onClose={() => {
               setSelectedPropertyId(null);
               setSelectedPropertyPos(null);
-              setSelectedMarkerColor('#ef4444'); // Сброс цвета при закрытии
             }}
-            markerColor={selectedMarkerColor}
-            onMarkerColorChange={(color) => setSelectedMarkerColor(color)}
           />
         );
       })()}
