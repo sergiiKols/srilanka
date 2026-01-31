@@ -203,32 +203,35 @@ export const sriLankaCities: Record<string, CityLocation> = {
 /**
  * Региональные fallback координаты
  * Используются если точный город не найден
+ * 
+ * ⚠️ КРИТИЧНО: Координаты должны быть ТОЧНЫМИ!
+ * Неточные reference координаты могут давать смещение до 120 км при декодировании коротких Plus Code!
  */
 export const sriLankaRegions: Record<string, RegionLocation> = {
   'South': { 
-    lat: 6.0, 
-    lng: 80.3, 
-    radius: 100  // Покрывает Galle-Mirissa-Tangalle
+    lat: 6.0535,   // ✅ Galle (центр южного региона, а не океан!)
+    lng: 80.2210,  // ✅ Исправлено с 6.0, 80.3 которые указывали в океан
+    radius: 100    // Покрывает Galle-Mirissa-Tangalle
   },
   'West': { 
-    lat: 6.9, 
-    lng: 79.9, 
-    radius: 100  // Покрывает Colombo-Negombo
+    lat: 6.9271,   // ✅ Colombo (точный центр)
+    lng: 79.8612,  // ✅ Исправлено с 6.9, 79.9
+    radius: 100    // Покрывает Colombo-Negombo
   },
   'Central': { 
-    lat: 7.0, 
-    lng: 80.6, 
-    radius: 150  // Покрывает Kandy-Ella
+    lat: 7.2906,   // ✅ Kandy (точный центр)
+    lng: 80.6337,  // ✅ Исправлено с 7.0, 80.6
+    radius: 150    // Покрывает Kandy-Ella
   },
   'East': { 
-    lat: 7.5, 
-    lng: 81.5, 
-    radius: 150  // Покрывает Trincomalee-Arugam Bay
+    lat: 8.5874,   // ✅ Trincomalee (точный центр)
+    lng: 81.2152,  // ✅ Исправлено с 7.5, 81.5
+    radius: 150    // Покрывает Trincomalee-Arugam Bay
   },
   'North': { 
-    lat: 9.0, 
-    lng: 80.5, 
-    radius: 200  // Покрывает Jaffna
+    lat: 9.6615,   // ✅ Jaffna (точный центр)
+    lng: 80.0255,  // ✅ Исправлено с 9.0, 80.5
+    radius: 200    // Покрывает Jaffna
   },
 };
 
