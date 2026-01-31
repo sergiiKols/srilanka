@@ -126,7 +126,8 @@ export async function analyzeTelegramMessage(
     );
     
     console.log('✅ Groq AI analysis complete');
-    console.log('🔍 DEBUG - aiResult from Groq:', JSON.stringify(aiResult, null, 2));
+    console.log('🔍 DEBUG - aiResult.features from Groq:', JSON.stringify(aiResult.features, null, 2));
+    console.log('🔍 DEBUG - Full aiResult from Groq:', JSON.stringify(aiResult, null, 2));
     
     // Преобразуем результат AI в наш формат
     return {

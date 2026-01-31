@@ -238,7 +238,9 @@ const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
 function getGroqCacheKey(description: string, coordinates?: any): string {
   const coordsStr = coordinates ? `${coordinates.lat},${coordinates.lng}` : '';
-  return `groq:${coordsStr}:${description.slice(0, 100)}`;
+  // Добавляем timestamp для обхода кеша при тестировании
+  const timestamp = process.env.NODE_ENV === 'development' ? Date.now() : '';
+  return `groq:${coordsStr}:${description.slice(0, 100)}:${timestamp}`;
 }
 
 /**
