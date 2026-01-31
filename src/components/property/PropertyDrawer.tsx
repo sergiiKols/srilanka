@@ -183,9 +183,9 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                         </div>
 
                         {/* Content */}
-                        <div className="flex-1 overflow-y-auto px-6 py-4">
+                        <div className="flex-1 overflow-y-auto py-4">
                             {/* Gallery Carousel */}
-                            <div className="relative group mb-6">
+                            <div className="relative group mb-6 px-6">
                                 <div
                                     ref={scrollRef}
                                     className="flex gap-0 overflow-x-auto snap-x snap-mandatory pb-0 bg-slate-100 rounded-xl overflow-hidden"
