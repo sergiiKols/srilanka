@@ -39,6 +39,7 @@ Return ONLY a valid JSON object (no markdown, no explanation) with this exact st
   "rooms": number (bedrooms count, 1 if studio),
   "bathrooms": number,
   "price": number (USD per night, null if not mentioned),
+  "pricePeriod": "night|week|month" (determine from description, default "night"),
   "beachDistance": number (meters to nearest beach, estimate if not exact),
   "wifiSpeed": number (Mbps, 50 if not mentioned but wifi available, 0 if no wifi),
   "amenities": ["Pool", "Parking", "Wifi", "Air Conditioning", "Kitchen", "Garden", "Breakfast", "Hot Water"],

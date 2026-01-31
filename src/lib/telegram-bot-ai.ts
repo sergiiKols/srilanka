@@ -17,6 +17,7 @@ export interface AIAnalysisResult {
   // Основные данные
   title?: string;
   description?: string;
+  cleanDescription?: string;
   type?: string;
   
   // Координаты
@@ -29,10 +30,28 @@ export interface AIAnalysisResult {
   // Характеристики
   price?: number;
   currency?: string;
+  pricePeriod?: string;
   bedrooms?: number;
   bathrooms?: number;
   area?: number;
   amenities?: string[];
+  
+  // Фильтры и удобства
+  features?: {
+    pool?: boolean;
+    parking?: boolean;
+    breakfast?: boolean;
+    airConditioning?: boolean;
+    kitchen?: boolean;
+    petFriendly?: boolean;
+    security?: string;
+    beachfront?: boolean;
+    garden?: boolean;
+  };
+  
+  // Метрики
+  wifiSpeed?: number;
+  beachDistance?: number;
   
   // Контакты
   contact?: {
@@ -110,20 +129,25 @@ export async function analyzeTelegramMessage(
     
     // Преобразуем результат AI в наш формат
     return {
-      title: aiResult.name || aiResult.type || 'Property',
+      title: aiResult.title || aiResult.name || aiResult.type || 'Property',
       description: aiResult.description || text,
-      type: aiResult.type,
+      cleanDescription: aiResult.cleanDescription,
+      type: aiResult.propertyType || aiResult.type,
       coordinates,
       address,
       price: aiResult.price,
-      currency: aiResult.currency,
-      bedrooms: aiResult.bedrooms,
+      currency: aiResult.currency || 'USD',
+      pricePeriod: aiResult.pricePeriod || 'night',
+      bedrooms: aiResult.rooms || aiResult.bedrooms,
       bathrooms: aiResult.bathrooms,
       area: aiResult.area,
       amenities: aiResult.amenities,
+      features: aiResult.features,
+      wifiSpeed: aiResult.wifiSpeed,
+      beachDistance: aiResult.beachDistance,
       contact: aiResult.contact,
       source: 'ai',
-      confidence: 'high',
+      confidence: aiResult.confidence >= 0.8 ? 'high' : aiResult.confidence >= 0.5 ? 'medium' : 'low',
       aiProvider: 'groq'
     };
     
@@ -302,20 +326,45 @@ function safeNumber(value: any): number | null {
 export function formatForDatabase(result: AIAnalysisResult) {
   return {
     title: result.title || result.type || 'Property',
-    description: result.description || null,
+    description: result.cleanDescription || result.description || null,
     latitude: result.coordinates.lat,
     longitude: result.coordinates.lng,
     address: result.address || null,
     property_type: result.type || null,
-    price: safeNumber(result.price),  // ✅ Безопасное преобразование
+    price: safeNumber(result.price),
     currency: result.currency || 'USD',
-    price_period: 'month',
-    bedrooms: safeNumber(result.bedrooms),  // ✅ Проверка на число
-    bathrooms: safeNumber(result.bathrooms),  // ✅ Проверка на число
-    area_sqm: safeNumber(result.area),  // ✅ Проверка на число
-    amenities: result.amenities && Array.isArray(result.amenities) ? JSON.stringify(result.amenities) : null,
+    price_period: result.pricePeriod || 'night',
+    bedrooms: safeNumber(result.bedrooms),
+    bathrooms: safeNumber(result.bathrooms),
+    area_sqm: safeNumber(result.area),
+    
+    // Фильтры из features
+    pool: result.features?.pool || false,
+    parking: result.features?.parking || false,
+    breakfast: result.features?.breakfast || false,
+    air_conditioning: result.features?.airConditioning || false,
+    kitchen: result.features?.kitchen || false,
+    pet_friendly: result.features?.petFriendly || false,
+    security: result.features?.security || 'none',
+    beachfront: result.features?.beachfront || false,
+    garden: result.features?.garden || false,
+    
+    // Метрики
+    wifi_speed: safeNumber(result.wifiSpeed) || null,
+    beach_distance: safeNumber(result.beachDistance) || null,
+    area_name: result.area || null,
+    
+    // Amenities как массив (не строка)
+    amenities: result.amenities && Array.isArray(result.amenities) 
+      ? result.amenities 
+      : null,
+    
     contact_phone: result.contact?.phone || null,
-    contact_name: result.contact?.name || null
+    contact_name: result.contact?.name || null,
+    
+    // Метаданные AI
+    confidence: result.confidence || 'medium',
+    ai_provider: result.aiProvider || 'groq'
   };
 }
 
