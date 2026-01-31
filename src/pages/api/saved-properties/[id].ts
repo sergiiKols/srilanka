@@ -36,25 +36,87 @@ export const DELETE: APIRoute = async ({ params, request }) => {
     }
 
     // Archive logic in TypeScript (no SQL function needed)
-    console.log('📦 Archiving property in TypeScript...');
+    console.log(`📦 Archiving property in TypeScript... ID: ${id}, UserID: ${userId}`);
     
-    // Get full property data with owner check
+    // First check if property exists at all (without user check)
+    const { data: existsCheck, error: existsError } = await supabase
+      .from('saved_properties')
+      .select('id, telegram_user_id')
+      .eq('id', id)
+      .maybeSingle();
+    
+    if (existsError) {
+      console.error('❌ Error checking property existence:', existsError);
+      return new Response(JSON.stringify({ 
+        error: 'Database error',
+        details: existsError.message
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    if (!existsCheck) {
+      console.warn('⚠️ Property not found in database (already deleted?):', id);
+      // Check if it's already archived
+      const { data: archivedCheck } = await supabase
+        .from('archived_properties')
+        .select('id, archived_at')
+        .eq('id', id)
+        .maybeSingle();
+      
+      if (archivedCheck) {
+        console.log('✅ Property already archived:', archivedCheck);
+        return new Response(JSON.stringify({ 
+          success: true,
+          archived: true,
+          message: 'Property already archived',
+          alreadyArchived: true
+        }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      
+      return new Response(JSON.stringify({ 
+        error: 'Property not found',
+        message: 'Property does not exist'
+      }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Check ownership
+    if (existsCheck.telegram_user_id !== parseInt(userId)) {
+      console.error('❌ Unauthorized delete attempt:', {
+        propertyId: id,
+        propertyOwner: existsCheck.telegram_user_id,
+        requestUser: userId
+      });
+      return new Response(JSON.stringify({ 
+        error: 'Unauthorized',
+        message: 'You do not own this property'
+      }), {
+        status: 403,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Get full property data
     const { data: fullProperty, error: fullFetchError } = await supabase
       .from('saved_properties')
       .select('*')
       .eq('id', id)
-      .eq('telegram_user_id', parseInt(userId))
       .single();
 
     if (fullFetchError || !fullProperty) {
-      console.error('❌ Property not found or unauthorized:', fullFetchError);
+      console.error('❌ Property fetch error:', fullFetchError);
       return new Response(JSON.stringify({ 
-        error: 'Property not found',
-        code: 'PGRST116',
-        details: 'The result contains 0 rows',
-        message: 'Cannot coerce the result to a single JSON object'
+        error: 'Property fetch failed',
+        details: fullFetchError?.message
       }), {
-        status: 404,
+        status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }

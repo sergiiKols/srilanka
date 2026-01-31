@@ -203,14 +203,23 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
                   method: 'DELETE'
                 });
 
-                if (!response.ok) {
-                  const error = await response.json();
-                  console.error('❌ Failed to delete property:', error);
-                  alert('Ошибка при удалении. Попробуйте ещё раз.');
-                  return;
-                }
-
                 const result = await response.json();
+                console.log('📄 Server response:', result);
+
+                if (!response.ok) {
+                  console.error('❌ Failed to delete property:', result);
+                  
+                  // Если объект уже архивирован - это не ошибка
+                  if (result.alreadyArchived) {
+                    console.log('ℹ️ Property was already archived, removing from UI');
+                  } else {
+                    // Показываем конкретную ошибку
+                    const errorMsg = result.message || result.error || 'Ошибка при удалении';
+                    alert(errorMsg);
+                    return;
+                  }
+                }
+                
                 console.log('✅ Property deleted from database:', result);
                 
                 // Закрываем drawer СРАЗУ
@@ -228,7 +237,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
                 
               } catch (error) {
                 console.error('❌ Error deleting property:', error);
-                alert('Ошибка при удалении. Попробуйте ещё раз.');
+                alert('Ошибка сети. Проверьте подключение к интернету.');
               }
             }}
             onClose={() => {
