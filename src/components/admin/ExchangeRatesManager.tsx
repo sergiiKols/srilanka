@@ -126,13 +126,17 @@ export default function ExchangeRatesManager() {
     try {
       console.log('🔄 Manually triggering exchange rates update...');
 
+      // Получаем URL и ключ из конфигурации Supabase
+      const supabaseUrl = (supabase as any).supabaseUrl;
+      const supabaseKey = (supabase as any).supabaseKey;
+
       // Вызываем Edge Function
       const response = await fetch(
-        `${import.meta.env.PUBLIC_SUPABASE_URL}/functions/v1/update-exchange-rates`,
+        `${supabaseUrl}/functions/v1/update-exchange-rates`,
         {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${import.meta.env.PUBLIC_SUPABASE_ANON_KEY}`,
+            'Authorization': `Bearer ${supabaseKey}`,
             'Content-Type': 'application/json',
           },
         }
