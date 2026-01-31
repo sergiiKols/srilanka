@@ -189,13 +189,35 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
             exchangeRate={400}
             isCustomProperty={true}
             userId={userId}
-            onDelete={(propertyId) => {
+            onDelete={async (propertyId) => {
               console.log('🗑️ Deleting property:', propertyId);
-              // Удаляем из локального state (propertyId - это UUID без префикса)
-              setProperties(prev => prev.filter(p => p.id !== propertyId));
-              setSelectedPropertyId(null);
-              setSelectedPropertyPos(null);
-              console.log('✅ Property removed from state');
+              
+              try {
+                // Вызываем API для удаления/архивирования
+                const response = await fetch(`/api/saved-properties/${propertyId}?userId=${userId}`, {
+                  method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                  const error = await response.json();
+                  console.error('❌ Failed to delete property:', error);
+                  alert('Failed to delete property. Please try again.');
+                  return;
+                }
+
+                const result = await response.json();
+                console.log('✅ Property deleted from database:', result);
+                
+                // Удаляем из локального state
+                setProperties(prev => prev.filter(p => p.id !== propertyId));
+                setSelectedPropertyId(null);
+                setSelectedPropertyPos(null);
+                
+                console.log('✅ Property removed from map');
+              } catch (error) {
+                console.error('❌ Error deleting property:', error);
+                alert('Failed to delete property. Please try again.');
+              }
             }}
             onClose={() => {
               setSelectedPropertyId(null);

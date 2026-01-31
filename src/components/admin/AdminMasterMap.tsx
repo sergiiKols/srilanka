@@ -153,6 +153,7 @@ export default function AdminMasterMap() {
     const loadArchivedProperties = async () => {
         try {
             console.log('📦 Загружаем архивные объекты из archived_properties');
+            console.log('📊 Фильтры:', { dateFilter, selectedUser, showArchived });
 
             let query = supabase
                 .from('archived_properties')
@@ -191,7 +192,13 @@ export default function AdminMasterMap() {
 
             if (error) {
                 console.error('❌ Ошибка загрузки архивных объектов:', error);
+                console.error('❌ Детали ошибки:', JSON.stringify(error, null, 2));
                 return;
+            }
+
+            console.log(`📦 Получено из базы: ${data?.length || 0} архивных объектов`);
+            if (data && data.length > 0) {
+                console.log('📦 Первый объект:', data[0]);
             }
 
             const mappedArchived = (data || []).map((prop: any) => {
@@ -1167,7 +1174,7 @@ export default function AdminMasterMap() {
                             className="w-4 h-4 text-indigo-600 rounded"
                         />
                         <span className="text-sm font-medium text-slate-700">
-                            📦 Show Archived ({archivedProperties.length})
+                            Show Archived ({archivedProperties.length})
                         </span>
                     </label>
 
