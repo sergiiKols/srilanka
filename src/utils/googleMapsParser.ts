@@ -282,6 +282,77 @@ async function geocodeCity(cityName: string): Promise<{lat: number, lng: number}
 }
 
 /**
+ * Декодирует Plus Code через Perplexity AI (для коротких кодов)
+ */
+async function decodePlusCodeWithAI(
+  plusCode: string,
+  cityName: string | null
+): Promise<ParsedCoordinates | null> {
+  try {
+    console.log(`🤖 Используем Perplexity AI для декодирования короткого Plus Code: ${plusCode}`);
+    
+    const { expandShortUrlWithAI } = await import('../services/perplexityService');
+    
+    // Создаем запрос для AI
+    const location = cityName ? `${cityName}, Sri Lanka` : 'Sri Lanka';
+    const prompt = `What are the exact GPS coordinates (latitude, longitude) for Google Maps Plus Code "${plusCode}" in ${location}?
+
+Return ONLY the coordinates in this format: lat,lng
+Example: 5.9476,80.4963
+
+Do not add any explanation, just the numbers.`;
+    
+    // Используем существующий метод (но модифицируем для Plus Code)
+    const API_KEY = import.meta.env.PERPLEXITY_API_KEY || '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';
+    const API_URL = 'https://api.perplexity.ai/chat/completions';
+    
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'sonar',
+        messages: [{
+          role: 'user',
+          content: prompt
+        }],
+        temperature: 0.2,
+        max_tokens: 100
+      })
+    });
+    
+    if (!response.ok) {
+      console.warn(`⚠️ Perplexity API вернул ошибку: ${response.status}`);
+      return null;
+    }
+    
+    const data = await response.json();
+    const answer = data.choices[0].message.content.trim();
+    
+    console.log(`🤖 AI ответ: "${answer}"`);
+    
+    // Извлекаем координаты
+    const coordMatch = answer.match(/(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)/);
+    
+    if (coordMatch) {
+      const lat = parseFloat(coordMatch[1]);
+      const lng = parseFloat(coordMatch[2]);
+      console.log(`✅ Perplexity AI декодировал Plus Code: ${lat}, ${lng}`);
+      return { lat, lng };
+    }
+    
+    console.warn(`⚠️ Не удалось извлечь координаты из ответа AI`);
+    return null;
+    
+  } catch (error) {
+    console.error('❌ Ошибка Perplexity AI:', error);
+    return null;
+  }
+}
+
+/**
  * Декодирует Plus Code в координаты
  * Использует базу городов Шри-Ланки для reference координат
  */
@@ -309,8 +380,25 @@ async function decodePlusCode(
       };
     }
     
-    // Короткий код - нужны reference координаты
-    console.log(`⚠️ Короткий Plus Code, нужны reference координаты`);
+    // Короткий код - проверяем длину
+    const codeLength = plusCode.replace('+', '').length;
+    console.log(`⚠️ Короткий Plus Code (${codeLength} символов)`);
+    
+    // Если код ОЧЕНЬ короткий (≤8 символов), используем Perplexity AI
+    if (codeLength <= 8) {
+      console.log(`🤖 Код слишком короткий (≤8 символов), используем Perplexity AI...`);
+      const aiResult = await decodePlusCodeWithAI(plusCode, cityName);
+      
+      if (aiResult) {
+        console.log(`✅ Perplexity AI успешно декодировал короткий Plus Code`);
+        return aiResult;
+      }
+      
+      console.warn(`⚠️ Perplexity AI не сработал, используем fallback с базой городов`);
+    }
+    
+    // Fallback: используем базу городов для reference координат
+    console.log(`🗺️ Используем базу городов для reference координат`);
     
     let refLat: number;
     let refLng: number;
