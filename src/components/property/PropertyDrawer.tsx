@@ -117,7 +117,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                 {property ? (
                     <div className="h-full flex flex-col">
                         {/* Header */}
-                        <div className="p-4 border-b flex justify-between items-center bg-white sticky top-0 z-10">
+                        <div className="px-6 py-4 border-b flex justify-between items-center bg-white sticky top-0 z-10">
                             <div>
                                 <h2 className="text-xl font-bold">{property.title}</h2>
                                 <p className="text-xs text-slate-500">{property.area} • {property.propertyType}</p>
@@ -139,7 +139,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                         </div>
 
                         {/* Content */}
-                        <div className="flex-1 overflow-y-auto p-4">
+                        <div className="flex-1 overflow-y-auto px-6 py-4">
                             {/* Gallery Carousel */}
                             <div className="relative group mb-6">
                                 <div
@@ -239,7 +239,7 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                         </div>
 
                         {/* Footer Action */}
-                        <div className="p-4 border-t bg-slate-50 space-y-3">
+                        <div className="px-6 py-4 border-t bg-slate-50 space-y-3">
                             {isCustomProperty && userId ? (
                                 showDeleteConfirm ? (
                                     // Confirmation state
