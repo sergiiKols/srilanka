@@ -39,15 +39,10 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
 
       const { data } = await response.json();
       
-      // ⚠️ Фильтруем старые объекты с deleted_at (legacy защита)
-      // После миграции все удаленные объекты должны быть в archived_properties
-      const activeProperties = (data || []).filter((prop: any) => !prop.deleted_at);
-      
-      setProperties(activeProperties);
-      console.log(`✅ Loaded ${activeProperties.length} active properties for user ${userId}`);
-      if (data && data.length > activeProperties.length) {
-        console.warn(`⚠️ Filtered out ${data.length - activeProperties.length} legacy deleted properties`);
-      }
+      // saved_properties содержит ТОЛЬКО активные объекты
+      // Удалённые объекты автоматически перемещаются в archived_properties
+      setProperties(data || []);
+      console.log(`✅ Loaded ${data?.length || 0} properties for user ${userId}`);
     } catch (err) {
       console.error('Error loading properties:', err);
       setError('Failed to load your properties. Please try again.');
