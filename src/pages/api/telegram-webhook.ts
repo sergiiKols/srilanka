@@ -12,6 +12,7 @@ import { getOrCreateTenant, saveProperty, checkDuplicate } from '@/lib/tenant-bo
 import { parseForwardMetadata } from '@/lib/telegram-forward-parser';
 import { analyzeWithFallback, logAIResult, formatForDatabase } from '@/lib/telegram-bot-ai';
 import { uploadTelegramPhotos, getBestQualityPhoto } from '@/lib/telegram-photo-uploader';
+import { saveTelegramVideo, formatVideoDuration, formatVideoSize } from '@/lib/telegram-video-uploader';
 import { extractGoogleMapsUrl, formatSuccessMessage, generateUUID } from '@/lib/tenant-bot-utils';
 
 /**
@@ -24,6 +25,8 @@ interface UserSession {
     photos?: string[];
     photoFileIds?: string[];
     photoObjects?: any[]; // Telegram photo objects для загрузки
+    videoObject?: any; // Telegram video object для загрузки
+    videoUrl?: string; // URL видео после загрузки на TeraBox
     latitude?: number;
     longitude?: number;
     description?: string;
@@ -442,6 +445,20 @@ async function collectMessageToSession(message: any) {
       console.log(`📸 Added photo to session (${session.tempData.photoObjects.length} total)`);
     }
     
+    // 🎬 Обрабатываем ВИДЕО
+    if (message.video) {
+      session.tempData.videoObject = message.video;
+      const duration = formatVideoDuration(message.video.duration);
+      const size = message.video.file_size ? formatVideoSize(message.video.file_size) : 'unknown';
+      console.log(`🎬 Added video to session: ${duration}, ${size}`);
+      
+      await sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: `🎬 Видео получено!\n\n⏱️ Длительность: ${duration}\n📦 Размер: ${size}\n\n⏳ Видео будет загружено на TeraBox при сохранении объекта...`
+      });
+    }
+    
     // Обрабатываем локацию
     if (message.location) {
       session.tempData.latitude = message.location.latitude;
@@ -477,6 +494,7 @@ async function collectMessageToSession(message: any) {
     // ✅ ВАЖНО: После сбора данных всегда показываем статус
     // Проверяем что есть хотя бы что-то для показа
     const hasAnything = session.tempData.photoObjects?.length > 0 
+      || session.tempData.videoObject
       || session.tempData.latitude 
       || session.tempData.googleMapsUrl
       || session.tempData.description;
@@ -503,6 +521,8 @@ async function sendStatusUpdate(
   const data = session.tempData;
   
   const photoCount = data.photoObjects?.length || 0;
+  const hasVideo = !!data.videoObject;
+  const hasVisualContent = photoCount > 0 || hasVideo; // 🎬 Фото ИЛИ Видео
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
   const hasDescription = !!(data.description && data.description.trim());
   
@@ -519,13 +539,20 @@ async function sendStatusUpdate(
   
   // Общий статус
   message += '📦 Что уже загружено:\n';
-  message += photoCount > 0 ? `✅ Фото: ${photoCount} шт.\n` : `❌ Фото: нет\n`;
+  if (photoCount > 0) {
+    message += `✅ Фото: ${photoCount} шт.\n`;
+  } else {
+    message += `${hasVideo ? '⚠️' : '❌'} Фото: нет\n`;
+  }
+  if (hasVideo) {
+    message += `✅ Видео: есть\n`;
+  }
   message += hasLocation ? `✅ Геолокация: есть\n` : `❌ Геолокация: нет\n`;
   message += hasDescription ? `✅ Описание: есть\n` : `❌ Описание: нет\n`;
   
   let buttons: any[][] = [];
   
-  if (hasLocation && photoCount > 0 && hasDescription) {
+  if (hasLocation && hasVisualContent && hasDescription) {
     // ВСЁ ГОТОВО!
     message += '\n🎉 Всё готово для размещения!';
     buttons = [
@@ -535,7 +562,7 @@ async function sendStatusUpdate(
   } else {
     // Подсказка что ещё нужно
     message += '\n📝 Чего не хватает:\n';
-    if (photoCount === 0) message += '• Отправьте фото\n';
+    if (!hasVisualContent) message += '• Отправьте фото или видео\n';
     if (!hasLocation) message += '• Отправьте геолокацию (📎 → Location) или Google Maps ссылку\n';
     if (!hasDescription) message += '• Добавьте описание\n';
     
@@ -1027,6 +1054,39 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       console.log('⏭️ No photos to upload');
     }
     
+    // 🎬 5.5. Сохранение ВИДЕО в Telegram Storage
+    let videoFileId: string | undefined;
+    let videoThumbnailFileId: string | undefined;
+    if (data.videoObject) {
+      console.log('🎬 Step 5.5: Saving video to Telegram Storage...');
+      const videoResult = await saveTelegramVideo(
+        botToken,
+        data.videoObject,
+        userId,
+        propertyId
+      );
+      
+      if (videoResult.success && videoResult.teraboxUrl) {
+        videoFileId = videoResult.teraboxUrl; // Это file_id
+        videoThumbnailFileId = videoResult.thumbnailUrl; // Это thumbnail file_id
+        console.log(`✅ Video saved to Telegram Storage: ${videoFileId}`);
+        
+        // Отправляем уведомление пользователю
+        await sendTelegramMessage({
+          botToken,
+          chatId: chatId.toString(),
+          text: `✅ Видео сохранено!\n📦 Размер: ${formatVideoSize(videoResult.fileSize || 0)}\n⏱️ Длительность: ${formatVideoDuration(videoResult.duration || 0)}\n\n💡 Видео хранится на серверах Telegram бесплатно!`
+        });
+      } else {
+        console.error(`❌ Video save failed: ${videoResult.error}`);
+        await sendTelegramMessage({
+          botToken,
+          chatId: chatId.toString(),
+          text: `⚠️ Не удалось сохранить видео: ${videoResult.error}`
+        });
+      }
+    }
+    
     // 6. Подготовка данных
     console.log('📦 Step 6: Preparing property data...');
     const propertyData = {
@@ -1035,6 +1095,8 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       latitude,
       longitude,
       photos: photoUrls,
+      video_url: videoFileId, // 🎬 Сохраняем file_id видео
+      video_thumbnail_url: videoThumbnailFileId, // 🎬 Сохраняем file_id thumbnail
       description: data.description || aiResult?.description,
       raw_text: data.description,
       google_maps_url: data.googleMapsUrl,
@@ -1184,8 +1246,10 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
   const data = session.tempData;
   
-  // Формируем превью со статусом всех 3 компонентов
+  // Формируем превью со статусом всех компонентов
   const photoCount = data.photoObjects?.length || 0;
+  const hasVideo = !!data.videoObject;
+  const hasVisualContent = photoCount > 0 || hasVideo; // 🎬 Фото ИЛИ Видео
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
   const hasDescription = !!(data.description && data.description.trim());
   
@@ -1199,29 +1263,36 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     preview += '❌ Геолокация: НЕТ (обязательно!)\n';
   }
   
-  // Фото (желательно)
+  // Фото (опционально, если есть видео)
   if (photoCount > 0) {
     preview += `✅ Фото: ${photoCount} шт.\n`;
+  } else if (hasVideo) {
+    preview += '⚠️ Фото: нет (но есть видео)\n';
   } else {
-    preview += '⚠️ Фото: нет (рекомендуется добавить)\n';
+    preview += '❌ Фото: нет\n';
   }
   
-  // Описание (желательно)
+  // 🎬 Видео (опционально)
+  if (hasVideo) {
+    preview += '✅ Видео: есть\n';
+  }
+  
+  // Описание (обязательно)
   if (hasDescription) {
     const shortDesc = data.description.length > 50 
       ? data.description.substring(0, 50) + '...' 
       : data.description;
     preview += `✅ Описание: ${shortDesc}\n`;
   } else {
-    preview += '⚠️ Описание: нет (рекомендуется добавить)\n';
+    preview += '❌ Описание: нет (обязательно!)\n';
   }
   
   preview += '\n';
   
-  // Кнопка ТОЛЬКО если есть ГЕО + ФОТО + ОПИСАНИЕ
+  // Кнопка ТОЛЬКО если есть ГЕО + (ФОТО ИЛИ ВИДЕО) + ОПИСАНИЕ
   let buttons: any[][] = [];
   
-  if (hasLocation && photoCount > 0 && hasDescription) {
+  if (hasLocation && hasVisualContent && hasDescription) {
     // ✅ Всё есть - можно сохранять
     preview += '✅ Все данные собраны!\n\nСохранить объект?';
     buttons = [
@@ -1233,20 +1304,20 @@ async function showSessionPreview(chatId: number, session: UserSession) {
         { text: 'Добавить ещё', callback_data: 'session_continue' }
       ]
     ];
-  } else if (hasLocation) {
-    // Есть гео, но не хватает фото или описания
-    preview += '⚠️ Можно сохранить, но рекомендуется добавить недостающее';
+  } else if (hasLocation && hasVisualContent) {
+    // Есть гео и визуал, но нет описания
+    preview += '❌ Не хватает описания (обязательно!)';
     buttons = [
       [
-        { text: 'Сохранить как есть', callback_data: 'session_save' }
-      ],
-      [
-        { text: 'Добавить данные', callback_data: 'session_continue' }
+        { text: 'Добавить описание', callback_data: 'session_continue' }
       ]
     ];
   } else {
-    // Нет гео - сохранение невозможно
-    preview += '❌ Сохранение невозможно без геолокации\n\nДобавьте:\n• Геолокацию (📎 → Location)\n• Или Google Maps ссылку';
+    // Нет гео или визуального контента
+    preview += '❌ Сохранение невозможно\n\nДобавьте:\n';
+    if (!hasLocation) preview += '• Геолокацию (📎 → Location) или Google Maps ссылку\n';
+    if (!hasVisualContent) preview += '• Фото или видео\n';
+    if (!hasDescription) preview += '• Описание\n';
     // Кнопок нет
   }
   
@@ -1292,11 +1363,13 @@ async function showValidationStatus(chatId: number, session: UserSession, botTok
   
   // Считаем что есть
   const photoCount = data.photoObjects?.length || 0;
+  const hasVideo = !!data.videoObject;
+  const hasVisualContent = photoCount > 0 || hasVideo; // 🎬 Фото ИЛИ Видео
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
   const hasDescription = !!(data.description && data.description.trim());
   
   // Проверка: всё ли готово?
-  const isReady = hasLocation && photoCount > 0 && hasDescription;
+  const isReady = hasLocation && hasVisualContent && hasDescription; // 🎬 Обновлено
   
   // Формируем сообщение
   let message = '📦 Статус объекта:\n\n';

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { formatOpeningHours } from '../../utils/formatOpeningHours';
+import VideoPlayer from '../VideoPlayer';
 
 /**
  * Оптимизация URL изображения для быстрой загрузки
@@ -17,6 +18,10 @@ interface Property {
     pricePeriod?: 'night' | 'day' | 'week' | 'month'; // ✅ Добавлено
     description: string;
     images: string[];
+    video_url?: string; // 🎬 file_id видео из Telegram
+    video_thumbnail_url?: string; // 🎬 file_id thumbnail
+    video_duration?: number; // 🎬 Длительность в секундах
+    video_size?: number; // 🎬 Размер в байтах
     amenities?: string[];
     bathrooms?: number;
     beachDistance?: number;
@@ -218,6 +223,22 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                     className="flex gap-0 overflow-x-auto snap-x snap-mandatory pb-0 bg-slate-100 rounded-xl overflow-hidden"
                                     style={{ scrollbarWidth: 'none', height: '300px' }}
                                 >
+                                    {/* 🎬 Видео (если есть) */}
+                                    {property.video_url && (
+                                        <div className="flex-shrink-0 w-full h-full snap-center relative bg-black">
+                                            <VideoPlayer
+                                                fileId={property.video_url}
+                                                thumbnailFileId={property.video_thumbnail_url}
+                                                width={800}
+                                                height={300}
+                                            />
+                                            <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+                                                🎬 ВИДЕО
+                                            </div>
+                                        </div>
+                                    )}
+                                    
+                                    {/* Фотографии */}
                                     {(property.images || []).map((img, index) => (
                                         <div key={index} className="flex-shrink-0 w-full h-full snap-center relative">
                                             <img 
@@ -287,13 +308,13 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                                 );
                                             })()}
                                             <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs backdrop-blur-sm">
-                                                {index + 1} / {(property.images || []).length}
+                                                {(property.video_url ? 1 : 0) + index + 1} / {(property.video_url ? 1 : 0) + (property.images || []).length}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
 
-                                {(property.images || []).length > 1 && (
+                                {((property.video_url ? 1 : 0) + (property.images || []).length) > 1 && (
                                     <>
                                         <button
                                             onClick={() => scroll('left')}
