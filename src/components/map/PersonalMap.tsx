@@ -51,6 +51,15 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
     }
   };
 
+  // Найти последний добавленный объект (самый свежий по created_at)
+  const newestPropertyId = properties.length > 0 
+    ? properties.reduce((newest, prop) => {
+        const newestDate = new Date(newest.created_at);
+        const propDate = new Date(prop.created_at);
+        return propDate > newestDate ? prop : newest;
+      }).id
+    : null;
+
   // Преобразование данных в формат маркеров
   const markers = properties
     .filter(prop => {
@@ -82,6 +91,9 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
         images = prop.photos.split(/[\s,]+/).filter(url => url.trim());
       }
 
+      // ✅ Последний добавленный объект выделяем ярким цветом
+      const isNewest = prop.id === newestPropertyId;
+
       return {
         id: `prop-${prop.id}`,
         position: [prop.latitude, prop.longitude] as [number, number],
@@ -93,8 +105,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
         description: prop.description,
         address: prop.address || prop.forward_from_chat_title || 'Location',
         phone: prop.contact_phone,
-        // ❌ УБРАЛИ markerColor - теперь все маркеры белые (по умолчанию)
-        // markerColor: '#ef4444' - красная подсветка ОТКЛЮЧЕНА
+        markerColor: isNewest ? '#10b981' : 'white', // 🟢 Зелёный для нового, белый для остальных
       };
     });
 
