@@ -99,10 +99,24 @@ export async function analyzeTelegramMessage(
       const parsed = await parseGoogleMapsURL(googleMapsUrl);
       
       if (parsed && parsed.lat && parsed.lng) {
-        coordinates = { lat: parsed.lat, lng: parsed.lng };
-        address = parsed.address || address;
-        console.log('✅ Coordinates extracted:', coordinates);
-        console.log('📍 Address:', address);
+        // ✅ ВАЛИДАЦИЯ: Проверяем что координаты в Шри-Ланке
+        const isInSriLanka = parsed.lat >= 5.9 && parsed.lat <= 9.9 && 
+                            parsed.lng >= 79.5 && parsed.lng <= 81.9;
+        
+        if (isInSriLanka) {
+          coordinates = { lat: parsed.lat, lng: parsed.lng };
+          address = parsed.address || address;
+          console.log('✅ Coordinates extracted and validated (Sri Lanka):', coordinates);
+          console.log('📍 Address:', address);
+        } else {
+          console.error('❌ INVALID COORDINATES - Outside Sri Lanka!', {
+            lat: parsed.lat,
+            lng: parsed.lng,
+            url: googleMapsUrl
+          });
+          console.error('⚠️ Using default coordinates. Please provide FULL Google Maps URL.');
+          console.error('💡 Example: https://www.google.com/maps/place/@6.0094617,80.2671223,17z');
+        }
       } else {
         console.warn('⚠️ Failed to parse Google Maps URL, using default');
       }
