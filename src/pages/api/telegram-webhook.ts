@@ -551,8 +551,8 @@ async function sendStatusUpdate(
   const data = session.tempData;
   
   const photoCount = data.photoObjects?.length || 0;
-  const hasVideo = !!data.videoObject;
-  const hasVisualContent = photoCount > 0 || hasVideo; // 🎬 Фото ИЛИ Видео
+  const videoCount = data.videoObjects?.length || 0;
+  const hasVisualContent = photoCount > 0 || videoCount > 0; // 🎬 Фото ИЛИ Видео
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
   const hasDescription = !!(data.description && data.description.trim());
   
@@ -1084,37 +1084,42 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       console.log('⏭️ No photos to upload');
     }
     
-    // 🎬 5.5. Сохранение ВИДЕО в Telegram Storage
-    let videoFileId: string | undefined;
-    let videoThumbnailFileId: string | undefined;
-    if (data.videoObject) {
-      console.log('🎬 Step 5.5: Saving video to Telegram Storage...');
-      const videoResult = await saveTelegramVideo(
-        botToken,
-        data.videoObject,
-        userId,
-        propertyId
-      );
+    // 🎬 5.5. Сохранение ВСЕХ ВИДЕО в Telegram Storage
+    const videos: Array<{ file_id: string; thumbnail_id?: string; duration: number; size: number }> = [];
+    
+    if (data.videoObjects && data.videoObjects.length > 0) {
+      console.log(`🎬 Step 5.5: Saving ${data.videoObjects.length} videos to Telegram Storage...`);
       
-      if (videoResult.success && videoResult.teraboxUrl) {
-        videoFileId = videoResult.teraboxUrl; // Это file_id
-        videoThumbnailFileId = videoResult.thumbnailUrl; // Это thumbnail file_id
-        console.log(`✅ Video saved to Telegram Storage: ${videoFileId}`);
+      for (let i = 0; i < data.videoObjects.length; i++) {
+        const videoObj = data.videoObjects[i];
+        console.log(`🎬 Processing video ${i + 1}/${data.videoObjects.length}...`);
         
-        // Отправляем уведомление пользователю
-        await sendTelegramMessage({
+        const videoResult = await saveTelegramVideo(
           botToken,
-          chatId: chatId.toString(),
-          text: `✅ Видео сохранено!\n📦 Размер: ${formatVideoSize(videoResult.fileSize || 0)}\n⏱️ Длительность: ${formatVideoDuration(videoResult.duration || 0)}\n\n💡 Видео хранится на серверах Telegram бесплатно!`
-        });
-      } else {
-        console.error(`❌ Video save failed: ${videoResult.error}`);
-        await sendTelegramMessage({
-          botToken,
-          chatId: chatId.toString(),
-          text: `⚠️ Не удалось сохранить видео: ${videoResult.error}`
-        });
+          videoObj,
+          userId,
+          propertyId
+        );
+        
+        if (videoResult.success && videoResult.teraboxUrl) {
+          videos.push({
+            file_id: videoResult.teraboxUrl, // Это file_id
+            thumbnail_id: videoResult.thumbnailUrl, // Это thumbnail file_id
+            duration: videoResult.duration || 0,
+            size: videoResult.fileSize || 0
+          });
+          console.log(`✅ Video ${i + 1} saved: ${videoResult.teraboxUrl}`);
+        } else {
+          console.error(`❌ Video ${i + 1} save failed: ${videoResult.error}`);
+        }
       }
+      
+      // Отправляем итоговое уведомление
+      await sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: `✅ Сохранено ${videos.length} из ${data.videoObjects.length} видео!\n\n💡 Видео хранятся на серверах Telegram бесплатно!`
+      });
     }
     
     // 6. Подготовка данных
@@ -1278,8 +1283,8 @@ async function showSessionPreview(chatId: number, session: UserSession) {
   
   // Формируем превью со статусом всех компонентов
   const photoCount = data.photoObjects?.length || 0;
-  const hasVideo = !!data.videoObject;
-  const hasVisualContent = photoCount > 0 || hasVideo; // 🎬 Фото ИЛИ Видео
+  const videoCount = data.videoObjects?.length || 0;
+  const hasVisualContent = photoCount > 0 || videoCount > 0; // 🎬 Фото ИЛИ Видео
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
   const hasDescription = !!(data.description && data.description.trim());
   
