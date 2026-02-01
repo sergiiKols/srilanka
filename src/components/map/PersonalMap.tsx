@@ -52,31 +52,51 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
   };
 
   // Преобразование данных в формат маркеров
-  const markers = properties.map(prop => {
-    // Обработка photos - может быть массивом, строкой или null
-    let images: string[] = [];
-    if (Array.isArray(prop.photos)) {
-      images = prop.photos;
-    } else if (typeof prop.photos === 'string' && prop.photos) {
-      // Если строка - разбиваем по пробелам или запятым
-      images = prop.photos.split(/[\s,]+/).filter(url => url.trim());
-    }
+  const markers = properties
+    .filter(prop => {
+      // ✅ Фильтруем объекты без валидных координат
+      const hasValidCoords = 
+        prop.latitude !== null && 
+        prop.latitude !== undefined && 
+        prop.longitude !== null && 
+        prop.longitude !== undefined &&
+        !isNaN(prop.latitude) &&
+        !isNaN(prop.longitude);
+      
+      if (!hasValidCoords) {
+        console.warn(`⚠️ Skipping property ${prop.id} - invalid coordinates:`, {
+          lat: prop.latitude,
+          lng: prop.longitude
+        });
+      }
+      
+      return hasValidCoords;
+    })
+    .map(prop => {
+      // Обработка photos - может быть массивом, строкой или null
+      let images: string[] = [];
+      if (Array.isArray(prop.photos)) {
+        images = prop.photos;
+      } else if (typeof prop.photos === 'string' && prop.photos) {
+        // Если строка - разбиваем по пробелам или запятым
+        images = prop.photos.split(/[\s,]+/).filter(url => url.trim());
+      }
 
-    return {
-      id: `prop-${prop.id}`,
-      position: [prop.latitude, prop.longitude] as [number, number],
-      title: prop.title || prop.property_type || 'Property',
-      type: 'stay' as const,
-      price: prop.price ? `${prop.currency || 'USD'} ${prop.price}` : undefined,
-      pricePeriod: prop.price_period, // ✅ Передаём период цены
-      images: images,
-      description: prop.description,
-      address: prop.address || prop.forward_from_chat_title || 'Location',
-      phone: prop.contact_phone,
-      // ❌ УБРАЛИ markerColor - теперь все маркеры белые (по умолчанию)
-      // markerColor: '#ef4444' - красная подсветка ОТКЛЮЧЕНА
-    };
-  });
+      return {
+        id: `prop-${prop.id}`,
+        position: [prop.latitude, prop.longitude] as [number, number],
+        title: prop.title || prop.property_type || 'Property',
+        type: 'stay' as const,
+        price: prop.price ? `${prop.currency || 'USD'} ${prop.price}` : undefined,
+        pricePeriod: prop.price_period, // ✅ Передаём период цены
+        images: images,
+        description: prop.description,
+        address: prop.address || prop.forward_from_chat_title || 'Location',
+        phone: prop.contact_phone,
+        // ❌ УБРАЛИ markerColor - теперь все маркеры белые (по умолчанию)
+        // markerColor: '#ef4444' - красная подсветка ОТКЛЮЧЕНА
+      };
+    });
 
   if (loading) {
     return (
