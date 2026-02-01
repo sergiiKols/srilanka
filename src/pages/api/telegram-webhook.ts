@@ -524,7 +524,7 @@ async function collectMessageToSession(message: any) {
     // ✅ ВАЖНО: После сбора данных всегда показываем статус
     // Проверяем что есть хотя бы что-то для показа
     const hasAnything = session.tempData.photoObjects?.length > 0 
-      || session.tempData.videoObject
+      || session.tempData.videoObjects?.length > 0
       || session.tempData.latitude 
       || session.tempData.googleMapsUrl
       || session.tempData.description;
