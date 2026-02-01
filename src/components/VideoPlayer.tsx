@@ -38,19 +38,9 @@ export default function VideoPlayer({
       setLoading(true);
       setError(null);
       
-      // Получаем URL видео
-      const response = await fetch(`/api/video-url?fileId=${fileId}`);
-      const data = await response.json();
-      
-      if (!data.success) {
-        throw new Error(data.error || 'Failed to load video');
-      }
-      
-      setVideoUrl(data.url);
-      
-      // Загружаем thumbnail если есть
+      // СНАЧАЛА загружаем thumbnail (важно для превью!)
       if (thumbnailFileId) {
-        console.log('🎬 Loading thumbnail:', thumbnailFileId);
+        console.log('🎬 Loading thumbnail first:', thumbnailFileId);
         const thumbResponse = await fetch(`/api/video-url?fileId=${thumbnailFileId}&type=thumbnail`);
         const thumbData = await thumbResponse.json();
         
@@ -65,6 +55,17 @@ export default function VideoPlayer({
       } else {
         console.log('⚠️ No thumbnailFileId provided');
       }
+      
+      // ПОТОМ загружаем URL видео (для воспроизведения)
+      const response = await fetch(`/api/video-url?fileId=${fileId}`);
+      const data = await response.json();
+      
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to load video');
+      }
+      
+      setVideoUrl(data.url);
+      console.log('✅ Video URL loaded');
       
       setLoading(false);
       
