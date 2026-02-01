@@ -232,9 +232,6 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                                 width={800}
                                                 height={300}
                                             />
-                                            <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
-                                                🎬 ВИДЕО
-                                            </div>
                                         </div>
                                     )}
                                     
