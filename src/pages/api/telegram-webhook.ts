@@ -1374,8 +1374,22 @@ async function showValidationStatus(chatId: number, session: UserSession, botTok
   // Формируем сообщение
   let message = '📦 Статус объекта:\n\n';
   message += hasLocation ? '✅ Геолокация\n' : '❌ Геолокация (обязательно!)\n';
-  message += photoCount > 0 ? `✅ Фото: ${photoCount} шт.\n` : '❌ Фото\n';
-  message += hasDescription ? '✅ Описание\n' : '❌ Описание\n';
+  
+  // 🎬 Фото (опционально если есть видео)
+  if (photoCount > 0) {
+    message += `✅ Фото: ${photoCount} шт.\n`;
+  } else if (hasVideo) {
+    message += '⚠️ Фото: нет (но есть видео)\n';
+  } else {
+    message += '❌ Фото/Видео: нет\n';
+  }
+  
+  // 🎬 Видео
+  if (hasVideo) {
+    message += '✅ Видео: есть\n';
+  }
+  
+  message += hasDescription ? '✅ Описание\n' : '❌ Описание (обязательно!)\n';
   message += '\n';
   
   if (isReady) {
