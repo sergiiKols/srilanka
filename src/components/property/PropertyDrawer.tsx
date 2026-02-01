@@ -307,13 +307,13 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                                 );
                                             })()}
                                             <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-xs backdrop-blur-sm">
-                                                {(property.video_url ? 1 : 0) + index + 1} / {(property.video_url ? 1 : 0) + (property.images || []).length}
+                                                {(property.videos?.length || 0) + index + 1} / {(property.videos?.length || 0) + (property.images || []).length}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
 
-                                {((property.video_url ? 1 : 0) + (property.images || []).length) > 1 && (
+                                {((property.videos?.length || 0) + (property.images || []).length) > 1 && (
                                     <>
                                         <button
                                             onClick={() => scroll('left')}
