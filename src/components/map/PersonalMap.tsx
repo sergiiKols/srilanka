@@ -180,6 +180,10 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
           pricePeriod: selectedProp.price_period, // ✅ Передаём период цены в drawer
           description: selectedProp.description || 'No description',
           images: images,
+          video_url: selectedProp.video_url, // 🎬 Передаём video
+          video_thumbnail_url: selectedProp.video_thumbnail_url, // 🎬 Передаём thumbnail
+          video_duration: selectedProp.video_duration, // 🎬 Передаём длительность
+          video_size: selectedProp.video_size, // 🎬 Передаём размер
           amenities: selectedProp.amenities ? 
             (Array.isArray(selectedProp.amenities) ? selectedProp.amenities : []) : [],
           bathrooms: selectedProp.bathrooms || 0,
