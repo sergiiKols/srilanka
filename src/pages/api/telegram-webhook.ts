@@ -25,14 +25,14 @@ interface UserSession {
     photos?: string[];
     photoFileIds?: string[];
     photoObjects?: any[]; // Telegram photo objects для загрузки
-    videoObject?: any; // Telegram video object для загрузки
-    videoUrl?: string; // URL видео после загрузки на TeraBox
+    videoObjects?: any[]; // 🎬 Массив Telegram video objects (до 20 шт)
     latitude?: number;
     longitude?: number;
     description?: string;
     googleMapsUrl?: string;
     forwardMetadata?: any;
     mediaGroupId?: string; // Для отслеживания media groups
+    limitWarningShown?: boolean;
   };
   lastActivity: Date;
   lastMessageTime?: Date; // Для определения завершения ввода
@@ -153,24 +153,21 @@ async function handleMediaGroup(message: any) {
   if (message.video) {
     console.log(`🎬 Video in media_group detected!`);
     
-    // ВАЖНО: Пока поддерживаем только ОДНО видео
-    // Telegram может группировать видео, но мы сохраняем только последнее
-    session.tempData.videoObject = message.video;
+    session.tempData.videoObjects = session.tempData.videoObjects || [];
     
+    // Лимит: до 20 видео
+    const MAX_VIDEOS = 20;
+    if (session.tempData.videoObjects.length >= MAX_VIDEOS) {
+      console.log(`⚠️ Video limit reached (${MAX_VIDEOS}), ignoring extra videos`);
+      return;
+    }
+    
+    session.tempData.videoObjects.push(message.video);
+    
+    const videoCount = session.tempData.videoObjects.length;
     const duration = formatVideoDuration(message.video.duration);
     const size = message.video.file_size ? formatVideoSize(message.video.file_size) : 'unknown';
-    console.log(`🎬 Video added to media_group: ${duration}, ${size}`);
-    
-    // Отправляем уведомление о видео
-    try {
-      await sendTelegramMessage({
-        botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
-        chatId: chatId.toString(),
-        text: `🎬 Видео получено!\n⏱️ ${duration}\n📦 ${size}\n\n⚠️ Примечание: Сохраняется только ОДНО видео на объект.`
-      });
-    } catch (err) {
-      console.error('❌ Error sending video notification:', err);
-    }
+    console.log(`🎬 Video ${videoCount}/${MAX_VIDEOS} added to media_group: ${duration}, ${size}`);
   }
   
   // Парсим caption из первого фото группы
@@ -472,16 +469,24 @@ async function collectMessageToSession(message: any) {
     
     // 🎬 Обрабатываем ВИДЕО
     if (message.video) {
-      session.tempData.videoObject = message.video;
-      const duration = formatVideoDuration(message.video.duration);
-      const size = message.video.file_size ? formatVideoSize(message.video.file_size) : 'unknown';
-      console.log(`🎬 Added video to session: ${duration}, ${size}`);
+      session.tempData.videoObjects = session.tempData.videoObjects || [];
       
-      await sendTelegramMessage({
-        botToken,
-        chatId: chatId.toString(),
-        text: `🎬 Видео получено!\n\n⏱️ Длительность: ${duration}\n📦 Размер: ${size}\n\n⏳ Видео будет загружено на TeraBox при сохранении объекта...`
-      });
+      const MAX_VIDEOS = 20;
+      if (session.tempData.videoObjects.length < MAX_VIDEOS) {
+        session.tempData.videoObjects.push(message.video);
+        const videoCount = session.tempData.videoObjects.length;
+        const duration = formatVideoDuration(message.video.duration);
+        const size = message.video.file_size ? formatVideoSize(message.video.file_size) : 'unknown';
+        console.log(`🎬 Video ${videoCount}/${MAX_VIDEOS} added to session: ${duration}, ${size}`);
+        
+        await sendTelegramMessage({
+          botToken,
+          chatId: chatId.toString(),
+          text: `🎬 Видео ${videoCount} получено!\n\n⏱️ Длительность: ${duration}\n📦 Размер: ${size}\n\n💡 Можно добавить до ${MAX_VIDEOS} видео`
+        });
+      } else {
+        console.log(`⚠️ Video limit reached (${MAX_VIDEOS})`);
+      }
     }
     
     // Обрабатываем локацию
@@ -1388,8 +1393,8 @@ async function showValidationStatus(chatId: number, session: UserSession, botTok
   
   // Считаем что есть
   const photoCount = data.photoObjects?.length || 0;
-  const hasVideo = !!data.videoObject;
-  const hasVisualContent = photoCount > 0 || hasVideo; // 🎬 Фото ИЛИ Видео
+  const videoCount = data.videoObjects?.length || 0;
+  const hasVisualContent = photoCount > 0 || videoCount > 0; // 🎬 Фото ИЛИ Видео
   const hasLocation = !!(data.latitude || data.googleMapsUrl);
   const hasDescription = !!(data.description && data.description.trim());
   

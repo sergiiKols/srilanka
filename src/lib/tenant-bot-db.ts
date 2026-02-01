@@ -40,10 +40,12 @@ export interface SavedProperty {
   currency?: string;
   price_period?: string;
   photos?: string[];
-  video_url?: string;
-  video_thumbnail_url?: string;
-  video_duration?: number;
-  video_size?: number;
+  videos?: Array<{
+    file_id: string;
+    thumbnail_id?: string;
+    duration: number;
+    size: number;
+  }>;
   amenities?: any;
   contact_info?: string;
   contact_phone?: string;
@@ -136,10 +138,12 @@ export interface CreatePropertyInput {
   currency?: string;
   price_period?: string;
   photos?: string[];
-  video_url?: string;
-  video_thumbnail_url?: string;
-  video_duration?: number;
-  video_size?: number;
+  videos?: Array<{
+    file_id: string;
+    thumbnail_id?: string;
+    duration: number;
+    size: number;
+  }>;
   amenities?: any;
   contact_info?: string;
   contact_phone?: string;
