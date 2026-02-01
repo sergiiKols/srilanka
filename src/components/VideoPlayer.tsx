@@ -124,7 +124,7 @@ export default function VideoPlayer({
   }
   
   return (
-    <div className={className}>
+    <div className={className} style={{ position: 'relative', width, height }}>
       <video
         width={width}
         height={height}
@@ -132,6 +132,13 @@ export default function VideoPlayer({
         autoPlay={autoPlay}
         poster={thumbnailUrl || undefined}
         className="rounded shadow-lg"
+        style={{ 
+          width: '100%', 
+          height: '100%',
+          objectFit: 'cover',
+          backgroundColor: '#000'
+        }}
+        preload="metadata"
         onError={() => {
           console.error('Video playback error');
           setError('Ошибка воспроизведения видео');
@@ -141,9 +148,35 @@ export default function VideoPlayer({
         Ваш браузер не поддерживает воспроизведение видео.
       </video>
       
-      <div className="mt-2 text-xs text-gray-500">
-        💡 URL действителен ~1 час, затем обновляется автоматически
-      </div>
+      {/* Показываем иконку Play если видео не играет */}
+      {!autoPlay && thumbnailUrl && (
+        <div 
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '80px',
+            height: '80px',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}
+        >
+          <div style={{
+            width: 0,
+            height: 0,
+            borderLeft: '25px solid white',
+            borderTop: '15px solid transparent',
+            borderBottom: '15px solid transparent',
+            marginLeft: '8px'
+          }} />
+        </div>
+      )}
     </div>
   );
 }
