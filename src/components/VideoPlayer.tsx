@@ -135,11 +135,27 @@ export default function VideoPlayer({
   
   // Если есть thumbnail и видео ещё не играет - показываем превью
   if (!isPlaying && thumbnailUrl) {
+    console.log('🎬 Rendering thumbnail preview', {
+      isPlaying,
+      thumbnailUrl,
+      width,
+      height
+    });
+    
     return (
       <div 
         className={className} 
-        style={{ position: 'relative', width, height, cursor: 'pointer' }}
-        onClick={() => setIsPlaying(true)}
+        style={{ 
+          position: 'relative', 
+          width: '100%', 
+          height: '100%',
+          cursor: 'pointer',
+          backgroundColor: '#000'
+        }}
+        onClick={() => {
+          console.log('🎬 Play button clicked!');
+          setIsPlaying(true);
+        }}
       >
         {/* Thumbnail как превью */}
         <img 
@@ -149,8 +165,11 @@ export default function VideoPlayer({
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            borderRadius: '8px'
+            borderRadius: '8px',
+            display: 'block'
           }}
+          onLoad={() => console.log('✅ Thumbnail image loaded!')}
+          onError={(e) => console.error('❌ Thumbnail image failed to load:', e)}
         />
         
         {/* Иконка Play поверх */}
