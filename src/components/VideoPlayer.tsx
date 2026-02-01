@@ -27,6 +27,7 @@ export default function VideoPlayer({
   const [thumbnailUrl, setThumbnailUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false); // Трек состояния воспроизведения
   
   useEffect(() => {
     loadVideoUrl();
@@ -131,33 +132,27 @@ export default function VideoPlayer({
     );
   }
   
-  return (
-    <div className={className} style={{ position: 'relative', width, height }}>
-      <video
-        width={width}
-        height={height}
-        controls
-        autoPlay={autoPlay}
-        poster={thumbnailUrl || undefined}
-        className="rounded shadow-lg"
-        style={{ 
-          width: '100%', 
-          height: '100%',
-          objectFit: 'cover',
-          backgroundColor: '#000'
-        }}
-        preload="metadata"
-        onError={() => {
-          console.error('Video playback error');
-          setError('Ошибка воспроизведения видео');
-        }}
+  // Если есть thumbnail и видео ещё не играет - показываем превью
+  if (!isPlaying && thumbnailUrl) {
+    return (
+      <div 
+        className={className} 
+        style={{ position: 'relative', width, height, cursor: 'pointer' }}
+        onClick={() => setIsPlaying(true)}
       >
-        <source src={videoUrl} type="video/mp4" />
-        Ваш браузер не поддерживает воспроизведение видео.
-      </video>
-      
-      {/* Показываем иконку Play если видео не играет */}
-      {!autoPlay && thumbnailUrl && (
+        {/* Thumbnail как превью */}
+        <img 
+          src={thumbnailUrl}
+          alt="Video preview"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: '8px'
+          }}
+        />
+        
+        {/* Иконка Play поверх */}
         <div 
           style={{
             position: 'absolute',
@@ -166,25 +161,73 @@ export default function VideoPlayer({
             transform: 'translate(-50%, -50%)',
             width: '80px',
             height: '80px',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            pointerEvents: 'none',
-            zIndex: 1
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
+            e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.1)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)';
           }}
         >
           <div style={{
             width: 0,
             height: 0,
-            borderLeft: '25px solid white',
-            borderTop: '15px solid transparent',
-            borderBottom: '15px solid transparent',
+            borderLeft: '30px solid white',
+            borderTop: '20px solid transparent',
+            borderBottom: '20px solid transparent',
             marginLeft: '8px'
           }} />
         </div>
-      )}
+        
+        {/* Метка "ВИДЕО" */}
+        <div style={{
+          position: 'absolute',
+          top: '12px',
+          left: '12px',
+          backgroundColor: 'rgba(255, 0, 0, 0.9)',
+          color: 'white',
+          padding: '4px 12px',
+          borderRadius: '4px',
+          fontSize: '12px',
+          fontWeight: 'bold'
+        }}>
+          🎬 ВИДЕО
+        </div>
+      </div>
+    );
+  }
+  
+  // После клика - показываем video player
+  return (
+    <div className={className} style={{ position: 'relative', width, height }}>
+      <video
+        width={width}
+        height={height}
+        controls
+        autoPlay={true}
+        className="rounded shadow-lg"
+        style={{ 
+          width: '100%', 
+          height: '100%',
+          objectFit: 'cover',
+          backgroundColor: '#000'
+        }}
+        onError={() => {
+          console.error('Video playback error');
+          setError('Ошибка воспроизведения видео');
+        }}
+      >
+        <source src={videoUrl} type="video/mp4" />
+        Ваш браузер не поддерживает воспроизведение видео.
+      </video>
     </div>
   );
 }
