@@ -133,14 +133,9 @@ export default function VideoPlayer({
     );
   }
   
-  // Если есть thumbnail и видео ещё не играет - показываем превью
-  if (!isPlaying && thumbnailUrl) {
-    console.log('🎬 Rendering thumbnail preview', {
-      isPlaying,
-      thumbnailUrl,
-      width,
-      height
-    });
+  // Если видео ещё не играет - показываем превью с первым кадром
+  if (!isPlaying && videoUrl) {
+    console.log('🎬 Rendering video preview with poster');
     
     return (
       <div 
@@ -151,39 +146,37 @@ export default function VideoPlayer({
           height: '100%',
           cursor: 'pointer',
           overflow: 'hidden',
-          borderRadius: '8px'
+          borderRadius: '8px',
+          backgroundColor: '#000'
         }}
         onClick={() => {
           console.log('🎬 Play button clicked!');
           setIsPlaying(true);
         }}
       >
-        {/* Thumbnail как фон */}
+        {/* Видео как превью (без controls, preload=metadata для первого кадра) */}
+        <video
+          src={videoUrl}
+          poster={thumbnailUrl}
+          preload="metadata"
+          muted
+          playsInline
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+        
+        {/* Тёмный оверлей для контраста кнопки */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: `url(${thumbnailUrl})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: '#333'
-        }}>
-          {/* Тестовый текст для проверки рендеринга */}
-          <div style={{
-            position: 'absolute',
-            bottom: '10px',
-            right: '10px',
-            color: 'lime',
-            fontSize: '10px',
-            backgroundColor: 'rgba(0,0,0,0.8)',
-            padding: '4px'
-          }}>
-            IMG: {thumbnailUrl ? 'OK' : 'NONE'}
-          </div>
-        </div>
+          backgroundColor: 'rgba(0, 0, 0, 0.3)'
+        }} />
         
         {/* Иконка Play поверх */}
         <div 
