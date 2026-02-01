@@ -93,7 +93,7 @@ export const GET: APIRoute = async () => {
  * Обработка media group (множественные фото) - БЕЗ ТАЙМЕРА!
  */
 // Константа: максимальное количество фото
-const MAX_PHOTOS = 10;
+const MAX_PHOTOS = 100; // Увеличен лимит с 10 до 100 фото
 
 async function handleMediaGroup(message: any) {
   const groupId = message.media_group_id;

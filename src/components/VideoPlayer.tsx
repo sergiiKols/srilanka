@@ -49,12 +49,20 @@ export default function VideoPlayer({
       
       // Загружаем thumbnail если есть
       if (thumbnailFileId) {
+        console.log('🎬 Loading thumbnail:', thumbnailFileId);
         const thumbResponse = await fetch(`/api/video-url?fileId=${thumbnailFileId}&type=thumbnail`);
         const thumbData = await thumbResponse.json();
         
+        console.log('🎬 Thumbnail response:', thumbData);
+        
         if (thumbData.success) {
           setThumbnailUrl(thumbData.url);
+          console.log('✅ Thumbnail loaded:', thumbData.url);
+        } else {
+          console.error('❌ Thumbnail failed:', thumbData.error);
         }
+      } else {
+        console.log('⚠️ No thumbnailFileId provided');
       }
       
       setLoading(false);
