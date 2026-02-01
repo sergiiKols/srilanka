@@ -168,8 +168,22 @@ export default function VideoPlayer({
           backgroundImage: `url(${thumbnailUrl})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }} />
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#333'
+        }}>
+          {/* Тестовый текст для проверки рендеринга */}
+          <div style={{
+            position: 'absolute',
+            bottom: '10px',
+            right: '10px',
+            color: 'lime',
+            fontSize: '10px',
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            padding: '4px'
+          }}>
+            IMG: {thumbnailUrl ? 'OK' : 'NONE'}
+          </div>
+        </div>
         
         {/* Иконка Play поверх */}
         <div 
