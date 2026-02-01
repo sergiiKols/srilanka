@@ -70,18 +70,9 @@ export async function saveTelegramVideo(
       };
     }
     
-    // 2. Получаем информацию о файле (для размера)
-    console.log(`📥 Fetching video file info...`);
-    const fileInfoResponse = await fetch(
-      `https://api.telegram.org/bot${botToken}/getFile?file_id=${video.file_id}`
-    );
-    
-    if (!fileInfoResponse.ok) {
-      throw new Error(`Telegram API error: ${fileInfoResponse.status}`);
-    }
-    
-    const fileInfo = await fileInfoResponse.json();
-    const fileSize = fileInfo.result?.file_size || video.file_size || 0;
+    // 2. Получаем размер файла (уже есть в video объекте!)
+    const fileSize = video.file_size || 0;
+    console.log(`📥 Video file size: ${fileSize} bytes`);
     
     console.log(`📦 File size: ${Math.round(fileSize / 1024 / 1024)}MB`);
     
