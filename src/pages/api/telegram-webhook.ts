@@ -149,6 +149,30 @@ async function handleMediaGroup(message: any) {
     // Уведомление отправится в showValidationStatus
   }
   
+  // 🎬 Добавляем ВИДЕО из media group
+  if (message.video) {
+    console.log(`🎬 Video in media_group detected!`);
+    
+    // ВАЖНО: Пока поддерживаем только ОДНО видео
+    // Telegram может группировать видео, но мы сохраняем только последнее
+    session.tempData.videoObject = message.video;
+    
+    const duration = formatVideoDuration(message.video.duration);
+    const size = message.video.file_size ? formatVideoSize(message.video.file_size) : 'unknown';
+    console.log(`🎬 Video added to media_group: ${duration}, ${size}`);
+    
+    // Отправляем уведомление о видео
+    try {
+      await sendTelegramMessage({
+        botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+        chatId: chatId.toString(),
+        text: `🎬 Видео получено!\n⏱️ ${duration}\n📦 ${size}\n\n⚠️ Примечание: Сохраняется только ОДНО видео на объект.`
+      });
+    } catch (err) {
+      console.error('❌ Error sending video notification:', err);
+    }
+  }
+  
   // Парсим caption из первого фото группы
   if (message.caption) {
     session.tempData.description = message.caption;
