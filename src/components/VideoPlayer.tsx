@@ -150,31 +150,26 @@ export default function VideoPlayer({
           width: '100%', 
           height: '100%',
           cursor: 'pointer',
-          backgroundColor: '#000'
+          overflow: 'hidden',
+          borderRadius: '8px'
         }}
         onClick={() => {
           console.log('🎬 Play button clicked!');
           setIsPlaying(true);
         }}
       >
-        {/* Thumbnail как превью */}
-        <img 
-          src={thumbnailUrl}
-          alt="Video preview"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: '8px',
-            display: 'block',
-            zIndex: 1
-          }}
-          onLoad={() => console.log('✅ Thumbnail image loaded!')}
-          onError={(e) => console.error('❌ Thumbnail image failed to load:', e)}
-        />
+        {/* Thumbnail как фон */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: `url(${thumbnailUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }} />
         
         {/* Иконка Play поверх */}
         <div 
@@ -190,7 +185,8 @@ export default function VideoPlayer({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            zIndex: 2
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
@@ -221,7 +217,8 @@ export default function VideoPlayer({
           padding: '4px 12px',
           borderRadius: '4px',
           fontSize: '12px',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          zIndex: 3
         }}>
           🎬 ВИДЕО
         </div>
