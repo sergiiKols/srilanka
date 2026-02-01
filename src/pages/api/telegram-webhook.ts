@@ -1044,12 +1044,29 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       await sendTelegramMessage({
         botToken,
         chatId: chatId.toString(),
-        text: '⚠️ Не удалось определить местоположение.\n\nОтправьте геолокацию или Google Maps ссылку.'
+        text: '⚠️ Не удалось определить местоположение.\n\n💡 Отправьте:\n• Геолокацию, или\n• ПОЛНУЮ Google Maps ссылку\n\nПример: https://www.google.com/maps/place/@6.009,80.267,17z/'
       });
       return;
     }
     
-    console.log(`✅ Final coordinates: ${latitude}, ${longitude}`);
+    // ✅ ВАЛИДАЦИЯ: Проверяем что координаты в Шри-Ланке
+    const isInSriLanka = latitude >= 5.9 && latitude <= 9.9 && 
+                        longitude >= 79.5 && longitude <= 81.9;
+    
+    if (!isInSriLanka) {
+      console.error('❌ INVALID COORDINATES - Outside Sri Lanka!', {
+        lat: latitude,
+        lng: longitude
+      });
+      await sendTelegramMessage({
+        botToken,
+        chatId: chatId.toString(),
+        text: `⚠️ Координаты вне Шри-Ланки!\n\n📍 Получено: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}\n\n💡 Возможно короткая ссылка развернулась неправильно.\n\n✅ Отправьте ПОЛНУЮ Google Maps ссылку:\nhttps://www.google.com/maps/place/@6.009,80.267,17z/`
+      });
+      return;
+    }
+    
+    console.log(`✅ Final coordinates validated (Sri Lanka): ${latitude}, ${longitude}`);
     
     // 4. Проверка дубликатов
     console.log('🔍 Step 4: Checking duplicates...');
