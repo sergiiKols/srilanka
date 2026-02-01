@@ -399,12 +399,13 @@ async function handleMessage(message: any) {
 
   // Проверяем что в сообщении есть полезная информация
   const hasPhotos = message.photo && message.photo.length > 0;
+  const hasVideo = message.video !== undefined; // 🎬 Проверка видео
   const hasLocation = message.location !== undefined;
   const hasText = message.text || message.caption;
   const hasGoogleMapsUrl = hasText && extractGoogleMapsUrl(hasText);
 
   // Если ничего полезного нет
-  if (!hasPhotos && !hasLocation && !hasGoogleMapsUrl && !hasText) {
+  if (!hasPhotos && !hasVideo && !hasLocation && !hasGoogleMapsUrl && !hasText) {
     await sendHelp(chatId);
     return;
   }
