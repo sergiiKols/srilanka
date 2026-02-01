@@ -1412,15 +1412,15 @@ async function showValidationStatus(chatId: number, session: UserSession, botTok
   // 🎬 Фото (опционально если есть видео)
   if (photoCount > 0) {
     message += `✅ Фото: ${photoCount} шт.\n`;
-  } else if (hasVideo) {
+  } else if (videoCount > 0) {
     message += '⚠️ Фото: нет (но есть видео)\n';
   } else {
     message += '❌ Фото/Видео: нет\n';
   }
   
   // 🎬 Видео
-  if (hasVideo) {
-    message += '✅ Видео: есть\n';
+  if (videoCount > 0) {
+    message += `✅ Видео: ${videoCount} шт.\n`;
   }
   
   message += hasDescription ? '✅ Описание\n' : '❌ Описание (обязательно!)\n';
