@@ -571,11 +571,13 @@ async function sendStatusUpdate(
   message += '📦 Что уже загружено:\n';
   if (photoCount > 0) {
     message += `✅ Фото: ${photoCount} шт.\n`;
+  } else if (videoCount > 0) {
+    message += '⚠️ Фото: нет (но есть видео)\n';
   } else {
-    message += `${hasVideo ? '⚠️' : '❌'} Фото: нет\n`;
+    message += '❌ Фото/Видео: нет\n';
   }
-  if (hasVideo) {
-    message += `✅ Видео: есть\n`;
+  if (videoCount > 0) {
+    message += `✅ Видео: ${videoCount} шт.\n`;
   }
   message += hasLocation ? `✅ Геолокация: есть\n` : `❌ Геолокация: нет\n`;
   message += hasDescription ? `✅ Описание: есть\n` : `❌ Описание: нет\n`;
@@ -1130,7 +1132,7 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       latitude,
       longitude,
       photos: photoUrls,
-      videos: videos.length > 0 ? videos : undefined, // 🎬 Массив видео
+      videos: videos.length > 0 ? videos : [], // 🎬 Массив видео (пустой массив если нет видео)
       description: data.description || aiResult?.description,
       raw_text: data.description,
       google_maps_url: data.googleMapsUrl,
@@ -1297,18 +1299,18 @@ async function showSessionPreview(chatId: number, session: UserSession) {
     preview += '❌ Геолокация: НЕТ (обязательно!)\n';
   }
   
-  // Фото (опционально, если есть видео)
+  // Фото (опционально если есть видео)
   if (photoCount > 0) {
     preview += `✅ Фото: ${photoCount} шт.\n`;
-  } else if (hasVideo) {
+  } else if (videoCount > 0) {
     preview += '⚠️ Фото: нет (но есть видео)\n';
   } else {
-    preview += '❌ Фото: нет\n';
+    preview += '❌ Фото/Видео: нет\n';
   }
   
   // 🎬 Видео (опционально)
-  if (hasVideo) {
-    preview += '✅ Видео: есть\n';
+  if (videoCount > 0) {
+    preview += `✅ Видео: ${videoCount} шт.\n`;
   }
   
   // Описание (обязательно)
