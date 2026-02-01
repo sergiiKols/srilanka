@@ -102,7 +102,7 @@ export const GET: APIRoute = async ({ request, url }) => {
     
     const { data, error } = await supabase
       .from('saved_properties')
-      .select('*')
+      .select('*, video_url, video_thumbnail_url, video_duration, video_size')
       .order('created_at', { ascending: false })
       .limit(1000);
 
