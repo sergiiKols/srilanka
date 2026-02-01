@@ -225,8 +225,17 @@ export async function analyzeWithFallback(
     try {
       const parsed = await parseGoogleMapsURL(googleMapsUrl);
       if (parsed) {
-        coordinates = { lat: parsed.lat, lng: parsed.lng };
-        address = parsed.address || address;
+        // ✅ ВАЛИДАЦИЯ: Проверяем что координаты в Шри-Ланке
+        const isInSriLanka = parsed.lat >= 5.9 && parsed.lat <= 9.9 && 
+                            parsed.lng >= 79.5 && parsed.lng <= 81.9;
+        
+        if (isInSriLanka) {
+          coordinates = { lat: parsed.lat, lng: parsed.lng };
+          address = parsed.address || address;
+          console.log('✅ Fallback: Coordinates validated (Sri Lanka)');
+        } else {
+          console.error('❌ Fallback: Invalid coordinates - outside Sri Lanka!');
+        }
       }
     } catch (error) {
       console.error('Error parsing URL in fallback:', error);

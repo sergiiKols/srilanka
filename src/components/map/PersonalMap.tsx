@@ -105,7 +105,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
         description: prop.description,
         address: prop.address || prop.forward_from_chat_title || 'Location',
         phone: prop.contact_phone,
-        markerColor: isNewest ? '#10b981' : 'white', // 🟢 Зелёный для нового, белый для остальных
+        markerColor: isNewest ? '#fbbf24' : 'white', // 🟡 Жёлтый для нового, белый для остальных
       };
     });
 
