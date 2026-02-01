@@ -162,11 +162,15 @@ export default function VideoPlayer({
           src={thumbnailUrl}
           alt="Video preview"
           style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
             borderRadius: '8px',
-            display: 'block'
+            display: 'block',
+            zIndex: 1
           }}
           onLoad={() => console.log('✅ Thumbnail image loaded!')}
           onError={(e) => console.error('❌ Thumbnail image failed to load:', e)}
