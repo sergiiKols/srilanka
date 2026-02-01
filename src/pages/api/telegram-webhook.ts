@@ -1130,8 +1130,7 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       latitude,
       longitude,
       photos: photoUrls,
-      video_url: videoFileId, // 🎬 Сохраняем file_id видео
-      video_thumbnail_url: videoThumbnailFileId, // 🎬 Сохраняем file_id thumbnail
+      videos: videos.length > 0 ? videos : undefined, // 🎬 Массив видео
       description: data.description || aiResult?.description,
       raw_text: data.description,
       google_maps_url: data.googleMapsUrl,

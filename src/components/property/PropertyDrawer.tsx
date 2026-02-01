@@ -18,10 +18,12 @@ interface Property {
     pricePeriod?: 'night' | 'day' | 'week' | 'month'; // ✅ Добавлено
     description: string;
     images: string[];
-    video_url?: string; // 🎬 file_id видео из Telegram
-    video_thumbnail_url?: string; // 🎬 file_id thumbnail
-    video_duration?: number; // 🎬 Длительность в секундах
-    video_size?: number; // 🎬 Размер в байтах
+    videos?: Array<{
+        file_id: string;
+        thumbnail_id?: string;
+        duration: number;
+        size: number;
+    }>;
     amenities?: string[];
     bathrooms?: number;
     beachDistance?: number;
@@ -223,17 +225,17 @@ export default function PropertyDrawer({ isOpen, onClose, property, exchangeRate
                                     className="flex gap-0 overflow-x-auto snap-x snap-mandatory pb-0 bg-slate-100 rounded-xl overflow-hidden"
                                     style={{ scrollbarWidth: 'none', height: '300px' }}
                                 >
-                                    {/* 🎬 Видео (если есть) */}
-                                    {property.video_url && (
-                                        <div className="flex-shrink-0 w-full h-full snap-center relative bg-black">
+                                    {/* 🎬 ВСЕ ВИДЕО (если есть) */}
+                                    {property.videos?.map((video, idx) => (
+                                        <div key={`video-${idx}`} className="flex-shrink-0 w-full h-full snap-center relative bg-black">
                                             <VideoPlayer
-                                                fileId={property.video_url}
-                                                thumbnailFileId={property.video_thumbnail_url}
+                                                fileId={video.file_id}
+                                                thumbnailFileId={video.thumbnail_id}
                                                 width={800}
                                                 height={300}
                                             />
                                         </div>
-                                    )}
+                                    ))}
                                     
                                     {/* Фотографии */}
                                     {(property.images || []).map((img, index) => (

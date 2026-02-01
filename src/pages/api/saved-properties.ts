@@ -42,7 +42,7 @@ export const GET: APIRoute = async ({ request, url }) => {
       // saved_properties содержит ТОЛЬКО активные объекты (удалённые в archived_properties)
       const { data, error } = await supabase
         .from('saved_properties')
-        .select('*, video_url, video_thumbnail_url, video_duration, video_size')
+        .select('*')
         .eq('telegram_user_id', userIdNum)
         .order('created_at', { ascending: false });
 
@@ -102,7 +102,7 @@ export const GET: APIRoute = async ({ request, url }) => {
     
     const { data, error } = await supabase
       .from('saved_properties')
-      .select('*, video_url, video_thumbnail_url, video_duration, video_size')
+      .select('*')
       .order('created_at', { ascending: false })
       .limit(1000);
 
