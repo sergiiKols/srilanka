@@ -1,0 +1,104 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+.astro/
+.vercel/
+.output/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+CHANGELOG.md
+CONTRIBUTING.md
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.test.js
+**/*.spec.ts
+**/*.spec.tsx
+**/*.spec.js
+__tests__/
+coverage/
+.vitest/
+
+# Logs
+logs/
+*.log
+pnpm-debug.log*
+lerna-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Database files (local only)
+*.sqlite
+*.sqlite3
+*.db
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+azure-pipelines.yml
+
+# Project specific
+SRI/parsed_data/
+SRI/reports/
+EXPORTS/
+BACKUPS/
+PROJECT_DOCS/
+Design/
+.gemini/
+.agent/
+
+# Large documentation files
+ADMIN_*.md
+ARCHITECTURE_*.md
+ANALYSIS_*.md
+DEBUG_*.md
+SESSION_*.md
+TELEGRAM_*.md
+*.sql
+!database/*.sql
+
+# Vercel specific (not needed in Docker)
+vercel.json
+vercel.json.bak
+VERCEL_*.md
+
+# Development scripts
+*.bat
+*.sh
+!docker-entrypoint.sh

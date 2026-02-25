@@ -1,0 +1,45 @@
+version: '3.9'
+
+# ========================================
+# DEVELOPMENT DOCKER COMPOSE
+# Usage: docker-compose -f docker-compose.dev.yml up
+# ========================================
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    container_name: unmissable-rentals-dev
+    restart: unless-stopped
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4321
+    volumes:
+      # Mount source code for hot reload
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./astro.config.mjs:/app/astro.config.mjs
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./package.json:/app/package.json
+      # Prevent node_modules from being overwritten
+      - /app/node_modules
+    env_file:
+      - .env
+    command: npm run dev
+    networks:
+      - dev-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+networks:
+  dev-network:
+    driver: bridge

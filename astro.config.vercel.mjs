@@ -1,14 +1,20 @@
 /// @ts-check
+// ========================================
+// VERCEL CONFIGURATION (BACKUP)
+// ========================================
+// This is the original Vercel configuration
+// Keep this file for potential rollback to Vercel
+
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   output: 'server',
-  adapter: node({
-    mode: 'standalone'
+  adapter: vercel({
+    functionPerRoute: false,
   }),
   integrations: [react()],
 

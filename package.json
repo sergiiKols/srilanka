@@ -17,7 +17,14 @@
     "enhance:pass1": "node SRI/scripts/enhancePass1Data.js",
     "enhance:pass1:selective": "node SRI/scripts/enhancePass1DataSelective.js",
     "parse:status": "echo 'Check SRI/parsed_data/negombo_tangalle/ for results'",
-    "parse:logs": "tail -f SRI/logs/negombo_tangalle_parsing.log"
+    "parse:logs": "tail -f SRI/logs/negombo_tangalle_parsing.log",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:restart": "docker compose restart",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up",
+    "docker:prod": "docker compose up -d && docker compose logs -f"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.2",

@@ -1,7 +1,18 @@
+# ========================================
+# GIT IGNORE
+# ========================================
+
+# Dependencies
 node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Build output
 dist/
+.output/
 .astro/
 .vercel/
 
@@ -9,8 +20,54 @@ dist/
 .env
 .env.local
 .env.production
+.env.*.local
 
-# macOS-specific files
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
-.vercel
-.env*.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+tmp_rovodev_*
+
+# Docker (optional - uncomment if you don't want to track)
+# docker-compose.override.yml
+# .env.docker
+
+# Backups
+*.bak
+*.backup
+*~
+
+# Database
+*.sqlite
+*.db
+
+# Supabase local
+.supabase/
+
+# Parsing data (large files)
+SRI/parsed_data/**/*.json
+!SRI/parsed_data/.gitkeep

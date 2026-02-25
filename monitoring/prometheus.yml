@@ -1,0 +1,35 @@
+# ========================================
+# PROMETHEUS CONFIGURATION
+# ========================================
+# Мониторинг метрик приложения
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'sri-lanka-monitor'
+
+scrape_configs:
+  # Node Exporter - системные метрики
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          instance: 'docker-host'
+
+  # cAdvisor - метрики контейнеров
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+
+  # Nginx метрики (если nginx-prometheus-exporter установлен)
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx-exporter:9113']
+
+  # Health check эндпоинт приложения
+  - job_name: 'app-health'
+    metrics_path: '/health.json'
+    static_configs:
+      - targets: ['app:3000']
+    scrape_interval: 30s
