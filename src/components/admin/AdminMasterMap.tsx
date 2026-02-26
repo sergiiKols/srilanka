@@ -326,7 +326,7 @@ export default function AdminMasterMap() {
                     description: prop.description,
                     contact_phone: prop.contact_phone,
                     amenities: prop.amenities,
-                    area: prop.area_name ? `${prop.area_name}, Sri Lanka` : 'Sri Lanka', // ✅ Добавлено!
+                    area: 'Sri Lanka', // ОТКЛЮЧЕНО: показ города (area_name давал ошибки)
                     isDeleted: false // Все объекты в saved_properties активные
                 };
             });

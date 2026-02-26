@@ -99,7 +99,7 @@ export async function analyzeTelegramMessage(
     lat: DEFAULT_COORDINATES.latitude, 
     lng: DEFAULT_COORDINATES.longitude 
   };
-  let address = DEFAULT_COORDINATES.address;
+  let address = 'Sri Lanka'; // ОТКЛЮЧЕНО: не показываем город (было DEFAULT_COORDINATES.address)
   
   if (googleMapsUrl) {
     try {
@@ -240,7 +240,7 @@ export async function analyzeWithFallback(
     lat: DEFAULT_COORDINATES.latitude,
     lng: DEFAULT_COORDINATES.longitude
   };
-  let address = DEFAULT_COORDINATES.address;
+  let address = 'Sri Lanka'; // ОТКЛЮЧЕНО: не показываем город (было DEFAULT_COORDINATES.address)
   
   if (googleMapsUrl) {
     try {
@@ -387,7 +387,7 @@ export function formatForDatabase(result: AIAnalysisResult) {
     description: result.cleanDescription || result.description || null,
     latitude: result.coordinates.lat,
     longitude: result.coordinates.lng,
-    address: result.address || null,
+    address: 'Sri Lanka', // ОТКЛЮЧЕНО: не показываем город автоматически
     property_type: result.type || null,
     price: priceOriginal, // Оригинальная цена
     currency: currency, // Оригинальная валюта
