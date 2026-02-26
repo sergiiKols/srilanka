@@ -23,7 +23,15 @@ async function expandShortUrlViaAPI(shortUrl: string): Promise<string | null> {
   try {
     console.log('🔗 Используем серверный API для разворачивания:', shortUrl);
     
-    const response = await fetch('/api/expand-url', {
+    // Определяем базовый URL (работает и на клиенте и на сервере)
+    const baseUrl = typeof window !== 'undefined' 
+      ? window.location.origin 
+      : process.env.PUBLIC_URL || 'https://traveler.energo-audit.online';
+    
+    const apiUrl = `${baseUrl}/api/expand-url`;
+    console.log('📡 API URL:', apiUrl);
+    
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
