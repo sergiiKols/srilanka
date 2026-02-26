@@ -711,13 +711,27 @@ export async function parseGoogleMapsURL(input: string): Promise<ParsedCoordinat
         console.log('✅ Развернутый URL:', expandedUrl);
         
         // Пробуем извлечь координаты из развернутого URL
+        console.log('🔍 Извлекаем координаты из развернутого URL...');
         const coords = await extractCoordsFromExpandedUrl(expandedUrl);
+        
         if (coords) {
+          console.log(`✅ ФИНАЛЬНЫЕ КООРДИНАТЫ: ${coords.lat}, ${coords.lng}`);
+          console.log(`📍 Источник: extractCoordsFromExpandedUrl`);
           return coords;
         }
         
-        // Если координаты не найдены, пробуем парсить рекурсивно
-        return parseGoogleMapsURL(expandedUrl);
+        // Если координаты не найдены через extractCoordsFromExpandedUrl,
+        // пробуем парсить рекурсивно (для старых форматов)
+        console.log('⚠️ extractCoordsFromExpandedUrl не нашел координаты, пробуем рекурсивный парсинг...');
+        const recursiveResult = await parseGoogleMapsURL(expandedUrl);
+        
+        if (recursiveResult) {
+          console.log(`✅ ФИНАЛЬНЫЕ КООРДИНАТЫ (рекурсия): ${recursiveResult.lat}, ${recursiveResult.lng}`);
+        } else {
+          console.log('❌ Рекурсивный парсинг тоже не нашел координаты');
+        }
+        
+        return recursiveResult;
       } else {
         console.error('❌ Не удалось автоматически развернуть короткую ссылку (все методы не сработали)');
         console.log('💡 Будет показан помощник для ручного разворачивания');
