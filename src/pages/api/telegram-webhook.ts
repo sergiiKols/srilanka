@@ -1027,25 +1027,27 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       console.log('⏭️ Step 2: Skipping AI analysis (no data)');
     }
     
-    // 3. Определяем координаты
+    // 3. Определяем координаты - ИСПРАВЛЕНО: приоритет AI координатам!
     console.log('📍 Step 3: Determining coordinates...');
     let latitude = data.latitude;
     let longitude = data.longitude;
     
-    // ПРИОРИТЕТ: Если AI нашел координаты (из Google Maps URL), используем их!
-    // Они точнее, чем старые координаты из сессии
-    if (aiResult?.coordinates && data.googleMapsUrl) {
-      console.log(`🔄 Overriding session coordinates with AI result (from Google Maps URL)`);
-      console.log(`   Session had: ${latitude}, ${longitude}`);
+    // ПРИОРИТЕТ 1: Если есть Google Maps URL, используем координаты из AI (они уже распарсены)
+    if (data.googleMapsUrl && aiResult?.coordinates) {
+      console.log(`✅ Using coordinates from AI (parsed from Google Maps URL)`);
       console.log(`   AI extracted: ${aiResult.coordinates.lat}, ${aiResult.coordinates.lng}`);
       latitude = aiResult.coordinates.lat;
       longitude = aiResult.coordinates.lng;
-    } else if (!latitude && aiResult?.coordinates) {
+    } 
+    // ПРИОРИТЕТ 2: Координаты из сессии (manual location pin или старые данные)
+    else if (latitude && longitude) {
+      console.log(`✅ Using coordinates from session: ${latitude}, ${longitude}`);
+    }
+    // ПРИОРИТЕТ 3: Координаты из AI (fallback)
+    else if (aiResult?.coordinates) {
       latitude = aiResult.coordinates.lat;
       longitude = aiResult.coordinates.lng;
-      console.log(`✅ Got coordinates from AI: ${latitude}, ${longitude}`);
-    } else {
-      console.log(`✅ Using coordinates from session: ${latitude}, ${longitude}`);
+      console.log(`✅ Using coordinates from AI: ${latitude}, ${longitude}`);
     }
     
     // Если координат всё ещё нет - ошибка
