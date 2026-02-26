@@ -375,16 +375,16 @@ export default function AdminMasterMap() {
             return '#3b82f6';
         }
 
-        // ✅ НОВАЯ ЛОГИКА: Жёлтый = новый (< 24 часа), Синий = старый (> 24 часа)
+        // ✅ НОВАЯ ЛОГИКА: Оранжевый = новый (< 24 часа), Синий = старый (> 24 часа)
         if (heatmapMode === 'none') {
             const hoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
-            return hoursAgo < 24 ? '#eab308' : '#3b82f6'; // Жёлтый новый, синий старый
+            return hoursAgo < 24 ? '#f97316' : '#3b82f6'; // 🟠 Оранжевый новый, 🔵 Синий старый
         }
 
         switch (heatmapMode) {
             case 'time':
                 const hoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
-                if (hoursAgo < 24) return '#eab308'; // Жёлтый - новые (< 24ч)
+                if (hoursAgo < 24) return '#f97316'; // 🟠 Оранжевый - новые (< 24ч)
                 if (hoursAgo < 168) return '#f97316'; // Оранжевый - неделя
                 if (hoursAgo < 720) return '#3b82f6'; // Синий - месяц
                 return '#22c55e'; // Зелёный - старые
@@ -401,7 +401,7 @@ export default function AdminMasterMap() {
 
             default:
                 const defaultHoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
-                return defaultHoursAgo < 24 ? '#eab308' : '#3b82f6';
+                return defaultHoursAgo < 24 ? '#f97316' : '#3b82f6'; // 🟠 Оранжевый новый, 🔵 Синий старый
         }
     };
 

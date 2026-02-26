@@ -91,8 +91,9 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
         images = prop.photos.split(/[\s,]+/).filter(url => url.trim());
       }
 
-      // ✅ Последний добавленный объект выделяем ярким цветом
-      const isNewest = prop.id === newestPropertyId;
+      // ✅ НОВАЯ ЛОГИКА: Оранжевый = новый (< 24 часа), Синий = старый (> 24 часа)
+      const hoursAgo = (Date.now() - new Date(prop.created_at).getTime()) / (1000 * 60 * 60);
+      const markerColor = hoursAgo < 24 ? '#f97316' : '#3b82f6'; // 🟠 Оранжевый новый, 🔵 Синий старый
 
       return {
         id: `prop-${prop.id}`,
@@ -105,7 +106,7 @@ export default function PersonalMap({ userId, token }: PersonalMapProps) {
         description: prop.description,
         address: prop.address || prop.forward_from_chat_title || 'Location',
         phone: prop.contact_phone,
-        markerColor: isNewest ? '#fbbf24' : 'white', // 🟡 Жёлтый для нового, белый для остальных
+        markerColor: markerColor, // 🟠 Оранжевый новый, 🔵 Синий старый
       };
     });
 
