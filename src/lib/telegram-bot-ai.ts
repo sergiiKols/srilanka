@@ -15,59 +15,11 @@ import type { Coordinates } from '@/types/ai.types';
  * Определяет город по координатам (простой метод на основе известных городов Шри-Ланки)
  */
 export function getCityFromCoordinates(lat: number, lng: number): string {
-  const cities = [
-    { name: 'Colombo', lat: 6.9271, lng: 79.8612, radius: 0.2 },
-    { name: 'Negombo', lat: 7.2008, lng: 79.8358, radius: 0.15 },
-    { name: 'Galle', lat: 6.0535, lng: 80.2210, radius: 0.15 },
-    { name: 'Unawatuna', lat: 6.0097, lng: 80.2474, radius: 0.1 }, // Увеличен радиус
-    { name: 'Hikkaduwa', lat: 6.1408, lng: 80.1033, radius: 0.12 }, // Увеличен радиус
-    { name: 'Mirissa', lat: 5.9467, lng: 80.4539, radius: 0.08 }, // Увеличен радиус
-    { name: 'Weligama', lat: 5.9733, lng: 80.4294, radius: 0.08 }, // Увеличен радиус
-    { name: 'Tangalle', lat: 6.0247, lng: 80.7976, radius: 0.12 },
-    { name: 'Bentota', lat: 6.4257, lng: 79.9953, radius: 0.1 },
-    { name: 'Kandy', lat: 7.2906, lng: 80.6337, radius: 0.15 },
-    { name: 'Trincomalee', lat: 8.5874, lng: 81.2152, radius: 0.15 },
-    { name: 'Arugam Bay', lat: 6.8411, lng: 81.8353, radius: 0.08 },
-  ];
-
-  // Сначала ищем город в пределах радиуса
-  let closestCityInRadius = null;
-  let minDistanceInRadius = Infinity;
-
-  for (const city of cities) {
-    const distance = Math.sqrt(
-      Math.pow(lat - city.lat, 2) + Math.pow(lng - city.lng, 2)
-    );
-    
-    if (distance < city.radius && distance < minDistanceInRadius) {
-      minDistanceInRadius = distance;
-      closestCityInRadius = city.name;
-    }
-  }
-
-  // Если нашли город в радиусе - возвращаем его
-  if (closestCityInRadius) {
-    console.log(`📍 City determined from coordinates (${lat}, ${lng}): ${closestCityInRadius} (within radius)`);
-    return closestCityInRadius;
-  }
-
-  // Если не нашли в радиусе - находим просто ближайший город
-  let closestCity = 'Colombo'; // Fallback
-  let minDistance = Infinity;
-
-  for (const city of cities) {
-    const distance = Math.sqrt(
-      Math.pow(lat - city.lat, 2) + Math.pow(lng - city.lng, 2)
-    );
-    
-    if (distance < minDistance) {
-      minDistance = distance;
-      closestCity = city.name;
-    }
-  }
-
-  console.log(`📍 City determined from coordinates (${lat}, ${lng}): ${closestCity} (nearest, outside all radii)`);
-  return closestCity;
+  // ОТКЛЮЧЕНО: функция определения города по координатам
+  // Причина: дает неточные результаты, вызывает путаницу
+  console.log(`📍 getCityFromCoordinates ОТКЛЮЧЕНА для координат (${lat}, ${lng})`);
+  console.log(`💡 Город НЕ определяется автоматически`);
+  return 'Sri Lanka'; // Возвращаем просто страну
 }
 
 /**
@@ -459,7 +411,7 @@ export function formatForDatabase(result: AIAnalysisResult) {
     // Метрики
     wifi_speed: safeNumber(result.wifiSpeed) || null,
     beach_distance: safeNumber(result.beachDistance) || null,
-    area_name: getCityFromCoordinates(result.coordinates.lat, result.coordinates.lng),
+    area_name: null, // ОТКЛЮЧЕНО: getCityFromCoordinates() - давал ошибки
     
     // Amenities как массив (не строка)
     amenities: result.amenities && Array.isArray(result.amenities) 
