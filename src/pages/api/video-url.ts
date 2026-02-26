@@ -25,7 +25,7 @@ export const GET: APIRoute = async ({ request }) => {
       });
     }
     
-    const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+    const botToken = process.env.TELEGRAM_BOT_TOKEN!;
     
     if (!botToken) {
       return new Response(JSON.stringify({

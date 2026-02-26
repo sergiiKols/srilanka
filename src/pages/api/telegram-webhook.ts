@@ -128,7 +128,7 @@ async function handleMediaGroup(message: any) {
         session.tempData.limitWarningShown = true;
         try {
           await sendTelegramMessage({
-            botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+            botToken: process.env.TELEGRAM_BOT_TOKEN!,
             chatId: chatId.toString(),
             text: `⚠️ Максимум ${MAX_PHOTOS} фото. Остальные проигнорированы.`
           });
@@ -199,7 +199,7 @@ async function handleMediaGroup(message: any) {
     const currentSession = userSessions.get(userId);
     if (currentSession) {
       try {
-        await showValidationStatus(chatId, currentSession, import.meta.env.TELEGRAM_BOT_TOKEN);
+        await showValidationStatus(chatId, currentSession, process.env.TELEGRAM_BOT_TOKEN!);
       } catch (err) {
         console.error('❌ Error showing validation status:', err);
       }
@@ -218,7 +218,7 @@ async function collectMediaGroupToSession(messages: any[]) {
   const firstMessage = messages[0];
   const userId = firstMessage.from.id;
   const chatId = firstMessage.chat.id;
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
   
   try {
     console.log(`📸 Collecting ${messages.length} photos to session...`);
@@ -288,7 +288,7 @@ async function processCompleteMediaGroup(messages: any[]) {
   const firstMessage = messages[0];
   const userId = firstMessage.from.id;
   const chatId = firstMessage.chat.id;
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
   
   try {
     console.log(`⚡ Processing media group with ${messages.length} photos`);
@@ -441,7 +441,7 @@ async function handleMessage(message: any) {
 async function collectMessageToSession(message: any) {
   const userId = message.from.id;
   const chatId = message.chat.id;
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
   
   try {
     // Получаем или создаём сессию
@@ -620,7 +620,7 @@ async function sendStatusUpdate(
 async function handleCompleteMessage(message: any) {
   const userId = message.from.id;
   const chatId = message.chat.id;
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
 
   try {
     console.log('⚡ Complete message mode - processing...');
@@ -755,7 +755,7 @@ async function handleStepByStepInput(message: any) {
     case 'idle':
       if (hasPhotos) {
         // Получили фото - ждём локацию
-        const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+        const botToken = process.env.TELEGRAM_BOT_TOKEN!;
         const bestPhoto = getBestQualityPhoto(message.photo);
         session.tempData.photoFileIds = [bestPhoto.file_id];
         session.state = 'awaiting_location';
@@ -778,7 +778,7 @@ async function handleStepByStepInput(message: any) {
         session.state = 'awaiting_photos';
 
         await sendTelegramMessage({
-          botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+          botToken: process.env.TELEGRAM_BOT_TOKEN!,
           chatId: chatId.toString(),
           text: '📍 Местоположение получено!\n\n📸 Теперь отправь фото объекта',
           replyMarkup: {
@@ -797,7 +797,7 @@ async function handleStepByStepInput(message: any) {
           session.state = 'awaiting_photos';
 
           await sendTelegramMessage({
-            botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+            botToken: process.env.TELEGRAM_BOT_TOKEN!,
             chatId: chatId.toString(),
             text: '🔗 Google Maps ссылка получена!\n\n📸 Теперь отправь фото объекта',
             replyMarkup: {
@@ -811,7 +811,7 @@ async function handleStepByStepInput(message: any) {
           session.state = 'awaiting_location';
 
           await sendTelegramMessage({
-            botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+            botToken: process.env.TELEGRAM_BOT_TOKEN!,
             chatId: chatId.toString(),
             text: '💬 Описание получено!\n\n📍 Теперь отправь геолокацию или Google Maps ссылку'
           });
@@ -826,7 +826,7 @@ async function handleStepByStepInput(message: any) {
         session.state = 'awaiting_description';
 
         await sendTelegramMessage({
-          botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+          botToken: process.env.TELEGRAM_BOT_TOKEN!,
           chatId: chatId.toString(),
           text: '📍 Отлично! Теперь добавь описание или сохраняй так',
           replyMarkup: {
@@ -843,7 +843,7 @@ async function handleStepByStepInput(message: any) {
           session.state = 'awaiting_description';
 
           await sendTelegramMessage({
-            botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+            botToken: process.env.TELEGRAM_BOT_TOKEN!,
             chatId: chatId.toString(),
             text: '✅ Google Maps ссылка получена!\n\n💬 Добавь описание или сохраняй',
             replyMarkup: {
@@ -861,7 +861,7 @@ async function handleStepByStepInput(message: any) {
         session.tempData.photoFileIds.push(bestPhoto.file_id);
 
         await sendTelegramMessage({
-          botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+          botToken: process.env.TELEGRAM_BOT_TOKEN!,
           chatId: chatId.toString(),
           text: `📸 Фото получено! (${session.tempData.photoFileIds.length} шт.)`,
           replyMarkup: {
@@ -876,7 +876,7 @@ async function handleStepByStepInput(message: any) {
         session.tempData.description = hasText;
 
         await sendTelegramMessage({
-          botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+          botToken: process.env.TELEGRAM_BOT_TOKEN!,
           chatId: chatId.toString(),
           text: '✅ Описание получено!',
           replyMarkup: {
@@ -896,7 +896,7 @@ async function handleCallbackQuery(callbackQuery: any) {
   const userId = callbackQuery.from.id;
   const chatId = callbackQuery.message.chat.id;
   const messageId = callbackQuery.message.message_id;
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
 
   console.log(`🔘 Callback: ${data} from user ${userId}`);
 
@@ -994,7 +994,7 @@ async function handleCallbackQuery(callbackQuery: any) {
 async function saveFromSessionData(session: UserSession, chatId: number) {
   console.log(`💾 saveFromSessionData called for user ${session.userId}`);
 
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
   const data = session.tempData;
   const userId = session.userId;
 
@@ -1218,7 +1218,7 @@ async function handleCommand(message: any) {
   const command = message.text.split(' ')[0].toLowerCase();
   const chatId = message.chat.id;
   const userId = message.from.id;
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
 
   switch (command) {
     case '/start':
@@ -1266,7 +1266,7 @@ async function handleCommand(message: any) {
  */
 async function sendHelp(chatId: number) {
   await sendTelegramMessage({
-    botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+    botToken: process.env.TELEGRAM_BOT_TOKEN!,
     chatId: chatId.toString(),
     text: '❓ Как добавить объект:\n\n📱 Просто переслать мне сообщение с:\n• Фото объекта\n• Геолокацией или Google Maps ссылкой\n• Описанием (цена, тип, контакты)\n\nЯ всё обработаю автоматически! ✨'
   });
@@ -1277,7 +1277,7 @@ async function sendHelp(chatId: number) {
  */
 async function sendDuplicateWarning(chatId: number, duplicate: any) {
   await sendTelegramMessage({
-    botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+    botToken: process.env.TELEGRAM_BOT_TOKEN!,
     chatId: chatId.toString(),
     text: `⚠️ Похоже, этот объект уже сохранён\n\n🏠 ${duplicate.title}\n📅 Добавлен: ${new Date(duplicate.created_at).toLocaleDateString('ru-RU')}\n\nЧто делать?`,
     replyMarkup: {
@@ -1296,7 +1296,7 @@ async function sendDuplicateWarning(chatId: number, duplicate: any) {
  * Показать превью сессии с простой кнопкой сохранения
  */
 async function showSessionPreview(chatId: number, session: UserSession) {
-  const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const botToken = process.env.TELEGRAM_BOT_TOKEN!;
   const data = session.tempData;
   
   // Формируем превью со статусом всех компонентов
@@ -1483,7 +1483,7 @@ async function showValidationStatus(chatId: number, session: UserSession, botTok
  */
 async function sendErrorMessage(chatId: number, text: string) {
   await sendTelegramMessage({
-    botToken: import.meta.env.TELEGRAM_BOT_TOKEN,
+    botToken: process.env.TELEGRAM_BOT_TOKEN!,
     chatId: chatId.toString(),
     text: `❌ ${text}`
   });

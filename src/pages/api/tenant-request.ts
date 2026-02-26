@@ -180,7 +180,7 @@ async function validateTelegramWebAppData(initData: string): Promise<boolean> {
   // TODO: Реализовать проверку подписи через crypto.subtle
   // Пока для разработки возвращаем true
   
-  const BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
   if (!BOT_TOKEN) {
     console.warn('TELEGRAM_BOT_TOKEN not set, skipping signature validation');
     return true; // В продакшене должно быть false!
@@ -270,7 +270,7 @@ async function sendAdminNotification(request: any): Promise<void> {
   // TODO: Реализовать отправку через Telegram Bot API
   // Например, в админский чат или канал
   
-  const BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
+  const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
   const ADMIN_CHAT_ID = import.meta.env.TELEGRAM_ADMIN_CHAT_ID;
   
   if (!BOT_TOKEN || !ADMIN_CHAT_ID) {

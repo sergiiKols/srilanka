@@ -89,7 +89,7 @@ export const POST: APIRoute = async (context) => {
     // 3. Проверяем подпись Telegram (если есть Bot Token)
     const botToken = form.bot_token_encrypted
       ? decryptBotToken(form.bot_token_encrypted, import.meta.env.SECRET_KEY || 'default-secret')
-      : import.meta.env.TELEGRAM_BOT_TOKEN;
+      : process.env.TELEGRAM_BOT_TOKEN!;
     
     if (!botToken) {
       await createLog({
