@@ -152,15 +152,22 @@ export async function analyzeTelegramMessage(
   if (googleMapsUrl) {
     try {
       console.log('🗺️ Parsing Google Maps URL...');
+      console.log('🔗 URL to parse:', googleMapsUrl);
       
       // parseGoogleMapsURL автоматически использует Perplexity AI
       // для разворачивания коротких ссылок (goo.gl, maps.app.goo.gl)
       const parsed = await parseGoogleMapsURL(googleMapsUrl);
       
+      console.log('📦 parseGoogleMapsURL returned:', parsed);
+      
       if (parsed && parsed.lat && parsed.lng) {
+        console.log(`✅ Parsed coordinates: ${parsed.lat}, ${parsed.lng}`);
+        
         // ✅ ВАЛИДАЦИЯ: Проверяем что координаты в Шри-Ланке
         const isInSriLanka = parsed.lat >= 5.9 && parsed.lat <= 9.9 && 
                             parsed.lng >= 79.5 && parsed.lng <= 81.9;
+        
+        console.log(`🔍 Sri Lanka validation: ${isInSriLanka}`);
         
         if (isInSriLanka) {
           coordinates = { lat: parsed.lat, lng: parsed.lng };
@@ -178,10 +185,13 @@ export async function analyzeTelegramMessage(
         }
       } else {
         console.warn('⚠️ Failed to parse Google Maps URL, using default');
+        console.warn('⚠️ Parsed result was:', JSON.stringify(parsed));
       }
     } catch (error) {
       console.error('❌ Error parsing Google Maps URL:', error);
     }
+  } else {
+    console.warn('⚠️ No Google Maps URL provided!');
   }
   
   // 2. AI анализ описания через Groq
