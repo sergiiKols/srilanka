@@ -48,19 +48,29 @@ export function buildPersonalMapUrl(userId: number, token: string): string {
  */
 export function extractGoogleMapsUrl(text: string): string | null {
   const patterns = [
-    /https?:\/\/maps\.app\.goo\.gl\/[a-zA-Z0-9]+/,
+    // maps.app.goo.gl с опциональными параметрами (?g_st=it и т.д.)
+    /https?:\/\/maps\.app\.goo\.gl\/[a-zA-Z0-9]+(\?[^\s]*)?/,
+    // www.google.com/maps/...
     /https?:\/\/www\.google\.com\/maps\/[^\s]+/,
+    // goo.gl/maps/...
     /https?:\/\/goo\.gl\/maps\/[a-zA-Z0-9]+/,
-    /https?:\/\/maps\.google\.com\/[^\s]+/
+    // maps.google.com/...
+    /https?:\/\/maps\.google\.com\/[^\s]+/,
+    // g.co/kgs/... (новый формат коротких ссылок)
+    /https?:\/\/g\.co\/kgs\/[a-zA-Z0-9]+/
   ];
+
+  console.log('🔍 Extracting Google Maps URL from text:', text.substring(0, 100));
 
   for (const pattern of patterns) {
     const match = text.match(pattern);
     if (match) {
+      console.log(`✅ Found Google Maps URL: ${match[0]}`);
       return match[0];
     }
   }
 
+  console.warn('⚠️ No Google Maps URL found in text');
   return null;
 }
 
