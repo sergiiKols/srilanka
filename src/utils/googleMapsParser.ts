@@ -76,27 +76,16 @@ async function expandShortUrl(shortUrl: string): Promise<string | null> {
   try {
     console.log('🔗 Начинаем разворачивание короткой ссылки:', shortUrl);
     
-    // Метод 1: Perplexity AI (САМЫЙ УМНЫЙ - реально открывает ссылку!)
-    console.log('Метод 1: Пробуем Perplexity AI...');
-    try {
-      const { expandShortUrlWithAI } = await import('../services/perplexityService');
-      const aiResult = await expandShortUrlWithAI(shortUrl);
-      if (aiResult) {
-        return aiResult;
-      }
-    } catch (aiError) {
-      console.warn('⚠️ Метод 1 (Perplexity AI) не сработал:', aiError);
-    }
-    
-    // Метод 2: Серверный API (нет CORS!)
-    console.log('Метод 2: Пробуем серверный API...');
+    // Метод 1: Серверный API (ПРИОРИТЕТ - надежный и не галлюцинирует!)
+    console.log('Метод 1: Пробуем серверный API...');
     const serverResult = await expandShortUrlViaAPI(shortUrl);
     if (serverResult) {
+      console.log('✅ Server API успешно развернул ссылку');
       return serverResult;
     }
     
-    // Метод 3: Прямой fetch с клиента (может не работать из-за CORS)
-    console.log('Метод 3: Пробуем прямой fetch...');
+    // Метод 2: Прямой fetch с клиента (быстрый, но может не работать из-за CORS)
+    console.log('Метод 2: Пробуем прямой fetch...');
     try {
       const response = await fetch(shortUrl, {
         method: 'HEAD',
@@ -105,62 +94,85 @@ async function expandShortUrl(shortUrl: string): Promise<string | null> {
       });
       
       if (response.url && response.url !== shortUrl) {
-        console.log('✅ Метод 3: Ссылка развернута через fetch');
+        console.log('✅ Метод 2: Ссылка развернута через fetch');
         return response.url;
       }
     } catch (e) {
-      console.warn('⚠️ Метод 3 (fetch) не сработал:', e);
+      console.warn('⚠️ Метод 2 (fetch) не сработал:', e);
     }
     
-    // Метод 4: Hidden iframe (последняя попытка)
-    console.log('Метод 4: Пробуем hidden iframe...');
-    return new Promise((resolve) => {
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      
-      const timeout = setTimeout(() => {
-        try {
-          const finalUrl = iframe.contentWindow?.location.href;
-          document.body.removeChild(iframe);
-          
-          if (finalUrl && finalUrl !== shortUrl && finalUrl !== 'about:blank') {
-            console.log('✅ Метод 4: Ссылка развернута через iframe');
-            resolve(finalUrl);
-          } else {
-            console.warn('⚠️ Метод 4 (iframe) не дал результата');
+    // Метод 3: Hidden iframe (работает в браузере)
+    console.log('Метод 3: Пробуем hidden iframe...');
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      const iframeResult = await new Promise<string | null>((resolve) => {
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        
+        const timeout = setTimeout(() => {
+          try {
+            const finalUrl = iframe.contentWindow?.location.href;
+            document.body.removeChild(iframe);
+            
+            if (finalUrl && finalUrl !== shortUrl && finalUrl !== 'about:blank') {
+              console.log('✅ Метод 3: Ссылка развернута через iframe');
+              resolve(finalUrl);
+            } else {
+              console.warn('⚠️ Метод 3 (iframe) не дал результата');
+              resolve(null);
+            }
+          } catch (err) {
+            console.warn('⚠️ Метод 3 (iframe) заблокирован CORS');
+            document.body.removeChild(iframe);
             resolve(null);
           }
-        } catch (err) {
-          console.warn('⚠️ Метод 4 (iframe) заблокирован CORS');
-          document.body.removeChild(iframe);
-          resolve(null);
-        }
-      }, 2000);
-      
-      iframe.onload = () => {
-        clearTimeout(timeout);
-        try {
-          const finalUrl = iframe.contentWindow?.location.href;
-          document.body.removeChild(iframe);
-          
-          if (finalUrl && finalUrl !== shortUrl && finalUrl !== 'about:blank') {
-            console.log('✅ Метод 4: Ссылка развернута через iframe (onload)');
-            resolve(finalUrl);
-          } else {
+        }, 2000);
+        
+        iframe.onload = () => {
+          clearTimeout(timeout);
+          try {
+            const finalUrl = iframe.contentWindow?.location.href;
+            document.body.removeChild(iframe);
+            
+            if (finalUrl && finalUrl !== shortUrl && finalUrl !== 'about:blank') {
+              console.log('✅ Метод 3: Ссылка развернута через iframe (onload)');
+              resolve(finalUrl);
+            } else {
+              resolve(null);
+            }
+          } catch (err) {
+            document.body.removeChild(iframe);
             resolve(null);
           }
-        } catch (err) {
-          document.body.removeChild(iframe);
-          resolve(null);
-        }
-      };
+        };
+        
+        document.body.appendChild(iframe);
+        iframe.src = shortUrl;
+      });
       
-      document.body.appendChild(iframe);
-      iframe.src = shortUrl;
-    });
+      if (iframeResult) {
+        return iframeResult;
+      }
+    }
+    
+    // Метод 4: Perplexity AI (FALLBACK - может галлюцинировать координаты!)
+    console.log('Метод 4: Пробуем Perplexity AI (последний шанс)...');
+    console.warn('⚠️ ВНИМАНИЕ: AI может вернуть URL с неправильными координатами!');
+    try {
+      const { expandShortUrlWithAI } = await import('../services/perplexityService');
+      const aiResult = await expandShortUrlWithAI(shortUrl);
+      if (aiResult) {
+        console.warn('⚠️ Perplexity AI вернул URL - проверьте координаты вручную!');
+        return aiResult;
+      }
+    } catch (aiError) {
+      console.warn('⚠️ Метод 4 (Perplexity AI) не сработал:', aiError);
+    }
+    
+    console.error('❌ Все методы разворачивания не сработали');
+    return null;
     
   } catch (error) {
-    console.error('❌ Все методы разворачивания не сработали:', error);
+    console.error('❌ Критическая ошибка при разворачивании:', error);
     return null;
   }
 }
@@ -532,7 +544,29 @@ async function extractCoordsFromExpandedUrl(url: string): Promise<ParsedCoordina
   try {
     console.log(`🔍 Парсим развернутый URL для координат...`);
     
-    // 1) Формат: ?q=lat,lng
+    // 1) Формат: /place/lat,lng/data=... (НОВЫЙ!)
+    const placePathMatch = url.match(/\/place\/(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+    if (placePathMatch) {
+      const lat = parseFloat(placePathMatch[1]);
+      const lng = parseFloat(placePathMatch[2]);
+      if (!isNaN(lat) && !isNaN(lng)) {
+        console.log(`✅ Координаты из /place/lat,lng: ${lat}, ${lng}`);
+        return { lat, lng };
+      }
+    }
+    
+    // 2) Формат: /search/lat,lng?... (НОВЫЙ!)
+    const searchPathMatch = url.match(/\/search\/(-?\d+\.?\d*)[,+\s]+(-?\d+\.?\d*)/);
+    if (searchPathMatch) {
+      const lat = parseFloat(searchPathMatch[1]);
+      const lng = parseFloat(searchPathMatch[2]);
+      if (!isNaN(lat) && !isNaN(lng)) {
+        console.log(`✅ Координаты из /search/lat,lng: ${lat}, ${lng}`);
+        return { lat, lng };
+      }
+    }
+    
+    // 3) Формат: ?q=lat,lng
     const urlObj = new URL(url);
     const q = urlObj.searchParams.get('q');
     if (q) {
@@ -540,11 +574,11 @@ async function extractCoordsFromExpandedUrl(url: string): Promise<ParsedCoordina
       if (!q.includes('+')) {
         const parts = q.split(',');
         if (parts.length >= 2) {
-          const lat = parseFloat(parts[0]);
-          const lng = parseFloat(parts[1]);
+          const lat = parseFloat(parts[0].trim());
+          const lng = parseFloat(parts[1].trim());
           if (!isNaN(lat) && !isNaN(lng)) {
-            console.log(`✅ Координаты из ?q: ${lat}, ${lng}`);
-            return { lat, lng, placeName: null };
+            console.log(`✅ Координаты из ?q=lat,lng: ${lat}, ${lng}`);
+            return { lat, lng };
           }
         }
       } else {
@@ -557,7 +591,7 @@ async function extractCoordsFromExpandedUrl(url: string): Promise<ParsedCoordina
       }
     }
 
-    // 2) Формат: @lat,lng,zoom
+    // 4) Формат: @lat,lng,zoom
     const atIndex = url.indexOf('@');
     if (atIndex !== -1) {
       // Берем подстроку после @ до первого /
@@ -570,13 +604,13 @@ async function extractCoordsFromExpandedUrl(url: string): Promise<ParsedCoordina
         const lat = parseFloat(parts[0]);
         const lng = parseFloat(parts[1]);
         if (!isNaN(lat) && !isNaN(lng)) {
-          console.log(`✅ Координаты из @: ${lat}, ${lng}`);
-          return { lat, lng, placeName: null };
+          console.log(`✅ Координаты из @lat,lng: ${lat}, ${lng}`);
+          return { lat, lng };
         }
       }
     }
     
-    // 3) Формат: Закодированные данные (/data=!3d!4d)
+    // 5) Формат: Закодированные данные (/data=!3d!4d)
     if (url.includes('/data=') || url.includes('!3d') || url.includes('!4d')) {
       console.log(`🔍 Обнаружены закодированные данные, пробуем извлечь координаты...`);
       const encodedCoords = extractCoordsFromEncodedData(url);
@@ -585,7 +619,7 @@ async function extractCoordsFromExpandedUrl(url: string): Promise<ParsedCoordina
       }
     }
     
-    // 4) Формат: Адрес в ?q (требует geocoding)
+    // 6) Формат: Адрес в ?q (требует geocoding)
     if (q && !q.includes('+')) {
       console.log(`⚠️ URL содержит адрес вместо координат: "${q}"`);
       console.log(`💡 Для конвертации адреса в координаты нужен Google Geocoding API`);

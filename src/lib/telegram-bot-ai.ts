@@ -17,21 +17,42 @@ import type { Coordinates } from '@/types/ai.types';
 function getCityFromCoordinates(lat: number, lng: number): string {
   const cities = [
     { name: 'Colombo', lat: 6.9271, lng: 79.8612, radius: 0.2 },
-    { name: 'Negombo', lat: 7.2008, lng: 79.8358, radius: 0.1 },
-    { name: 'Galle', lat: 6.0535, lng: 80.2210, radius: 0.1 },
-    { name: 'Unawatuna', lat: 6.0097, lng: 80.2474, radius: 0.05 },
-    { name: 'Hikkaduwa', lat: 6.1408, lng: 80.1033, radius: 0.08 },
-    { name: 'Mirissa', lat: 5.9467, lng: 80.4539, radius: 0.05 },
-    { name: 'Weligama', lat: 5.9733, lng: 80.4294, radius: 0.05 },
-    { name: 'Tangalle', lat: 6.0247, lng: 80.7976, radius: 0.08 },
-    { name: 'Bentota', lat: 6.4257, lng: 79.9953, radius: 0.08 },
-    { name: 'Kandy', lat: 7.2906, lng: 80.6337, radius: 0.1 },
-    { name: 'Trincomalee', lat: 8.5874, lng: 81.2152, radius: 0.1 },
-    { name: 'Arugam Bay', lat: 6.8411, lng: 81.8353, radius: 0.05 },
+    { name: 'Negombo', lat: 7.2008, lng: 79.8358, radius: 0.15 },
+    { name: 'Galle', lat: 6.0535, lng: 80.2210, radius: 0.15 },
+    { name: 'Unawatuna', lat: 6.0097, lng: 80.2474, radius: 0.1 }, // Увеличен радиус
+    { name: 'Hikkaduwa', lat: 6.1408, lng: 80.1033, radius: 0.12 }, // Увеличен радиус
+    { name: 'Mirissa', lat: 5.9467, lng: 80.4539, radius: 0.08 }, // Увеличен радиус
+    { name: 'Weligama', lat: 5.9733, lng: 80.4294, radius: 0.08 }, // Увеличен радиус
+    { name: 'Tangalle', lat: 6.0247, lng: 80.7976, radius: 0.12 },
+    { name: 'Bentota', lat: 6.4257, lng: 79.9953, radius: 0.1 },
+    { name: 'Kandy', lat: 7.2906, lng: 80.6337, radius: 0.15 },
+    { name: 'Trincomalee', lat: 8.5874, lng: 81.2152, radius: 0.15 },
+    { name: 'Arugam Bay', lat: 6.8411, lng: 81.8353, radius: 0.08 },
   ];
 
-  // Находим ближайший город
-  let closestCity = 'Colombo'; // По умолчанию
+  // Сначала ищем город в пределах радиуса
+  let closestCityInRadius = null;
+  let minDistanceInRadius = Infinity;
+
+  for (const city of cities) {
+    const distance = Math.sqrt(
+      Math.pow(lat - city.lat, 2) + Math.pow(lng - city.lng, 2)
+    );
+    
+    if (distance < city.radius && distance < minDistanceInRadius) {
+      minDistanceInRadius = distance;
+      closestCityInRadius = city.name;
+    }
+  }
+
+  // Если нашли город в радиусе - возвращаем его
+  if (closestCityInRadius) {
+    console.log(`📍 City determined from coordinates (${lat}, ${lng}): ${closestCityInRadius} (within radius)`);
+    return closestCityInRadius;
+  }
+
+  // Если не нашли в радиусе - находим просто ближайший город
+  let closestCity = 'Colombo'; // Fallback
   let minDistance = Infinity;
 
   for (const city of cities) {
@@ -39,13 +60,13 @@ function getCityFromCoordinates(lat: number, lng: number): string {
       Math.pow(lat - city.lat, 2) + Math.pow(lng - city.lng, 2)
     );
     
-    if (distance < minDistance && distance < city.radius) {
+    if (distance < minDistance) {
       minDistance = distance;
       closestCity = city.name;
     }
   }
 
-  console.log(`📍 City determined from coordinates (${lat}, ${lng}): ${closestCity}`);
+  console.log(`📍 City determined from coordinates (${lat}, ${lng}): ${closestCity} (nearest, outside all radii)`);
   return closestCity;
 }
 

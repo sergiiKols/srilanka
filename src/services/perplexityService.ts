@@ -351,27 +351,33 @@ export async function expandShortUrlWithAI(shortUrl: string): Promise<string | n
         messages: [
           {
             role: 'system',
-            content: 'You are a URL expander. When given a short URL, you need to access it and return the FULL expanded URL. Only return the URL, nothing else.'
+            content: 'You are a helpful assistant that can expand shortened URLs. You have the ability to search the web and access URLs to find their final destination.'
           },
           {
             role: 'user',
-            content: `Please expand this short Google Maps URL and return ONLY the full URL (nothing else, no explanation):
+            content: `I need you to expand this shortened Google Maps URL and tell me the FULL expanded URL with coordinates.
 
-${shortUrl}
+Shortened URL: ${shortUrl}
 
-Important: 
-- Visit the URL and get the final destination
-- Return ONLY the full URL starting with https://
-- The URL should contain coordinates like @6.0135,80.2410 or similar
-- Do not add any explanation, just the URL`
+Please:
+1. Access the URL and follow all redirects
+2. Extract the final full Google Maps URL
+3. Return ONLY the complete URL in this exact format: https://www.google.com/maps/place/...@latitude,longitude,...
+
+Return only the URL, no explanation or additional text.`
           }
         ],
-        temperature: 0.2,
-        max_tokens: 500
+        temperature: 0.1,
+        max_tokens: 500,
+        // Включаем поиск в реальном времени для доступа к URL
+        search_domain_filter: ['google.com', 'maps.google.com'],
+        search_recency_filter: 'month'
       })
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('❌ Perplexity API error:', response.status, errorText);
       throw new Error(`Perplexity API error: ${response.status}`);
     }
 
@@ -380,19 +386,38 @@ Important:
     
     console.log('🤖 AI ответ:', aiResponse);
     
-    // Извлекаем URL из ответа (на случай если AI добавил текст)
-    const urlMatch = aiResponse.match(/https:\/\/[^\s]+/);
+    // Улучшенное извлечение URL - ищем полные Google Maps URL с координатами
+    // Формат 1: https://www.google.com/maps/place/...@lat,lng
+    let urlMatch = aiResponse.match(/https:\/\/(?:www\.)?google\.com\/maps\/[^\s)]+@-?\d+\.?\d*,-?\d+\.?\d*[^\s)]*/);
+    
     if (urlMatch) {
       const expandedUrl = urlMatch[0];
-      console.log('✅ Perplexity AI развернул ссылку:', expandedUrl);
+      console.log('✅ Perplexity AI развернул ссылку (формат с координатами):', expandedUrl);
+      return expandedUrl;
+    }
+    
+    // Формат 2: Любая полная Google Maps ссылка
+    urlMatch = aiResponse.match(/https:\/\/(?:www\.)?google\.com\/maps\/[^\s)]+/);
+    if (urlMatch) {
+      const expandedUrl = urlMatch[0];
+      console.log('✅ Perplexity AI развернул ссылку (общий формат):', expandedUrl);
+      return expandedUrl;
+    }
+    
+    // Формат 3: Любая URL, начинающаяся с https://
+    urlMatch = aiResponse.match(/https:\/\/[^\s]+/);
+    if (urlMatch) {
+      const expandedUrl = urlMatch[0].replace(/[),\]]+$/, ''); // Убираем trailing символы
+      console.log('✅ Perplexity AI вернул URL:', expandedUrl);
       return expandedUrl;
     }
     
     console.warn('⚠️ AI не вернул валидный URL');
+    console.warn('Полный ответ AI:', aiResponse);
     return null;
     
-  } catch (error) {
-    console.error('❌ Ошибка Perplexity AI при разворачивании URL:', error);
+  } catch (error: any) {
+    console.error('❌ Ошибка Perplexity AI при разворачивании URL:', error.message);
     return null;
   }
 }
