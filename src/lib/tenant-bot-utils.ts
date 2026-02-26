@@ -30,8 +30,8 @@ export function generateMapToken(): string {
  * @returns {string} Полный URL карты
  */
 export function buildPersonalMapUrl(userId: number, token: string): string {
-  // В production всегда используем Vercel URL
-  const baseUrl = 'https://srilanka-37u2.vercel.app';
+  // В production всегда используем Dokploy URL
+  const baseUrl = 'https://traveler.energo-audit.online';
 
   return `${baseUrl}/map/personal/${userId}/${token}`;
 }
