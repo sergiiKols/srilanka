@@ -1032,10 +1032,20 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
     let latitude = data.latitude;
     let longitude = data.longitude;
     
-    if (!latitude && aiResult?.coordinates) {
+    // ПРИОРИТЕТ: Если AI нашел координаты (из Google Maps URL), используем их!
+    // Они точнее, чем старые координаты из сессии
+    if (aiResult?.coordinates && data.googleMapsUrl) {
+      console.log(`🔄 Overriding session coordinates with AI result (from Google Maps URL)`);
+      console.log(`   Session had: ${latitude}, ${longitude}`);
+      console.log(`   AI extracted: ${aiResult.coordinates.lat}, ${aiResult.coordinates.lng}`);
+      latitude = aiResult.coordinates.lat;
+      longitude = aiResult.coordinates.lng;
+    } else if (!latitude && aiResult?.coordinates) {
       latitude = aiResult.coordinates.lat;
       longitude = aiResult.coordinates.lng;
       console.log(`✅ Got coordinates from AI: ${latitude}, ${longitude}`);
+    } else {
+      console.log(`✅ Using coordinates from session: ${latitude}, ${longitude}`);
     }
     
     // Если координат всё ещё нет - ошибка
