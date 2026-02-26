@@ -127,9 +127,12 @@ const createIcon = (type: string, size: number = 34, showShadow: boolean = false
     // ✅ Поддержка кастомного цвета для недвижимости
     const bgColor = options?.color || 'white';
 
+    // ✅ Для недвижимости (stay) - просто цветной кружок БЕЗ эмодзи
+    const content = type === 'stay' ? '' : (emojis[type] || '📍');
+
     return L.divIcon({
         className: 'custom-marker',
-        html: `<div style="background: ${bgColor}; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: ${shadow}; font-size: ${fontSize}px; border: ${borderColor !== 'transparent' ? `3px solid ${borderColor}` : 'none'}; transition: all 0.2s ease;">${emojis[type] || '📍'}</div>`,
+        html: `<div style="background: ${bgColor}; border-radius: 50%; width: ${size}px; height: ${size}px; display: flex; align-items: center; justify-content: center; box-shadow: ${shadow}; font-size: ${fontSize}px; border: ${borderColor !== 'transparent' ? `3px solid ${borderColor}` : 'none'}; transition: all 0.2s ease;">${content}</div>`,
         iconSize: [size, size],
         iconAnchor: [half, size],
         popupAnchor: [0, -size]
@@ -210,7 +213,7 @@ const Map = forwardRef<any, MapProps>(function Map({ markers = [], onMarkerClick
                         <Marker
                             key={marker.id}
                             position={marker.position}
-                            icon={createIcon('stay', 34, true, { color: marker.markerColor || 'white' })}
+                            icon={createIcon('stay', 8, false, { color: marker.markerColor || '#3b82f6' })}
                             eventHandlers={{
                                 click: () => onMarkerClick?.(marker.id),
                             }}

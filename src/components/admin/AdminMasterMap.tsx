@@ -356,38 +356,40 @@ export default function AdminMasterMap() {
         }
     };
 
-    // Получить цвет маркера для тепловой карты
+    // Получить цвет маркера: ЖЁЛТЫЙ = новый, СИНИЙ = старый
     const getHeatmapColor = (property: any) => {
-        // ✅ Архивные объекты - серый/прозрачный
+        // ✅ Архивные объекты - серый
         if (property.isArchived) {
             console.log(`📦 Archived property: ${property.title}, type: ${property.type}, isArchived: ${property.isArchived}`);
             return '#9ca3af'; // Серый для архивных
         }
         
-        // ✅ Удалённые объекты всегда красные (legacy, не используется)
+        // ✅ Удалённые объекты - красные (legacy)
         if (property.isDeleted) {
             console.log(`🔴 Deleted property: ${property.title}, type: ${property.type}, isDeleted: ${property.isDeleted}`);
             return '#dc2626'; // Тёмно-красный для удалённых
         }
 
-        if (heatmapMode === 'none') {
-            return property.type === 'poi' ? '#3b82f6' : '#ef4444';
+        // ✅ POI всегда синие
+        if (property.type === 'poi') {
+            return '#3b82f6';
         }
 
-        if (property.type === 'poi') {
-            return '#3b82f6'; // POI всегда синие
+        // ✅ НОВАЯ ЛОГИКА: Жёлтый = новый (< 24 часа), Синий = старый (> 24 часа)
+        if (heatmapMode === 'none') {
+            const hoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
+            return hoursAgo < 24 ? '#eab308' : '#3b82f6'; // Жёлтый новый, синий старый
         }
 
         switch (heatmapMode) {
             case 'time':
                 const hoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
-                if (hoursAgo < 24) return '#ef4444'; // Красный - свежие
+                if (hoursAgo < 24) return '#eab308'; // Жёлтый - новые (< 24ч)
                 if (hoursAgo < 168) return '#f97316'; // Оранжевый - неделя
-                if (hoursAgo < 720) return '#eab308'; // Жёлтый - месяц
+                if (hoursAgo < 720) return '#3b82f6'; // Синий - месяц
                 return '#22c55e'; // Зелёный - старые
 
             case 'user':
-                // По активности пользователя (будет реализовано)
                 return '#a855f7'; // Фиолетовый
 
             case 'price':
@@ -398,7 +400,8 @@ export default function AdminMasterMap() {
                 return '#22c55e'; // Бюджет
 
             default:
-                return '#ef4444';
+                const defaultHoursAgo = (Date.now() - new Date(property.created_at).getTime()) / (1000 * 60 * 60);
+                return defaultHoursAgo < 24 ? '#eab308' : '#3b82f6';
         }
     };
 
