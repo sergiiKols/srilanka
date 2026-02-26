@@ -154,19 +154,21 @@ async function expandShortUrl(shortUrl: string): Promise<string | null> {
       }
     }
     
-    // Метод 4: Perplexity AI (FALLBACK - может галлюцинировать координаты!)
-    console.log('Метод 4: Пробуем Perplexity AI (последний шанс)...');
-    console.warn('⚠️ ВНИМАНИЕ: AI может вернуть URL с неправильными координатами!');
-    try {
-      const { expandShortUrlWithAI } = await import('../services/perplexityService');
-      const aiResult = await expandShortUrlWithAI(shortUrl);
-      if (aiResult) {
-        console.warn('⚠️ Perplexity AI вернул URL - проверьте координаты вручную!');
-        return aiResult;
-      }
-    } catch (aiError) {
-      console.warn('⚠️ Метод 4 (Perplexity AI) не сработал:', aiError);
-    }
+    // Метод 4: Perplexity AI - ОТКЛЮЧЕН
+    // ПРИЧИНА: AI галлюцинирует координаты и возвращает неправильные места
+    // Например: ищет "Russian Guesthouse" и находит другой гестхаус в другом городе
+    // РЕШЕНИЕ: Использовать только серверный API (следует HTTP редиректам точно)
+    console.log('⚠️ Метод 4 (Perplexity AI) отключен - использует галлюцинации');
+    console.log('💡 Если серверный API не сработал, попросите пользователя отправить ПОЛНУЮ ссылку');
+    
+    // ❌ ОТКЛЮЧЕНО:
+    // try {
+    //   const { expandShortUrlWithAI } = await import('../services/perplexityService');
+    //   const aiResult = await expandShortUrlWithAI(shortUrl);
+    //   if (aiResult) return aiResult;
+    // } catch (aiError) {
+    //   console.warn('⚠️ Метод 4 (Perplexity AI) не сработал:', aiError);
+    // }
     
     console.error('❌ Все методы разворачивания не сработали');
     return null;
