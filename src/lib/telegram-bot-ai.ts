@@ -12,6 +12,44 @@ import { convertToUSD } from '@/utils/currencyConverter';
 import type { Coordinates } from '@/types/ai.types';
 
 /**
+ * Определяет город по координатам (простой метод на основе известных городов Шри-Ланки)
+ */
+function getCityFromCoordinates(lat: number, lng: number): string {
+  const cities = [
+    { name: 'Colombo', lat: 6.9271, lng: 79.8612, radius: 0.2 },
+    { name: 'Negombo', lat: 7.2008, lng: 79.8358, radius: 0.1 },
+    { name: 'Galle', lat: 6.0535, lng: 80.2210, radius: 0.1 },
+    { name: 'Unawatuna', lat: 6.0097, lng: 80.2474, radius: 0.05 },
+    { name: 'Hikkaduwa', lat: 6.1408, lng: 80.1033, radius: 0.08 },
+    { name: 'Mirissa', lat: 5.9467, lng: 80.4539, radius: 0.05 },
+    { name: 'Weligama', lat: 5.9733, lng: 80.4294, radius: 0.05 },
+    { name: 'Tangalle', lat: 6.0247, lng: 80.7976, radius: 0.08 },
+    { name: 'Bentota', lat: 6.4257, lng: 79.9953, radius: 0.08 },
+    { name: 'Kandy', lat: 7.2906, lng: 80.6337, radius: 0.1 },
+    { name: 'Trincomalee', lat: 8.5874, lng: 81.2152, radius: 0.1 },
+    { name: 'Arugam Bay', lat: 6.8411, lng: 81.8353, radius: 0.05 },
+  ];
+
+  // Находим ближайший город
+  let closestCity = 'Colombo'; // По умолчанию
+  let minDistance = Infinity;
+
+  for (const city of cities) {
+    const distance = Math.sqrt(
+      Math.pow(lat - city.lat, 2) + Math.pow(lng - city.lng, 2)
+    );
+    
+    if (distance < minDistance && distance < city.radius) {
+      minDistance = distance;
+      closestCity = city.name;
+    }
+  }
+
+  console.log(`📍 City determined from coordinates (${lat}, ${lng}): ${closestCity}`);
+  return closestCity;
+}
+
+/**
  * Результат AI анализа
  */
 export interface AIAnalysisResult {
@@ -390,7 +428,7 @@ export function formatForDatabase(result: AIAnalysisResult) {
     // Метрики
     wifi_speed: safeNumber(result.wifiSpeed) || null,
     beach_distance: safeNumber(result.beachDistance) || null,
-    area_name: result.area || null,
+    area_name: getCityFromCoordinates(result.coordinates.lat, result.coordinates.lng),
     
     // Amenities как массив (не строка)
     amenities: result.amenities && Array.isArray(result.amenities) 
