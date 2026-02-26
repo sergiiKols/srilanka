@@ -1171,12 +1171,20 @@ async function saveFromSessionData(session: UserSession, chatId: number) {
       hasLocation: !!(latitude && longitude)
     });
     
+    // 6.5. ИСПРАВЛЕНИЕ: Определяем город по ФИНАЛЬНЫМ координатам, а не по координатам Groq!
+    console.log('📍 Step 6.5: Determining city from FINAL coordinates...');
+    const { getCityFromCoordinates } = await import('@/lib/telegram-bot-ai');
+    const correctCity = getCityFromCoordinates(propertyData.latitude, propertyData.longitude);
+    propertyData.area_name = correctCity;
+    console.log(`✅ City updated to: ${correctCity} (based on final coordinates ${propertyData.latitude}, ${propertyData.longitude})`);
+    
     // 7. Сохранение в БД
     console.log('💾 Step 7: Saving to database...');
     console.log('📊 Property data being saved:', JSON.stringify({
       title: propertyData.title,
       latitude: propertyData.latitude,
       longitude: propertyData.longitude,
+      area_name: propertyData.area_name,
       photos: propertyData.photos?.length,
       telegram_user_id: propertyData.telegram_user_id,
       property_type: propertyData.property_type
