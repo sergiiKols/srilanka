@@ -14,7 +14,7 @@ import type { Coordinates } from '@/types/ai.types';
 /**
  * Определяет город по координатам (простой метод на основе известных городов Шри-Ланки)
  */
-function getCityFromCoordinates(lat: number, lng: number): string {
+export function getCityFromCoordinates(lat: number, lng: number): string {
   const cities = [
     { name: 'Colombo', lat: 6.9271, lng: 79.8612, radius: 0.2 },
     { name: 'Negombo', lat: 7.2008, lng: 79.8358, radius: 0.15 },
